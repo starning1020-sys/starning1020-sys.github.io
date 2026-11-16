@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：TIRT 機器人競賽</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh; overflow-x: hidden">
+
+<header style="border-bottom: 1px solid #1A1F42">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<svg aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice" style="position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none">
+<path d="M-40 600 C 220 520, 360 700, 620 610 S 980 360, 1180 430 S 1440 300, 1520 260" fill="none" stroke="#1A1F42" stroke-width="64" stroke-linecap="round"></path>
+<path d="M-40 600 C 220 520, 360 700, 620 610 S 980 360, 1180 430 S 1440 300, 1520 260" fill="none" stroke="{{yellow}}" stroke-width="2" stroke-dasharray="18 14" opacity="0.7"></path>
+<text x="1440" y="700" text-anchor="end" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="520" fill="#0E1230">T1</text>
+</svg>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 24px 80px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: {{yellow}}; color: #060818">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EEF0FF"></span>STARNING</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid {{red}}; border-radius: 999px; font-size: 14px; color: #FF9A9E"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{red}}"></span>{{t.status}}</span>
+</div>
+<h1 style="margin: 0; display: flex; flex-direction: column; gap: 6px; line-height: 1">
+<span style="font-size: clamp(64px, 10vw, 128px); font-weight: 700; letter-spacing: -0.04em">TIRT</span>
+<span style="font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: 0.04em; color: #C9CEF0">{{t.titleSub}}</span>
+</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.intro}}</p>
+<div style="display: flex; flex-wrap: wrap; align-items: stretch; gap: 12px">
+<div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 14px 20px; border-radius: 8px; background: {{yellow}}; color: #060818">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em">RACE DAY</span>
+<span style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">11.07</span>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 14px 20px; border-radius: 8px; border: 1.5px solid #2F366A; background: #0B0F28">
+<span style="font-size: 12px; letter-spacing: 0.16em; color: #A3A9CF">{{t.eventK}}</span>
+<span style="font-size: 20px; font-weight: 700">{{t.eventV}}</span>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 14px 20px; border-radius: 8px; border: 1.5px solid {{red}}; background: rgba(229, 72, 77, 0.12)">
+<span style="font-size: 12px; letter-spacing: 0.16em; color: {{red}}">{{t.heroResK}}</span>
+<span style="font-size: 20px; font-weight: 700">{{t.heroResV}}</span>
+</div>
+<div style="display: flex; flex-direction: column; justify-content: center; gap: 2px; padding: 14px 20px; border-radius: 8px; border: 1.5px solid #2F366A; background: #0B0F28">
+<span style="font-size: 12px; letter-spacing: 0.16em; color: #A3A9CF">{{t.firstK}}</span>
+<span style="font-size: 20px; font-weight: 700">{{t.firstV}}</span>
+</div>
+</div>
+</div>
+<div style="position: relative; justify-self: center; width: 100%; max-width: 460px; aspect-ratio: 1 / 1; border-radius: 16px; border: 1.5px solid #2F366A; background: #0B0F28; overflow: hidden">
+<svg viewBox="0 0 400 400" role="img" aria-label="{{t.trackAlt}}" style="display: block; width: 100%; height: 100%">
+<rect x="0" y="0" width="400" height="400" fill="#0B0F28"></rect>
+<path d="M90 300 C 40 300, 40 220, 90 210 L 190 190 C 230 182, 230 130, 190 120 L 120 104 C 70 92, 90 40, 140 46 L 300 64 C 360 72, 370 140, 330 170 L 300 192 C 270 214, 290 250, 320 252 C 370 256, 370 320, 320 322 Z" fill="none" stroke="#1A1F42" stroke-width="34" stroke-linejoin="round"></path>
+<path d="M90 300 C 40 300, 40 220, 90 210 L 190 190 C 230 182, 230 130, 190 120 L 120 104 C 70 92, 90 40, 140 46 L 300 64 C 360 72, 370 140, 330 170 L 300 192 C 270 214, 290 250, 320 252 C 370 256, 370 320, 320 322 Z" fill="none" stroke="#EEF0FF" stroke-width="3" stroke-linejoin="round"></path>
+<g transform="translate(196 304)">
+<rect x="0" y="0" width="8" height="8" fill="#EEF0FF"></rect><rect x="8" y="8" width="8" height="8" fill="#EEF0FF"></rect><rect x="0" y="16" width="8" height="8" fill="#EEF0FF"></rect><rect x="8" y="24" width="8" height="8" fill="#EEF0FF"></rect>
+<rect x="8" y="0" width="8" height="8" fill="#060818"></rect><rect x="0" y="8" width="8" height="8" fill="#060818"></rect><rect x="8" y="16" width="8" height="8" fill="#060818"></rect><rect x="0" y="24" width="8" height="8" fill="#060818"></rect>
+</g>
+<circle cx="300" cy="64" r="9" fill="{{yellow}}"></circle>
+<circle cx="300" cy="64" r="18" fill="none" stroke="{{yellow}}" stroke-width="1.5" opacity="0.5"></circle>
+<text x="24" y="44" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" letter-spacing="3" fill="#A3A9CF">TIRT · 2026</text>
+<text x="24" y="380" font-family="Space Grotesk, sans-serif" font-size="64" font-weight="700" fill="{{yellow}}">T1</text>
+<text x="112" y="376" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" letter-spacing="3" fill="#EEF0FF">RACING</text>
+</svg>
+</div>
+</div>
+<div aria-hidden="true" style="height: 14px; background: repeating-conic-gradient(#EEF0FF 0 25%, #060818 0 50%) 0 0 / 14px 14px; opacity: 0.85"></div>
+</section>
+
+<!-- SPEC STRIP -->
+<section style="background: #0A0D24; border-bottom: 1px solid #1A1F42">
+<div style="max-width: 1200px; margin: 0 auto; padding: 28px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">{{t.specK}}</span>
+<sc-for list="{{specs}}" as="sp" hint-placeholder-count="6">
+<span style="display: inline-flex; align-items: baseline; gap: 8px; font-size: 15px"><span style="color: #A3A9CF">{{sp.k}}</span><span style="font-weight: 700">{{sp.v}}</span></span>
+</sc-for>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<!-- 01 CHALLENGE + TEAM -->
+<section style="padding: 96px 0 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">01 · {{t.taskK}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.taskH}}</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #C9CEF0">{{t.taskP}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">02 · {{t.teamK}}</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
+<sc-for list="{{team}}" as="m" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 24px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52; border-top: 4px solid {{m.c}}">
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 22px; font-weight: 700">{{m.name}}</span><span style="font-size: 13px; color: #A3A9CF">{{m.sub}}</span></span>
+<span style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{m.roles}}" as="r" hint-placeholder-count="3"><span style="padding: 4px 10px; border-radius: 999px; font-size: 13px; background: #1A1F42">{{r.k}}</span></sc-for>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- 03 PREP TIMELINE -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">03 · {{t.prepK}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.prepH}}</h2>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{stages}}" as="g" hint-placeholder-count="4">
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 0 24px">
+<div style="display: flex; flex-direction: column; align-items: center">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; background: {{g.c}}; color: #060818; display: flex; align-items: center; justify-content: center; font-size: 22px; font-weight: 700">{{g.n}}</span>
+<span aria-hidden="true" style="flex: 1; width: 0; border-left: 2px dashed #2F366A; min-height: 32px"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; padding: 10px 0 56px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<h3 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; font-size: 26px; font-weight: 700">{{g.h}}<span style="font-size: 13px; font-weight: 500; letter-spacing: 0.16em; color: #A3A9CF">{{g.en}}</span><sc-if value="{{g.wip}}" hint-placeholder-val="{{ true }}"><span style="align-self: center; display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 999px; border: 1.5px solid {{g.c}}; color: {{g.c}}; font-size: 13px; font-weight: 700; letter-spacing: 0.08em"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{g.c}}"></span>{{t.wip}}</span></sc-if></h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0; max-width: 820px">{{g.p}}</p>
+</div>
+<sc-if value="{{g.hasPhotos}}" hint-placeholder-val="{{ true }}">
+<div style="{{g.grid}}">
+<sc-for list="{{g.photos}}" as="ph" hint-placeholder-count="3">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 8px"><div style="{{ph.wrap}}"><img src="{{ph.src}}" alt="{{ph.alt}}" style="{{ph.img}}"><sc-if value="{{ph.hasStep}}" hint-placeholder-val="{{ false }}"><span style="position: absolute; left: 12px; top: 12px; padding: 5px 11px; border-radius: 999px; background: rgba(6, 8, 24, 0.82); color: {{g.c}}; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; font-variant-numeric: tabular-nums">{{ph.step}}</span></sc-if></div><figcaption style="font-size: 13px; letter-spacing: 0.04em; color: #A3A9CF">{{ph.cap}}</figcaption></figure>
+</sc-for>
+</div>
+</sc-if>
+<sc-if value="{{g.noPhotos}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; align-items: center; justify-content: center; min-height: 140px; padding: 24px; border: 1.5px dashed #2F366A; border-radius: 10px; font-size: 15px; color: #A3A9CF; text-align: center; max-width: 680px">{{t.photoTodo}}</div>
+</sc-if>
+</div>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<!-- 04 HARD PARTS -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">04 · {{t.hardK}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.hardH}}</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px">
+<sc-for list="{{hard}}" as="h" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52">
+<span style="font-size: 40px; font-weight: 700; line-height: 1; color: {{red}}" aria-hidden="true">?</span>
+<span style="font-size: 20px; font-weight: 700">{{h.q}}</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{h.a}}</span>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; padding: 20px 24px; border-left: 4px solid {{yellow}}; background: #0A0D24; font-size: 17px; line-height: 1.8; color: #DDE1F7">{{t.hardWrap}}</p>
+</section>
+
+<!-- 05 PREP DIARY -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px 56px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">05 · {{t.diaryK}}</span>
+<h2 style="margin: 0; font-size: clamp(30px, 4vw, 48px); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em">{{t.diaryH}}</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.diaryLead}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{diaryStats}}" as="ds" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 2px; padding: 14px 16px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52"><dd style="margin: 0; font-size: clamp(26px, 3vw, 36px); font-weight: 700; line-height: 1.1; color: {{yellow}}; font-variant-numeric: tabular-nums">{{ds.v}}</dd><dt style="font-size: 13px; color: #A3A9CF">{{ds.k}}</dt></div>
+</sc-for>
+</dl>
+</div>
+</div>
+
+<div style="border-radius: 16px; background: #0A0D24; border: 1px solid #1F2550; padding: clamp(18px, 3vw, 32px); display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">{{t.ganttK}}</span><span style="font-size: 13px; color: #A3A9CF">{{t.ganttHint}}</span></div>
+<div style="overflow-x: auto; -webkit-overflow-scrolling: touch">
+<div style="min-width: 760px; display: flex; flex-direction: column; gap: 8px">
+<div style="display: grid; grid-template-columns: 150px repeat(22, minmax(0, 1fr)); align-items: end; padding-bottom: 8px; border-bottom: 1px solid #252B52">
+<span></span>
+<sc-for list="{{days}}" as="dy" hint-placeholder-count="22"><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; font-variant-numeric: tabular-nums; color: {{dy.c}}"><span style="font-size: 10px; letter-spacing: 0.08em; color: {{yellow}}; min-height: 13px">{{dy.mon}}</span>{{dy.d}}</span></sc-for>
+</div>
+<sc-for list="{{gantt}}" as="gr" hint-placeholder-count="7">
+<div style="display: grid; grid-template-columns: 150px repeat(22, minmax(0, 1fr)); align-items: center; min-height: 34px; background-image: linear-gradient(90deg, transparent 150px, transparent 150px); position: relative">
+<span style="font-size: 13px; font-weight: 700; color: #DDE1F7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding-right: 10px"><span style="color: {{gr.c}}; margin-right: 6px">{{gr.n}}</span>{{gr.k}}</span>
+<span style="grid-column: {{gr.col}}; grid-row: 1; height: 22px; border-radius: 999px; {{gr.bar}}"></span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{diary}}" as="ph" hint-placeholder-count="5">
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 0 clamp(16px, 3vw, 32px)">
+<div style="display: flex; flex-direction: column; align-items: center">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; border: 2px solid {{ph.c}}; background: #060818; color: {{ph.c}}; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; box-shadow: 0 0 24px {{ph.glow}}">{{ph.n}}</span>
+<span aria-hidden="true" style="flex: 1; width: 4px; min-height: 40px; background: repeating-linear-gradient(180deg, {{ph.c}} 0 10px, transparent 10px 20px); opacity: 0.55"></span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 20px; padding: 4px 0 56px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: {{ph.c}}">LAP {{ph.n}}</span>
+<span style="font-size: clamp(28px, 3.6vw, 44px); font-weight: 700; line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums">{{ph.date}}</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">{{ph.k}}</h3>
+<span style="padding: 3px 12px; border-radius: 999px; border: 1px solid #2F366A; font-size: 13px; color: #A3A9CF">{{ph.countLabel}}</span>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px">
+<sc-for list="{{ph.items}}" as="it" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52; border-left: 4px solid {{ph.c}}">
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: {{ph.c}}; font-variant-numeric: tabular-nums">#{{it.n}}</span><span style="font-size: 16px; font-weight: 700; line-height: 1.5">{{it.q}}</span></span>
+<span style="font-size: 14px; line-height: 1.75; color: #A3A9CF">{{it.a}}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+</li>
+</sc-for>
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 0 clamp(16px, 3vw, 32px)">
+<div style="display: flex; flex-direction: column; align-items: center">
+<span style="flex: none; width: 56px; height: 56px; border-radius: 50%; border: 2px solid #7EE6D6; background: #060818; color: #7EE6D6; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; box-shadow: 0 0 24px rgba(126, 230, 214, 0.35)">VI</span>
+<span aria-hidden="true" style="flex: 1; width: 4px; min-height: 40px; background: repeating-linear-gradient(180deg, #7EE6D6 0 10px, transparent 10px 20px); opacity: 0.55"></span>
+</div>
+<div style="padding: 4px 0 56px">
+<a href="#debug-log" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 26px; border-radius: 12px; background: linear-gradient(120deg, #0E2A2A, #0E1230); border: 1px solid #7EE6D6; color: #EEF0FF; text-decoration: none">
+<span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: #7EE6D6">LAP VI</span><span style="font-size: clamp(24px, 3vw, 34px); font-weight: 700; font-variant-numeric: tabular-nums">10.31–11.03</span><span style="font-size: 16px; color: #C9CEF0">{{t.lap6}}</span></span>
+<span style="font-size: 15px; font-weight: 700; color: #7EE6D6">{{t.lap6Go}} ↓</span>
+</a>
+</div>
+</li>
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 0 clamp(16px, 3vw, 32px)">
+<div style="display: flex; justify-content: center"><span aria-hidden="true" style="flex: none; width: 56px; height: 56px; border-radius: 50%; border: 2px solid #EEF0FF; background: repeating-conic-gradient(#EEF0FF 0 25%, #060818 0 50%) 0 0 / 14px 14px"></span></div>
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; padding-top: 6px">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.24em; color: {{red}}">FINISH</span>
+<span style="font-size: clamp(28px, 3.6vw, 44px); font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums">11.07</span>
+<span style="font-size: 22px; font-weight: 700">{{t.finishK}}</span>
+</div>
+</li>
+</ol>
+</section>
+
+<!-- 06 DEBUG LOG -->
+<section id="debug-log" style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 40px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 24px 56px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">06 · {{t.logK}}</span>
+<h2 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 16px; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em"><span style="font-variant-numeric: tabular-nums; color: {{yellow}}">10.31–11.03</span>{{t.logH}}</h2>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.logLead}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<sc-for list="{{logStats}}" as="st" hint-placeholder-count="3"><span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #0E1230; border: 1px solid #252B52; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{st.c}}"></span>{{st.k}}<b style="font-variant-numeric: tabular-nums; color: {{st.c}}">{{st.v}}</b></span></sc-for>
+</div>
+</div>
+</div>
+<sc-for list="{{log}}" as="grp" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding-bottom: 12px; border-bottom: 2px solid {{grp.c}}">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: {{grp.c}}">{{grp.n}}</span>
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">{{grp.k}}</h3>
+<sc-if value="{{grp.hasNote}}" hint-placeholder-val="{{ false }}"><span style="padding: 4px 12px; border-radius: 999px; background: {{grp.c}}; color: #060818; font-size: 13px; font-weight: 700">{{grp.note}}</span></sc-if>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 12px">
+<sc-for list="{{grp.items}}" as="it" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 20px 22px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{it.sc}}">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px">
+<span style="font-size: 17px; font-weight: 700; line-height: 1.5"><span style="color: #A3A9CF; font-variant-numeric: tabular-nums; margin-right: 8px">{{it.n}}</span>{{it.q}}</span>
+<span style="flex: none; padding: 3px 10px; border-radius: 999px; border: 1.5px solid {{it.sc}}; color: {{it.sc}}; font-size: 12px; font-weight: 700; white-space: nowrap">{{it.status}}</span>
+</div>
+<dl style="margin: 0; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px 12px">
+<sc-for list="{{it.rows}}" as="r" hint-placeholder-count="2">
+<dt style="font-size: 13px; font-weight: 700; color: {{r.c}}; padding-top: 2px; white-space: nowrap">{{r.k}}</dt><dd style="margin: 0; font-size: 15px; line-height: 1.7; color: #C9CEF0">{{r.v}}</dd>
+</sc-for>
+</dl>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<div style="display: flex; flex-direction: column; gap: 24px; padding: clamp(24px, 4vw, 40px); border-radius: 16px; background: linear-gradient(160deg, #1A0E1C, #0A0D24 60%); border: 1px solid #3A1F2E">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-direction: column; gap: 10px; max-width: 640px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{red}}">{{t.failK}}</span>
+<h3 style="margin: 0; font-size: clamp(24px, 3vw, 34px); font-weight: 700; line-height: 1.2">{{t.failH}}</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">{{t.failLead}}</p>
+</div>
+<div style="display: flex; gap: 10px; flex-wrap: wrap">
+<sc-for list="{{failStats}}" as="fs" hint-placeholder-count="3"><span style="display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 76px; padding: 12px 14px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52"><b style="font-size: 28px; line-height: 1; color: {{fs.c}}; font-variant-numeric: tabular-nums">{{fs.v}}</b><span style="font-size: 12px; color: #A3A9CF">{{fs.k}}</span></span></sc-for>
+</div>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid #2A2040">
+<sc-for list="{{fails}}" as="f" hint-placeholder-count="13">
+<li style="{{f.rowStyle}}">
+<span style="font-size: 22px; font-weight: 700; line-height: 1.2; color: {{f.c}}; font-variant-numeric: tabular-nums">{{f.n}}</span>
+<div style="display: flex; flex-wrap: wrap; gap: 8px 28px; min-width: 0">
+<span style="flex: 1 1 220px; min-width: 0; font-size: 16px; font-weight: 700; line-height: 1.55">{{f.what}}</span>
+<span style="flex: 1.3 1 260px; min-width: 0; font-size: 14px; line-height: 1.7; color: #A3A9CF"><b style="color: #DDE1F7; font-weight: 700; margin-right: 6px">{{t.failWhy}}</b>{{f.why}}</span>
+<span style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 6px; align-items: flex-start"><span style="padding: 3px 10px; border-radius: 999px; border: 1.5px solid {{f.c}}; color: {{f.c}}; font-size: 12px; font-weight: 700; white-space: nowrap">{{f.status}}</span><span style="font-size: 14px; line-height: 1.6; color: #C9CEF0">{{f.now}}</span></span>
+</div>
+</li>
+</sc-for>
+</ol>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">{{t.planK}}</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
+<sc-for list="{{plan}}" as="pl" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{yellow}}"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: {{yellow}}">STEP {{pl.n}}</span><span style="font-size: 16px; font-weight: 700; line-height: 1.5">{{pl.k}}</span><span style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{pl.d}}</span></li>
+</sc-for>
+</ol>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: clamp(24px, 4vw, 40px); border-radius: 14px; border: 1.5px dashed {{yellow}}">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">{{t.nextUpK}}</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px 32px">
+<sc-for list="{{nextUp}}" as="x" hint-placeholder-count="4">
+<li style="display: flex; gap: 12px; align-items: flex-start; font-size: 16px; line-height: 1.6; color: #DDE1F7"><span aria-hidden="true" style="flex: none; width: 20px; height: 20px; margin-top: 3px; border-radius: 4px; background: #7EE6D6; color: #060818; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700">✓</span><span style="text-decoration: line-through; text-decoration-color: rgba(126, 230, 214, 0.6); color: #A3A9CF">{{x.v}}</span></li>
+</sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: clamp(24px, 4vw, 40px); border-radius: 14px; background: #0A0D24; border: 1px solid #1F2550">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">{{t.learnK}}</span>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px 32px">
+<sc-for list="{{learned}}" as="l" hint-placeholder-count="3">
+<li style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 32px; font-weight: 700; line-height: 1; color: {{yellow}}; font-variant-numeric: tabular-nums">{{l.n}}</span><span style="font-size: 16px; line-height: 1.7; color: #DDE1F7">{{l.v}}</span></li>
+</sc-for>
+</ol>
+</div>
+</section>
+
+<!-- 07 RESULT -->
+<section style="padding: 72px 0 96px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">07 · {{t.resultK}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.carH}}</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 48px; align-items: start">
+<figure style="margin: 0; position: relative; width: 100%; border-radius: 16px; overflow: hidden; border: 1px solid #252B52; background: #0E1230; aspect-ratio: 4 / 5; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45)">
+<img src="./81ef52fb85f2a9357d41113443bfc710.jpg" alt="{{t.carAlt}}" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: center 60%">
+<figcaption style="position: absolute; left: 16px; bottom: 16px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; background: {{yellow}}; color: #060818; font-size: 14px; font-weight: 700; letter-spacing: 0.06em">🏁 {{t.carBadge}}</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 20px; justify-content: space-between">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.carP}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{carParts}}" as="cp" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52"><dt style="font-size: 12px; letter-spacing: 0.12em; color: #A3A9CF">{{cp.k}}</dt><dd style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1.5">{{cp.v}}</dd></div>
+</sc-for>
+</dl>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 24px 26px; border-radius: 12px; border: 1.5px solid {{red}}; background: linear-gradient(150deg, rgba(229, 72, 77, 0.16), #0A0D24 70%)">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.2em; color: {{red}}">{{t.resultH}}</span>
+<span style="font-size: clamp(26px, 3vw, 34px); font-weight: 700; line-height: 1.15">{{t.resultBig}}</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{t.resultP}}</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{raceIssues}}" as="ri" hint-placeholder-count="4"><li style="display: flex; gap: 10px; align-items: baseline; font-size: 15px; line-height: 1.6"><span style="flex: none; font-size: 12px; font-weight: 700; color: {{red}}; font-variant-numeric: tabular-nums">{{ri.n}}</span>{{ri.v}}</li></sc-for>
+</ul>
+<span style="align-self: flex-start; padding: 8px 16px; border-radius: 999px; background: {{yellow}}; color: #060818; font-size: 15px; font-weight: 700">{{t.again}}</span>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding-top: 16px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{yellow}}">{{t.dayK}}</span><h3 style="margin: 0; font-size: clamp(22px, 2.6vw, 30px); font-weight: 700">{{t.dayH}}</h3></div>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 14px">
+<sc-for list="{{raceDay}}" as="rd" hint-placeholder-count="5">
+<li style="margin: 0; display: flex; flex-direction: column; gap: 8px"><div style="aspect-ratio: 3 / 4; border-radius: 12px; overflow: hidden; border: 1px solid #252B52; background: #0E1230"><img src="{{rd.src}}" alt="{{rd.alt}}" loading="lazy" style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: {{rd.pos}}"></div><span style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{rd.cap}}</span></li>
+</sc-for>
+</ul>
+</div>
+</section>
+
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="{{nextHref}}" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":5200}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const yellow = '#FFD24A';
+    const red = '#E5484D';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const stageColors = [yellow, '#7EE6D6', '#C9A8FF', '#FF9A9E'];
+    const stages = [
+      { n: 'A', h: L('3D 建模與列印', '3D modelling & printing'), en: '3D PRINT', p: L('底盤是我們自己建模的：設計馬達座、滾珠輪座和開關孔位，再用 Creality 切片軟體切片，以 3D 列印機印出白色底盤。', 'We modelled the chassis ourselves — motor mounts, caster mount and switch cut-out — then sliced it in Creality’s slicer and 3D-printed it in white.'), photos: [
+        { src: './a91fa2eae48a92acadb28265072e79cd.jpg', alt: L('3D 建模畫面：底盤、馬達座與開關孔', '3D model: chassis, motor mounts and switch cut-out'), cap: L('3D 建模', '3D model') },
+        { src: './b589c20de73a0375be20fd7e119c47b3.jpg', alt: L('切片軟體預覽：底盤的列印層', 'Slicer preview of the chassis layers'), cap: L('切片預覽', 'Slicer preview') },
+        { src: './5c4fdb2676cf09719c9c0de705872030.jpg', alt: L('3D 列印機平台上印好的白色底盤', 'The white chassis on the 3D printer bed'), cap: L('3D 列印成品', 'Printed part') }
+      ] },
+      { n: 'B', h: L('硬體實作', 'Hardware build'), en: 'HARDWARE', p: L('以雙輪差速底盤為基礎：兩顆黃色 TT 減速馬達帶動輪子、前方裝萬向滾珠輪，並加上電源開關。底板只有 55mm 寬、主控板比它寬，所以用銅柱加木棒把主控板架高約 4 公分跨過輪子；馬達改用熱熔膠固定，鋰電池用魔鬼氈黏在底板下方再加束帶，接著接上五路紅外線循線感測器和搖桿無線接收器。', 'A two-wheel differential-drive chassis: two yellow TT gear motors drive the wheels, a ball caster sits at the front, plus a power switch. The base is only 55 mm wide and the control board is wider, so we raised the board about 4 cm on brass standoffs and wooden sticks to bridge the wheels. The motors are now hot-glued, the lithium battery is velcroed under the base with zip ties, and the five-channel IR line sensor and wireless gamepad receiver are being wired in.'), photos: [
+        { step: '01', src: './8516722014d4cfa357666a8aea8d7733.jpg', pos: 'center', alt: L('桌上攤開的所有零件：底盤、輪子、主控板、紅外線感測器、搖桿、電池、杜邦線與螺絲', 'All the parts laid out: chassis, wheels, control board, IR sensor, gamepad, batteries, jumper wires and screws'), cap: L('全部零件攤開', 'Every part, laid out') },
+        { step: '02', src: './e4c1fba5e6c85a5348bfcec51f8864e9.jpg', pos: 'center', alt: L('賽車底盤底面：3D 列印白色底盤、兩顆黃色 TT 減速馬達與輪子、前方萬向滾珠輪', 'Underside of the chassis: 3D-printed white base, two yellow TT gear motors and wheels, and a front ball caster'), cap: L('底盤與馬達', 'Chassis and motors') },
+        { step: '03', src: './f497532109e3c255c2bc054fe629a917.jpg', pos: 'center 40%', alt: L('用尖嘴鉗把主控板固定到底盤上，旁邊是感測器排線和搖桿接收器', 'Fixing the control board to the chassis with pliers, next to the sensor cable and gamepad receiver'), cap: L('裝主控板、接線', 'Mounting the board and wiring') },
+        { step: '04', src: './2c2f3f70f11d12b8c87f1d6c64ccaa1d.jpg', pos: 'center 60%', alt: L('組裝中的賽車側面：白色底盤、黃色輪子、上層紅色主控板與黑色搖桿接收器', 'Side view of the car in progress: white chassis, yellow wheels, red control board on top and the black gamepad receiver'), cap: L('目前進度：雙層車身', 'Where we are: two-level body') },
+        { step: '05', src: './81ef52fb85f2a9357d41113443bfc710.jpg', pos: 'center 60%', alt: L('完成的賽車', 'The finished car'), cap: L('完成！雙層車身與接線', 'Done: two-level body, fully wired') }
+      ] },
+      { n: 'C', h: L('程式設計', 'Programming'), en: 'CODE', p: L('先在 Wokwi 上用 Arduino UNO 模擬：TB6612 馬達驅動、五路紅外線循線感測器（A0–A4），以 PID 控制（Kp、Kd）讓車子穩定循線。比賽分迷宮（遙控）和循跡（自動）兩段；因為買不到指定的藍牙模組，遙控部分改寫成用搖桿控制，可以調整速度與左右輪速度倍率。', 'We simulated everything on Wokwi with an Arduino UNO first: a TB6612 motor driver, a five-channel infrared line sensor (A0–A4), PID control (Kp, Kd) for smooth line following. The race has a remote-controlled maze and an autonomous line-following run; we couldn’t get the official Bluetooth module, so the remote part was rewritten for a gamepad, with adjustable speed and left/right wheel trim.'), photos: [
+        { src: './3c72dcb5114c0dd19a12f7304ffaa0e4.jpg', alt: L('Wokwi 模擬畫面：Arduino UNO、五顆感測器與馬達參數程式碼', 'Wokwi simulation: Arduino UNO, five sensors and motor settings code'), cap: L('Wokwi 模擬與程式', 'Wokwi simulation and code') },
+        { src: './9a46edb6c3cbd5ff54b82056ba778a87.jpg', alt: L('接上 USB 的紅色主控板，藍色與紅色指示燈亮起', 'The red control board on USB with its blue and red status lights on'), cap: L('程式第一次成功上傳！', 'First successful upload!') }
+      ] },
+      { n: 'D', h: L('練習', 'Practice'), en: 'PRACTICE', p: L('在學校二樓的空地自己搭練習場：地上貼黑線模擬循跡賽道，用紙板圍出迷宮。先練搖桿控制前後左右，再跑循線。車子一下往右偏、一下往左偏，只能一次次手動微調參數；搖桿的操作方向也有點反直覺，常常想往左卻轉錯邊，需要反覆練習才抓得到手感。', 'We built our own practice ground in an open space on the school’s second floor: black tape on the floor for the line-following track and cardboard walls for the maze. We drilled forward, back, left and right on the gamepad, then ran the line. The car kept drifting right, then left, so we tuned the settings by hand run after run; the gamepad controls also felt counter-intuitive, often turning the wrong way, and it took lots of practice to get a feel for it.'), photos: [
+        { src: './cbb2a183b17b8f1eb962c7f5dad63640.jpg', alt: L('賽車接著電腦和搖桿，在桌上的黑線旁測試', 'The car wired to the laptop with the gamepad, testing beside a black line on the desk'), cap: L('接著電腦一次次改程式、測試', 'Plugged into the laptop: edit, test, repeat') },
+        { src: './e5488b4c0e129f0b5219dd82ecba462a.jpg', alt: L('白紙上用黑色膠帶貼出的彎曲循跡賽道，賽車停在起點', 'A winding black-tape track on white paper, with the car at the start'), cap: L('自己用膠帶貼的仿製循跡賽道', 'Our home-made line-following track') }
+      ] }
+    ].map((g, i) => ({
+      ...g,
+      c: stageColors[i],
+      wip: !!g.wip,
+      photos: g.photos.map(ph => ({
+        ...ph,
+        hasStep: !!ph.step,
+        wrap: 'position: relative; border-radius: 10px; overflow: hidden; border: 1px solid #252B52; background: #0E1230' + (ph.step ? '; aspect-ratio: 4 / 5' : ''),
+        img: ph.step ? 'display: block; width: 100%; height: 100%; object-fit: cover; object-position: ' + (ph.pos || 'center') : 'display: block; width: 100%; height: auto'
+      })),
+      hasPhotos: g.photos.length > 0,
+      noPhotos: g.photos.length === 0,
+      grid: g.photos.length >= 4
+        ? 'display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px; align-items: start'
+        : g.photos.length === 1
+        ? 'display: grid; grid-template-columns: minmax(0, 1fr); max-width: 560px; gap: 16px'
+        : 'display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px; align-items: start'
+    }));
+    const teal = '#7EE6D6';
+    const C = L('原因', 'Cause'), S = L('解決', 'Fix'), D = L('處理', 'Action'), T = L('已試過', 'Tried'), G2 = L('推測', 'Guess'), N = L('下一步', 'Next');
+    const rowC = { [C]: '#A3A9CF', [S]: teal, [D]: yellow, [T]: '#A3A9CF', [G2]: '#C9A8FF', [N]: yellow };
+    const stMap = { test: [L('測試中', 'Testing'), '#C9A8FF'], ok: [L('已解決', 'Solved'), teal], warn: [L('注意', 'Watch out'), yellow], open: [L('未解決', 'Open'), red] };
+    const I = (n, q, st, rows) => ({ n, q, status: stMap[st][0], sc: stMap[st][1], rows: rows.map(([k, v]) => ({ k, v, c: rowC[k] })) });
+    const P = (n, date, k, c, items, from, to) => ({ n, date, k, c, from, to, glow: c + '55', count: items.length, countLabel: L(items.length + ' 個問題', items.length + ' problems'), items: items.map(([n, q, a]) => ({ n, q, a })) });
+    const G = (n, k, note, c, items) => ({ n, k, note, hasNote: !!note, c, items });
+    const log = [
+        G('01', L('車體組裝', 'Building the body'), '', yellow, [
+          I('1', L('主控板太寬，放上去會卡到輪子', 'The control board is too wide and hits the wheels'), 'ok', [[C, L('底板只有 55mm 寬，主控板比底板寬，放在中間會碰到輪子。', 'The base is only 55 mm wide; the board is wider, so it touches the wheels.')], [S, L('用銅柱和木棒把主控板架高約 4 公分，跨在輪子上方。', 'Raised the board about 4 cm on brass standoffs and wooden sticks so it bridges the wheels.')]]),
+          I('2', L('沒有夠高的柱子可以架主控板', 'No standoffs tall enough'), 'ok', [[S, L('用手邊的木棒加上銅柱代替，用熱熔膠固定。', 'Used wooden sticks plus brass standoffs, fixed with hot glue.')]]),
+          I('3', L('電池要放哪裡、怎麼固定', 'Where to put the battery'), 'ok', [[S, L('把電池用魔鬼氈黏在底板下方，再用束帶加強。', 'Velcro under the base, reinforced with zip ties.')]]),
+          I('4', L('馬達固定', 'Fixing the motors'), 'ok', [[S, L('用熱熔膠把馬達黏在底板上，取代紅色膠帶。', 'Hot-glued the motors to the base instead of red tape.')]])
+        ]),
+        G('02', L('電池安全', 'Battery safety'), '', red, [
+          I('5', L('鋰電池碰一下就發熱', 'The lithium battery heated up at a touch'), 'warn', [[C, L('很可能是短路：正負極碰到同一塊金屬，或直接接到馬達。', 'Most likely a short: both terminals touched the same metal, or went straight to a motor.')], [D, L('馬上拔掉、觀察沒有鼓起來；接頭不用時用膠帶包好，接線前先用三用電錶確認正負極，一定要經過開關。', 'Unplugged at once and checked it had not swollen. Now: tape unused connectors, check polarity with a multimeter first, always wire through the switch.')]])
+        ]),
+        G('03', L('電腦連不上主控板', 'The computer can’t see the board'), L('花最多時間', 'Took the longest'), teal, [
+          I('6', L('安裝軟體時一直跳出不需要的視窗', 'Unwanted pop-ups during install'), 'ok', [[C, L('例如 Python Launcher、「xcrun 需要命令列開發者工具」。', 'E.g. Python Launcher, “xcrun needs command line developer tools”.')], [S, L('確認 Arduino IDE 不需要它們，按取消就好。', 'Arduino IDE doesn’t need them, so just cancel.')]]),
+          I('7', L('驅動程式裝不起來', 'The driver wouldn’t install'), 'ok', [[C, L('驅動程式要放在「應用程式」資料夾才能安裝，還要到系統設定裡手動允許。', 'It has to sit in the Applications folder and be allowed manually in System Settings.')]]),
+          I('8', L('Mac 一直偵測不到主控板', 'The Mac never detected the board'), 'ok', [[C, L('很多 USB 線只能充電、不能傳資料；而且 USB 晶片是 CP2102，不是以為的 CH340，裝錯了驅動。', 'Many USB cables only charge; and the USB chip is a CP2102, not the CH340 we assumed, so we had the wrong driver.')], [S, L('換一台 Windows 電腦，在裝置管理員找到 CP2102，確認晶片和一條能傳資料的線，接回 Mac 後終於出現 /dev/cu.usbserial-0001。', 'On a Windows PC, Device Manager showed CP2102 and confirmed a data cable; back on the Mac, /dev/cu.usbserial-0001 finally appeared.')]]),
+          I('9', L('Arduino IDE 出現「缺少 FQBN」', 'Arduino IDE: “missing FQBN”'), 'ok', [[C, L('沒有選開發板。', 'No board selected.')], [S, L('選 Arduino Nano、Processor 選 ATmega328P (Old Bootloader)、連接埠選 usbserial-0001。', 'Arduino Nano, ATmega328P (Old Bootloader), port usbserial-0001.')]]),
+          I('10', L('上傳時出現「Resource busy」', 'Upload error: “Resource busy”'), 'ok', [[C, L('同時開了兩個 Arduino 視窗，搶同一個連接埠。', 'Two Arduino windows were fighting over the same port.')], [S, L('關掉多餘的視窗。', 'Closed the extra window.')]])
+        ]),
+        G('04', L('程式一直傳不進去', 'The upload kept failing'), L('最難的一關', 'The hardest part'), red, [
+          I('11', L('上傳一直出現「not in sync / programmer is not responding」', 'Upload keeps failing: “not in sync / programmer is not responding”'), 'ok', [[T, L('改選 Uno、Nano、兩種 Processor、手動按 Reset，都一樣。', 'Uno, Nano, both processor options, manual reset: same result.')], [G2, L('主晶片可能要接電池才會開機，USB 只讓 USB 晶片亮燈。', 'The main chip may need battery power to boot; USB only lights the USB chip.')], [S, L('11/1 用 Blink 範例程式試了幾十次設定（見第 13 題），程式終於第一次成功上傳，主控板的指示燈亮起來了。', 'On 1 Nov, after dozens of tries with the Blink example (see problem 13), the code finally uploaded and the board’s lights came on.')]]),
+        ]),
+        G('05', L('接線準備', 'Planning the wiring'), '', yellow, [
+          I('12', L('規劃電線長度', 'Planning wire lengths'), 'warn', [[D, L('主控板架高後電線要多留長度：馬達線約 20 公分，電源線 15～25 公分，剪之前先在車上實際比過。', 'With the board raised, wires need slack: about 20 cm for motors, 15–25 cm for power. Measure on the car before cutting.')]])
+        ]),
+        G('06', L('11/1 一次次測試', 'Trial and error on 1 Nov'), '11.01', '#FF9A9E', [
+          I('13', L('IDE 要怎麼設定程式才跑得動', 'Finding IDE settings that work'), 'ok', [[D, L('用最簡單的 Blink 範例程式一次次上傳，試不同的開發板、處理器和連接埠組合。', 'Uploaded the simple Blink example again and again, trying different board, processor and port combinations.')], [S, L('至少失敗了幾十次，終於找到接得上的設定。', 'After dozens of failures, we found settings that connect.')]]),
+          I('14', L('線要怎麼插、架子怎麼做', 'How to wire it and build the riser'), 'ok', [[D, L('反覆試插線的位置，也一次次試做把主控板撐高的架子。', 'Tried the wiring again and again, and rebuilt the riser that lifts the board several times.')]]),
+          I('15', L('電池接頭插不進主控板', 'The battery plug doesn’t fit the board'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [S, L('先用杜邦線把電池接到主控板上。', 'Connected the battery to the board with jumper wires for now.')], [N, L('之後換成 XH2.54 2P 插座。', 'Replace with an XH2.54 2P socket later.')]])
+        ]),
+        G('07', L('11/2 今天確認', 'Confirmed on 2 Nov'), '11.02', '#C9A8FF', [
+          I('16', L('IDE 打不開新程式', 'The IDE won’t open the new sketch'), 'open', [[C, L('Downloads 裡已有同名的舊版 PS2_PID 資料夾，IDE 顯示「A folder named PS2_PID already exists. Can’t open sketch.」，目前開著的還是沒有 LEFT_TRIM 的舊版。', 'An old PS2_PID folder already sits in Downloads, so the IDE says “A folder named PS2_PID already exists. Can’t open sketch.” The open copy is still the old one without LEFT_TRIM.')], [N, L('先處理資料夾衝突，再開啟新版上傳。', 'Sort out the folder clash, then open and upload the new version.')]]),
+          I('17', L('前進時偏右', 'Pulls right when driving forward'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [D, L('上傳新版前就發現了，先用 LEFT_TRIM = 15 補償左輪。', 'Spotted before the new upload; compensating the left wheel with LEFT_TRIM = 15.')], [N, L('實際跑跑看再調整數值。', 'Test on the track and adjust.')]])
+        ]),
+        G('08', L('程式與開發環境', 'Code and IDE'), '', teal, [
+          I('18', L('馬達腳位猜錯', 'Wrong motor pins'), 'ok', [[C, L('一開始以為右馬達是 D4/D5、D6/D7，結果只有左輪會動。', 'We assumed the right motor was on D4/D5, D6/D7, and only the left wheel turned.')], [S, L('照原廠線路圖改成 setMotorL(5,6)、setMotorR(10,9)。', 'Followed the official schematic: setMotorL(5,6), setMotorR(10,9).')]]),
+          I('19', L('函式庫找不到', 'Missing libraries'), 'ok', [[C, L('DCMotor 和 PS2X_lib_temi 要從廠商的 TEMI IDE 1.8.19 取得，GitHub 上同名的 DCMotor 是無關的庫；函式庫資料夾也一度沒放進 libraries 子資料夾。', 'DCMotor and PS2X_lib_temi come from the maker’s TEMI IDE 1.8.19; the DCMotor on GitHub is unrelated. The library folder was also outside the libraries subfolder at first.')], [S, L('從 TEMI IDE 取出正確的函式庫，放進 libraries。', 'Took the right libraries from the TEMI IDE and put them in libraries.')]]),
+          I('20', L('範例壓縮檔解不開', 'Couldn’t open the sample archive'), 'ok', [[C, L('廠商範例是 7z 格式，一般的解壓方式不能用。', 'The maker’s samples were a 7z archive that the usual tools couldn’t open.')], [S, L('改用其他方式解壓縮。', 'Extracted it another way.')]]),
+          I('21', L('IDE 自動搬移檔案', 'The IDE moves files on its own'), 'warn', [[C, L('IDE 2 會把 PS2_PID.ino 搬進同名資料夾，新舊版本因此混在一起，也就是第 16 題的來源。', 'IDE 2 moves PS2_PID.ino into a folder of the same name, mixing old and new versions; this caused problem 16.')], [D, L('每次只留一個版本，並確認開的是哪個資料夾。', 'Keep one version only and check which folder is open.')]])
+        ]),
+        G('09', L('接線', 'Wiring'), '', yellow, [
+          I('22', L('電源座和零件角色搞錯', 'Power socket and parts mixed up'), 'ok', [[C, L('以為電源座是兩孔，實際是三孔；IR 感測器、馬達和開關各自的角色也弄錯過。', 'We thought the power socket had two pins; it has three. The IR sensor, motor and switch roles also got mixed up.')], [S, L('對照實物和線路圖一一確認後修正。', 'Checked each against the real board and schematic and fixed them.')]]),
+          I('23', L('平衡線誤插電源座', 'Balance lead in the power socket'), 'ok', [[C, L('白色 3 孔的平衡線插得進電源座，但它不是給板子供電的。', 'The white 3-pin balance lead fits the power socket, but it isn’t for powering the board.')], [S, L('拔掉，改用紅色 2 孔線供電。插得進去不代表是對的。', 'Unplugged it and used the red 2-pin lead. Fitting doesn’t mean it’s right.')]])
+        ]),
+        G('10', L('實車測試發現', 'Found in testing'), '', red, [
+          I('24', L('快速前進時萬向輪會彈起', 'The caster lifts at speed'), 'warn', [[C, L('車子重心偏後。', 'The centre of gravity is too far back.')], [D, L('降低速度，在空白處加重量（要注意比賽的重量規定）。', 'Lower the speed and add weight in empty space, within the weight rules.')]]),
+          I('25', L('晶振頻率不一致', 'Crystal frequency mismatch'), 'open', [[C, L('線路圖上的晶振是 12 MHz，但 Nano 核心設定是 16 MHz。', 'The schematic shows a 12 MHz crystal, but the Nano core assumes 16 MHz.')], [N, L('如果延遲或序列埠出現異常，先查這裡。', 'If timing or serial output acts up, check this first.')]])
+        ]),
+        G('11', L('11/3 循線與萬向輪', 'Line following and caster on 3 Nov'), '11.03', '#FFD24A', [
+          I('26', L('偵測不到黑線，直接衝下桌子', 'Missed the black line and drove off the table'), 'warn', [[C, L('在桌上測試循線時，車子沒有抓到黑線。', 'Testing line following on a table, the car never picked up the black line.')], [D, L('之後改在地上測試，避免摔車。', 'Test on the floor from now on so it can’t fall.')]]),
+          I('27', L('感測器支架斷裂', 'The sensor bracket snapped'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [C, L('3D 列印的支架沿著直向斷開。', 'The 3D-printed bracket split along its length.')], [D, L('先用熱熔膠暫時黏回去。', 'Hot-glued back together for now.')], [N, L('調整感測器高度，或重新列印、加強支架。', 'Adjust the sensor height, or reprint a stronger bracket.')]]),
+          I('28', L('昨天自轉、今天完全沒反應', 'Spun in place yesterday, dead still today'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [T, L('用手擋住感測器時有反應，所以感測器和主控板基本正常。', 'Covering the sensors by hand gets a response, so sensors and board basically work.')], [G2, L('學校地板的反射值被判斷成黑色，五顆都讀到黑色（0x1F）時程式就停車。', 'The school floor reads as black; with all five sensors on black (0x1F) the code stops the car.')], [N, L('用序列埠讀地板和黑線的數值，確認門檻值 300 是否合適。', 'Read floor and line values over serial and check whether the 300 threshold fits.')]]),
+          I('29', L('左右轉太快', 'Turns are too sharp'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [C, L('PID 修正量太大，轉彎時一邊輪子幾乎停住、另一邊全速；遙控轉彎用全速 T_PWM 也一樣。', 'The PID correction is too big: one wheel nearly stops while the other goes full speed. Remote turns at full T_PWM do the same.')], [D, L('已降低 KP、KD，BASE_SPEED 調為 110，並加上 MIN_SPEED 下限，待實測。', 'Lowered KP and KD, set BASE_SPEED to 110 and added a MIN_SPEED floor; to be tested.')]]),
+          I('30', L('萬向輪在學校地板上亂偏移', 'The caster wanders on the school floor'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [C, L('地板粗糙，萬向輪會卡住或亂轉。教室裡正常，不代表比賽場地也正常。', 'The rough floor makes the caster stick or spin. Working in the classroom doesn’t mean it will at the venue.')]]),
+          I('31', L('加重後萬向輪仍然彈起', 'The caster still lifts after adding weight'), 'ok', [[S, L('比賽前已解決。', 'Solved before the race.')], [G2, L('加速時車身向後傾斜。', 'The body tilts back when accelerating.')], [N, L('加入漸進加速，或降低 R1 的速度。', 'Add gradual acceleration, or lower the R1 speed.')]])
+        ])
+      ];
+    const diaryList = [
+        P('I', '10.17–10.19', L('搞懂規則、選零件', 'Rules and parts'), yellow, [
+          ['01', L('不知道要買什麼', 'Not sure what to buy'), L('規則把主控板、藍牙模組、紅外線感測板列為「不可更動」，一定要用原版，其他零件可以自己挑。', 'The rules fix the control board, Bluetooth module and IR sensor board as official parts; everything else is our choice.')],
+          ['02', L('想用 ESP32 藍牙模組', 'We wanted an ESP32 Bluetooth module'), L('不行，它本身就是一塊主控板，等於外接電路板，會違規。', 'Not allowed: it is a controller in itself, so it counts as an extra board.')],
+          ['03', L('找不到指定零件在哪裡買', 'Couldn’t find where to buy official parts'), L('網路上搜不到，只能問老師、TEMI 協會或培訓課程。', 'Nothing online; only teachers, the TEMI association or training courses could help.')],
+          ['04', L('馬達選 1:48 還是 1:220', '1:48 or 1:220 motors?'), L('比賽是競速，選轉速快的 1:48。', 'It’s a race, so the faster 1:48.')],
+          ['05', L('買錯或差點買錯的東西', 'Things we (nearly) bought by mistake'), L('外加齒輪組（TT 馬達本身就有減速齒輪）、搖桿零件（不能直接當遙控器）、18650 電池座、會擋到馬達孔的 N20 輪子。', 'An extra gearbox (TT motors already have one), gamepad parts (not a remote on their own), an 18650 holder, and N20 wheels that block the motor holes.')],
+          ['06', L('電池選擇', 'Choosing a battery'), L('鈕扣電池電流太小、一次性電池太重又會掉壓，最後為了輕量化選 7.4V 450mAh 鋰電池。', 'Coin cells give too little current, disposables are heavy and sag; for low weight we chose a 7.4 V 450 mAh lithium pack.')],
+          ['07', L('開關太大或太小', 'Switch too big or too small'), L('E-TEN 開關太重、小滑動開關電流太小，最後選 KCD1 船型開關。', 'The E-TEN switch was too heavy and small slide switches too weak; we chose a KCD1 rocker.')],
+          ['08', L('比賽比想像中複雜', 'The race is more complex than we thought'), L('有迷宮（遙控）和循跡（自動）兩段，一定要裝感測板。', 'There is a remote-controlled maze and an autonomous line-following run, so the sensor board is a must.')],
+          ['09', L('時間很趕', 'Very little time'), L('報名截止、比賽在 11/7，只剩不到三週。', 'Entries closed and the race is on 7 Nov: under three weeks to go.')]
+        ], 1, 3),
+        P('II', '10.19–10.22', L('3D 建模', '3D modelling'), '#7EE6D6', [
+          ['10', L('車寬加上輪子會超過 13 公分', 'With wheels the car was over 13 cm wide'), L('底板改窄（55～65mm），讓含輪總寬控制在約 12 公分。', 'Narrowed the base to 55–65 mm so the total width is about 12 cm.')],
+          ['11', L('萬向球買錯', 'Wrong ball caster'), L('25mm 鋼珠重達 130g，跟輕量化衝突，改買 15mm 的。', 'The 25 mm one weighed 130 g, too heavy; switched to 15 mm.')],
+          ['12', L('馬達座、開關孔的尺寸', 'Motor mount and switch hole sizes'), L('照馬達尺寸圖畫孔位；開關卡扣只適合 2mm 板，底板是 3mm，孔周圍要挖凹槽。', 'Holes follow the motor drawing; the switch clips fit 2 mm boards, ours is 3 mm, so we cut a recess around the hole.')],
+          ['13', L('公分和公釐搞混', 'Mixed up cm and mm'), L('模型整個小了 10 倍，朋友發現後放大 10 倍重新匯出。', 'The model came out 10× too small; a friend spotted it and we re-exported at 10×.')],
+          ['14', L('沒有 3D 印表機，只能印一次', 'No printer, one shot only'), L('找朋友代印，把孔做成長條孔、多印備品，減少重印的風險。', 'A friend printed it; we used slotted holes and printed spares to avoid a reprint.')]
+        ], 3, 6),
+        P('III', '10.21–10.26', L('買小零件', 'Small parts'), '#C9A8FF', [
+          ['15', L('找不到 M3 螺絲', 'No M3 screws'), L('五金行只有英制和木螺絲，最後改網購或用熱熔膠。', 'Hardware shops only had imperial and wood screws; we ordered online or used hot glue.')],
+          ['16', L('運費太多', 'Too much shipping'), L('東西分散在好幾家，改成集中在同一家湊免運。', 'Moved orders to one shop to get free shipping.')],
+          ['17', L('電線、魔鬼氈、電工膠帶', 'Wire, velcro, tape'), L('確認紅白線粗細夠用、魔鬼氈要加束帶，18mm 電工膠帶剛好跟賽道一樣寬。', 'Checked the wire gauge, added zip ties to the velcro; 18 mm tape matches the track width.')]
+        ], 5, 10),
+        P('IV', '10.23–10.27', L('指定零件買不到', 'Official parts out of reach'), red, [
+          ['18', L('颱風假、國定假日', 'Typhoon days and a holiday'), L('連續放假，沒辦法打電話給協會。', 'Days off in a row meant no calls to the association.')],
+          ['19', L('廠商不回訊息', 'Suppliers didn’t reply'), L('改打電話、請老師幫忙，最後找到家侖公司。', 'We phoned and asked teachers for help, and finally found a supplier.')],
+          ['20', L('沒有藍牙模組，改用搖桿', 'No Bluetooth module, so a gamepad'), L('程式的遙控部分要改寫。', 'The remote-control code had to be rewritten.')],
+          ['21', L('擔心花太多錢', 'Worried about cost'), L('器材約 3,000 多元，但很多零件之後的機器人比賽都能用。', 'Parts came to just over NT$3,000, but much of it can be reused in later robot competitions.')]
+        ], 7, 11),
+        P('V', '10.25–10.30', L('組裝和程式', 'Building and coding'), '#FF9A9E', [
+          ['22', L('馬達、輪子對齊', 'Aligning motors and wheels'), L('一開始用紅色膠帶暫時固定，後來改用熱熔膠。', 'Red tape at first, hot glue later.')],
+          ['23', L('電池放的位置', 'Where the battery goes'), L('放車尾會讓驅動輪打滑，要考慮重心。', 'At the back the drive wheels slip, so balance matters.')],
+          ['24', L('不會寫程式', 'Coding was new to us'), L('先準備好遙控＋PID 循跡的程式，重點放在學會燒錄、改參數、看懂註解。', 'With the remote + PID line-following code prepared, we focused on learning to flash it, tune settings and read the comments.')],
+          ['25', L('用 Wokwi 模擬測試', 'Testing in Wokwi'), L('程式貼錯位置導致編譯失敗，修正後成功跑起來。', 'Pasting code in the wrong place broke the build; once fixed, it ran.')]
+        ], 9, 14)
+      ];
+    const dayList = [17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,1,2,3,4,5,6,7];
+    const days = dayList.map((d, i) => ({ d: String(d), mon: i === 0 ? L('10月', 'OCT') : (i === 15 ? L('11月', 'NOV') : ''), c: i >= 14 && i <= 17 ? '#7EE6D6' : (i === 21 ? red : '#A3A9CF') }));
+    const barSolid = c => 'background: ' + c + '; box-shadow: 0 0 14px ' + c + '66;';
+    const gantt = [
+      ...diaryList.map(ph => ({ n: ph.n, k: ph.k, c: ph.c, col: (ph.from + 1) + ' / ' + (ph.to + 2), bar: barSolid(ph.c) })),
+      { n: 'VI', k: L('除錯四天', 'Debugging'), c: '#7EE6D6', col: '16 / 20', bar: barSolid('#7EE6D6') },
+      { n: '🏁', k: L('比賽日', 'Race day'), c: red, col: '23 / 24', bar: 'background: repeating-conic-gradient(#EEF0FF 0 25%, #060818 0 50%) 0 0 / 8px 8px; border: 1.5px solid #EEF0FF;' }
+    ];
+    const diaryStats = [
+      { k: L('天', 'days'), v: '22' },
+      { k: L('個問題', 'problems'), v: String(diaryList.reduce((n, p) => n + p.count, 0) + log.reduce((n, g) => n + g.items.length, 0)) },
+      { k: L('圈（階段）', 'laps'), v: '6' }
+    ];
+    const fk = { fixed: [L('已修正', 'Fixed'), teal], test: [L('測試中', 'Testing'), '#C9A8FF'], open: [L('未解決', 'Open'), red], big: [L('未解決・目前最大的問題', 'Open · biggest problem'), red] };
+    const fails = [
+      ['01', L('馬達腳位一開始猜錯（D4/D5、D6/D7）', 'Guessed the motor pins wrong (D4/D5, D6/D7)'), L('沒有先查廠商的程式和線路圖。', 'We didn’t check the maker’s code and schematic first.'), 'fixed', L('改為 5/6、10/9。', 'Now 5/6 and 10/9.')],
+      ['02', L('只有一邊輪子會動，或原地自轉', 'Only one wheel turns, or it spins in place'), L('DCMotor 函式庫的 Forward(a,b) 和實際接線方向不一致，右輪方向也判斷錯過一次（RIGHT=LOW）。', 'DCMotor’s Forward(a,b) didn’t match the wiring, and we once got the right wheel’s direction wrong (RIGHT=LOW).'), 'test', L('馬達線換回原樣後能動，改用 T1_full_v2 測試。', 'Works after restoring the motor wires; testing with T1_full_v2.')],
+      ['03', L('遙控的前後左右反了好幾次', 'Remote directions came out reversed, several times'), L('搖桿軸向的假設不對，改了 swap、swap2、flip 好幾個版本都沒有一次到位。', 'Wrong assumptions about the stick axes; several versions (swap, swap2, flip) never quite fixed it.'), 'fixed', L('比賽前已解決。', 'Solved before the race.')],
+      ['04', L('沒接遙控器時車子狂轉', 'Spins wildly with no controller connected'), L('沒連線時四個軸都讀到 0，被程式誤判成推到底。', 'Unconnected, all four axes read 0, which the code took as full stick.'), 'fixed', L('加入 padConnected() 檢查，沒連上就停車。', 'Added a padConnected() check: no controller, no movement.')],
+      ['05', L('序列埠監視器全是亂碼', 'Serial monitor shows gibberish'), L('板子是 12 MHz 晶振，Arduino Nano 核心假設 16 MHz，波特率和 delay 都會偏。', 'The board has a 12 MHz crystal but the Nano core assumes 16 MHz, so baud rate and delays drift.'), 'open', L('還在找解法。', 'Still looking for a fix.')],
+      ['06', L('把序列繪圖器當成監視器', 'Opened the Serial Plotter instead of the Monitor'), L('兩個工具名稱很像，一開始沒分清楚。', 'The two tools have similar names.'), 'fixed', L('已分清楚。', 'Sorted out.')],
+      ['07', L('IDE 打不開程式', 'The IDE won’t open the sketch'), L('資料夾名稱和 .ino 檔名不一致。', 'Folder name and .ino file name didn’t match.'), 'fixed', L('找到解法：兩個名稱要一致。', 'Fix found: the names must match.')],
+      ['08', L('循跡程式偵測不到黑線', 'Line following can’t see the black line'), L('THRESHOLD=300 沒有實測校準，感測器高度也沒確認。', 'THRESHOLD=300 was never calibrated, and the sensor height was never checked.'), 'fixed', L('比賽前已在仿製賽道上校準。', 'Calibrated on the practice track before the race.')],
+      ['09', L('循跡時一邊輪速被壓到 0', 'One wheel drops to 0 while following'), L('用 constrain(…, 0, …) 限制，轉彎時一邊直接停。', 'constrain(…, 0, …) let one wheel stop dead in turns.'), 'fixed', L('改成 MIN_SPEED 下限。', 'Now has a MIN_SPEED floor.')],
+      ['10', L('丟線時原地打轉', 'Spins in place after losing the line'), L('全部讀到白色時，程式保留舊的 error，繼續轉向。', 'With all sensors on white, the code kept the old error and kept turning.'), 'test', L('改成丟線就停車，待實測。', 'Now stops when the line is lost; to be tested.')],
+      ['11', L('PID 參數偏差，車子一直偏', 'PID values off, the car keeps drifting'), L('直接套用廠商的 Kp=Ki=Kd=5，左右轉速太快不好控制。', 'We used the maker’s Kp=Ki=Kd=5 as-is; turns were too fast to control.'), 'test', L('已降低 KP、KD，BASE_SPEED 調為 110，待實測。', 'Lowered KP and KD, BASE_SPEED now 110; to be tested.')],
+      ['12', L('循跡測試一直沒成功', 'Line-following tests keep failing'), L('以上問題疊在一起，馬達方向也還沒確定，分不出是程式還是接線的錯。', 'All of the above stack up, and the motor direction isn’t settled, so we can’t tell code faults from wiring faults.'), 'big', L('目前最大的問題。', 'Our biggest problem right now.')],
+      ['13', L('程式版本太多，搞混了', 'Too many versions of the code'), L('T1_track、T1_track_raw、T1_track_raw_remote、T1_full、T1_full_v2 同時存在。', 'T1_track, T1_track_raw, T1_track_raw_remote, T1_full and T1_full_v2 all existed at once.'), 'fixed', L('統一只用 T1_full_v2。', 'Settled on T1_full_v2 only.')]
+    ].map(([n, what, why, st, now]) => ({ n, what, why, now, status: fk[st][0], c: fk[st][1],
+      rowStyle: 'display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 0 12px; align-items: start; padding: 18px ' + (st === 'big' ? '16px; margin: 6px 0; border-radius: 10px; background: rgba(229, 72, 77, 0.10); border: 1.5px solid ' + red + ';' : '0; border-bottom: 1px solid #2A2040;') }));
+    const failStats = [
+      { k: L('已修正', 'Fixed'), v: String(fails.filter(f => f.c === teal).length), c: teal },
+      { k: L('測試中', 'Testing'), v: String(fails.filter(f => f.c === '#C9A8FF').length), c: '#C9A8FF' },
+      { k: L('未解決', 'Open'), v: String(fails.filter(f => f.c === red).length), c: red }
+    ];
+    const plan = [
+      { n: '1', k: L('只用 T1_full_v2', 'Use T1_full_v2 only'), d: L('唯一把遙控和循跡整合、又有停車保護的版本。', 'The only version with remote and line following combined, plus stop protection.') },
+      { n: '2', k: L('先確認遙控方向', 'Confirm the remote directions'), d: L('前後左右都對了，才能確定馬達接線沒問題。', 'Once all four directions are right, the motor wiring is confirmed.') },
+      { n: '3', k: L('到仿製賽道校準 THRESHOLD', 'Calibrate THRESHOLD on the track'), d: L('實際量黑線和地板的數值，再決定門檻。', 'Measure the line and floor values, then set the threshold.') },
+      { n: '4', k: L('最後才慢慢調速度', 'Tune speed last'), d: L('方向和感測都穩了，再一點一點提高速度。', 'With directions and sensing steady, raise the speed bit by bit.') }
+    ];
+    const cnt = st => log.reduce((n, g) => n + g.items.filter(it => it.status === stMap[st][0]).length, 0);
+    const logStats = [
+      { k: stMap.ok[0], v: String(cnt('ok')), c: stMap.ok[1] },
+      { k: stMap.test[0], v: String(cnt('test')), c: stMap.test[1] },
+      { k: L('注意事項', 'Watch-outs'), v: String(cnt('warn')), c: yellow },
+      { k: stMap.open[0], v: String(cnt('open')), c: red }
+    ];
+    return {
+      accent, yellow, red, nextHref: 'Kibo.dc.html', stages,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('機器人競賽', 'Robotics'),
+        status: L('已參賽・第一輪止步', 'Raced · out in round 1'),
+        titleSub: L('機器人競賽', 'Robotics Competition'),
+        intro: L('這是 STARNING 第一次參加機器人比賽。我們報名 11/7 的「T1 賽車競技賽」，從購買材料、3D 建模到實體組裝，全部自己動手，現在正在賽前準備。', 'This is STARNING’s first robotics competition. We entered the T1 Racing event on 7 November and are doing everything ourselves — buying parts, 3D modelling and building the car — and are now getting ready for race day.'),
+        eventK: L('組別', 'EVENT'), eventV: L('T1 賽車競技賽', 'T1 Racing'),
+        firstK: L('里程碑', 'MILESTONE'), firstV: L('第一次機器人比賽', 'Our first robotics race'),
+        trackAlt: L('T1 賽車賽道示意插畫', 'Illustration of a T1 race track'),
+        specK: L('規格', 'SPECS'),
+        taskK: L('比賽任務', 'THE CHALLENGE'),
+        taskH: L('T1 賽車競技賽', 'T1 Racing'),
+        taskP: L('我們參加的組別是 T1 賽車競技賽（11/7）。[補充：賽道長什麼樣子、規則和計分方式。]', 'We entered the T1 Racing event (7 Nov). [Add: what the track looks like, the rules and scoring.]'),
+        teamK: L('團隊分工', 'THE TEAM'),
+        prepK: L('準備過程', 'PREPARATION'),
+        prepH: L('從零件到賽車', 'From parts to race car'),
+        wip: L('進行中', 'In progress'),
+        photoTodo: L('練習照片（待補）', 'Practice photos (coming soon)'),
+        diaryK: L('賽前日誌', 'PREP DIARY'),
+        diaryH: L('不到三週，從看懂規則到組好車', 'Under three weeks, from rulebook to car'),
+        diaryLead: L('10/17 開始準備、11/7 就要比賽。從選零件、建模、買不到指定零件，到組裝和寫程式，我們把每個卡住的地方都記下來。', 'We started on 17 Oct with the race on 7 Nov. From picking parts and modelling to chasing official parts, building and coding, we wrote down every place we got stuck.'),
+        ganttK: L('時間軸', 'TIMELINE'),
+        ganttHint: L('10/17 → 11/7・各階段重疊進行', '17 Oct → 7 Nov · phases overlapped'),
+        lap6: L('除錯四天：組裝、燒錄、調車、循線，共 31 個問題', 'Four days of debugging: building, flashing, tuning, line following; 31 problems'),
+        lap6Go: L('看 06 除錯日誌', 'See 06 Debug log'),
+        finishK: L('比賽日', 'Race day'),
+        logK: L('除錯日誌', 'DEBUG LOG'),
+        logH: L('組裝、燒錄與調車', 'Building, flashing and tuning'),
+        logLead: L('10/31 整個下午都在處理電腦和主控板連不上的問題；11/1 失敗了幾十次，終於找到能上傳的設定；11/2 程式能跑了，又遇到 IDE 檔案衝突和車子偏右；11/3 開始實測循線，車子抓不到黑線、轉彎太急，萬向輪也在學校地板上出狀況。以下是這四天的 31 個問題和處理方式。', 'On 31 Oct the whole afternoon went into getting the computer to talk to the board; on 1 Nov, after dozens of failures, we found settings that upload; by 2 Nov the code was running and new problems appeared: IDE file clashes and the car pulling right; on 3 Nov we started real line-following tests: the car missed the line, turned too sharply, and the caster struggled on the school floor. Here are the 31 problems from these four days and how we handled them.'),
+        failK: L('程式失敗紀錄', 'CODE FAILURE LOG'),
+        failH: L('從程式出錯開始，13 次失敗', '13 failures, counted from the first bug'),
+        failLead: L('循跡和遙控的程式一直跑不對。我們把每一次失敗、原因和現在的狀態都列出來，才看清楚問題其實是好幾個疊在一起。', 'The line-following and remote code kept misbehaving. Listing every failure, its cause and where it stands showed us that several problems were stacked on top of each other.'),
+        failWhy: L('原因', 'Why'),
+        planK: L('接下來的策略：只用 T1_full_v2', 'THE PLAN: T1_FULL_V2 ONLY'),
+        nextUpK: L('賽前待辦・全部完成 ✓', 'PRE-RACE TO-DO · ALL DONE ✓'),
+        learnK: L('10/31 學到的', 'WHAT WE LEARNED ON 31 OCT'),
+        hardK: L('遇到的困難', 'WHAT WAS HARD'),
+        hardH: L('第一次做機器人，每一步都是新的挑戰', 'As first-timers, every step was new'),
+        hardWrap: L('我們一邊查資料、一邊在 Wokwi 上模擬，再一點一點調整參數，慢慢把問題解決。', 'We researched as we went, simulated on Wokwi and tuned the settings bit by bit until things worked.'),
+        resultK: L('成果與收穫', 'RESULTS'),
+        resultH: L('11/7 比賽結果', 'RACE RESULT · 7 NOV'),
+        resultBig: L('第一輪止步', 'Out in round 1'),
+        resultP: L('經歷無數次測試、失敗、除錯和改程式，最後在比賽第一輪就被淘汰。現場遇到的問題：', 'After countless tests, failures, debugging sessions and code changes, we went out in the first round. What went wrong on the day:'),
+        again: L('再接再厲！', 'We’ll be back!'),
+        heroResK: L('結果', 'RESULT'),
+        heroResV: L('第一輪止步', 'Out in round 1'),
+        dayK: L('比賽當天・11.07', 'RACE DAY · 7 NOV'),
+        dayH: L('桃園巨蛋，第一次站上機器人賽場', 'Taoyuan Arena, our first robot race'),
+        carH: L('完成的賽車', 'The finished car'),
+        carBadge: L('完成・11/02', 'Built · 2 Nov'),
+        carAlt: L('完成的賽車：白色 3D 列印底盤、黃色輪子，上層紅色主控板以木棒和銅柱架高，旁邊是黑色搖桿接收器與彩色排線', 'The finished car: white 3D-printed chassis, yellow wheels, the red control board raised on wooden sticks and brass standoffs, with the black gamepad receiver and colourful cables'),
+        carP: L('從 10/17 看懂規則，到 11/2 車子組好，前後不到三週。底盤自己建模、請朋友代印，主控板架高跨過輪子，程式靠搖桿遙控走迷宮、靠紅外線感測器自動循跡。', 'Under three weeks from reading the rules on 17 Oct to a finished car on 2 Nov. We modelled the chassis and had a friend print it, raised the board over the wheels, and the code drives the maze by gamepad and follows the line with the IR sensors.'),
+        nextK: L('下一件作品', 'Next work'),
+        nextV: L('TASA Kibo 機器人程式設計挑戰賽', 'TASA Kibo Robot Programming Challenge')
+      },
+      raceIssues: [
+        { n: '01', v: L('搖桿連到別人的車子', 'Our gamepad paired with someone else’s car') },
+        { n: '02', v: L('線沒有接好', 'A wire wasn’t connected properly') },
+        { n: '03', v: L('程式沒有改好', 'The code wasn’t ready') },
+        { n: '04', v: L('比賽時車子翻車', 'The car flipped over during the run') }
+      ],
+      raceDay: [
+        { src: './5b07cd6afa06fcfed727504b6437e8df.jpg', pos: 'center 70%', alt: L('站在 2026 桃園國際新創機器人節的拱門前', 'In front of the 2026 Taoyuan International Startup Robot Festival arch'), cap: L('抵達桃園巨蛋', 'Arriving at Taoyuan Arena') },
+        { src: './8f834eb202fa117d2083a8195497580d.jpg', pos: 'center 40%', alt: L('兩位隊員戴著 T1 智能賽車競速賽的參賽證自拍', 'Both teammates with their T1 race badges'), cap: L('拿到參賽證', 'Badges on') },
+        { src: './7ae4897d2d677716997ad203dec9bf65.jpg', pos: 'center', alt: L('從看台俯瞰桃園巨蛋的比賽場地', 'The arena floor seen from the stands'), cap: L('從看台看整個賽場', 'The arena from the stands') },
+        { src: './1088de4ce5a42e153d4e30b298768a67.jpg', pos: 'center 70%', alt: L('TIRT 全能機器人技藝技能競賽的迷宮賽道', 'The TIRT maze track'), cap: L('真正的迷宮賽道', 'The real maze track') },
+        { src: './07bc7bbc3a80fbf529fdf923f4b6a487.jpg', pos: 'center 60%', alt: L('隊員在準備區檢查賽車', 'A teammate checking the car in the pit area'), cap: L('準備區裡最後調整', 'Last fixes in the pit area') }
+      ],
+      carParts: [
+        { k: L('底盤', 'Chassis'), v: L('自製 3D 列印・寬約 12 公分', 'Custom 3D print · ~12 cm wide') },
+        { k: L('主控板', 'Board'), v: L('架高約 4 公分', 'Raised ~4 cm') },
+        { k: L('馬達', 'Motors'), v: 'TT 1:48 ×2' },
+        { k: L('電池', 'Battery'), v: '7.4V 450mAh' },
+        { k: L('迷宮段', 'Maze'), v: L('搖桿遙控', 'Gamepad') },
+        { k: L('循跡段', 'Line run'), v: L('五路紅外線 + PID', '5-ch IR + PID') }
+      ],
+      specs: [
+        { k: L('主控', 'Board'), v: 'ATmega328P' },
+        { k: L('馬達驅動', 'Driver'), v: 'TB6612' },
+        { k: L('馬達', 'Motors'), v: 'TT 1:48 ×2' },
+        { k: L('電池', 'Battery'), v: '7.4V 450mAh' },
+        { k: L('遙控', 'Remote'), v: L('搖桿', 'Gamepad') },
+        { k: L('感測', 'Sensors'), v: L('五路紅外線', '5-ch IR') },
+        { k: L('控制', 'Control'), v: 'PID' },
+        { k: L('底盤', 'Chassis'), v: L('自製 3D 列印', 'Custom 3D-printed') }
+      ],
+      team: [
+        { name: L('曹瑜耘', 'Yuyun Tsao'), sub: 'STARNING', c: accent, roles: [{ k: L('3D 建模', '3D modelling') }, { k: L('程式設計', 'Programming') }, { k: L('硬體組裝', 'Hardware assembly') }] },
+        { name: L('陳秉彥', 'Bingyan Chen'), sub: 'STARNING', c: yellow, roles: [{ k: L('材料購買', 'Buying parts') }, { k: L('硬體組裝', 'Hardware assembly') }, { k: L('主控手', 'Lead driver') }] }
+      ],
+      diary: diaryList,
+      days, gantt, diaryStats,
+      log,
+      logStats, fails, failStats, plan,
+      nextUp: [
+        { v: L('用序列埠讀學校地板和黑線的數值，確認門檻值 300 是否合適', 'Read floor and line values over serial; check the 300 threshold') },
+        { v: L('確認沒反應是不是因為五顆感測器都讀到黑色（0x1F）', 'Check whether the stall is all five sensors reading black (0x1F)') },
+        { v: L('用 T1_full_v2 確認遙控方向，必要時改 INVERT 參數', 'Confirm remote directions with T1_full_v2; flip INVERT if needed') },
+        { v: L('調整感測器高度，或重新列印、加強支架', 'Adjust the sensor height, or reprint a stronger bracket') },
+        { v: L('加入漸進加速，或降低 R1 的速度，解決萬向輪彈起', 'Add gradual acceleration or lower the R1 speed so the caster stays down') },
+        { v: L('測試直線前進，調整 LEFT_TRIM', 'Test driving straight and tune LEFT_TRIM') },
+        { v: L('裝上 KCD1 開關，把暫時的杜邦線換成 XH2.54 2P 插座', 'Fit the KCD1 switch and replace temporary jumpers with an XH2.54 2P socket') }
+      ],
+      learned: [
+        { n: '01', v: L('遇到問題要一步一步排除：先確認線、再確認驅動、再確認設定。', 'Debug one step at a time: cable first, then driver, then settings.') },
+        { n: '02', v: L('換一台電腦測試，是分辨問題出在哪裡最快的方法。', 'Trying another computer is the fastest way to find where the problem is.') },
+        { n: '03', v: L('鋰電池的電流很大，接線一定要小心正負極和短路。', 'Lithium batteries deliver big currents: always mind polarity and shorts.') }
+      ],
+      hard: [
+        { q: L('程式怎麼寫？', 'How do we code it?'), a: L('一開始不知道從哪裡寫起，先在 Wokwi 上模擬電路和程式，確認邏輯沒問題再上車。', 'We didn’t know where to start, so we simulated the circuit and code on Wokwi before loading it onto the car.') },
+        { q: L('電路板怎麼裝？', 'Where does the board go?'), a: L('電路板、馬達驅動和感測器要怎麼固定、怎麼接線，都是邊查資料邊試出來的。', 'How to mount and wire the board, motor driver and sensors was worked out by researching and trying.') },
+        { q: L('怎麼跑才順？', 'How do we make it smooth?'), a: L('車子組好之後反覆測試，調整速度上限、左右輪倍率和 PID 參數，讓它跑得更穩。', 'Once built, we tested again and again, tuning top speed, left/right trim and PID values to make it steadier.') }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

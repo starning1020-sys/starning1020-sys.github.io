@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：行程配網師</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh; overflow-x: hidden">
+
+<header style="border-bottom: 1px solid #1A1F42">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="border-bottom: 1px solid #1A1F42">
+<div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 26px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border-radius: 999px; font-size: 14px; font-weight: 700; background: {{cyan}}; color: #060818">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EEF0FF"></span>STARNING</span>
+</div>
+<h1 style="margin: 0; display: flex; flex-direction: column; gap: 10px; line-height: 1.1">
+<span style="font-size: clamp(52px, 8vw, 96px); font-weight: 700; letter-spacing: -0.02em">{{t.title}}</span>
+<span style="font-size: clamp(20px, 2.4vw, 28px); font-weight: 500; color: {{cyan}}">{{t.sub}}</span>
+</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.oneLine}}</p>
+<a href="https://starning1020-sys.github.io/chictrip-esim-demo/" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: {{cyan}}; color: #060818; font-size: 16px; font-weight: 700; text-decoration: none">{{t.demoBtn}} <span aria-hidden="true">↗</span></a>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="border-radius: 12px; overflow: hidden; border: 1px solid #2A3166; box-shadow: 0 24px 60px rgba(30, 120, 255, 0.18)"><img src="./3d5ddbdc69dddab2c093c0ead9bc3cd9.jpg" alt="{{t.coverAlt}}" style="display: block; width: 100%; height: auto"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.coverCap}}</figcaption>
+</figure>
+</div>
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px; padding-top: 20px; border-top: 1px solid #1F2550"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 500; line-height: 1.5">{{m.v}}</span></div>
+</sc-for>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<section style="padding: 96px 0 72px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">01 · {{t.k1}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.8; color: #A3A9CF; max-width: 820px">{{t.p1}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{insights}}" as="i" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52; border-top: 4px solid {{cyan}}">
+<span style="font-size: 14px; color: {{cyan}}">{{i.n}}</span>
+<span style="font-size: 21px; font-weight: 700">{{i.k}}</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{i.d}}</span>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; padding: 20px 24px; border-left: 4px solid {{cyan}}; background: #0A0D24; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(18px, 2vw, 22px); line-height: 1.6">{{t.quote}}</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #A3A9CF">{{t.method}}</p>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">02 · {{t.k2}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h2}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4">
+<li style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52">
+<span style="width: 40px; height: 40px; border-radius: 50%; background: {{cyan}}; color: #060818; display: flex; align-items: center; justify-content: center; font-weight: 700">{{s.n}}</span>
+<span style="font-size: 18px; font-weight: 700">{{s.k}}</span>
+<span style="font-size: 14px; line-height: 1.7; color: #C9CEF0">{{s.d}}</span>
+</li>
+</sc-for>
+</ol>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">{{t.formulaH}}</h3>
+<div style="padding: 24px; border-radius: 12px; background: #0A0D24; border: 1px solid #1F2550; font-size: 16px; line-height: 2; font-variant-numeric: tabular-nums">
+<div style="font-weight: 700; color: {{cyan}}">{{t.f0}}</div>
+<div>{{t.f1}}</div><div>{{t.f2}}</div><div>{{t.f3}}</div>
+<div style="margin-top: 8px; color: #A3A9CF">{{t.f4}}</div>
+</div>
+<p style="margin: 0; font-size: 15px; line-height: 1.7; color: #C9CEF0">{{t.llm}}</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">{{t.tierH}}</h3>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{tiers}}" as="r" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px; padding: 18px; border-radius: 10px; border: 1.5px solid #2F366A"><span style="font-size: 14px; color: #A3A9CF; font-variant-numeric: tabular-nums">{{r.s}}</span><span style="font-size: 22px; font-weight: 700; color: {{cyan}}">{{r.p}}</span></div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 14px; color: #A3A9CF">{{t.tierNote}}</p>
+</div>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">03 · {{t.k3}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h3}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.8; color: #A3A9CF; max-width: 820px">{{t.p3}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 12px">
+<sc-for list="{{personas}}" as="p" hint-placeholder-count="6">
+<div style="display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; align-items: center; padding: 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52">
+<span style="width: 64px; height: 64px; border-radius: 50%; border: 2px solid {{cyan}}; display: flex; flex-direction: column; align-items: center; justify-content: center; font-variant-numeric: tabular-nums"><span style="font-size: 20px; font-weight: 700">{{p.s}}</span><span style="font-size: 10px; color: #A3A9CF">{{t.baseK}}</span></span>
+<span style="display: flex; flex-direction: column; gap: 4px; min-width: 0"><span style="font-size: 17px; font-weight: 700">{{p.k}} <span style="font-weight: 500; color: {{cyan}}">{{p.q}}</span></span><span style="font-size: 14px; line-height: 1.6; color: #C9CEF0">{{p.d}}</span><span style="font-size: 13px; color: #A3A9CF">{{t.worryK}}{{p.w}}</span></span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">04 · {{t.k4}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h4}}</h2></div>
+<p style="margin: 0; padding: 22px 24px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52; font-size: 17px; line-height: 1.8">{{t.exOut}}</p>
+<div style="border: 1px solid #252B52; border-radius: 10px; overflow: hidden">
+<sc-for list="{{calc}}" as="c" hint-placeholder-count="5">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 18px; border-bottom: 1px solid #1F2550; font-size: 15px; font-variant-numeric: tabular-nums"><span style="color: #A3A9CF">{{c.k}}</span><span style="font-weight: 700">{{c.v}}</span></div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 13px; color: #A3A9CF">{{t.demoNote}}</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="border-radius: 12px; overflow: hidden; border: 1px solid #2A3166"><img src="./55bdfa751eb7ac846720e1a76ac9fb8e.jpg" alt="{{t.exAlt}}" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #A3A9CF">{{t.exCap}}</figcaption></figure>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><div style="border-radius: 12px; overflow: hidden; border: 1px solid #2A3166"><img src="./efb7e16beea6180a9be646b764ca29d0.jpg" alt="{{t.protoAlt}}" style="display: block; width: 100%; height: auto"></div><figcaption style="font-size: 14px; color: #A3A9CF">{{t.protoCap}}</figcaption></figure>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">05 · {{t.k5}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h5}}</h2></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.p5}}</p>
+<a href="https://starning1020-sys.github.io/chictrip-esim-demo/" target="_blank" rel="noopener" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 22px; border-radius: 999px; border: 1.5px solid {{cyan}}; color: {{cyan}}; font-size: 16px; font-weight: 700; text-decoration: none">{{t.demoBtn}} <span aria-hidden="true">↗</span></a>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">06 · {{t.k6}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h6}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{goals}}" as="g" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52">
+<span style="font-size: 20px; font-weight: 700">{{g.k}}</span>
+<span style="font-size: 14px; line-height: 1.7; color: #C9CEF0">{{g.m}}</span>
+<span style="font-size: 13px; color: {{cyan}}">{{g.how}}</span>
+</div>
+</sc-for>
+</div>
+<p style="margin: 0; padding: 20px 24px; border-radius: 10px; background: #0A0D24; border: 1px solid #1F2550; font-size: 16px; line-height: 1.8; font-variant-numeric: tabular-nums">{{t.funnel}}</p>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<h3 style="margin: 0; font-size: 22px; font-weight: 700">{{t.riskH}}</h3>
+<div style="overflow-x: auto; border: 1px solid #252B52; border-radius: 10px">
+<table style="width: 100%; border-collapse: collapse; font-size: 15px; min-width: 520px">
+<thead><tr style="background: #0E1230"><th scope="col" style="text-align: left; padding: 12px 18px; font-weight: 500; color: #A3A9CF">{{t.colRisk}}</th><th scope="col" style="text-align: left; padding: 12px 18px; font-weight: 500; color: #A3A9CF">{{t.colFix}}</th></tr></thead>
+<tbody>
+<sc-for list="{{risks}}" as="r" hint-placeholder-count="6">
+<tr style="border-top: 1px solid #1F2550; vertical-align: top"><td style="padding: 12px 18px; font-weight: 700">{{r.k}}</td><td style="padding: 12px 18px; line-height: 1.7; color: #DDE1F7">{{r.d}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 32px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 14px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">07 · {{t.k7}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h7}}</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.p7}}</p>
+<dl style="margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{certFacts}}" as="cf" hint-placeholder-count="4"><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52"><dt style="font-size: 12px; letter-spacing: 0.12em; color: #A3A9CF">{{cf.k}}</dt><dd style="margin: 0; font-size: 15px; font-weight: 700; line-height: 1.5">{{cf.v}}</dd></div></sc-for>
+</dl>
+</div>
+<figure style="margin: 0; justify-self: center; width: 100%; max-width: 440px; border-radius: 12px; overflow: hidden; border: 1px solid #252B52; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45); transform: rotate(-1.5deg)"><img src="./0086d90a10bd452fbe0bab4e60b9ff5e.jpg" alt="{{t.certAlt}}" loading="lazy" style="display: block; width: 100%; height: auto"></figure>
+</section>
+
+<section style="padding: 56px 0 96px; border-top: 1px solid #1A1F42">
+<p style="margin: 0; font-size: 15px; line-height: 1.8; color: #A3A9CF; max-width: 860px">{{t.aiNote}}</p>
+</section>
+
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Alert.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">Spatial Alert</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":7600}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const cyan = '#5EC8FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    return {
+      accent, cyan,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      certFacts: [
+        { k: L('隊伍', 'Team'), v: 'STARNING' },
+        { k: L('成員', 'Members'), v: L('曹瑜耘、陳秉彥', 'Yuyun Tsao, Bingyan Chen') },
+        { k: L('作品', 'Entry'), v: L('行程配網師', 'Trip Data Planner') },
+        { k: L('投稿日期', 'Submitted'), v: L('2026/10/14', '14 Oct 2026') }
+      ],
+      t: {
+        k7: L('參賽證明', 'CERTIFICATE'),
+        h7: L('2026 和泰 AI 黑客松・參賽證明', '2026 Hotai AI Hackathon · certificate of participation'),
+        p7: L('雖然沒有進入 15 強決賽，但我們在 554 隊中完成了完整的提案，並拿到主辦單位和泰集團頒發的參賽證明。', 'We didn’t reach the final 15, but we completed a full proposal among 554 teams and received this certificate of participation from the organiser, Hotai Group.'),
+        certAlt: L('2026 和泰 AI 黑客松參賽證明：茲證明 STARNING，團隊成員曹瑜耘、陳秉彥，以作品「行程配網師」參加競賽，投稿日期 115 年 10 月 14 日', '2026 Hotai AI Hackathon certificate: STARNING (Yuyun Tsao, Bingyan Chen) took part with the entry Trip Data Planner, submitted 14 Oct 2026'),
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('黑客松', 'Hackathon'),
+        title: L('行程配網師', 'Trip Data Planner'),
+        sub: L('排好行程，eSIM 就配好', 'Plan your trip, and your eSIM is sorted'),
+        oneLine: L('為去趣（chicTrip）設計的 eSIM 智能銷售與服務體驗：用旅遊人格加上行程資料，讓 AI 在排行程的同時算出你的上網需求，eSIM 變成行程的一部分，而不是另外推銷。', 'An AI-powered eSIM sales and service experience for the chicTrip travel app: combining a travel persona with your itinerary, it works out your data needs while you plan — so the eSIM becomes part of the trip, not a separate sales pitch.'),
+        demoBtn: L('試用互動原型', 'Try the prototype'),
+        coverAlt: L('簡報封面：chicTrip 排好行程，eSIM 就配好', 'Pitch cover: chicTrip — plan your trip, and your eSIM is sorted'),
+        coverCap: L('提案簡報封面', 'Pitch deck cover'),
+        k1: L('發現問題', 'THE PROBLEM'),
+        h1: L('旅客買 eSIM 的難題，是不確定，不只是價格', 'Buying an eSIM is hard because of uncertainty, not just price'),
+        p1: L('eSIM 已是出國上網的主流，但品牌多、報價亂、沒有共識。我們從約 180 則公開留言（Google 一星評論、Dcard、PTT、Threads）歸納旅客痛點，放進「規劃、選購、出發前、落地使用、分享」五個階段，找出不確定感最集中的地方。', 'eSIMs are now the default for travel data, but there are many brands, inconsistent prices and no consensus. We analysed about 180 public posts (Google one-star reviews, Dcard, PTT, Threads), mapped them onto five stages — planning, buying, pre-departure, arrival and sharing — and found where uncertainty peaks.'),
+        quote: L('去趣的對手不是別的 App，而是「Google 地圖加 Excel」。', 'chicTrip’s real competitor isn’t another app — it’s Google Maps plus Excel.'),
+        method: L('質化觀察，用於形成痛點假設，非統計代表。資料來源：交通部觀光署、GSMA（經 Ubigi 引述）、NCC。', 'Qualitative observations used to form hypotheses, not a statistical sample. Sources: Tourism Administration, GSMA (via Ubigi), NCC.'),
+        k2: L('提出方案', 'THE SOLUTION'),
+        h2: L('用行程算出上網需求，讓 eSIM 成為行程的一部分', 'Use the itinerary to work out data needs'),
+        formulaH: L('計算規則', 'The formula'),
+        f0: L('預估分數 S = 人格基準分', 'Score S = persona base'),
+        f1: L('＋ 0.5 × 自駕日占比', '+ 0.5 × share of driving days'),
+        f2: L('＋ 0.3 × 山區郊區日占比', '+ 0.3 × share of rural/mountain days'),
+        f3: L('＋ 0.4 × 共用熱點的旅伴人數（上限 1.2）', '+ 0.4 × companions sharing a hotspot (max 1.2)'),
+        f4: L('預估範圍 = S × 0.8 到 S × 1.25', 'Range = S × 0.8 to S × 1.25'),
+        llm: L('數字由規則計算，LLM 只負責用白話解釋，可驗證、不亂報。能從行程推斷的不要問，人格測驗只問行程看不出來的 4 題。', 'The numbers come from rules; the LLM only explains them in plain language — verifiable, no made-up figures. Anything the itinerary can tell us isn’t asked: the persona quiz has just four questions.'),
+        tierH: L('分數對應方案', 'Score to plan'),
+        tierNote: L('若旅途中用量不足，提供加購方案。（示意係數，非實測數據）', 'If data runs short, a top-up is offered. (Illustrative coefficients, not measured data.)'),
+        k3: L('旅遊人格', 'PERSONAS'),
+        h3: L('6 種旅遊人格與推薦邏輯', 'Six travel personas'),
+        p3: L('30 秒人格測驗（4 題、圖像選擇）＋行程資料，由 GenAI 產出個人化報告：旅遊人格卡、行程建議，以及這趟適合的 eSIM 方案和理由。', 'A 30-second, four-question picture quiz plus itinerary data; GenAI then produces a personal report — persona card, trip tips, and the right eSIM plan with reasons.'),
+        baseK: L('基準分', 'base'), worryK: L('最擔心：', 'Main worry: '),
+        k4: L('實際範例', 'WORKED EXAMPLE'),
+        h4: L('日本四國 5 天自駕', '5-day self-drive in Shikoku, Japan'),
+        exOut: L('「你這趟 5 天、其中 3 天自駕、2 天在山區，預估每天約 2.1 到 3.3 GB。建議選每日 3 GB 的方案，並在出發前下載離線地圖。」', '“Your 5-day trip has 3 driving days and 2 in the mountains — about 2.1 to 3.3 GB a day. We suggest the 3 GB/day plan, and downloading offline maps before you go.”'),
+        demoNote: L('示意係數，非實測數據', 'Illustrative coefficients, not measured data'),
+        exAlt: L('簡報頁：日本四國 5 天自駕的演算法輸出範例', 'Slide: algorithm output for a 5-day Shikoku drive'),
+        exCap: L('演算法輸出範例', 'Algorithm output example'),
+        k5: L('證明可行', 'PROOF OF CONCEPT'),
+        h5: L('可實際操作的互動原型', 'A working interactive prototype'),
+        p5: L('我們利用 GitHub 結合 Claude AI，做出一個使用模擬資料的網站：調整行程，eSIM 建議會即時變動。目前為示範版本，正式版將串接去趣的行程與 eSIM 方案，嵌入 App 與官網的行程頁面。', 'Using GitHub and Claude AI, we built a site with simulated data: change the itinerary and the eSIM suggestion updates instantly. It’s a demo; the full version would connect to chicTrip’s itineraries and eSIM plans inside the app and website.'),
+        protoAlt: L('行程配網師原型畫面與手機版 QR Code', 'Prototype screen and mobile QR code'),
+        protoCap: L('行程配網師互動原型（模擬資料）', 'The prototype (simulated data)'),
+        k6: L('預期效益', 'EXPECTED IMPACT'),
+        h6: L('三個目標，以指標與 A/B 測試驗證', 'Three goals, measured with metrics and A/B tests'),
+        funnel: L('新增銷量 ≈ 行程使用者數 × 推薦曝光率 × 點擊率 × 購買率', 'New sales ≈ itinerary users × recommendation exposure × click-through × purchase rate'),
+        riskH: L('風險我們已經想過', 'Risks we’ve considered'),
+        colRisk: L('風險', 'Risk'), colFix: L('對策', 'Response'),
+        aiNote: L('原型網站使用模擬資料；簡報中的係數為示意值，非實測數據。', 'The prototype uses simulated data; coefficients in the deck are illustrative, not measured.'),
+        nextK: L('下一件作品', 'Next work')
+      },
+      meta: [
+        { k: L('團隊', 'Team'), v: L('STARNING｜曹瑜耘、陳秉彥', 'STARNING · Yuyun Tsao, Bingyan Chen') },
+        { k: L('競賽', 'Competition'), v: L('2026 和泰 AI 黑客松', '2026 Hotai AI Hackathon') },
+        { k: L('年份', 'Year'), v: '2026' },
+        { k: L('結果', 'Result'), v: L('未入圍決賽（554 隊報名，15 隊晉級）', 'Not in the final (554 teams entered, 15 advanced)') },
+        { k: L('技術', 'Tech'), v: L('GenAI・規則引擎・互動原型', 'GenAI · rules engine · prototype') }
+      ],
+      insights: [
+        { n: '01', k: L('不確定感大於價格', 'Uncertainty beats price'), d: L('旅客問的是「要買幾 GB」「怕不會裝」「落地才研究會很緊張」。大家都說有折扣，價格已經不是差異點。', 'Travellers ask “how many GB?” and worry about installing it or figuring it out on arrival. Everyone offers discounts, so price no longer sets anyone apart.') },
+        { n: '02', k: L('規劃與買網是同一時刻', 'Planning and buying happen together'), d: L('買 eSIM 的人剛排完行程，甚至先問 ChatGPT 再整理進去趣。行程資料是最好的個人化依據，但兩件事目前被分開處理。', 'People buy an eSIM right after planning — some even ask ChatGPT first. The itinerary is the best basis for personalisation, yet the two are handled separately.') },
+        { n: '03', k: L('信任出現缺口', 'A trust gap'), d: L('評論提到「網紅合作廣告打很大」、好評用語雷同，有人直接問「是不是業配」。', 'Reviews mention heavy influencer ads and near-identical praise; some ask outright whether posts are sponsored.') }
+      ],
+      steps: [
+        { n: '1', k: L('30 秒人格測驗', '30-second quiz'), d: L('4 題、圖像選擇，降低填表負擔', 'Four picture questions, minimal effort') },
+        { n: '2', k: L('GenAI 分析', 'GenAI analysis'), d: L('結合人格與行程：天數、地區、自駕、郊區比例', 'Combines persona with days, region, driving and rural share') },
+        { n: '3', k: L('個人化報告', 'Personal report'), d: L('人格卡、行程建議、適合的 eSIM 方案和理由', 'Persona card, trip tips, the right eSIM plan and why') },
+        { n: '4', k: L('行動與分享', 'Act and share'), d: L('一鍵購買、出發前提醒、分享人格卡、邀旅伴', 'One-tap purchase, reminders, share the card, invite friends') }
+      ],
+      tiers: [
+        { s: 'S < 1.5', p: L('每日 1GB', '1 GB/day') },
+        { s: '1.5 ≤ S < 2.5', p: L('每日 2GB', '2 GB/day') },
+        { s: '2.5 ≤ S < 3.5', p: L('每日 3GB', '3 GB/day') },
+        { s: 'S ≥ 3.5', p: L('吃到飽', 'Unlimited') }
+      ],
+      personas: [
+        { k: L('自駕探險型', 'Road explorer'), q: L('「導航不能斷」', '“Navigation can’t drop”'), s: '2.2', d: L('租車上路、愛去郊區與山區', 'Rents a car, loves the countryside and mountains'), w: L('開車途中斷網、山區沒訊號', 'losing signal while driving') },
+        { k: L('打卡分享型', 'Content creator'), q: L('「限動製造機」', '“Story machine”'), s: '3.0', d: L('隨拍隨發，影片與直播多', 'Posts constantly, lots of video and live streams'), w: L('流量被吃光、上傳太慢', 'running out of data, slow uploads') },
+        { k: L('美食購物型', 'Food & shopping'), q: L('「評價研究員」', '“Review researcher”'), s: '1.8', d: L('查評價、找店、翻譯、行動支付', 'Checks reviews, finds shops, translates, pays by phone'), w: L('市區網速穩不穩', 'city network reliability') },
+        { k: L('文化慢遊型', 'Slow wanderer'), q: L('「輕裝漫步派」', '“Travels light”'), s: '1.4', d: L('步行為主，偶爾查資料與導航', 'Mostly walks, occasional look-ups'), w: L('不想多花錢', 'spending too much') },
+        { k: L('首次獨旅型', 'First solo trip'), q: L('「安心第一」', '“Peace of mind first”'), s: '1.6', d: L('第一次出國或第一次用 eSIM', 'First trip abroad or first eSIM'), w: L('不會裝、落地才研究會緊張', 'not knowing how to install it') },
+        { k: L('工作旅人型', 'Remote worker'), q: L('「隨處辦公」', '“Office anywhere”'), s: '3.6', d: L('旅途中要視訊、雲端、熱點', 'Needs video calls, cloud and hotspot on the go'), w: L('網路不穩影響工作', 'unstable connection hurting work') }
+      ],
+      calc: [
+        { k: L('基準（自駕探險型）', 'Base (road explorer)'), v: '2.2' },
+        { k: L('自駕修正', 'Driving'), v: '0.5 × 0.6 = 0.30' },
+        { k: L('山區修正', 'Mountains'), v: '0.3 × 0.4 = 0.12' },
+        { k: 'S', v: '2.62' },
+        { k: L('範圍', 'Range'), v: L('約 2.1 到 3.3 GB／天', 'about 2.1–3.3 GB/day') }
+      ],
+      goals: [
+        { k: L('提升品牌曝光與心佔率', 'Brand awareness'), m: L('人格分享卡分享率、帶來的新訪客與新註冊、旅客實測回傳數、品牌關鍵字聲量', 'Persona-card shares, new visitors and sign-ups, user test reports, brand keyword volume'), how: L('分享連結加追蹤參數，對照活動前後', 'Tracked share links, before vs. after') },
+        { k: L('極大化轉換率', 'Conversion'), m: L('行程到 eSIM 的點擊率、點擊到購買率、客單價、附加率', 'Itinerary-to-eSIM clicks, purchase rate, basket size, attach rate'), how: L('A/B：有無行程配網師', 'A/B: with vs. without the planner') },
+        { k: L('深化服務與口碑', 'Service & reputation'), m: L('出發前完成安裝率、落地連線確認率、落地後留評率、NPS；護欄指標：退款率、客服詢問率', 'Pre-trip install rate, arrival connection, reviews, NPS; guardrails: refunds and support tickets'), how: L('確保推薦是「配對」，不是「多賣」', 'Make sure we match, not upsell') }
+      ],
+      risks: [
+        { k: L('流量估算有誤差', 'Estimates may be off'), d: L('輸出範圍加保險選項，流量不足時提供加購提醒', 'Show a safety option and offer top-ups when data runs low') },
+        { k: L('行程屬個人資料', 'Itineraries are personal data'), d: L('明確取得同意、限定用途、可隨時刪除', 'Clear consent, limited use, delete anytime') },
+        { k: L('App 穩定度影響導購入口', 'App stability'), d: L('列為前提，MVP 先從最穩定的流程切入', 'Treat as a prerequisite; start the MVP with the most stable flow') },
+        { k: L('eSIM 網路出口透明度', 'eSIM network transparency'), d: L('先向去趣確認網路架構，再決定是否以透明揭露為賣點', 'Confirm the network setup with chicTrip before using it as a selling point') },
+        { k: L('獎勵式分享違規', 'Incentivised sharing'), d: L('獎勵綁定「分享體驗」，不綁定「給好評」，並揭露誘因', 'Reward sharing experiences, not positive reviews, and disclose incentives') },
+        { k: L('部分人格被貼標籤', 'Persona labelling'), d: L('人格只決定起點，使用者可調整，並附推薦理由', 'Personas are only a starting point; users can adjust, with reasons shown') }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

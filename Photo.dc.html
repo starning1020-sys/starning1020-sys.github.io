@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：攝影作品 Photography</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 48px; display: flex; flex-direction: column; gap: 24px">
+<span style="align-self: flex-start; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
+<h1 style="margin: 0; font-size: clamp(44px, 7vw, 88px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 700">{{t.title}}</h1>
+<p style="margin: 0; font-size: 20px; line-height: 1.7; color: #A3A9CF; max-width: 720px">{{t.lead}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 32px; padding-top: 24px; border-top: 1px solid #1F2550">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{t.byK}}</span><span style="font-size: 16px; font-weight: 500">{{t.byV}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{t.countK}}</span><span style="font-size: 16px; font-weight: 500">{{t.countV}}</span></div>
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{t.yearK}}</span><span style="font-size: 16px; font-weight: 500">{{t.yearV}}</span></div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 16px 24px 112px">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 32px 24px; align-items: start">
+<sc-for list="{{photos}}" as="p" hint-placeholder-count="5">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<button type="button" onClick="{{p.open}}" aria-label="{{p.openLabel}}" style="display: block; width: 100%; padding: 0; border: 1px solid #252B52; border-radius: 6px; overflow: hidden; background: #0E1230; cursor: zoom-in">
+<img src="{{p.src}}" alt="{{p.alt}}" style="display: block; width: 100%; height: auto">
+</button>
+<figcaption style="display: flex; align-items: baseline; gap: 10px">
+<span style="font-size: 13px; color: {{accent}}; font-variant-numeric: tabular-nums">{{p.n}}</span>
+<span style="font-size: 16px; font-weight: 500">{{p.title}}</span>
+</figcaption>
+</figure>
+</sc-for>
+</div>
+</section>
+
+<sc-if value="{{isOpen}}" hint-placeholder-val="{{ false }}">
+<div role="dialog" aria-modal="true" aria-label="{{cur.alt}}" style="position: fixed; inset: 0; z-index: 50; background: rgba(3, 4, 13, 0.94); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 24px">
+<img src="{{cur.src}}" alt="{{cur.alt}}" style="max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain; border-radius: 4px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px">
+<button type="button" onClick="{{prev}}" aria-label="{{t.prev}}" style="font: inherit; min-width: 44px; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1.5px solid #2F366A; background: transparent; color: #EEF0FF; cursor: pointer">←</button>
+<span style="font-size: 15px; color: #C9CEF0; min-width: 120px; text-align: center">{{cur.n}} · {{cur.title}}</span>
+<button type="button" onClick="{{next}}" aria-label="{{t.next}}" style="font: inherit; min-width: 44px; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1.5px solid #2F366A; background: transparent; color: #EEF0FF; cursor: pointer">→</button>
+<button type="button" onClick="{{close}}" style="font: inherit; min-height: 44px; padding: 8px 18px; border-radius: 999px; border: none; background: {{accent}}; color: #060818; font-weight: 500; cursor: pointer">{{t.close}}</button>
+</div>
+</div>
+</sc-if>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="index.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.moreK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.moreV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":3600}}'>
+class Component extends DCLogic {
+  state = { lang: null, open: -1 };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const raw = [
+      { title: ['盡頭', 'The Far End'], src: './6901d561ae90d1fe62bcfe9c4f90ac36.jpg', alt: ['深藍磁磚牆夾著的走廊，盡頭透進強光', 'A corridor between glossy navy tiled walls, bright light at the far end'] },
+      { title: ['光之羽翼', 'Wings of Light'], src: './549560fd955d7ad877f56813af4f1b9e.jpg', alt: ['從藍色欄杆望向校舍中庭，一棵小樹與走過樓梯的人', 'Looking past a blue railing into the school courtyard: a young tree and a person crossing the stairs'] },
+      { title: ['望', 'Gaze'], src: './b322ffb140541958123e9f5901c7bbf4.jpg', alt: ['暗框中的明亮中庭，樹立在白色花台上', 'A bright courtyard framed in darkness, a tree standing on a white planter'] },
+      { title: ['倒影', 'Reflection'], src: './3a9b4a7584f2f4f9b6302d293bd929e9.jpg', alt: ['藍天下的斜角建築與光影，深色木地板', 'Angled building edges and light against blue sky, dark wooden deck'] },
+      { title: ['落', 'Fall'], src: './832407f53b2b1e92f75fc8039d177c2c.jpg', alt: ['從走廊欄杆望向藍天白雲與遠方城市', 'Blue sky and clouds over a distant city, seen from a balcony railing'] }
+    ];
+    const photos = raw.map((p, i) => ({
+      src: p.src,
+      alt: L(p.alt[0], p.alt[1]),
+      n: String(i + 1).padStart(2, '0'),
+      title: L(p.title[0], p.title[1]),
+      openLabel: L('放大檢視：', 'View larger: ') + L(p.alt[0], p.alt[1]),
+      open: () => this.setState({ open: i })
+    }));
+    const o = this.state.open;
+    const isOpen = o >= 0 && o < photos.length;
+    const cur = isOpen ? photos[o] : { src: '', alt: '', n: '', title: '' };
+    const count = photos.length;
+    return {
+      accent, photos, isOpen, cur,
+      prev: () => this.setState({ open: (o - 1 + count) % count }),
+      next: () => this.setState({ open: (o + 1) % count }),
+      close: () => this.setState({ open: -1 }),
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true',
+      enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle,
+      enBtn: isEn ? onStyle : offStyle,
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('攝影', 'Photography'),
+        title: L('攝影作品', 'Photography'),
+        lead: L('透過高飽和的色調與明暗對比，捕捉學校的美。', 'Capturing the beauty of my school through saturated colour and strong light and shadow.'),
+        byK: L('攝影', 'Photographer'), byV: L('曹瑜耘', 'Yuyun Tsao'),
+        countK: L('張數', 'Photos'), countV: L(count + ' 張', String(count)),
+        yearK: L('年份', 'Year'), yearV: '2026',
+        prev: L('上一張', 'Previous'), next: L('下一張', 'Next'), close: L('關閉', 'Close'),
+        moreK: L('看更多', 'See more'), moreV: L('回到作品與研究', 'Back to works')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

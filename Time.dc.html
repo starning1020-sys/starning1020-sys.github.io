@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：量子時間科展研究</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;900&amp;family=Newsreader:ital,wght@0,400;1,400&amp;family=JetBrains+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<!-- HERO -->
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<img src="./80e2f90693b0936c94efac2d01564d54.jpg" alt="" aria-hidden="true" style="position: absolute; right: -6%; top: 50%; transform: translateY(-50%); width: min(720px, 70%); opacity: 0.55; pointer-events: none">
+<div style="position: absolute; inset: 0; background: linear-gradient(90deg, #060818 35%, rgba(6, 8, 24, 0.4) 75%, rgba(6, 8, 24, 0.1)); pointer-events: none"></div>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px 80px; display: flex; flex-direction: column; gap: 26px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{cyan}}">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid {{violet}}; border-radius: 999px; font-size: 14px; color: {{violet}}"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{violet}}"></span>{{t.status}}</span>
+</div>
+<h1 style="margin: 0; max-width: 820px; font-family: 'Noto Serif TC', serif; font-size: clamp(40px, 6vw, 76px); line-height: 1.15; font-weight: 900; letter-spacing: 0.01em">{{t.title}}</h1>
+<p style="margin: 0; max-width: 680px; font-size: 19px; line-height: 1.8; color: #C9CEF0">{{t.subtitle}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px 24px; padding-top: 26px; border-top: 1px solid #1F2550; max-width: 820px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 500; line-height: 1.5">{{m.v}}</span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<!-- 01 QUESTION -->
+<section style="padding: 88px 0 72px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 18px; max-width: 900px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">01 · {{t.k1}}</span>
+<p style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 600; line-height: 1.4">「{{t.question}}」</p>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #A3A9CF">{{t.qLead}}</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 14px; padding: clamp(20px, 3vw, 36px); border-radius: 16px; background: #0A0D24; border: 1px solid #1F2550">
+<svg role="img" aria-label="{{t.diagAlt}}" viewBox="0 0 960 360" style="width: 100%; height: auto; display: block">
+<rect x="20" y="20" width="920" height="320" rx="20" fill="none" stroke="#2A3166" stroke-dasharray="6 6"></rect>
+<text x="44" y="56" fill="#A3A9CF" font-size="16" font-family="Noto Sans TC, sans-serif">{{t.dUniverse}}</text>
+<text x="44" y="84" fill="#EEF0FF" font-size="22" font-style="italic" font-family="Newsreader, Georgia, serif">Ĥ |Ψ⟩ = 0</text>
+<circle cx="250" cy="200" r="76" fill="#0E1A33" stroke="{{cyan}}" stroke-width="2"></circle>
+<g stroke="{{cyan}}" stroke-width="2" stroke-linecap="round"><line x1="250" y1="200" x2="250" y2="148"></line><line x1="250" y1="200" x2="284" y2="216"></line></g>
+<circle cx="250" cy="200" r="5" fill="#EEF0FF"></circle>
+<text x="250" y="304" text-anchor="middle" fill="{{cyan}}" font-size="18" font-weight="700" font-family="Noto Sans TC, sans-serif">{{t.dClock}}</text>
+<circle cx="710" cy="200" r="76" fill="#1C1433" stroke="{{violet}}" stroke-width="2"></circle>
+<path d="M670 220 Q690 160 710 200 T750 180" fill="none" stroke="{{violet}}" stroke-width="2.5" stroke-linecap="round"></path>
+<text x="710" y="304" text-anchor="middle" fill="{{violet}}" font-size="18" font-weight="700" font-family="Noto Sans TC, sans-serif">{{t.dSystem}}</text>
+<path d="M330 200 C380 150 420 250 480 200 S580 150 630 200" fill="none" stroke="#EEF0FF" stroke-opacity="0.6" stroke-width="2" stroke-dasharray="2 8" stroke-linecap="round"></path>
+<text x="480" y="168" text-anchor="middle" fill="#C9CEF0" font-size="16" font-family="Noto Sans TC, sans-serif">{{t.dEnt}}</text>
+<text x="480" y="252" text-anchor="middle" fill="#FFD38A" font-size="20" font-style="italic" font-family="Newsreader, Georgia, serif">|ψ(t)⟩ ∝ ⟨t|Ψ⟩</text>
+<text x="480" y="280" text-anchor="middle" fill="#A3A9CF" font-size="15" font-family="Noto Sans TC, sans-serif">{{t.dCond}}</text>
+</svg>
+<figcaption style="font-size: 15px; line-height: 1.7; color: #A3A9CF">{{t.diagCap}}</figcaption>
+</figure>
+</section>
+
+<!-- 02 FROM IDEA TO FEASIBLE -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">02 · {{t.k2}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h2}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 14px; background: #120E1E; border: 1px solid #3A2440">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: #FF8A8F">{{t.beforeK}}</span>
+<p style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.6">{{t.beforeT}}</p>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{before}}" as="b" hint-placeholder-count="3"><li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #C9CEF0"><span style="color: #FF8A8F; flex: none">✕</span>{{b.v}}</li></sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px; padding: 28px; border-radius: 14px; background: #0B1A22; border: 1px solid #1F4A55">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: {{cyan}}">{{t.afterK}}</span>
+<p style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.6">{{t.afterT}}</p>
+<ol style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{after}}" as="a" hint-placeholder-count="3"><li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.7; color: #C9CEF0"><b style="color: {{cyan}}; flex: none; font-variant-numeric: tabular-nums">{{a.n}}</b>{{a.v}}</li></sc-for>
+</ol>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 900px">{{t.feasNote}}</p>
+</section>
+
+<!-- 03 JOURNEY -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">03 · {{t.k3}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h3}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{stages}}" as="s" hint-placeholder-count="6">
+<li style="display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 0 clamp(14px, 3vw, 28px)">
+<div style="display: flex; flex-direction: column; align-items: center"><span style="flex: none; width: 48px; height: 48px; border-radius: 50%; border: 2px solid {{s.c}}; background: #060818; color: {{s.c}}; display: flex; align-items: center; justify-content: center; font-weight: 700">{{s.n}}</span><span aria-hidden="true" style="flex: 1; width: 2px; min-height: 24px; background: linear-gradient({{s.c}}, #1F2550)"></span></div>
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 6px 0 36px; min-width: 0">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: {{s.c}}; font-variant-numeric: tabular-nums">{{s.date}}</span><h3 style="margin: 0; font-size: 21px; font-weight: 700">{{s.h}}</h3></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">{{s.p}}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{s.chips}}" as="ch" hint-placeholder-count="3"><span style="padding: 4px 12px; border-radius: 999px; background: #0E1230; border: 1px solid #252B52; font-size: 13px; color: #A3A9CF">{{ch.v}}</span></sc-for></div>
+</div>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<!-- 04 CONCEPTS -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">04 · {{t.k4}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h4}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 14px">
+<sc-for list="{{concepts}}" as="c" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 24px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52">
+<span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 24px; color: #FFD38A">{{c.f}}</span>
+<h3 style="margin: 0; font-size: 18px; font-weight: 700">{{c.h}}</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.75; color: #A3A9CF">{{c.p}}</p>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px 32px; align-items: center; padding: 24px 28px; border-radius: 14px; border: 1px solid {{violet}}; background: rgba(201, 168, 255, 0.06)">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.16em; color: {{violet}}">{{t.refK}}</span>
+<span style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 4px"><span style="font-family: 'Newsreader', Georgia, serif; font-style: italic; font-size: 20px; line-height: 1.4">On the Emergence of Time and Space in Closed Quantum Systems</span><span style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{t.refV}}</span></span>
+</div>
+</section>
+
+<!-- 05 PLAN -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">05 · {{t.k5}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h5}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 10px">
+<sc-for list="{{chapters}}" as="cp" hint-placeholder-count="6"><li style="{{cp.style}}"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: {{cp.c}}">{{cp.n}}</span><span style="font-size: 17px; font-weight: 700">{{cp.k}}</span><span style="font-size: 13px; line-height: 1.6; color: #A3A9CF">{{cp.d}}</span></li></sc-for>
+</ol>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 24px 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">{{t.codeK}}</span>
+<pre style="margin: 0; padding: 20px 22px; border-radius: 12px; background: #03040D; border: 1px solid #252B52; overflow-x: auto; font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; line-height: 1.7; color: #C9CEF0"><span style="color: #7A82B0">// {{t.codeC1}}</span>
+using State = std::vector&lt;std::complex&lt;double&gt;&gt;;
+const std::complex&lt;double&gt; I(0.0, 1.0);
+<span style="color: #7A82B0">// {{t.codeC2}}</span>
+State clock(double a, double t) {
+  return { std::exp(I*a*t) / std::sqrt(2.0),
+           std::exp(-I*a*t) / std::sqrt(2.0) };
+}</pre>
+<span style="font-size: 13px; line-height: 1.6; color: #7A82B0">{{t.codeNote}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">{{t.progK}}</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px">
+<sc-for list="{{progress}}" as="pg" hint-placeholder-count="9"><li style="display: flex; gap: 12px; align-items: flex-start; font-size: 15px; line-height: 1.6; color: {{pg.tc}}"><span aria-hidden="true" style="{{pg.box}}">{{pg.mark}}</span>{{pg.v}}</li></sc-for>
+</ul>
+</div>
+</div>
+<p style="margin: 0; padding: 18px 22px; border-radius: 12px; border: 1.5px dashed #2F366A; font-size: 15px; line-height: 1.8; color: #A3A9CF">{{t.verify}}</p>
+</section>
+
+<!-- 06 LEARNING LOG -->
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 20px 56px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{cyan}}">06 · {{t.k6}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h6}}</h2></div>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{studyLog}}" as="sl" hint-placeholder-count="3"><span style="display: flex; flex-direction: column; gap: 2px; padding: 12px 16px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52"><b style="font-size: 15px; color: {{cyan}}; font-variant-numeric: tabular-nums">{{sl.d}}</b><span style="font-size: 13px; color: #A3A9CF">{{sl.v}}</span></span></sc-for>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 12px">
+<sc-for list="{{skills}}" as="sk" hint-placeholder-count="7">
+<div style="display: flex; flex-direction: column; gap: 10px; padding: 20px 22px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52; border-left: 4px solid {{sk.c}}">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px"><h3 style="margin: 0; font-size: 17px; font-weight: 700; line-height: 1.5">{{sk.k}}</h3><span style="flex: none; padding: 3px 10px; border-radius: 999px; border: 1.5px solid {{sk.c}}; color: {{sk.c}}; font-size: 12px; font-weight: 700; white-space: nowrap">{{sk.s}}</span></div>
+<div aria-hidden="true" style="height: 6px; border-radius: 999px; background: #1A1F42; overflow: hidden"><div style="height: 100%; width: {{sk.w}}; border-radius: 999px; background: {{sk.c}}"></div></div>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #A3A9CF">{{sk.n}}</p>
+</div>
+</sc-for>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 24px 26px; border-radius: 14px; border: 1.5px dashed #FFD38A; background: rgba(255, 211, 138, 0.05)">
+<span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #FFD38A">{{t.habitK}}</span>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 10px 24px">
+<sc-for list="{{habits}}" as="hb" hint-placeholder-count="4"><li style="display: flex; gap: 10px; font-size: 15px; line-height: 1.6"><span aria-hidden="true" style="color: #FFD38A">◆</span>{{hb.v}}</li></sc-for>
+</ul>
+</div>
+<div style="display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{violet}}">{{t.weekK}}</span><span style="font-size: 14px; color: #A3A9CF">11/16–11/20</span></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr)); gap: 10px">
+<sc-for list="{{week}}" as="wk" hint-placeholder-count="5">
+<li style="display: flex; flex-direction: column; gap: 8px; padding: 18px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{violet}}">
+<span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: {{violet}}">{{wk.d}}</span>
+<span style="font-size: 16px; font-weight: 700; line-height: 1.5">{{wk.k}}</span>
+<span style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{wk.v}}</span>
+<span style="font-size: 13px; line-height: 1.5; color: #7A82B0">C++・{{wk.c}}</span>
+</li>
+</sc-for>
+</ol>
+<p style="margin: 0; font-size: 14px; line-height: 1.7; color: #A3A9CF">{{t.weekend}}</p>
+</div>
+</section>
+
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Brain.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":7200}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const cyan = '#5EC8FF', violet = '#C9A8FF', gold = '#FFD38A';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const chips = arr => arr.map(v => ({ v }));
+    const stCol = [cyan, cyan, '#7EE6D6', gold, violet, violet];
+    const stages = [
+      ['10.16', L('前言初稿的檢討與改寫', 'Rethinking the first draft'), L('原本的動機很真誠，但「量子的一秒等於宏觀的數百萬年」在物理上不成立。重新改寫前言與研究目的，並把文獻回顧分成五大類。', 'The motivation was sincere, but “one quantum second equals millions of years” is not physics. Rewrote the introduction and aims, and organised the literature review into five themes.'), [L('時間是外部參數', 'Time is a parameter'), L('特徵時間尺度 t/τ', 'Timescale ratio t/τ'), L('文獻五大類', 'Five review themes')]],
+      ['10.16', L('arXiv 文獻搜尋與篩選', 'Searching and filtering arXiv'), L('評估了四篇文獻，只有 Favalli 的博士論文貼近主題。學到用具體關鍵字取代「時間」「量子」這類大字眼，並以英文原文為準。', 'Evaluated four papers; only Favalli’s PhD thesis fit. Learned to search with specific keywords instead of broad words like “time” and “quantum”, and to trust the English original.'), [L('4 篇評估', '4 papers checked'), 'quant-ph · gr-qc', L('預印本要標明', 'Flag preprints')]],
+      ['10.16', L('讀懂 Page–Wootters 兩粒子推導', 'Working through the two-particle derivation'), L('讀懂論文第 2 章的三個式子：整體態不隨時間變，但以時鐘讀數為條件，系統的狀態就被確定。還抓到圖中一個分母的排版小錯。', 'Worked through three equations in Chapter 2: the global state never changes, yet conditioned on the clock reading the system’s state is fixed. Also spotted a small typo in one denominator.'), [L('糾纏態', 'Entangled state'), L('條件機率', 'Conditional probability'), L('自旋時鐘', 'Spin clock')]],
+      ['10.16', L('研究可行性分析', 'Feasibility check'), L('把題目從「論證一個未解的大問題」收斂成「用簡單模型做可計算的探討」，數學需求中等、不需設備。', 'Narrowed the project from arguing an open problem to a computable study of a simple model: moderate maths, no equipment.'), [L('原題不可行 3 點', '3 reasons it failed'), L('可行版本 3 項工作', '3 feasible tasks')]],
+      ['10.17', L('博士論文導讀與閔考斯基時空', 'Reading the thesis; Minkowski spacetime'), L('取得約 200 頁的主要文獻，讀了摘要、目錄與結論，排出閱讀順序。也整理了閔考斯基時空：可以在前言提到，但不當研究對象。', 'Got the ~200-page main source, read the abstract, contents and conclusions, and planned a reading order. Also reviewed Minkowski spacetime: worth mentioning in the introduction, but not the object of study.'), [L('約 200 頁', '~200 pages'), L('閱讀順序', 'Reading order'), L('光錐與固有時', 'Light cones, proper time')]],
+      ['11.11', L('延伸問題與方向聚焦', 'Follow-up questions; focusing in'), L('思考「每個人活 100 年一樣長嗎？」「思考密度高時間會變慢嗎？」後，確定主線：Page–Wootters 機制，計算工具用 C++。', 'After asking “Is everyone’s 100 years the same length?” and “Does dense thinking slow time?”, the focus was set: the Page–Wootters mechanism, computed in C++.'), [L('相對論時間', 'Relativistic time'), L('主觀時間', 'Subjective time'), L('主線確定', 'Main line set')]]
+    ].map(([date, h, p, ch], i) => ({ n: String(i + 1), date, h, p, chips: chips(ch), c: stCol[i] }));
+    const chapters = [
+      [L('前言', 'Introduction'), L('時間是某個時鐘的讀數', 'Time as a clock reading')],
+      [L('背景', 'Background'), L('量子力學中的時間', 'Time in quantum mechanics')],
+      [L('理論', 'Theory'), 'Page–Wootters'],
+      [L('計算', 'Computation'), L('自己做出來的部分', 'My own work')],
+      [L('討論', 'Discussion'), L('延伸與限制', 'Extensions, limits')],
+      [L('結論與展望', 'Conclusion'), L('下一步', 'What’s next')]
+    ].map(([k, d], i) => {
+      const own = i === 3;
+      return { n: L('第 ' + (i + 1) + ' 章', 'CH ' + (i + 1)), k, d, c: own ? gold : '#A3A9CF',
+        style: 'display: flex; flex-direction: column; gap: 6px; padding: 18px; border-radius: 12px; ' + (own ? 'background: rgba(255, 211, 138, 0.10); border: 1.5px solid ' + gold + ';' : 'background: #0E1230; border: 1px solid #252B52;') };
+    });
+    const prog = [
+      [true, L('改寫前言與研究目的', 'Rewrite introduction and aims')],
+      [true, L('找到主要文獻（Favalli，2025）', 'Find the main source (Favalli, 2025)')],
+      [true, L('讀懂兩粒子糾纏態與條件機率的推導', 'Understand the two-particle derivation')],
+      [true, L('確定研究主線與架構', 'Set the research focus and structure')],
+      [false, L('第一課習題：x 基底改寫與條件機率', 'Exercise 1: x basis and conditional probability')],
+      [false, L('第二課：加入時間相位，用 C++ 實作會轉的時鐘', 'Exercise 2: add the time phase; code a rotating clock in C++')],
+      [false, L('細讀 Favalli 第 1 章與第 2.1–2.2 節', 'Read Favalli Ch. 1 and §2.1–2.2 closely')],
+      [false, L('以「時間是時鐘的讀數」為主軸改寫前言', 'Rewrite the introduction around “time is a clock reading”')],
+      [false, L('確認用途與截止日期，排出時程', 'Confirm the venue and deadline; plan the schedule')]
+    ].map(([done, v]) => ({ v, mark: done ? '✓' : '', tc: done ? '#C9CEF0' : '#EEF0FF',
+      box: 'flex: none; width: 20px; height: 20px; margin-top: 2px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; ' + (done ? 'background: ' + cyan + '; color: #060818;' : 'border: 2px solid #4A5290;') }));
+    return {
+      accent, cyan, violet,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      stages, chapters, progress: prog,
+      studyLog: [
+        { d: '11/11', v: L('第一次學，約 1 小時 45 分', 'First session, ~1 h 45 min') },
+        { d: '11/12', v: L('複習', 'Review') },
+        { d: '11/14', v: L('複習', 'Review') }
+      ],
+      skills: [
+        [L('冪次、乘法規則', 'Powers and product rules'), 'ok', L('穩了，但最近又出現「把係數當成新指數」的錯。', 'Solid, though the “coefficient used as the new exponent” slip came back recently.')],
+        [L('三角函數、單位圓、弧度', 'Trig, unit circle, radians'), 'ok', L('穩了，π/2 已經沒問題。', 'Solid; π/2 is no longer a problem.')],
+        [L('三角函數的微分', 'Differentiating trig functions'), 'ok', L('觀念穩了。', 'Concept is solid.')],
+        [L('連鎖律', 'Chain rule'), 'good', L('會了，要注意括號裡要照抄。', 'Got it; copy what’s inside the brackets unchanged.')],
+        [L('複數、共軛、z·z*', 'Complex numbers, conjugates, z·z*'), 'ok', L('穩了，算長度時要小心。', 'Solid; take care when computing lengths.')],
+        [L('尤拉公式', 'Euler’s formula'), 'good', L('懂了：e^{iθ} = cos θ + i sin θ。', 'Understood: e^{iθ} = cos θ + i sin θ.')],
+        [L('偏微分', 'Partial derivatives'), 'new', L('剛學。最難的第 3 題答對了，但要注意不動的變數要照抄；第 4、5 題還沒做。', 'Just started. Got the hardest one (Q3) right; keep the fixed variables unchanged. Q4–5 still to do.')]
+      ].map(([k, st, n]) => ({ k, n, s: st === 'ok' ? L('穩了', 'Solid') : st === 'good' ? L('會了', 'Got it') : L('剛學', 'New'), c: st === 'ok' ? cyan : st === 'good' ? '#7EE6D6' : gold, w: st === 'ok' ? '100%' : st === 'good' ? '75%' : '35%' })),
+      habits: [
+        { v: L('不動的部分先圈起來', 'Circle what stays fixed first') },
+        { v: L('舊指數下來，新指數上去', 'Old exponent comes down, new one goes up') },
+        { v: L('機率答案不能超過 1', 'A probability can’t exceed 1') },
+        { v: L('長度不會是 0', 'A length is never 0') }
+      ],
+      week: [
+        [L('週一', 'MON'), L('偏微分收尾', 'Finish partial derivatives'), L('做完第 4、5 題，再練幾題混合題。', 'Finish Q4–5, then some mixed practice.'), L('—', '—')],
+        [L('週二', 'TUE'), L('薛丁格方程式', 'The Schrödinger equation'), L('弄懂每一項是什麼意思。', 'What each term means.'), L('基礎', 'basics')],
+        [L('週三', 'WED'), L('自由粒子', 'Free particle'), L('把 e^{ikx} 代進去驗證，推出 E = ħ²k²/2m。', 'Substitute e^{ikx} and derive E = ħ²k²/2m.'), L('基礎', 'basics')],
+        [L('週四', 'THU'), L('無限位能井（上）', 'Infinite well (I)'), L('邊界條件，為什麼解是 sin。', 'Boundary conditions; why the solution is a sine.'), '—'],
+        [L('週五', 'FRI'), L('無限位能井（下）', 'Infinite well (II)'), L('能量量子化，再做一次總複習。', 'Energy quantisation, then a full review.'), '—']
+      ].map(([d, k, v, c]) => ({ d, k, v, c })),
+      meta: [
+        { k: L('研究者', 'Researcher'), v: L('曹瑜耘', 'Yuyun Tsao') },
+        { k: L('領域', 'Field'), v: L('物理理論・量子力學', 'Theoretical physics · QM') },
+        { k: L('工具', 'Tools'), v: L('C++ 數值計算', 'C++ numerics') },
+        { k: L('開始', 'Started'), v: '2026.10.16' }
+      ],
+      before: [
+        { v: L('在閔考斯基時空中建立波函數模型，需要量子場論。', 'A wavefunction model in Minkowski spacetime would need quantum field theory.') },
+        { v: L('「疊加態映射為人生時間線」沒有可檢驗的物理量。', '“Superposition as life timelines” has no testable quantity.') },
+        { v: L('「量子的一秒等於數百萬年」在物理上不成立。', '“One quantum second equals millions of years” is not physics.') }
+      ],
+      after: [
+        { n: '1', v: L('重現 Page–Wootters 自旋時鐘模型。', 'Reproduce the Page–Wootters spin-clock model.') },
+        { n: '2', v: L('做自己的延伸：改變時鐘的自旋 s、加入雜訊。', 'Extend it: vary the clock’s spin s, add noise.') },
+        { n: '3', v: L('估算微觀與宏觀的時間尺度比 t/τ。', 'Estimate the micro-to-macro timescale ratio t/τ.') }
+      ],
+      concepts: [
+        { f: 't', h: L('時間是參數，不是可觀測量', 'Time is a parameter, not an observable'), p: L('在量子力學裡，t 是外部參數（Pauli，1933），微觀系統沒有「自己的一秒」。', 'In quantum mechanics t is an external parameter (Pauli, 1933); a microscopic system has no “second of its own”.') },
+        { f: 't / τ ≈ 10¹⁴–10¹⁶', h: L('特徵時間尺度比', 'Characteristic timescale ratio'), p: L('分子振動約 10⁻¹⁴ 秒、電子軌道約 10⁻¹⁶ 秒，人類的一秒裡大約有這麼多個微觀週期。', 'Molecular vibrations take ~10⁻¹⁴ s and electron orbits ~10⁻¹⁶ s, so a human second holds roughly this many micro-cycles.') },
+        { f: '(|↑↓⟩ + |↓↑⟩)/√2', h: L('糾纏', 'Entanglement'), p: L('單獨量一個粒子是 50/50，但兩個結果必定相反；這個態無法拆成兩個粒子各自的狀態。', 'Each particle alone is 50/50, yet the two results are always opposite; the state can’t be split into two separate states.') },
+        { f: 'P(S | C)', h: L('以時鐘為條件', 'Conditioning on the clock'), p: L('粒子 1 當時鐘、粒子 2 當系統；「時間」就是以時鐘讀數為條件時，系統的狀態。', 'Particle 1 is the clock, particle 2 the system; “time” is the system’s state conditioned on the clock reading.') },
+        { f: 's² = −(cΔt)² + Δx²…', h: L('閔考斯基時空', 'Minkowski spacetime'), p: L('時空間隔對所有觀察者相同；世界線的長度就是固有時，雙生子佯謬由此而來。', 'The interval is the same for every observer; a worldline’s length is its proper time, which explains the twin paradox.') },
+        { f: 'Δt/t ≈ gh/c²', h: L('每個人的 100 年一樣長嗎？', 'Is everyone’s 100 years the same?'), p: L('用自己的時鐘量都是 100 年；用共同時鐘量，住得高的人時鐘稍快，但每升高 1 公里，100 年只多約 0.34 毫秒（待自行驗算）。', 'By your own clock, always 100 years; by a shared clock, higher means slightly faster, but only ~0.34 ms more per km over 100 years (still to verify).') }
+      ],
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('科展・物理理論', 'Science fair · Theoretical physics'),
+        status: L('研究進行中', 'In progress'),
+        title: L('如果宇宙是靜止的，時間從哪裡來？', 'If the universe stands still, where does time come from?'),
+        subtitle: L('以 Page–Wootters 機制探討封閉量子系統中時間的湧現：自旋時鐘模型的數值研究。', 'The emergence of time in closed quantum systems via the Page–Wootters mechanism: a numerical study of spin-clock models.'),
+        k1: L('研究問題', 'THE QUESTION'),
+        question: L('在量子力學中，如果整個宇宙是靜態的，時間要怎麼出現？', 'In quantum mechanics, if the whole universe is static, how does time appear?'),
+        qLead: L('Page–Wootters 機制的答案是：把宇宙分成互相糾纏的兩部分，一部分當「時鐘」。整體雖然不變，但只要問「時鐘指在某個讀數時，系統是什麼狀態」，系統就會隨著讀數一步步變化，時間就藏在兩者的關聯裡。', 'The Page–Wootters answer: split the universe into two entangled parts and let one be a “clock”. The whole never changes, but if you ask “what is the system’s state when the clock shows a given reading?”, the system changes step by step with the reading. Time lives in the correlation between them.'),
+        diagAlt: L('示意圖：靜止的宇宙 Ĥ|Ψ⟩=0 分成互相糾纏的時鐘與系統，以時鐘讀數 t 為條件，得到系統的狀態 |ψ(t)⟩', 'Diagram: the static universe Ĥ|Ψ⟩=0 split into an entangled clock and system; conditioning on clock reading t gives the system state |ψ(t)⟩'),
+        dUniverse: L('整個宇宙（靜態）', 'The whole universe (static)'),
+        dClock: L('時鐘 C', 'Clock C'),
+        dSystem: L('系統 S', 'System S'),
+        dEnt: L('糾纏', 'entangled'),
+        dCond: L('以時鐘讀數 t 為條件', 'conditioned on clock reading t'),
+        diagCap: L('Page–Wootters 的核心想法：整體靜止，時間是「相對於時鐘」才出現的。', 'The core idea: the whole is still; time appears only relative to a clock.'),
+        k2: L('收斂題目', 'NARROWING DOWN'), h2: L('從一個大夢想，到一個做得出來的研究', 'From a big dream to a study we can actually do'),
+        beforeK: L('原本的想法', 'FIRST IDEA'), beforeT: L('人生時間線與疊加態', 'Life timelines and superposition'),
+        afterK: L('收斂後的版本', 'NARROWED VERSION'), afterT: L('用簡單模型做可計算的探討', 'A computable study of a simple model'),
+        feasNote: L('評估結果：數學需求中等（複數、向量、張量積、機率），程式實作容易到中等，不需設備。主要風險是英文與數學門檻、範圍失控和過度詮釋。', 'Assessment: moderate maths (complex numbers, vectors, tensor products, probability), easy-to-moderate coding, no equipment. Main risks: English and maths barriers, scope creep and over-interpretation.'),
+        k3: L('研究歷程', 'THE JOURNEY'), h3: L('六個階段，一步步收斂', 'Six stages, narrowing step by step'),
+        k4: L('學到的觀念', 'WHAT I LEARNED'), h4: L('把直覺換成物理', 'Turning intuition into physics'),
+        refK: L('主要文獻', 'MAIN SOURCE'),
+        refV: L('Tommaso Favalli，那不勒斯費德里科二世大學博士論文，arXiv:2512.08120（2025）。預印本，未經同行評審。', 'Tommaso Favalli, PhD thesis, University of Naples Federico II, arXiv:2512.08120 (2025). Preprint, not peer-reviewed.'),
+        k5: L('研究架構與進度', 'PLAN & PROGRESS'), h5: L('六章架構，第四章是自己算出來的', 'Six chapters; chapter 4 is my own computation'),
+        codeK: L('計算工具・C++', 'TOOLS · C++'),
+        codeC1: L('量子態用複數向量表示', 'a quantum state as a complex vector'),
+        codeC2: L('會轉的自旋時鐘', 'a rotating spin clock'),
+        codeNote: L('示意：之後實作的方向，數據輸出成 CSV 再畫圖。', 'Sketch of the planned approach; results exported to CSV and plotted.'),
+        progK: L('進度', 'PROGRESS'),
+        k6: L('學習紀錄', 'LEARNING LOG'), h6: L('先把數學地基打穩', 'Laying the maths foundation first'),
+        habitK: L('還要練的習慣', 'HABITS TO BUILD'),
+        weekK: L('下週規劃', 'NEXT WEEK'),
+        weekend: L('週末：補進度，並決定科展題目要做哪一類。C++ 已經開始學基礎。', 'Weekend: catch up and decide which kind of project to enter. C++ basics have already started.'),
+        verify: L('待查證：文獻回顧中各篇的年份、卷期、頁碼；式 2.8 的 √3/2 極限值；時間知覺研究的出處。', 'To verify: years, volumes and pages in the literature review; the √3/2 limit in Eq. 2.8; sources for the time-perception studies.'),
+        nextK: L('下一件作品', 'Next work'),
+        nextV: L('生成式 AI 腦波科展', 'Generative AI brainwave project')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

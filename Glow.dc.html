@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：繪光燦影</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 48px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{pink}}">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EEF0FF"></span>STARNING</span>
+</div>
+<h1 style="margin: 0; display: flex; flex-direction: column; gap: 12px; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(56px, 8vw, 104px); line-height: 1; letter-spacing: 0.02em">〈繪光燦影〉<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.32em; letter-spacing: 0.04em; color: {{pink}}">{{t.enName}}</span></h1>
+<p style="margin: 0; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; color: #F4DCE3">{{t.slogan}}</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #C9CEF0">{{t.oneLine}}</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 570px; justify-self: center; border-radius: 10px">
+<div style="border-radius: 8px; overflow: hidden; border: 1px solid #3A2A44"><img src="./716d0fdd6dd314e2df7760d902633cad.jpg" alt="{{t.sceneAlt}}" style="display: block; width: 100%; height: auto"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.sceneCap}}</figcaption>
+</figure>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px; padding: 28px 0 0; border-top: 1px solid #1F2550">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="5">
+<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 500; line-height: 1.5">{{m.v}}</span></div>
+</sc-for>
+</div>
+</div>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: flex; flex-direction: column">
+
+<section style="padding: 96px 0 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 64px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">01</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2></div>
+<p style="margin: 0; grid-column: span 2; min-width: 0; font-size: 18px; line-height: 1.9; color: #DDE1F7">{{t.p1}}</p>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 64px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">02</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h2}}</h2></div>
+<div style="grid-column: span 2; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 18px; line-height: 1.9; color: #DDE1F7">{{t.p2a}}</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.9; color: #DDE1F7">{{t.p2b}}</p>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">03</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h3}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 16px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="3">
+<li style="display: flex; align-items: center; gap: 16px; padding: 24px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<span style="flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid {{pink}}; color: {{pink}}; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700">{{s.n}}</span>
+<span style="font-size: 18px; font-weight: 500; line-height: 1.5">{{s.d}}</span>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">04</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h4}}</h2></div>
+<sc-for list="{{parts}}" as="p" hint-placeholder-count="6">
+<div style="display: flex; flex-direction: column; gap: 4px; padding-left: 16px; border-left: 3px solid {{pink}}"><span style="font-size: 17px; font-weight: 700">{{p.k}}</span><span style="font-size: 16px; line-height: 1.7; color: #C9CEF0">{{p.d}}</span></div>
+</sc-for>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="border-radius: 6px; overflow: hidden; border: 1px solid #252B52; background: #0E1230"><img src="./4f8cf4a0b9ed6cffd7bb6e07df0d3a3c.jpg" alt="{{t.modelAlt}}" style="display: block; width: 100%; height: auto"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.modelCap}}</figcaption>
+</figure>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">05</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h5}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px">
+<sc-for list="{{pillars}}" as="g" hint-placeholder-count="2">
+<div style="display: flex; flex-direction: column; gap: 18px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<span style="font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: 26px; color: #F4DCE3">{{g.k}}</span>
+<span style="font-size: 16px; color: #A3A9CF">{{g.lead}}</span>
+<sc-for list="{{g.items}}" as="i" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 17px; font-weight: 700">{{i.k}}</span><span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{i.d}}</span></div>
+</sc-for>
+</div>
+</sc-for>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 16px">
+<sc-for list="{{badges}}" as="b" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 24px; text-align: center; border: 1.5px solid {{pink}}; border-radius: 999px"><span style="font-size: 20px; font-weight: 700; color: {{pink}}">{{b.k}}</span><span style="font-size: 15px; color: #C9CEF0">{{b.d}}</span></div>
+</sc-for>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">{{t.audience}}</p>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">06</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h6}}</h2></div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="border-radius: 6px; overflow: hidden; border: 1px solid #252B52"><img src="./4af714b3f9b34fd58f04131bfc492b5a.jpg" alt="{{t.viewsAlt}}" style="display: block; width: 100%; height: auto"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.viewsCap}}</figcaption>
+</figure>
+<div style="overflow-x: auto; border: 1px solid #252B52; border-radius: 6px">
+<table style="width: 100%; border-collapse: collapse; font-size: 16px">
+<thead><tr style="background: #0E1230"><th scope="col" style="text-align: left; padding: 14px 20px; font-weight: 500; color: #A3A9CF">{{t.colPart}}</th><th scope="col" style="text-align: left; padding: 14px 20px; font-weight: 500; color: #A3A9CF">{{t.colSize}}</th></tr></thead>
+<tbody>
+<sc-for list="{{dims}}" as="d" hint-placeholder-count="9">
+<tr style="border-top: 1px solid #1F2550"><td style="padding: 12px 20px; font-weight: 500">{{d.k}}</td><td style="padding: 12px 20px; color: #DDE1F7; font-variant-numeric: tabular-nums">{{d.v}}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</section>
+
+<section style="padding: 72px 0 96px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{pink}}">07</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h7}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
+<figure style="margin: 0"><img src="./7530e215bcdf8abbc687cbb463b202f5.jpg" alt="{{t.board1Alt}}" style="display: block; width: 100%; height: auto; border-radius: 6px"></figure>
+<figure style="margin: 0"><img src="./6025ca71a24421110b8c5a03bb15a459.jpg" alt="{{t.board2Alt}}" style="display: block; width: 100%; height: auto; border-radius: 6px"></figure>
+</div>
+</section>
+
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Flow.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":7200}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const pink = '#F2A7BC';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    return {
+      accent, pink,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('產品設計', 'Product design'),
+        enName: 'Drawing with Light',
+        slogan: L('「放下螢幕，用光與筆，畫出屬於自己的世界。」', '“Put down the screen — with light and a pencil, draw a world of your own.”'),
+        oneLine: L('一台「繪圖投影機」：光線穿過透明圖卡，把圖案投射在 A3 紙上，孩子只要沿著光影描繪，就能在安靜、專注的過程中完成作品，用無螢幕的方式取代數位刺激。', 'A drawing projector: light shines through a clear picture card onto A3 paper, and children trace the glowing outline — finishing a drawing in calm, focused quiet, with no screen at all.'),
+        sceneAlt: L('情境示意圖：小女孩坐在粉色繪圖投影機前，沿著投射在紙上的兔子光影描繪', 'Scene: a girl at a pink drawing projector, tracing a rabbit outline projected onto paper'),
+        sceneCap: L('AI 情境示意圖', 'AI-generated scene illustration'),
+        h1: L('繪圖投影機', 'The drawing projector'),
+        p1: L('現在的孩子越來越習慣長時間盯著手機與平板，視覺疲勞與過度刺激成為家長共同的擔憂。我們訪談了專業保母，她建議以「繪畫」與「發光玩具」引導孩子轉移注意力。因此，我們將兩者結合，設計出「繪圖投影機」：讓光線穿透透明圖卡，投射在 A3 紙面，使用者只要循著光影描繪，就能在安靜、專注的過程中完成作品，用無螢幕的方式取代數位刺激。', 'Children spend more and more time staring at phones and tablets, and eye strain and overstimulation worry many parents. We interviewed a professional nanny, who suggested using drawing and light-up toys to redirect children’s attention. So we combined the two into a drawing projector: light passes through a clear picture card onto A3 paper, and the user simply traces the glow — completing a drawing in a calm, focused way that replaces digital stimulation with no screen at all.'),
+        h2: L('設計理念', 'Design concept'),
+        p2a: L('作品的靈感來自童年夜市的一段回憶。小時候在夜市玩完彈珠遊戲後，可以挑選一份小禮物，其中有一種像手電筒的玩具，內部設有插槽，能隨意抽換圖卡，讓光線將不同的圖案投射出來。那份簡單卻充滿驚喜的樂趣，一直留在我們心中。', 'The idea comes from a childhood memory of the night market. After a game of pinball, we could pick a small prize — one was a flashlight-like toy with a slot inside for swapping picture cards, so the light projected different images. That simple, surprising joy stayed with us.'),
+        p2b: L('在材質選擇上，我們同樣來自一段童年經驗：國小時，曾收到一支以寶特瓶回收再製而成的原子筆，質地堅固耐用，讓我們看見再生材料的可靠與可能性。因此，本作品選用寶特瓶再生材質，期望讓回憶中的巧思，以更永續的方式延續下去。', 'Our choice of material also comes from childhood: in primary school we were given a ballpoint pen made from recycled PET bottles, sturdy and durable, which showed us how reliable recycled materials can be. So this product uses recycled PET, carrying that remembered ingenuity forward in a more sustainable way.'),
+        h3: L('使用方式', 'How it works'),
+        h4: L('設計構造', 'Structure'),
+        modelAlt: L('繪光燦影 3D 建模：燈頭、斜撐、帶孔洞的立柱與底座', '3D model of Drawing with Light: lamp head, braces, perforated column and base'),
+        modelCap: L('3D 建模畫面', '3D model'),
+        h5: L('慢・沉浸 × 安・安心', 'Slow & immersive × Safe & reassuring'),
+        audience: L('適用對象：3 歲以上兒童、親子共創、銀髮族手作｜使用情境：家庭、安親班、圖書館、社區活動', 'For: children aged 3+, parent–child drawing, seniors’ crafts · Where: homes, after-school centres, libraries, community events'),
+        h6: L('產品尺寸', 'Dimensions'),
+        viewsAlt: L('前視圖、左視圖與上視圖，標示 480、360、420 mm', 'Front, left and top views marked 480, 360 and 420 mm'),
+        viewsCap: L('三視圖', 'Orthographic views'),
+        colPart: L('部位', 'Part'), colSize: L('尺寸（mm）', 'Size (mm)'),
+        h7: L('完整設計圖板', 'Full design boards'),
+        board1Alt: L('設計圖板一：繪圖投影機、設計理念與設計構造', 'Board 1: concept, inspiration and structure'),
+        board2Alt: L('設計圖板二：慢・沉浸 × 安・安心、情境圖與產品尺寸', 'Board 2: slow & safe, scene and dimensions'),
+        nextK: L('下一件作品', 'Next work'),
+        nextV: L('〈流〉', 'Flow')
+      },
+      meta: [
+        { k: L('團隊', 'Team'), v: L('STARNING｜曹瑜耘、陳秉彥', 'STARNING · Yuyun Tsao, Bingyan Chen') },
+        { k: L('競賽', 'Competition'), v: L('2026 玩具及生活用品創意設計競賽', '2026 Toy and Lifestyle Product Creative Design Competition') },
+        { k: L('領域', 'Field'), v: L('設計創意領域 × 電子領域', 'Creative design × Electronics') },
+        { k: L('年份', 'Year'), v: '2026' },
+        { k: L('結果', 'Result'), v: L('未入選', 'Not selected') },
+        { k: L('材質', 'Material'), v: L('寶特瓶再生材料', 'Recycled PET') }
+      ],
+      steps: [
+        { n: '1', d: L('放入 A3 紙', 'Place an A3 sheet') },
+        { n: '2', d: L('插入透明圖卡', 'Insert a clear picture card') },
+        { n: '3', d: L('開燈描繪，靜心創作', 'Switch on the light and trace') }
+      ],
+      parts: [
+        { k: L('LED 燈', 'LED light'), d: L('低發熱的柔和光源，向下投射圖案，保護視力不刺眼。', 'A soft, low-heat light that projects downward without glare.') },
+        { k: L('透明圖卡插槽', 'Picture-card slot'), d: L('可抽換各式透明圖卡，一張圖卡就是一個新的創作主題。', 'Swap in any clear card — each one is a new theme.') },
+        { k: L('A3 圖畫紙固定', 'A3 paper guide'), d: L('底座設有 A3 定位區，紙張不易滑動，描繪更穩定。', 'An A3 recess in the base keeps the paper from sliding.') },
+        { k: L('畫紙保存櫃', 'Drawing drawer'), d: L('小型抽屜收納完成的作品，保留每一次創作的成果。', 'A small drawer keeps finished drawings safe.') },
+        { k: L('筆筒孔洞設計', 'Pencil holes'), d: L('立柱上不規則的孔洞兼具造型與置筆功能，創作工具隨手可取。', 'Irregular holes in the column are decorative and hold pencils within reach.') },
+        { k: L('再生永續材質', 'Recycled material'), d: L('以寶特瓶再生材料製作，讓創作也能實踐資源再利用。', 'Made from recycled PET, so drawing also puts resources back to use.') }
+      ],
+      pillars: [
+        { k: L('慢慢玩，更沉浸', 'Play slowly, go deeper'), lead: L('沒有螢幕、沒有快轉，只有一盞燈、一張紙和一支筆。', 'No screens, no fast-forward — just a lamp, a sheet of paper and a pencil.'), items: [
+          { k: L('放下螢幕，專注當下', 'Screens down, focus now'), d: L('以柔和光影取代數位刺激，讓孩子的視線與心情都能慢慢安定下來。', 'Soft light replaces digital stimulation, letting children’s eyes and minds settle.') },
+          { k: L('一筆一畫，不急不趕', 'Stroke by stroke'), d: L('沿著光影描繪，不需要繪畫基礎，也不用在乎畫得好不好，專注在每一筆就是享受。', 'Trace the light — no drawing skills needed and no pressure to be good; every stroke is the fun.') },
+          { k: L('換張圖卡，展開新探索', 'New card, new adventure'), d: L('可抽換的透明圖卡，一張就是一個新主題，讓創作持續有新鮮感。', 'Each swappable card brings a new theme, keeping drawing fresh.') },
+          { k: L('親子與長輩，一起慢下來', 'Slow down together'), d: L('一人描繪、一人陪伴，讓共處的時間更有溫度。', 'One draws, one keeps company — time together feels warmer.') }
+        ] },
+        { k: L('安心玩，更放心', 'Play safely, worry less'), lead: L('讓安心不只是規範，而是看得見、摸得到、用得順。', 'Safety you can see, touch and feel in use — not just rules.'), items: [
+          { k: L('圓潤造型，觸感友善', 'Rounded and friendly'), d: L('邊角圓滑、表面霧面不反光，握起來、碰到都不尖銳。', 'Smooth corners and a matte, glare-free finish — nothing sharp to touch.') },
+          { k: L('圖卡防呆，一看就懂', 'Foolproof cards'), d: L('圖卡採缺角設計，只能從正確方向插入；步驟圖示直接印在機身，不看說明書也能上手。', 'A notched corner means cards only go in the right way; step icons printed on the body make it usable without a manual.') },
+          { k: L('穩固底座，使用無憂', 'Stable base'), d: L('底座加重防傾倒，A3 定位區讓紙張不易滑動，孩子操作時更穩定。', 'A weighted base prevents tipping, and the A3 recess keeps paper still.') },
+          { k: L('柔光陪伴，自然收尾', 'Gentle light, gentle ending'), d: L('暖色低發熱光源，亮度可調，並設計緩慢漸暗與自動關燈，讓使用有自然的結尾。', 'Warm, low-heat, dimmable light that slowly fades and switches off by itself for a natural ending.') }
+        ] }
+      ],
+      badges: [
+        { k: L('無螢幕', 'Screen-free'), d: L('以光影取代數位刺激', 'Light instead of digital stimulation') },
+        { k: L('好上手', 'Easy to use'), d: L('零基礎也能完成作品', 'Anyone can finish a drawing') },
+        { k: L('可延伸', 'Expandable'), d: L('更換圖卡就是新主題', 'A new card is a new theme') }
+      ],
+      dims: [
+        { k: L('整體尺寸', 'Overall'), v: '480 × 360 × 420' },
+        { k: L('底座', 'Base'), v: '480 × 360 × 20' },
+        { k: L('A3 定位區（凹槽）', 'A3 recess'), v: '424 × 301 × 2–3' },
+        { k: L('立柱', 'Column'), v: L('直徑 90 × 高 370', 'Ø 90 × H 370') },
+        { k: L('燈頭', 'Lamp head'), v: '360 × 260 × 30' },
+        { k: L('斜撐', 'Braces'), v: L('寬 15–20，與立柱夾角約 45°', 'W 15–20, about 45° to the column') },
+        { k: L('圖卡插槽', 'Card slot'), v: L('寬 100 × 高 3–4', 'W 100 × H 3–4') },
+        { k: L('筆孔', 'Pencil holes'), v: L('直徑 8–25，分級', 'Ø 8–25, graded') },
+        { k: L('抽屜', 'Drawer'), v: L('內寸約 200 × 100 × 20', 'Inner approx. 200 × 100 × 20') }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
