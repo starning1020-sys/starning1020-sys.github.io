@@ -1,0 +1,974 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING 星凝 作品集</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+@keyframes coinDrop{0%{transform:translate(-50%,-140%);opacity:0}15%{opacity:1}70%{transform:translate(-50%,40%);opacity:1}100%{transform:translate(-50%,60%);opacity:0}}
+@keyframes pigGlow{0%,100%{opacity:.55}50%{opacity:.9}}
+@media (prefers-reduced-motion: reduce){.coin-drop{animation:none!important;opacity:0}.pig-glow{animation:none!important}}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh; position: relative; isolation: isolate; overflow-x: hidden">
+<div aria-hidden="true" style="position: absolute; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; background-image: radial-gradient(circle at 8% 12%, rgba(238,240,255,0.7) 0 1.2px, transparent 1.7999999999999998px),radial-gradient(circle at 23% 40%, rgba(238,240,255,0.5) 0 0.8px, transparent 1.4px),radial-gradient(circle at 37% 8%, rgba(238,240,255,0.8) 0 1.3px, transparent 1.9px),radial-gradient(circle at 52% 63%, rgba(238,240,255,0.45) 0 0.9px, transparent 1.5px),radial-gradient(circle at 66% 22%, rgba(238,240,255,0.6) 0 1px, transparent 1.6px),radial-gradient(circle at 79% 77%, rgba(238,240,255,0.55) 0 1.1px, transparent 1.7000000000000002px),radial-gradient(circle at 91% 35%, rgba(238,240,255,0.75) 0 1.3px, transparent 1.9px),radial-gradient(circle at 14% 86%, rgba(238,240,255,0.5) 0 0.9px, transparent 1.5px),radial-gradient(circle at 45% 92%, rgba(238,240,255,0.4) 0 0.8px, transparent 1.4px),radial-gradient(circle at 72% 52%, rgba(238,240,255,0.35) 0 0.7px, transparent 1.2999999999999998px),radial-gradient(circle at 30% 70%, rgba(238,240,255,0.5) 0 1px, transparent 1.6px),radial-gradient(circle at 96% 90%, rgba(238,240,255,0.6) 0 0.9px, transparent 1.5px),radial-gradient(circle at 58% 6%, rgba(238,240,255,0.5) 0 0.8px, transparent 1.4px),radial-gradient(circle at 4% 55%, rgba(238,240,255,0.45) 0 1px, transparent 1.6px); background-size: 520px 520px">
+<svg viewBox="0 0 200 200" style="position: absolute; top: 7%; left: -50px; width: 220px; height: 220px; opacity: 0.85">
+<defs><radialGradient id="mars" cx="35%" cy="35%" r="70%"><stop offset="0%" stop-color="#F08A5D"></stop><stop offset="60%" stop-color="#C2482B"></stop><stop offset="100%" stop-color="#5A1A14"></stop></radialGradient></defs>
+<circle cx="100" cy="100" r="80" fill="url(#mars)"></circle>
+<ellipse cx="78" cy="78" rx="14" ry="10" fill="#8E3220" opacity="0.6"></ellipse><circle cx="122" cy="118" r="11" fill="#8E3220" opacity="0.5"></circle><circle cx="96" cy="140" r="6" fill="#8E3220" opacity="0.5"></circle><path d="M40 96 C70 104 120 92 160 102" stroke="#E07850" stroke-width="5" fill="none" opacity="0.35"></path>
+<circle cx="100" cy="100" r="86" fill="none" stroke="#F08A5D" stroke-width="2" opacity="0.25"></circle>
+</svg>
+<svg viewBox="0 0 400 300" style="position: absolute; top: 13%; right: 3%; width: 380px; height: 285px; opacity: 0.9">
+<defs><linearGradient id="trail" x1="1" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF" stop-opacity="0"></stop><stop offset="100%" stop-color="#FFE7A8" stop-opacity="0.9"></stop></linearGradient></defs>
+<path d="M380 20 L230 170" stroke="url(#trail)" stroke-width="2.5" stroke-linecap="round"></path><circle cx="230" cy="170" r="4" fill="#FFF3D1"></circle>
+<path d="M300 10 L190 120" stroke="url(#trail)" stroke-width="1.5" stroke-linecap="round" opacity="0.7"></path><circle cx="190" cy="120" r="2.5" fill="#FFF3D1"></circle>
+<path d="M390 120 L290 220" stroke="url(#trail)" stroke-width="1.8" stroke-linecap="round" opacity="0.8"></path><circle cx="290" cy="220" r="3" fill="#FFF3D1"></circle>
+<path d="M250 110 l10 -6 12 3 5 11 -7 10 -13 1 -8 -9z" fill="#4A4F6E"></path><path d="M256 112 l5 -2 4 3" stroke="#6B7196" stroke-width="1.5" fill="none"></path>
+</svg>
+<svg viewBox="0 0 440 440" style="position: absolute; top: 24%; left: -150px; width: 440px; height: 440px; opacity: 0.9">
+<defs><radialGradient id="bhglow" cx="50%" cy="50%" r="50%"><stop offset="35%" stop-color="#000000"></stop><stop offset="48%" stop-color="#FFB45A" stop-opacity="0.9"></stop><stop offset="60%" stop-color="#C9A8FF" stop-opacity="0.35"></stop><stop offset="100%" stop-color="#060818" stop-opacity="0"></stop></radialGradient><linearGradient id="disk" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#C9A8FF" stop-opacity="0"></stop><stop offset="30%" stop-color="#FF9A5A"></stop><stop offset="50%" stop-color="#FFE7A8"></stop><stop offset="70%" stop-color="#FF9A5A"></stop><stop offset="100%" stop-color="#C9A8FF" stop-opacity="0"></stop></linearGradient></defs>
+<circle cx="220" cy="220" r="200" fill="url(#bhglow)"></circle>
+<g transform="rotate(-16 220 220)"><ellipse cx="220" cy="220" rx="200" ry="34" fill="none" stroke="url(#disk)" stroke-width="10" opacity="0.85"></ellipse><ellipse cx="220" cy="220" rx="160" ry="24" fill="none" stroke="url(#disk)" stroke-width="4" opacity="0.6"></ellipse></g>
+<circle cx="220" cy="220" r="72" fill="#000000"></circle>
+<circle cx="220" cy="220" r="74" fill="none" stroke="#FFE7A8" stroke-width="2" opacity="0.8"></circle>
+<g transform="rotate(-16 220 220)"><path d="M120 224 A100 20 0 0 0 320 224" fill="none" stroke="url(#disk)" stroke-width="10"></path></g>
+</svg>
+<svg viewBox="0 0 300 200" style="position: absolute; top: 34%; right: -20px; width: 300px; height: 200px; opacity: 0.8">
+<path d="M60 70 l22 -14 28 6 10 22 -14 20 -26 4 -18 -16z" fill="#3E4466"></path><path d="M70 72 l14 -6 10 6" stroke="#5C638C" stroke-width="2" fill="none"></path><circle cx="96" cy="88" r="4" fill="#2C3150"></circle>
+<path d="M170 40 l14 -8 16 4 6 12 -8 12 -16 2 -10 -10z" fill="#4A4F6E"></path><circle cx="186" cy="50" r="3" fill="#2C3150"></circle>
+<path d="M200 130 l10 -6 12 2 4 10 -6 8 -12 1 -7 -7z" fill="#3E4466"></path>
+<path d="M130 150 l6 -4 8 1 3 6 -4 6 -8 0 -5 -5z" fill="#4A4F6E"></path>
+<circle cx="250" cy="80" r="4" fill="#4A4F6E"></circle><circle cx="30" cy="140" r="3" fill="#3E4466"></circle><circle cx="140" cy="20" r="2.5" fill="#3E4466"></circle>
+</svg>
+<svg viewBox="0 0 460 300" style="position: absolute; top: 45%; right: -120px; width: 460px; height: 300px; opacity: 0.9">
+<defs><radialGradient id="sat" cx="40%" cy="35%" r="70%"><stop offset="0%" stop-color="#FFE7A8"></stop><stop offset="60%" stop-color="#D9A75E"></stop><stop offset="100%" stop-color="#6E4A22"></stop></radialGradient></defs>
+<g transform="rotate(-14 230 150)">
+<path d="M70 150 A160 42 0 0 1 390 150" fill="none" stroke="#C9A36A" stroke-width="10" opacity="0.55"></path>
+<circle cx="230" cy="150" r="84" fill="url(#sat)"></circle>
+<path d="M150 136 C200 128 260 128 312 136" stroke="#B9874A" stroke-width="7" fill="none" opacity="0.5"></path><path d="M152 164 C200 172 262 172 310 164" stroke="#B9874A" stroke-width="5" fill="none" opacity="0.45"></path>
+<path d="M70 150 A160 42 0 0 0 390 150" fill="none" stroke="#E8C58A" stroke-width="10" opacity="0.85"></path>
+<path d="M90 150 A140 34 0 0 0 370 150" fill="none" stroke="#FFE7A8" stroke-width="3" opacity="0.6"></path>
+</g>
+</svg>
+<svg viewBox="0 0 360 160" style="position: absolute; top: 57%; left: 3%; width: 360px; height: 160px; opacity: 0.85">
+<defs><linearGradient id="comet" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7EE6D6" stop-opacity="0"></stop><stop offset="100%" stop-color="#7EE6D6" stop-opacity="0.8"></stop></linearGradient></defs>
+<path d="M10 40 C120 70 220 100 300 118" stroke="url(#comet)" stroke-width="14" stroke-linecap="round" fill="none" opacity="0.5"></path>
+<path d="M40 60 C140 84 230 106 300 118" stroke="url(#comet)" stroke-width="4" stroke-linecap="round" fill="none"></path>
+<circle cx="304" cy="119" r="9" fill="#E8FFFB"></circle><circle cx="304" cy="119" r="18" fill="#7EE6D6" opacity="0.25"></circle>
+</svg>
+<svg viewBox="0 0 200 200" style="position: absolute; top: 66%; right: 5%; width: 150px; height: 150px; opacity: 0.8">
+<defs><radialGradient id="moon" cx="35%" cy="35%" r="70%"><stop offset="0%" stop-color="#CFD6FF"></stop><stop offset="100%" stop-color="#3B4373"></stop></radialGradient></defs>
+<circle cx="100" cy="100" r="70" fill="url(#moon)"></circle><circle cx="80" cy="84" r="12" fill="#5B6396" opacity="0.5"></circle><circle cx="122" cy="120" r="8" fill="#5B6396" opacity="0.5"></circle><circle cx="112" cy="70" r="5" fill="#5B6396" opacity="0.5"></circle>
+</svg>
+</div>
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="#top" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 24px; font-size: 15px">
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<a href="#timeline" style="text-decoration: none">時間軸</a>
+<a href="#work" style="text-decoration: none">作品</a>
+<a href="#awards" style="text-decoration: none">競賽紀錄</a>
+<a href="#prize" style="text-decoration: none">獎金</a>
+<a href="#journey" style="text-decoration: none">學習歷程</a>
+<a href="#about" style="text-decoration: none">關於我們</a>
+<a href="#contact" style="text-decoration: none; padding: 10px 18px; border: 1.5px solid {{accent}}; border-radius: 999px; font-weight: 500">聯絡我們</a>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<a href="#timeline" style="text-decoration: none">Timeline</a>
+<a href="#work" style="text-decoration: none">Works</a>
+<a href="#awards" style="text-decoration: none">Competitions</a>
+<a href="#prize" style="text-decoration: none">Prize money</a>
+<a href="#journey" style="text-decoration: none">Journey</a>
+<a href="#about" style="text-decoration: none">About us</a>
+<a href="#contact" style="text-decoration: none; padding: 10px 18px; border: 1.5px solid {{accent}}; border-radius: 999px; font-weight: 500">Contact</a>
+</sc-if>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section id="top" style="position: relative; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none">
+<g fill="#FFFFFF">
+<circle cx="60" cy="80" r="1.2" opacity="0.7"></circle><circle cx="180" cy="210" r="0.8" opacity="0.5"></circle><circle cx="260" cy="60" r="1.5" opacity="0.8"></circle>
+<circle cx="340" cy="420" r="1" opacity="0.4"></circle><circle cx="420" cy="140" r="0.8" opacity="0.6"></circle><circle cx="520" cy="610" r="1.3" opacity="0.5"></circle>
+<circle cx="610" cy="40" r="1" opacity="0.7"></circle><circle cx="700" cy="300" r="0.7" opacity="0.4"></circle><circle cx="760" cy="680" r="1.1" opacity="0.6"></circle>
+<circle cx="860" cy="110" r="1.6" opacity="0.9"></circle><circle cx="930" cy="520" r="0.8" opacity="0.5"></circle><circle cx="990" cy="250" r="1.2" opacity="0.6"></circle>
+<circle cx="1080" cy="660" r="1" opacity="0.5"></circle><circle cx="1130" cy="60" r="0.9" opacity="0.7"></circle><circle cx="1380" cy="90" r="1.4" opacity="0.8"></circle>
+<circle cx="1400" cy="430" r="1" opacity="0.5"></circle><circle cx="1300" cy="600" r="1.3" opacity="0.6"></circle><circle cx="1210" cy="720" r="0.8" opacity="0.4"></circle>
+<circle cx="120" cy="560" r="1.1" opacity="0.5"></circle><circle cx="40" cy="700" r="0.9" opacity="0.6"></circle><circle cx="460" cy="730" r="0.7" opacity="0.4"></circle>
+<circle cx="820" cy="420" r="0.9" opacity="0.3"></circle><circle cx="640" cy="500" r="0.7" opacity="0.3"></circle><circle cx="300" cy="320" r="0.7" opacity="0.4"></circle>
+</g>
+<g transform="rotate(-18 1240 720)" fill="none">
+<ellipse cx="1240" cy="720" rx="300" ry="96" stroke="#2A3166" stroke-width="1"></ellipse>
+<ellipse cx="1240" cy="720" rx="190" ry="60" stroke="#232955" stroke-width="1" stroke-dasharray="3 6"></ellipse>
+</g>
+<circle cx="1180" cy="706" r="44" fill="#10153A" stroke="{{accent}}" stroke-width="1.5"></circle>
+<circle cx="1322" cy="740" r="30" fill="#10153A" stroke="#FFD38A" stroke-width="1.5"></circle>
+<circle cx="900" cy="330" r="6" fill="{{accent}}"></circle>
+<circle cx="1440" cy="180" r="4" fill="#FFD38A"></circle>
+</svg>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px 96px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px">
+<span style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: {{accent}}"></span>10th grade</span>
+<span style="display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; letter-spacing: 0.08em"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFD38A"></span>EST. 2026.08</span>
+<span aria-hidden="true" style="flex: 1; min-width: 40px; height: 1px; background: linear-gradient(90deg, #2A3166, transparent)"></span>
+</div>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; font-weight: 500; letter-spacing: 0.3em; color: #A3A9CF">WE ARE</span>
+<h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 28px; line-height: 0.92">
+<span style="font-size: clamp(64px, 13vw, 184px); font-weight: 700; letter-spacing: -0.045em; color: #EEF0FF; background: linear-gradient(100deg, #FFFFFF 0%, #C9CEF0 45%, {{accent}} 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent">STARNING</span>
+<span style="display: flex; align-items: center; gap: 14px; padding-bottom: clamp(8px, 1.4vw, 20px)"><span aria-hidden="true" style="width: clamp(24px, 4vw, 56px); height: 2px; background: #FFD38A"></span><span style="font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(36px, 5.4vw, 72px); letter-spacing: 0.12em; color: #FFD38A">星凝</span></span>
+</h1>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px 72px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: clamp(24px, 3vw, 36px); line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; color: {{accent}}">我們從宇宙出發，<br>用不同角度詮釋未來。</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF; max-width: 560px">兩個人，用設計、科技與研究探索世界。STARNING 由曹瑜耘與陳秉彥組成。這裡收錄我們高中三年一起參加的競賽、各自與共同的作品，以及一路上的學習歷程。</p>
+<a href="#work" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #EEF0FF; color: #060818; font-size: 15px; font-weight: 700; text-decoration: none">看我們的作品 <span aria-hidden="true">↓</span></a>
+</div>
+<div style="display: flex; flex-direction: column; padding: 8px 24px; border-radius: 16px; background: rgba(11, 15, 40, 0.92); border: 1px solid #2A3166">
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: none"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">01</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">成員</span><span style="font-size: 17px; font-weight: 500">曹瑜耘・陳秉彥</span></span></div>
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: 1px solid #1F2550"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">02</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">領域</span><span style="font-size: 17px; font-weight: 500">設計・黑客松・機器人・科展</span></span></div>
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: 1px solid #1F2550"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">03</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">組隊時間</span><span style="font-size: 17px; font-weight: 500">2026 年 8 月起</span></span></div>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<div lang="en" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; font-weight: 500; letter-spacing: 0.3em; color: #A3A9CF">WE ARE</span>
+<h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: flex-end; gap: 0 28px; line-height: 0.92">
+<span style="font-size: clamp(64px, 13vw, 184px); font-weight: 700; letter-spacing: -0.045em; color: #EEF0FF; background: linear-gradient(100deg, #FFFFFF 0%, #C9CEF0 45%, {{accent}} 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent">STARNING</span>
+<span style="display: flex; align-items: center; gap: 14px; padding-bottom: clamp(8px, 1.4vw, 20px)"><span aria-hidden="true" style="width: clamp(24px, 4vw, 56px); height: 2px; background: #FFD38A"></span><span style="font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(36px, 5.4vw, 72px); letter-spacing: 0.12em; color: #FFD38A">星凝</span></span>
+</h1>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px 72px; align-items: end">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: clamp(24px, 3vw, 36px); line-height: 1.35; font-weight: 700; letter-spacing: -0.01em; color: {{accent}}">We start from the universe,<br>and read the future from every angle.</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF; max-width: 560px">Two people exploring the world through design, technology and research. STARNING is Yuyun Tsao and Bingyan Chen. Here are the competitions we’ve entered together, our individual and shared work, and our learning journey through high school.</p>
+<a href="#work" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; min-height: 48px; padding: 0 22px; border-radius: 999px; background: #EEF0FF; color: #060818; font-size: 15px; font-weight: 700; text-decoration: none">See our work <span aria-hidden="true">↓</span></a>
+</div>
+<div style="display: flex; flex-direction: column; padding: 8px 24px; border-radius: 16px; background: rgba(11, 15, 40, 0.92); border: 1px solid #2A3166">
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: none"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">01</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">Members</span><span style="font-size: 17px; font-weight: 500">Yuyun Tsao · Bingyan Chen</span></span></div>
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: 1px solid #1F2550"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">02</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">Fields</span><span style="font-size: 17px; font-weight: 500">Design · Hackathons · Robotics · Science fairs</span></span></div>
+<div style="display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 4px 12px; align-items: baseline; padding: 16px 0; border-top: 1px solid #1F2550"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{accent}}">03</span><span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 12px; letter-spacing: 0.14em; color: #A3A9CF">Team since</span><span style="font-size: 17px; font-weight: 500">August 2026</span></span></div>
+</div>
+</div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="timeline" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; display: flex; flex-direction: column; gap: 48px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+<div style="display: flex; flex-direction: column; gap: 12px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">TIMELINE</span><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{tl.title}}</h2></div>
+<p style="margin: 0; font-size: 17px; line-height: 1.7; color: #A3A9CF; max-width: 460px">{{tl.lead}}</p>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 40px 24px">
+<sc-for list="{{timeline}}" as="y" hint-placeholder-count="3">
+<li style="display: flex; flex-direction: column; gap: 20px">
+<div style="position: relative; height: 24px; display: flex; align-items: center">
+<span aria-hidden="true" style="position: absolute; left: 0; right: -24px; top: 11px; height: 2px; {{y.line}}"></span>
+<span style="position: relative; width: 22px; height: 22px; border-radius: 50%; {{y.dot}}"></span>
+<sc-if value="{{y.isNow}}" hint-placeholder-val="{{ true }}"><span style="position: relative; margin-left: 12px; padding: 3px 10px; border-radius: 999px; background: {{accent}}; color: #060818; font-size: 12px; font-weight: 700; letter-spacing: 0.12em">NOW</span></sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 4px">
+<span style="font-size: clamp(56px, 7vw, 88px); font-weight: 700; line-height: 1; letter-spacing: -0.04em; {{y.yearStyle}}">{{y.year}}</span>
+<span style="font-size: 15px; color: #A3A9CF">{{y.grade}}</span>
+</div>
+<sc-if value="{{y.hasEvents}}" hint-placeholder-val="{{ true }}">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{y.events}}" as="e" hint-placeholder-count="5">
+<li style="display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid #1F2550"><span style="font-size: 14px; font-weight: 700; color: {{e.c}}; font-variant-numeric: tabular-nums">{{e.m}}</span><span style="font-size: 15px; line-height: 1.6; color: #DDE1F7">{{e.t}}</span></li>
+</sc-for>
+</ul>
+</sc-if>
+<sc-if value="{{y.noEvents}}" hint-placeholder-val="{{ false }}">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 24px; border-radius: 12px; border: 1.5px dashed #2F366A"><span style="font-size: 16px; font-weight: 700">{{y.emptyK}}</span><span style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{y.emptyV}}</span></div>
+</sc-if>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<section id="work" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 112px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">WORKS</span>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">作品與研究</h2></sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Works &amp; Research</h2></sc-if>
+</div>
+<span style="font-size: 15px; color: #A3A9CF">{{countLabel}}</span>
+</div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<div role="group" aria-label="{{whoAria}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px">
+<span style="font-size: 13px; color: #A3A9CF; margin-right: 4px">{{whoTitle}}</span>
+<sc-for list="{{whos}}" as="m" hint-placeholder-count="4">
+<button type="button" onClick="{{m.pick}}" aria-pressed="{{m.pressed}}" style="{{m.style}}">{{m.label}}</button>
+</sc-for>
+</div>
+<div role="group" aria-label="{{filterAria}}" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{filters}}" as="f" hint-placeholder-count="8">
+<button type="button" onClick="{{f.pick}}" aria-pressed="{{f.pressed}}" style="{{f.style}}">{{f.label}}</button>
+</sc-for>
+</div>
+<sc-if value="{{showSubs}}" hint-placeholder-val="{{ false }}">
+<div role="group" aria-label="{{subAria}}" style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 12px 16px; background: #0B0F28; border: 1px solid #1F2550; border-radius: 6px">
+<span style="font-size: 13px; color: #A3A9CF; margin-right: 4px">{{subTitle}}</span>
+<sc-for list="{{subs}}" as="sb" hint-placeholder-count="5">
+<button type="button" onClick="{{sb.pick}}" aria-pressed="{{sb.pressed}}" style="{{sb.style}}">{{sb.label}}</button>
+</sc-for>
+</div>
+</sc-if>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 48px 32px">
+<sc-for list="{{works}}" as="w" hint-placeholder-count="8">
+<sc-if value="{{w.hasPage}}" hint-placeholder-val="{{ false }}">
+<a href="{{w.href}}" style="display: flex; flex-direction: column; gap: 16px; text-decoration: none; color: #EEF0FF">
+<div style="{{w.coverStyle}}">
+<sc-if value="{{w.hasCover}}" hint-placeholder-val="{{ false }}"><img src="{{w.cover}}" alt="{{w.coverAlt}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{w.noCover}}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A3A9CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+<span style="font-size: 13px; color: #A3A9CF">{{coverLabel}}</span>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{w.catLabel}} · {{w.year}}</span>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4">{{w.title}} <span style="color: {{accent}}" aria-hidden="true">→</span></span>
+<span style="font-size: 15px; line-height: 1.6; color: #C9CEF0">{{w.desc}}</span>
+<span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 4px 10px; border: 1px solid #2A3166; border-radius: 999px; font-size: 13px; color: #C9CEF0">
+<span style="{{w.byDot}}"></span>{{w.by}}
+</span>
+</div>
+</a>
+</sc-if>
+<sc-if value="{{w.noPage}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 16px; color: #EEF0FF">
+<div style="{{w.coverStyle}}">
+<sc-if value="{{w.hasCover}}" hint-placeholder-val="{{ false }}"><img src="{{w.cover}}" alt="{{w.coverAlt}}" style="width: 100%; height: 100%; object-fit: cover; display: block"></sc-if>
+<sc-if value="{{w.noCover}}" hint-placeholder-val="{{ true }}">
+<svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#A3A9CF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="M21 15l-5-5L5 21"></path></svg>
+<span style="font-size: 13px; color: #A3A9CF">{{coverLabel}}</span>
+</sc-if>
+</div>
+<div style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{w.catLabel}} · {{w.year}}</span>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.4">{{w.title}}</span>
+<span style="font-size: 15px; line-height: 1.6; color: #C9CEF0">{{w.desc}}</span>
+<span style="display: inline-flex; align-self: flex-start; align-items: center; gap: 8px; padding: 4px 10px; border: 1px solid #2A3166; border-radius: 999px; font-size: 13px; color: #C9CEF0">
+<span style="{{w.byDot}}"></span>{{w.by}}
+</span>
+</div>
+</div>
+</sc-if>
+</sc-for>
+</div>
+</section>
+
+<section id="awards" style="border-top: 1px solid #1A1F42; border-bottom: 1px solid #1A1F42; background-color: transparent">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">AWARDS</span>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">競賽紀錄</h2></sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Competitions</h2></sc-if>
+</div>
+<div role="group" aria-label="{{yearAria}}" style="display: flex; gap: 6px; padding: 4px; background: #060818; border: 1px solid #2A3166; border-radius: 999px">
+<sc-for list="{{years}}" as="y" hint-placeholder-count="3">
+<button type="button" onClick="{{y.pick}}" aria-pressed="{{y.pressed}}" style="{{y.style}}">{{y.label}}</button>
+</sc-for>
+</div>
+</div>
+<sc-if value="{{hasRows}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 20px">
+<p style="margin: 0; font-size: 16px; color: #C9CEF0">{{summary}}</p>
+<div role="group" aria-label="{{statusAria}}" style="display: flex; flex-wrap: wrap; gap: 10px">
+<sc-for list="{{statuses}}" as="s" hint-placeholder-count="5">
+<button type="button" onClick="{{s.pick}}" aria-pressed="{{s.pressed}}" style="{{s.style}}">{{s.label}}</button>
+</sc-for>
+</div>
+<div style="overflow-x: auto; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="min-width: 820px; display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 40px minmax(0, 2.4fr) 170px 110px minmax(0, 1.3fr); gap: 16px; padding: 14px 24px; font-size: 13px; color: #A3A9CF; border-bottom: 1px solid #252B52">
+<span>#</span><span>{{th.name}}</span><span>{{th.cat}}</span><span>{{th.team}}</span><span>{{th.status}}</span>
+</div>
+<sc-for list="{{rows}}" as="r" hint-placeholder-count="20">
+<div style="display: grid; grid-template-columns: 40px minmax(0, 2.4fr) 170px 110px minmax(0, 1.3fr); gap: 16px; padding: 16px 24px; font-size: 16px; border-bottom: 1px solid #1A1F42; align-items: center">
+<span style="font-size: 14px; color: #A3A9CF">{{r.n}}</span>
+<span style="font-weight: 500; line-height: 1.5">{{r.name}}</span>
+<span style="font-size: 14px; color: #C9CEF0">{{r.cat}}</span>
+<span style="font-size: 14px; color: #C9CEF0">{{r.team}}</span>
+<span style="display: flex; align-items: center; gap: 8px; font-size: 15px">
+<span style="{{r.dotStyle}}"></span>
+<span style="{{r.noteStyle}}">{{r.note}}</span>
+</span>
+</div>
+</sc-for>
+</div>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{noRows}}" hint-placeholder-val="{{ false }}">
+<div style="padding: 56px 24px; background: #0E1230; border: 1px dashed #2F366A; border-radius: 6px; text-align: center; font-size: 16px; color: #A3A9CF">{{emptyText}}</div>
+</sc-if>
+</div>
+</section>
+
+<section id="prize" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px 72px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: #FFD38A">PRIZE MONEY</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{pz.title}}</h2>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 40px 64px; align-items: center">
+
+<figure role="img" aria-label="{{pz.alt}}" style="margin: 0; position: relative; width: 100%; max-width: 520px; justify-self: center; aspect-ratio: 4 / 3">
+<div class="pig-glow" aria-hidden="true" style="position: absolute; left: 12%; right: 12%; top: 22%; bottom: 8%; border-radius: 50%; background: radial-gradient(ellipse at center, rgba(255, 211, 138, 0.35), rgba(255, 211, 138, 0) 70%); animation: pigGlow 4s ease-in-out infinite"></div>
+<svg aria-hidden="true" viewBox="0 0 400 300" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<rect x="128" y="236" width="28" height="42" rx="10" fill="#2A2140" stroke="#FFD38A" stroke-width="2.5"></rect>
+<rect x="246" y="236" width="28" height="42" rx="10" fill="#2A2140" stroke="#FFD38A" stroke-width="2.5"></rect>
+<path d="M68 150 C40 140 40 112 60 116 C76 120 66 140 50 132" fill="none" stroke="#FFD38A" stroke-width="3" stroke-linecap="round"></path>
+<ellipse cx="200" cy="165" rx="135" ry="95" fill="#1C1636" fill-opacity="0.85"></ellipse>
+</svg>
+<sc-for list="{{pz.coins}}" as="co" hint-placeholder-count="5">
+<span aria-hidden="true" style="position: absolute; left: {{co.x}}; top: {{co.y}}; width: 9%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFF1C9, #FFD38A 45%, #C99A3E 100%); box-shadow: inset 0 0 0 2px rgba(120, 80, 20, 0.35), 0 2px 6px rgba(0, 0, 0, 0.45); display: flex; align-items: center; justify-content: center; font-size: clamp(9px, 1.6vw, 14px); font-weight: 700; color: #7A5418">$</span>
+</sc-for>
+<svg aria-hidden="true" viewBox="0 0 400 300" style="position: absolute; inset: 0; width: 100%; height: 100%">
+<ellipse cx="200" cy="165" rx="135" ry="95" fill="#FFD38A" fill-opacity="0.06" stroke="#FFD38A" stroke-width="3"></ellipse>
+<path d="M278 92 L298 52 L318 100" fill="#2A2140" stroke="#FFD38A" stroke-width="3" stroke-linejoin="round"></path>
+<ellipse cx="334" cy="172" rx="26" ry="32" fill="#2A2140" stroke="#FFD38A" stroke-width="3"></ellipse>
+<ellipse cx="327" cy="164" rx="4" ry="6" fill="#FFD38A"></ellipse>
+<ellipse cx="341" cy="180" rx="4" ry="6" fill="#FFD38A"></ellipse>
+<circle cx="296" cy="132" r="6" fill="#EEF0FF"></circle>
+<rect x="172" y="68" width="56" height="9" rx="4.5" fill="#060818" stroke="#FFD38A" stroke-width="2"></rect>
+<path d="M110 120 C130 92 170 80 200 78" fill="none" stroke="#FFFFFF" stroke-opacity="0.35" stroke-width="4" stroke-linecap="round"></path>
+</svg>
+<span class="coin-drop" aria-hidden="true" style="position: absolute; left: 50%; top: 8%; width: 9%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFF1C9, #FFD38A 45%, #C99A3E 100%); box-shadow: 0 0 18px rgba(255, 211, 138, 0.7); animation: coinDrop 2.6s ease-in infinite"></span>
+</figure>
+
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 6px">
+<span style="font-size: 14px; color: #A3A9CF">{{pz.totalK}}</span>
+<span style="display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap"><span style="font-size: clamp(18px, 2vw, 24px); font-weight: 700; color: #FFD38A">NT$</span><span style="font-size: clamp(56px, 8vw, 96px); font-weight: 700; line-height: 1; letter-spacing: -0.03em; color: #FFD38A; font-variant-numeric: tabular-nums; text-shadow: 0 0 32px rgba(255, 211, 138, 0.35)">{{pz.total}}</span></span>
+<span style="font-size: 14px; color: #A3A9CF">{{pz.coinNote}}</span>
+</div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; border-top: 1px solid #252B52">
+<sc-for list="{{pz.items}}" as="pi" hint-placeholder-count="1">
+<li style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid #1A1F42">
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #A3A9CF; font-variant-numeric: tabular-nums">{{pi.date}}</span><a href="{{pi.href}}" style="font-size: 17px; font-weight: 700; text-decoration: none">{{pi.name}}</a><span style="font-size: 14px; color: #FFD38A">{{pi.award}}</span></span>
+<span style="font-size: 20px; font-weight: 700; color: #FFD38A; font-variant-numeric: tabular-nums">+{{pi.amt}}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+</div>
+</section>
+
+<section id="journey" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; display: flex; flex-direction: column; gap: 40px">
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">JOURNEY</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">學習歷程</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">每一學期的學習成果與反思，記錄我們怎麼一步步長出自己的方向。</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px">
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="9" stroke="{{accent}}" stroke-width="1.5"></circle></svg>
+<span style="font-size: 22px; font-weight: 700">課程學習成果</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[例：物理課的相對論延伸報告、國文課的寫作成果。]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">查看 [數量] 份成果 →</span>
+</a>
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="7" stroke="{{accent}}" stroke-width="1.5"></circle><ellipse cx="18" cy="18" rx="16" ry="5" stroke="{{accent}}" stroke-width="1.5" transform="rotate(-20 18 18)"></ellipse></svg>
+<span style="font-size: 22px; font-weight: 700">多元表現</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[例：機器人隊、黑客松、設計競賽、音樂演出、社團幹部。]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">查看 [數量] 項紀錄 →</span>
+</a>
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M18 3l3.5 10.5L32 18l-10.5 3.5L18 32l-3.5-10.5L4 18l10.5-4.5z"></path></svg>
+<span style="font-size: 22px; font-weight: 700">自主學習</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[例：自學閔考斯基時空、腦波實驗設計、新的程式語言。]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">查看 [數量] 份計畫 →</span>
+</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; margin-top: 16px">
+<blockquote style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; font-weight: 500; letter-spacing: -0.01em">「即使未來的路很長，我也要做好自己，勇於踏向彼方。」</p>
+<span style="font-size: 15px; color: #A3A9CF">— 曹瑜耘，{{gradeLabel}}</span>
+</blockquote>
+<blockquote style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; font-weight: 500; letter-spacing: -0.01em">「[隊友的學習心得或座右銘。]」</p>
+<span style="font-size: 15px; color: #A3A9CF">— 陳秉彥，高一</span>
+</blockquote>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<div lang="en" style="display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">JOURNEY</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Learning Journey</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">What we learned each semester and what we took from it — a record of how we found our own directions.</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px">
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="9" stroke="{{accent}}" stroke-width="1.5"></circle></svg>
+<span style="font-size: 22px; font-weight: 700">Coursework</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[e.g. an extended report on relativity for physics class, writing from Chinese class.]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">View [number] pieces →</span>
+</a>
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none"><circle cx="18" cy="18" r="7" stroke="{{accent}}" stroke-width="1.5"></circle><ellipse cx="18" cy="18" rx="16" ry="5" stroke="{{accent}}" stroke-width="1.5" transform="rotate(-20 18 18)"></ellipse></svg>
+<span style="font-size: 22px; font-weight: 700">Activities &amp; Achievements</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[e.g. robotics team, hackathons, design competitions, music performances, club leadership.]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">View [number] records →</span>
+</a>
+<a href="Project.dc.html" style="display: flex; flex-direction: column; gap: 14px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px; text-decoration: none; color: #EEF0FF">
+<svg aria-hidden="true" width="36" height="36" viewBox="0 0 36 36" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M18 3l3.5 10.5L32 18l-10.5 3.5L18 32l-3.5-10.5L4 18l10.5-4.5z"></path></svg>
+<span style="font-size: 22px; font-weight: 700">Independent Learning</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">[e.g. self-study of Minkowski spacetime, designing a brainwave experiment, a new programming language.]</span>
+<span style="font-size: 14px; color: #A3A9CF; margin-top: auto">View [number] projects →</span>
+</a>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; margin-top: 16px">
+<blockquote style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; font-weight: 500; letter-spacing: -0.01em">“However long the road ahead, I’ll stay true to myself and step boldly toward what lies beyond.”</p>
+<span style="font-size: 15px; color: #A3A9CF">— Yuyun Tsao, {{gradeLabel}}</span>
+</blockquote>
+<blockquote style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<p style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; font-weight: 500; letter-spacing: -0.01em">“[Your teammate’s motto or reflection.]”</p>
+<span style="font-size: 15px; color: #A3A9CF">— Bingyan Chen, Grade 10</span>
+</blockquote>
+</div>
+</div>
+</sc-if>
+</section>
+
+<section id="about" style="background: #0A0D24; border-top: 1px solid #1A1F42">
+<div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px">
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<div style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">ABOUT US</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">關於 STARNING 星凝</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.8">STAR是星辰之光，NING是凝聚之力。</p>
+<p style="margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid {{accent}}; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.7">「星辰是宇宙的邏輯，凝結是思維的實體。在空間幾何、聲響哲學與認知邊界的交界之處，展開一場不設限的探索。」</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">高中三年，我們想一起探索世界。</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: center; justify-content: center">
+<svg viewBox="0 0 320 320" style="display: block; width: 100%; max-width: 340px; height: auto; overflow: visible">
+<defs><radialGradient id="glowzh" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="{{accent}}" stop-opacity="0.45"></stop><stop offset="100%" stop-color="{{accent}}" stop-opacity="0"></stop></radialGradient><linearGradient id="corezh" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF"></stop><stop offset="55%" stop-color="#FFE7A8"></stop><stop offset="100%" stop-color="#FFD38A"></stop></linearGradient></defs>
+<circle cx="160" cy="160" r="150" fill="url(#glowzh)"></circle>
+<circle cx="160" cy="160" r="118" fill="none" stroke="#2A3166" stroke-width="1" stroke-dasharray="2 8"></circle>
+<path d="M160 22 L182 130 L290 160 L182 190 L160 298 L138 190 L30 160 L138 130 Z" fill="url(#corezh)"></path>
+<path d="M160 76 L170 150 L244 160 L170 170 L160 244 L150 170 L76 160 L150 150 Z" fill="#FFFFFF" opacity="0.55" transform="rotate(45 160 160)"></path>
+<circle cx="160" cy="160" r="10" fill="#FFFFFF"></circle>
+<circle cx="268" cy="62" r="3" fill="#EEF0FF"></circle><circle cx="58" cy="246" r="2.5" fill="#EEF0FF" opacity="0.8"></circle><circle cx="62" cy="70" r="1.8" fill="#EEF0FF" opacity="0.6"></circle><circle cx="262" cy="262" r="2" fill="#EEF0FF" opacity="0.7"></circle>
+<path d="M276 230 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#FFD38A"></path>
+</svg>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
+<article style="display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="display: flex; align-items: center; gap: 20px">
+<div style="width: 96px; height: 96px; flex: none; border-radius: 50%; overflow: hidden; background: #141938; border: 1.5px solid {{accent}}; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1C2250"></rect><circle cx="78" cy="18" r="1.4" fill="#EEF0FF" opacity="0.7"></circle><circle cx="16" cy="28" r="1" fill="#EEF0FF" opacity="0.5"></circle><path d="M23 50 C20 28 33 15 48 15 C63 15 76 28 73 50 L77 92 L19 92 Z" fill="#2B1D27"></path><path d="M16 96 C17 79 31 71 48 71 C65 71 79 79 80 96 Z" fill="{{accent}}"></path><rect x="43.5" y="58" width="9" height="13" rx="4" fill="#E9BC9C"></rect><ellipse cx="48" cy="44" rx="13.5" ry="15.5" fill="#F6D3B8"></ellipse><path d="M33.5 41 C33 27 42 21.5 50 22 C59 22.5 64.5 29 63 41 C59 33.5 52 30.5 45 32 C40 33 36 36.5 33.5 41 Z" fill="#2B1D27"></path><path d="M27 42 C24 58 25 76 29 92 L38 92 C34 76 33 60 34.5 45 Z" fill="#2B1D27"></path><path d="M69 42 C72 58 71 76 67 92 L58 92 C62 76 63 60 61.5 45 Z" fill="#2B1D27"></path><circle cx="43" cy="46" r="1.7" fill="#2B1D27"></circle><circle cx="53" cy="46" r="1.7" fill="#2B1D27"></circle><ellipse cx="39.5" cy="51" rx="2.6" ry="1.5" fill="#F29BA6" opacity="0.55"></ellipse><ellipse cx="56.5" cy="51" rx="2.6" ry="1.5" fill="#F29BA6" opacity="0.55"></ellipse><path d="M44.5 53.5 Q48 56.5 51.5 53.5" fill="none" stroke="#9A5A50" stroke-width="1.4" stroke-linecap="round"></path><path d="M60 24 l1.6 3.6 3.6 1.6 -3.6 1.6 -1.6 3.6 -1.6 -3.6 -3.6 -1.6 3.6 -1.6z" fill="#FFD38A"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">曹瑜耘</h3>
+<span style="font-size: 15px; color: #A3A9CF">Yuyun Tsao・跨域者</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">我喜歡用藝術結合科技與哲思，探索這獨一無二的世界。</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">文學</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">藝術</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">音樂</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">設計</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">程式設計</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">機器人</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">狹義相對論</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">量子力學</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">3D建模</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">科學研究</span></div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="display: flex; align-items: center; gap: 20px">
+<div style="width: 96px; height: 96px; flex: none; border-radius: 50%; overflow: hidden; background: #141938; border: 1.5px solid #FFD38A; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1C2250"></rect><circle cx="18" cy="20" r="1.4" fill="#EEF0FF" opacity="0.7"></circle><circle cx="80" cy="30" r="1" fill="#EEF0FF" opacity="0.5"></circle><path d="M15 96 C16 79 31 70 48 70 C65 70 80 79 81 96 Z" fill="#FFD38A"></path><path d="M40 70 L48 79 L56 70 Z" fill="#E7B865"></path><rect x="43.5" y="57" width="9" height="14" rx="4" fill="#E9BC9C"></rect><ellipse cx="34.5" cy="46" rx="3" ry="4" fill="#E9BC9C"></ellipse><ellipse cx="61.5" cy="46" rx="3" ry="4" fill="#E9BC9C"></ellipse><ellipse cx="48" cy="45" rx="13.5" ry="15" fill="#F6D3B8"></ellipse><path d="M33.5 44 C31 29 39 20.5 49 20.5 C58 20.5 66 27 63 43 C62 37 59 33.5 55 32 C50 34 43 33.5 39 31.5 C36 34 34.5 38 33.5 44 Z" fill="#231A20"></path><circle cx="43" cy="47" r="1.7" fill="#231A20"></circle><circle cx="53" cy="47" r="1.7" fill="#231A20"></circle><path d="M40.5 42.5 L45 42" stroke="#231A20" stroke-width="1.4" stroke-linecap="round"></path><path d="M51 42 L55.5 42.5" stroke="#231A20" stroke-width="1.4" stroke-linecap="round"></path><path d="M44.5 54 Q48 57 51.5 54" fill="none" stroke="#9A5A50" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">陳秉彥</h3>
+<span style="font-size: 15px; color: #A3A9CF">Bingyan-chen・實作者</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">我...</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">實作</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">程式設計</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">機器人</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">發明家</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">科技</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">電子</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">研究</span><span style="padding: 6px 12px; background: rgb(16, 21, 58); border: 1px solid rgb(42, 49, 102); border-radius: 999px; font-size: 14px">創意發想</span></div>
+</article>
+</div>
+</div>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<div lang="en" style="display: flex; flex-direction: column; gap: 48px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px 64px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
+<span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">ABOUT US</span>
+<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">About STARNING</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.8">STAR is the light of the stars; NING is the power of coming together.</p>
+<p style="margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid {{accent}}; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.6">“Stars are the logic of the universe; condensing is thought made real. Where spatial geometry, the philosophy of sound and the edges of cognition meet, we set out on an exploration without limits.”</p>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">Through high school, we want to explore the world together.</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: center; justify-content: center">
+<svg viewBox="0 0 320 320" style="display: block; width: 100%; max-width: 340px; height: auto; overflow: visible">
+<defs><radialGradient id="glowen" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="{{accent}}" stop-opacity="0.45"></stop><stop offset="100%" stop-color="{{accent}}" stop-opacity="0"></stop></radialGradient><linearGradient id="coreen" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFFFFF"></stop><stop offset="55%" stop-color="#FFE7A8"></stop><stop offset="100%" stop-color="#FFD38A"></stop></linearGradient></defs>
+<circle cx="160" cy="160" r="150" fill="url(#glowen)"></circle>
+<circle cx="160" cy="160" r="118" fill="none" stroke="#2A3166" stroke-width="1" stroke-dasharray="2 8"></circle>
+<path d="M160 22 L182 130 L290 160 L182 190 L160 298 L138 190 L30 160 L138 130 Z" fill="url(#coreen)"></path>
+<path d="M160 76 L170 150 L244 160 L170 170 L160 244 L150 170 L76 160 L150 150 Z" fill="#FFFFFF" opacity="0.55" transform="rotate(45 160 160)"></path>
+<circle cx="160" cy="160" r="10" fill="#FFFFFF"></circle>
+<circle cx="268" cy="62" r="3" fill="#EEF0FF"></circle><circle cx="58" cy="246" r="2.5" fill="#EEF0FF" opacity="0.8"></circle><circle cx="62" cy="70" r="1.8" fill="#EEF0FF" opacity="0.6"></circle><circle cx="262" cy="262" r="2" fill="#EEF0FF" opacity="0.7"></circle>
+<path d="M276 230 l3 7 7 3 -7 3 -3 7 -3 -7 -7 -3 7 -3z" fill="#FFD38A"></path>
+</svg>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
+<article style="display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="display: flex; align-items: center; gap: 20px">
+<div style="width: 96px; height: 96px; flex: none; border-radius: 50%; overflow: hidden; background: #141938; border: 1.5px solid {{accent}}; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1C2250"></rect><circle cx="78" cy="18" r="1.4" fill="#EEF0FF" opacity="0.7"></circle><circle cx="16" cy="28" r="1" fill="#EEF0FF" opacity="0.5"></circle><path d="M23 50 C20 28 33 15 48 15 C63 15 76 28 73 50 L77 92 L19 92 Z" fill="#2B1D27"></path><path d="M16 96 C17 79 31 71 48 71 C65 71 79 79 80 96 Z" fill="{{accent}}"></path><rect x="43.5" y="58" width="9" height="13" rx="4" fill="#E9BC9C"></rect><ellipse cx="48" cy="44" rx="13.5" ry="15.5" fill="#F6D3B8"></ellipse><path d="M33.5 41 C33 27 42 21.5 50 22 C59 22.5 64.5 29 63 41 C59 33.5 52 30.5 45 32 C40 33 36 36.5 33.5 41 Z" fill="#2B1D27"></path><path d="M27 42 C24 58 25 76 29 92 L38 92 C34 76 33 60 34.5 45 Z" fill="#2B1D27"></path><path d="M69 42 C72 58 71 76 67 92 L58 92 C62 76 63 60 61.5 45 Z" fill="#2B1D27"></path><circle cx="43" cy="46" r="1.7" fill="#2B1D27"></circle><circle cx="53" cy="46" r="1.7" fill="#2B1D27"></circle><ellipse cx="39.5" cy="51" rx="2.6" ry="1.5" fill="#F29BA6" opacity="0.55"></ellipse><ellipse cx="56.5" cy="51" rx="2.6" ry="1.5" fill="#F29BA6" opacity="0.55"></ellipse><path d="M44.5 53.5 Q48 56.5 51.5 53.5" fill="none" stroke="#9A5A50" stroke-width="1.4" stroke-linecap="round"></path><path d="M60 24 l1.6 3.6 3.6 1.6 -3.6 1.6 -1.6 3.6 -1.6 -3.6 -3.6 -1.6 3.6 -1.6z" fill="#FFD38A"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Yuyun Tsao</h3>
+<span style="font-size: 15px; color: #A3A9CF">曹瑜耘 · [Role on the team]</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">[A sentence or two about yourself: why you love both creative work and science.]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Literature</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Drawing</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Music</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Design</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Programming</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Robotics</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Special relativity</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Brainwave research</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">3D modelling</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Scientific research</span>
+</div>
+</article>
+<article style="display: flex; flex-direction: column; gap: 24px; padding: 32px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="display: flex; align-items: center; gap: 20px">
+<div style="width: 96px; height: 96px; flex: none; border-radius: 50%; overflow: hidden; background: #141938; border: 1.5px solid #FFD38A; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" fill="#1C2250"></rect><circle cx="18" cy="20" r="1.4" fill="#EEF0FF" opacity="0.7"></circle><circle cx="80" cy="30" r="1" fill="#EEF0FF" opacity="0.5"></circle><path d="M15 96 C16 79 31 70 48 70 C65 70 80 79 81 96 Z" fill="#FFD38A"></path><path d="M40 70 L48 79 L56 70 Z" fill="#E7B865"></path><rect x="43.5" y="57" width="9" height="14" rx="4" fill="#E9BC9C"></rect><ellipse cx="34.5" cy="46" rx="3" ry="4" fill="#E9BC9C"></ellipse><ellipse cx="61.5" cy="46" rx="3" ry="4" fill="#E9BC9C"></ellipse><ellipse cx="48" cy="45" rx="13.5" ry="15" fill="#F6D3B8"></ellipse><path d="M33.5 44 C31 29 39 20.5 49 20.5 C58 20.5 66 27 63 43 C62 37 59 33.5 55 32 C50 34 43 33.5 39 31.5 C36 34 34.5 38 33.5 44 Z" fill="#231A20"></path><circle cx="43" cy="47" r="1.7" fill="#231A20"></circle><circle cx="53" cy="47" r="1.7" fill="#231A20"></circle><path d="M40.5 42.5 L45 42" stroke="#231A20" stroke-width="1.4" stroke-linecap="round"></path><path d="M51 42 L55.5 42.5" stroke="#231A20" stroke-width="1.4" stroke-linecap="round"></path><path d="M44.5 54 Q48 57 51.5 54" fill="none" stroke="#9A5A50" stroke-width="1.4" stroke-linecap="round"></path></svg></div>
+<div style="display: flex; flex-direction: column; gap: 6px">
+<h3 style="margin: 0; font-size: 26px; font-weight: 700">Bingyan Chen</h3>
+<span style="font-size: 15px; color: #A3A9CF">陳秉彥 · The Maker</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.8; color: #C9CEF0">[A sentence or two about your teammate: strengths and interests.]</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Hands-on building</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Programming</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Robotics</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Inventor</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Technology</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Electronics</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Research</span>
+<span style="padding: 6px 12px; background: #10153A; border: 1px solid #2A3166; border-radius: 999px; font-size: 14px">Ideation</span>
+</div>
+</article>
+</div>
+</div>
+</sc-if>
+</div>
+</section>
+
+<section id="contact" style="background: #03040D; position: relative; overflow: hidden; border-top: 1px solid #1A1F42">
+<svg aria-hidden="true" viewBox="0 0 1440 520" preserveAspectRatio="xMidYMid slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none">
+<g fill="#FFFFFF">
+<circle cx="90" cy="60" r="1" opacity="0.6"></circle><circle cx="300" cy="180" r="0.8" opacity="0.4"></circle><circle cx="540" cy="70" r="1.3" opacity="0.7"></circle>
+<circle cx="760" cy="40" r="0.9" opacity="0.5"></circle><circle cx="980" cy="150" r="1.2" opacity="0.6"></circle><circle cx="1180" cy="80" r="1.5" opacity="0.8"></circle>
+<circle cx="1360" cy="220" r="1" opacity="0.5"></circle><circle cx="1290" cy="420" r="0.8" opacity="0.4"></circle><circle cx="860" cy="470" r="1" opacity="0.4"></circle>
+</g>
+<circle cx="1300" cy="120" r="2" fill="{{accent}}" opacity="0.9"></circle>
+<circle cx="1330" cy="140" r="1.6" fill="#FFD38A" opacity="0.9"></circle>
+</svg>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 112px 24px 48px; display: flex; flex-direction: column; gap: 40px">
+<p style="margin: 0; font-size: 16px; color: #A3A9CF">{{c.ask}}</p>
+<a href="mailto:starning1020@gmail.com" style="color: #EEF0FF; font-size: clamp(30px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; text-decoration: underline; text-decoration-color: {{accent}}; text-underline-offset: 12px; text-decoration-thickness: 4px; word-break: break-all">starning1020@gmail.com</a>
+<div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 16px">
+<a href="#github" style="text-decoration: none">GitHub ↗</a>
+<a href="#instagram" style="text-decoration: none">{{c.ig}}</a>
+<a href="#music" style="text-decoration: none">{{c.music}}</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 32px; margin-top: 48px; border-top: 1px solid #1A1F42; font-size: 14px; color: #A3A9CF">
+<span>© 2026 STARNING · {{c.members}}</span>
+<a href="#top" style="color: #A3A9CF; text-decoration: none">{{c.top}}</a>
+</div>
+</div>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"grade":{"editor":"enum","default":"高一","options":["高一","高二","高三"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":6400}}'>
+class Component extends DCLogic {
+  state = { filter: 'all', sub: 'all', who: 'all', year: 'g1', status: 'all', lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const gold = '#FFD38A';
+    const lang = this.state.lang || this.props.startLang || 'zh';
+    const isEn = lang === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const gradeZh = this.props.grade ?? '高一';
+    const gradeEn = { '高一': 'Grade 10', '高二': 'Grade 11', '高三': 'Grade 12' }[gradeZh] || 'Grade 10';
+
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+
+    const people = {
+      yy: { zh: '曹瑜耘', en: 'Yuyun Tsao', dot: accent },
+      tm: { zh: '陳秉彥', en: 'Bingyan Chen', dot: gold },
+      team: { zh: 'STARNING ', en: 'STARNING (joint)', dot: '#EEF0FF' }
+    };
+
+    const yyCats = [
+      { id: 'all', zh: '全部', en: 'All' },
+      { id: 'sci', zh: '科展研究', en: 'Science Fair' },
+      { id: 'code', zh: '程式設計', en: 'Programming' },
+      { id: 'hack', zh: '黑客松', en: 'Hackathons' },
+      { id: 'robot', zh: '機器人', en: 'Robotics' },
+      { id: 'design', zh: '設計競賽', en: 'Design' },
+      { id: 'write', zh: '寫作', en: 'Writing' },
+      { id: 'art', zh: '繪畫', en: 'Art' },
+      { id: 'music', zh: '音樂', en: 'Music' },
+      { id: 'photo', zh: '攝影', en: 'Photography' },
+      { id: 'model3d', zh: '3D建模', en: '3D modeling' }
+    ];
+    const tmCats = [
+      { id: 'all', zh: '全部', en: 'All' },
+      { id: 'make', zh: '實作', en: 'Hands-on building' },
+      { id: 'prog', zh: '程式設計', en: 'Programming' },
+      { id: 'tmrobot', zh: '機器人', en: 'Robotics' },
+      { id: 'invent', zh: '發明家', en: 'Inventor' },
+      { id: 'tech', zh: '科技', en: 'Technology' },
+      { id: 'elec', zh: '電子', en: 'Electronics' },
+      { id: 'research', zh: '研究', en: 'Research' },
+      { id: 'idea', zh: '創意發想', en: 'Ideation' },
+      { id: 'hack', zh: '黑客松', en: 'Hackathons' },
+      { id: 'tsci', zh: '科展', en: 'Science fair' },
+      { id: 'tdesign', zh: '設計', en: 'Design' }
+    ];
+    const labelOf = {};
+    yyCats.concat(tmCats).forEach((c) => { labelOf[c.id] = L(c.zh, c.en); });
+    const allCats = [
+      { id: 'all', zh: '全部', en: 'All' },
+      { id: 'lit', zh: '文學', en: 'Literature' },
+      { id: 'draw', zh: '繪畫', en: 'Drawing' },
+      { id: 'music', zh: '音樂', en: 'Music' },
+      { id: 'design', zh: '設計', en: 'Design' },
+      { id: 'prog', zh: '程式設計', en: 'Programming' },
+      { id: 'robot', zh: '機器人', en: 'Robotics' },
+      { id: 'hack', zh: '黑客松', en: 'Hackathons' },
+      { id: 'tsci', zh: '科展', en: 'Science fair' },
+      { id: 'rel', zh: '狹義相對論', en: 'Special relativity' },
+      { id: 'eeg', zh: '腦波研究', en: 'Brainwave research' },
+      { id: 'make', zh: '實作', en: 'Hands-on building' },
+      { id: 'invent', zh: '發明家', en: 'Inventor' },
+      { id: 'tech', zh: '科技', en: 'Technology' },
+      { id: 'elec', zh: '電子', en: 'Electronics' },
+      { id: 'research', zh: '研究', en: 'Research' },
+      { id: 'idea', zh: '創意發想', en: 'Ideation' }
+    ];
+    const teamCats = [
+      { id: 'all', zh: '全部', en: 'All' },
+      { id: 'tprog', zh: '程式', en: 'Coding' },
+      { id: 'hack', zh: '黑客松', en: 'Hackathons' },
+      { id: 'trobot', zh: '機器人', en: 'Robotics' },
+      { id: 'tsci', zh: '科展', en: 'Science fair' },
+      { id: 'tdesign', zh: '設計', en: 'Design' }
+    ];
+    const byTags = this.state.who === 'all';
+    const byTeam = this.state.who === 'team';
+    const cats = this.state.who === 'tm' ? tmCats : (byTags ? allCats : (byTeam ? teamCats : yyCats));
+    const tints = { sci: '#141B4A', code: '#0F2633', robot: '#161B36', design: '#24183A', write: '#1E1A3C', art: '#2A1734', music: '#1A1844', photo: '#16233A', model3d: '#1A2440', make: '#2A2216', prog: '#0F2633', tmrobot: '#161B36', invent: '#2A2216', tech: '#141B4A', elec: '#1D2A16', research: '#1A1844', idea: '#2A1734' };
+    const raw = [
+      { cat: 'sci', tags: ['rel', 'research'], by: 'yy', page: 'Time.dc.html', cover: './assets/80e2f90693b0936c94efac2d01564d54.jpg', year: ['2026', '2026'], zh: ['如果宇宙是靜止的，時間從哪裡來？', '科展・研究進行中：以 Page–Wootters 機制探討量子力學中時間的湧現，並用 C++ 做自旋時鐘模型的數值計算。'], en: ['If the Universe Stands Still, Where Does Time Come From?', 'Science fair, in progress: the emergence of time in quantum mechanics via the Page–Wootters mechanism, with C++ numerics of spin-clock models.'] },
+      { cat: 'code', tags: ['prog', 'tech'], by: 'yy', page: 'Sitcon.dc.html', cover: './assets/19901de7a885d0a7e0368f071585655c.jpg', year: ['2027', '2027'], zh: ['SITCON 2027・Demo 展', '今年主題「42」：答案有了，問題呢？曹瑜耘與林宥任將在中央研究院展出（準備中）。'], en: ['SITCON 2027 · Demo', 'Theme “42”: we have the answer, so what’s the question? Yuyun Tsao and 林宥任 will demo at Academia Sinica (preparing).'] },
+      { cat: 'code', tags: ['prog', 'tech', 'idea', 'research'], tcats: ['tprog', 'hack'], by: 'team', page: 'Esim.dc.html', cover: './assets/3d5ddbdc69dddab2c093c0ead9bc3cd9.jpg', year: ['2026', '2026'], zh: ['行程配網師', '2026 和泰 AI 黑客松：為去趣設計的 eSIM 智能推薦，用旅遊人格加行程資料算出上網需求，並做出可操作的互動原型。'], en: ['Trip Data Planner', '2026 Hotai AI Hackathon: an AI eSIM recommender for chicTrip that works out data needs from your persona and itinerary, with a working prototype.'] },
+      { cat: 'code', tags: ['prog', 'tech', 'idea', 'elec', 'research'], tcats: ['tprog', 'hack'], by: 'team', page: 'Alert.dc.html', cover: './assets/1cb5349d1fa12830634cfa95d6daed06.jpg', year: ['2026', '2026'], zh: ['Spatial Alert：AI 災害防衛驗證系統', '用衛星雷達與 ESP32 地面感測器的物理數據，秒速分辨 AI 生成的假災情。曹瑜耘負責系統邏輯與演算法，陳秉彥負責 ESP32 硬體。'], en: ['Spatial Alert: AI Disaster-Defence Verification', 'Uses satellite radar and ESP32 ground-sensor data to expose AI-generated fake disasters in seconds. Yuyun designed the logic and algorithm; Bingyan built the ESP32 hardware.'] },
+      { cat: 'robot', tags: ['robot', 'prog', 'make', 'elec'], tcats: ['trobot', 'tprog'], by: 'team', page: 'Tirt.dc.html', cover: './assets/81ef52fb85f2a9357d41113443bfc710.jpg', year: ['2026', '2026'], zh: ['TIRT 機器人競賽', '第一次機器人比賽：T1 賽車競技賽（11/7），自己建模、列印、組裝與寫程式，經歷無數次除錯，第一輪止步。'], en: ['TIRT Robotics Competition', 'Our first robotics competition: T1 Racing on 7 Nov — modelled, printed, built and coded ourselves. Getting ready.'] },
+      { cat: 'robot', tags: ['robot', 'prog', 'tech'], tcats: ['trobot', 'tprog'], by: 'team', page: 'Kibo.dc.html', cover: './assets/b470eaf0beb1d79eb2da7d3d1379d956.jpg', year: ['2026', '2026'], zh: ['TASA Kibo 機器人程式設計挑戰賽（國際預賽）', '為國際太空站希望號實驗艙中的 Astrobee 機器人撰寫程式・三人團隊（曹瑜耘、陳秉彥、許峻齊）・準備中。'], en: ['TASA Kibo Robot Programming Challenge (International Preliminary)', 'Coding the Astrobee robot in a simulation of the ISS Kibo module · team of 3 · in preparation.'] },
+      { cat: 'robot', tags: ['robot', 'prog', 'make', 'elec'], tcats: ['trobot', 'tprog'], by: 'team', page: 'Aerc.dc.html', cover: './assets/2444990ef5cf0719a646d124a8f57217.jpg', year: ['2026', '2026'], zh: ['AERC 亞洲機器人運動競技大賽', '機器人運動競技・準備中：機器人設計、程式與兩人分工（待補）。'], en: ['AERC Asia Robot Sports Competition', 'Robot sports competition, in preparation: robot design, code and roles (coming soon).'] },
+      { cat: 'design', tags: ['design', 'idea', 'research', 'make'], tcats: ['tdesign'], by: 'team', page: 'Ling.dc.html', cover: './assets/4f9239e61a4835986fc4aab267baef6b.jpg', year: ['2026', '2026'], zh: ['〈菱光倚影〉', '2026 淨零綠生活 3D 列印街道家具設計競賽・🏆 全國優勝：以官田菱角與七股蚵殼灰泥打造的永續休憩街道家具。'], en: ['Caltrop Light & Shade', '2026 Net-Zero Green Living 3D-printed street furniture competition, 🏆 National Winner: sustainable seating made with Guantian caltrop forms and oyster-shell mortar.'] },
+      { cat: 'design', tags: ['design', 'idea', 'prog', 'elec', 'make'], tcats: ['tdesign', 'tprog'], by: 'team', page: 'Flow.dc.html', cover: './assets/60876d0cad4cc6ddc9bce10d14609966.jpg', year: ['2026', '2026'], zh: ['〈流〉', '2026 超夢大賞・★ 入選決賽：以「錢」為主題的互動裝置藝術：光幣從頭頂的地球垂下，流過食衣住行育樂六顆時間泡沫，匯到地上的虛化的人。'], en: ['Flow', '2026 Super Dream Award, ★ finalist: an interactive installation about money: light coins descend from a globe, pass through six time bubbles of daily life, and flow into a faceless figure.'] },
+      { cat: 'design', tags: ['design', 'idea', 'elec', 'make'], tcats: ['tdesign'], by: 'team', page: 'Glow.dc.html', cover: './assets/716d0fdd6dd314e2df7760d902633cad.jpg', year: ['2026', '2026'], zh: ['〈繪光燦影〉', '2026 玩具及生活用品創意設計競賽：讓光穿過透明圖卡投射在紙上，孩子沿著光影描繪，用無螢幕的方式取代數位刺激。'], en: ['Drawing with Light', '2026 Toy and Lifestyle Product Design Competition: light projects a picture card onto paper for children to trace — screen-free creativity.'] },
+      { cat: 'design', tags: ['design', 'idea', 'tech', 'elec', 'invent'], tcats: ['tdesign'], by: 'team', page: 'Shoe.dc.html', cover: './assets/b45528541507c50a54ba840d1b55e3e1.jpg', year: ['2026', '2026'], zh: ['〈步履無界〉', '2026 ICARE 輔具通用設計競賽：外觀像一般運動鞋，鞋底藏著非牛頓流體與儲能連桿，幫長輩防摔、省力、穿鞋不彎腰。'], en: ['Boundless Steps', '2026 ICARE assistive universal design competition: an everyday-looking sneaker hiding non-Newtonian fluid and an energy-storing linkage to prevent falls and save effort.'] },
+      { cat: 'sci', tags: ['eeg', 'research', 'prog', 'tech'], tcats: ['tsci'], by: 'team', page: 'Brain.dc.html', cover: './assets/dfacd4867e23ef4313d0a11fa3a9537d.jpg', year: ['2026', '2026'], zh: ['生成式 AI 對人類大腦認知機能的重構', '2028 國際科展・研究進行中：用 EEG 腦波量測，比較「討好型」與「批判型」AI 對前額葉思考的影響。'], en: ['How Generative AI Reshapes Human Cognition', '2028 International Science Fair, in progress: using EEG to compare how agreeable vs. Socratic AI affects frontal-lobe thinking.'] },
+      { cat: 'make', tags: ['make'], by: 'tm', cover: './assets/4e8174c6fb1e6a7acf0350e6d93ee791.jpg', zh: ['[實作作品名稱]', '[做了什麼、用了哪些材料或工具。]'], en: ['[Build project]', '[What he built and with what tools or materials.]'] },
+      { cat: 'prog', tags: ['prog'], by: 'tm', cover: './assets/973091e47a3830f0ca9397d4c42d1a55.jpg', zh: ['[程式作品名稱]', '[程式的功能與使用的語言。]'], en: ['[Coding project]', '[What it does and the language used.]'] },
+      { cat: 'tmrobot', tags: ['robot'], by: 'tm', cover: './assets/f33af3b8cb261aca7f7268d6c6f0dfd3.jpg', zh: ['[機器人作品名稱]', '[機器人的任務與他負責的部分。]'], en: ['[Robot project]', '[The robot’s task and his role.]'] },
+      { cat: 'invent', tags: ['invent'], by: 'tm', cover: './assets/b389d2d5220d2c9a75d6191955e44ca2.jpg', zh: ['[發明作品名稱]', '[發明解決了什麼問題。]'], en: ['[Invention]', '[The problem it solves.]'] },
+      { cat: 'tech', tags: ['tech'], by: 'tm', cover: './assets/75277ccd80889ec374b001f9ec058efe.jpg', zh: ['[科技專題名稱]', '[專題主題與成果。]'], en: ['[Tech project]', '[Topic and outcome.]'] },
+      { cat: 'elec', tags: ['elec'], by: 'tm', cover: './assets/61d02642a0922b29abbab25450436016.jpg', zh: ['[電子作品名稱]', '[電路設計與用到的元件。]'], en: ['[Electronics project]', '[Circuit design and components used.]'] },
+      { cat: 'research', tags: ['research'], by: 'tm', cover: './assets/0e4c2f18dd46121e760b32ca08ab1cc2.jpg', zh: ['[研究題目]', '[研究問題與方法。]'], en: ['[Research title]', '[Research question and method.]'] },
+      { cat: 'idea', tags: ['idea'], by: 'tm', cover: './assets/18f9ce68cef2f9322a36cf2f83a46cff.jpg', zh: ['[創意發想作品]', '[發想主題與想法。]'], en: ['[Ideation project]', '[Theme and concept.]'] },
+      { cat: 'write', tags: ['lit'], by: 'yy', page: 'Poem.dc.html', cover: './assets/82928e1c79722a6f17bd5b925b17a131.jpg', year: ['2026', '2026'], zh: ['新詩〈落〉', '自殺防治新詩比賽參賽作品：從孤獨與墜落寫起，在深淵裡抬頭，尋一抹光。'], en: ['Fall (poem)', 'Suicide Prevention Poetry Competition entry: from loneliness and falling to looking up from the abyss for a trace of light.'] },
+      { cat: 'write', tags: ['lit'], by: 'yy', page: 'Water.dc.html', cover: './assets/d9c978429376793b90150cb1a23cad82.jpg', year: ['2026', '2026'], zh: ['〈水之味〉', '啜飲一口水，感受宇宙之凝聚。'], en: ['The Taste of Water', 'Take a sip of water and feel the universe gather within it.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Project.dc.html', cover: './assets/2ba6533053508a07b1135178792ec6fa.jpg', year: ['2026', '2026'], zh: ['〈宇宙凝縮〉', '鳥取漫畫比賽參賽作品：把整個宇宙凝縮在一件衣服上。鉛筆、代針筆。'], en: ['Cosmos Condensed', 'Tottori Manga Competition entry: an entire universe condensed into a single garment. Pencil and fineliner.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art1.dc.html', cover: './assets/fbe4aecb9f31406207fa8718feed1610.jpg', year: ['2026', '2026'], zh: ['〈日落〉', '濃烈的黃、橘、紅色筆觸中，一輪白色的落日沉在地平線上，上方漸漸轉為藍色。'], en: ['Sunset', 'A white sun setting on the horizon in thick strokes of yellow, orange and red, fading to blue above.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art2.dc.html', cover: './assets/e55ef7ed3385e03f15496f2cdac0d4fc.jpg', year: ['2026', '2026'], zh: ['〈意識流〉', '黑色線條一層層纏繞出眼睛、漩渦、圓點與三角形，下方的弧形垂落成密集的線。'], en: ['Stream of Consciousness', 'Tangled black lines form an eye, swirls, dots and triangles above a curve that drips into dense strands.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art3.dc.html', cover: './assets/2ce0e6927084c9e19dfd51b39537297e.jpg', year: ['2026', '2026'], zh: ['〈虛無〉', '一張臉也是一個鐘面，指針穿過臉孔，一個彩色的人形站在眼睛上。'], en: ['Void', 'A face that is also a clock, its hands cutting across, with a coloured figure standing on one eye.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art4.dc.html', cover: './assets/ce291ef2476de0fcdd4f61c3a4887759.jpg', year: ['2026', '2026'], zh: ['〈凱旋而歸的戰機〉', '灰藍色的戰機在橘紅色的斜向筆觸中衝刺，碎片向後飛散。'], en: ['The Triumphant Return', 'A grey-blue fighter jet surges through slanting orange-red strokes, debris streaming behind.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art5.dc.html', cover: './assets/465eba7ba1c8db5c4232a1782b9ca550.jpg', year: ['2026', '2026'], zh: ['〈宇宙混沌〉', '藍色天空中的彩色漩渦星系與漂浮的星球，一個小小的人影站在線條上。'], en: ['Cosmic Chaos', 'A rainbow spiral galaxy and drifting planets in a blue sky, a tiny figure standing on a line.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art6.dc.html', cover: './assets/0c20f11aeba16aba014e89a6688da023.jpg', year: ['2026', '2026'], zh: ['〈淺意識〉', '密集交錯的黑色線條裡，漩渦與圓點之間浮現一張有兩隻圓眼的臉。'], en: ['The Subconscious', 'Dense tangled black lines from which a face with two round eyes emerges.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art7.dc.html', cover: './assets/30a2c1305cc8f099f747ad2bfcbf5b6b.jpg', year: ['2026', '2026'], zh: ['〈凝望〉', '一隻放大的眼睛，藍色虹膜放射出彩色光芒，四周是橘黃色的筆觸。'], en: ['Gaze', 'A close-up eye, colourful rays radiating from a blue iris amid orange-yellow strokes.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art8.dc.html', cover: './assets/fdd7045f3c808743936c52161b421a90.jpg', year: ['2026', '2026'], zh: ['〈寂寥〉', '鉛筆描繪的巨大眼睛，虹膜紋路細密，睫毛層層向外伸展。'], en: ['Solitude', 'A giant pencil-drawn eye with a finely lined iris and lashes reaching outward.'] },
+      { cat: 'art', tags: ['draw'], by: 'yy', page: 'Art9.dc.html', cover: './assets/fcbaa8cec93c88a5f9282c25555ce23b.jpg', year: ['2026', '2026'], zh: ['〈超現實〉', '黑色線條堆疊出的奇幻城市：星空中的鳥、火箭、摩天輪與城堡。'], en: ['Surreal', 'A fantasy city in dense black line: a bird in the stars, a rocket, a Ferris wheel and a castle.'] },
+      { cat: 'music', sub: 'violin', tags: ['music'], by: 'yy', cover: './assets/06e3d241197908b5c0b58a82481619e7.jpg', zh: ['[小提琴曲目或演出]', '[曲目、演出場合或比賽。]'], en: ['[Violin piece or performance]', '[Repertoire, occasion or competition.]'] },
+      { cat: 'music', sub: 'oboe', tags: ['music'], by: 'yy', cover: './assets/8b795fda57e2599205e248dc023e151b.jpg', zh: ['[雙簧管曲目或演出]', '[曲目、樂團或演出場合。]'], en: ['[Oboe piece or performance]', '[Repertoire, ensemble or occasion.]'] },
+      { cat: 'music', sub: 'piano', tags: ['music'], by: 'yy', cover: './assets/1f78422f245a4e32b34a0fa77ae8f249.jpg', zh: ['[鋼琴曲目或演出]', '[曲目、檢定或演出場合。]'], en: ['[Piano piece or performance]', '[Repertoire, exam or occasion.]'] },
+      { cat: 'music', sub: 'song', tags: ['music'], by: 'yy', cover: './assets/6e213e7f0969c9f18e706da6253050a1.jpg', zh: ['[原創歌曲名稱]', '[歌曲主題、作詞作曲與編曲方式。]'], en: ['[Original song title]', '[Theme, lyrics, composition and arrangement.]'] },
+      { cat: 'model3d', tags: ['design'], by: 'yy', cover: './assets/50f50a2782f9f5b8eb9b7625e004b110.jpg', zh: ['[3D 建模作品名稱]', '[建模的對象、使用的軟體（例：Fusion 360、Blender）與用途。]'], en: ['[3D modeling project]', '[What you modeled, the software used, and what it was for.]'] },
+      { cat: 'photo', tags: [], by: 'yy', page: 'Photo.dc.html', cover: './assets/6901d561ae90d1fe62bcfe9c4f90ac36.jpg', year: ['2026', '2026'], zh: ['攝影作品', '五張照片：校園建築裡的光影、線條與天空。'], en: ['Photography', 'Five photographs: light, lines and sky in school architecture.'] }
+    ];
+    const f = this.state.filter;
+    const sub = this.state.sub || 'all';
+    const subList = [
+      { id: 'all', zh: '全部', en: 'All' },
+      { id: 'violin', zh: '小提琴', en: 'Violin' },
+      { id: 'oboe', zh: '雙簧管 Oboe', en: 'Oboe' },
+      { id: 'piano', zh: '鋼琴', en: 'Piano' },
+      { id: 'song', zh: '歌曲創作', en: 'Songwriting' }
+    ];
+    const showSubs = f === 'music';
+    const subBase = 'font: inherit; font-size: 14px; padding: 8px 14px; min-height: 44px; border-radius: 999px; border: none; cursor: pointer;';
+    const subs = subList.map((x) => ({
+      label: L(x.zh, x.en),
+      pressed: x.id === sub ? 'true' : 'false',
+      pick: () => this.setState({ sub: x.id }),
+      style: x.id === sub
+        ? subBase + ' background: #1C2250; color: #EEF0FF; box-shadow: inset 0 0 0 1.5px ' + accent + ';'
+        : subBase + ' background: transparent; color: #C9CEF0;'
+    }));
+    const who = this.state.who;
+    const base = 'font: inherit; font-size: 15px; padding: 10px 18px; min-height: 44px; border-radius: 999px; border: 1.5px solid; cursor: pointer;';
+    const filters = cats.map((c) => ({
+      label: L(c.zh, c.en),
+      pressed: c.id === f ? 'true' : 'false',
+      pick: () => this.setState({ filter: c.id, sub: 'all' }),
+      style: c.id === f
+        ? base + ' background: ' + accent + '; color: #060818; border-color: ' + accent + ';'
+        : base + ' background: transparent; color: #EEF0FF; border-color: #2F366A;'
+    }));
+    const wbase = 'font: inherit; font-size: 14px; padding: 8px 14px; min-height: 44px; border-radius: 999px; border: none; cursor: pointer;';
+    const whoList = [{ id: 'all', zh: '全部', en: 'All' }, { id: 'yy', zh: people.yy.zh, en: people.yy.en }, { id: 'tm', zh: people.tm.zh, en: people.tm.en }, { id: 'team', zh: people.team.zh, en: people.team.en }];
+    const whos = whoList.map((m) => ({
+      label: L(m.zh, m.en),
+      pressed: m.id === who ? 'true' : 'false',
+      pick: () => this.setState({ who: m.id, filter: 'all' }),
+      style: m.id === who
+        ? wbase + ' background: #1C2250; color: #EEF0FF; box-shadow: inset 0 0 0 1.5px ' + accent + ';'
+        : wbase + ' background: transparent; color: #C9CEF0;'
+    }));
+    const teamF = ['tprog', 'hack', 'trobot', 'tsci', 'tdesign'].indexOf(f) !== -1;
+    const works = raw
+      .filter((w) => (f === 'all' || (teamF ? (w.tcats || []).indexOf(f) !== -1 : (byTags ? (w.tags || []).indexOf(f) !== -1 : (byTeam ? (w.tcats || []).indexOf(f) !== -1 : w.cat === f)))) && (who === 'all' || w.by === who || (teamF && w.by === 'team')) && (!showSubs || sub === 'all' || w.sub === sub))
+      .map((w) => {
+        const t = isEn ? w.en : w.zh;
+        const p = people[w.by];
+        return {
+          title: t[0],
+          desc: t[1],
+          year: w.year ? L(w.year[0], w.year[1]) : L('2026', '2026'),
+          hasPage: !!w.page,
+          hasCover: !!w.cover,
+          noCover: !w.cover,
+          cover: w.cover || '',
+          coverAlt: isEn ? w.en[0] : w.zh[0],
+          href: w.page || '',
+          noPage: !w.page,
+          catLabel: labelOf[w.cat],
+          by: L(p.zh, p.en),
+          byDot: 'width: 8px; height: 8px; border-radius: 50%; background: ' + p.dot + ';',
+          coverStyle: 'aspect-ratio: 4 / 3; overflow: hidden; background: ' + tints[w.cat] + '; border: 1px solid #252B52; border-radius: 6px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;'
+        };
+      });
+
+    const T = {
+      duo: ['STARNING', 'STARNING'], trio: ['三人（曹瑜耘、陳秉彥、周灝宇）', 'Team of 3 (Yuyun Tsao, Bingyan Chen, 許峻齊)'], solo: ['曹瑜耘', 'Yuyun Tsao'], none: ['—', '—'],
+      prep: ['準備中', 'Preparing'], tbc: ['狀態待確認', 'Status TBC'], wait: ['已完成，待公布', 'Submitted, awaiting results'],
+      eval: ['評估中', 'Considering'], fail1: ['未過一審', 'Did not pass first round'], notSel: ['未入選', 'Not selected'], r1out: ['第一輪止步', 'Out in round 1'], yyLin: ['曹瑜耘、林宥任', 'Yuyun Tsao, 林宥任'], sitcon: ['準備中・2027/03/13 中央研究院', 'Preparing · 13 Mar 2027, Academia Sinica'], final1120: ['入選決賽・11/20 台南南科大', 'Finalist · final 20 Nov, Tainan'], natWin: ['🏆 全國優勝', '🏆 National Winner'], pass1: ['一審通過，決賽準備中', 'Passed first round, preparing for finals']
+    };
+    const R = (n, g, zhName, enName, zhCat, enCat, team, note, hi) => ({ n, g, name: [zhName, enName], cat: [zhCat, enCat], team: T[team], note: T[note], hi: !!hi });
+    const allRows = {
+      g1: [
+        R(8, 'live', '2026 超夢大賞 全國高中職數位創意構想競賽', '2026 Super Dream Award: National High School Digital Creativity Competition', '數位創意', 'Digital Creativity', 'duo', 'final1120', true),
+        R(22, 'live', 'SITCON 2027 學生計算機年會・Demo 展', 'SITCON 2027 (Students’ Information Technology Conference) · Demo Exhibition', '資訊／科技展示', 'IT / Tech demo', 'yyLin', 'sitcon'),
+        R(9, 'live', '校內科展', 'School Science Fair', '科學研究', 'Scientific Research', 'solo', 'prep'),
+        R(11, 'live', '全球華文學生文學獎', 'Global Chinese Student Literary Awards', '文學創作', 'Creative Writing', 'solo', 'prep'),
+        R(21, 'live', 'AERC 亞洲機器人運動競技大賽', 'AERC Asia Robot Sports Competition', '機器人', 'Robotics', 'duo', 'prep'),
+        R(13, 'live', 'TASA Kibo 機器人程式設計挑戰賽（國際預賽）', 'TASA Kibo Robot Programming Challenge (International Preliminary)', '機器人／程式', 'Robotics / Coding', 'trio', 'prep'),
+        R(18, 'live', '2028 國際科展', '2028 International Science Fair', '科學研究', 'Scientific Research', 'duo', 'prep'),
+        R(1, 'wait', '鳥取漫畫比賽', 'Tottori Manga Competition', '藝術創作', 'Art', 'solo', 'wait'),
+        R(12, 'maybe', '第十三屆楊牧文學獎', '13th Yang Mu Literary Award', '文學創作', 'Creative Writing', 'solo', 'eval'),
+        R(14, 'maybe', 'MEC 創業競賽', 'MEC Entrepreneurship Competition', '創業', 'Entrepreneurship', 'duo', 'eval'),
+        R(15, 'maybe', '第六屆全國高中醫療科技創意競賽', '6th National High School Medical Technology Innovation Competition', '醫療科技', 'Medical Technology', 'duo', 'eval'),
+        R(16, 'maybe', '第五屆荊山新創獎', '5th Jingshan Startup Award', '創業', 'Entrepreneurship', 'duo', 'eval'),
+        R(17, 'maybe', '2026 全國 AI 專題創意競賽', '2026 National AI Project Competition', '資訊／AI', 'IT / AI', 'duo', 'eval'),
+        R(19, 'maybe', '2026-2027 環境關懷友善設計競賽', '2026–2027 Environmentally Friendly Design Competition', '產品設計／永續', 'Product Design / Sustainability', 'duo', 'eval'),
+        R(3, 'done', '2026「淨零綠生活」3D 列印街道家具設計競賽', '2026 “Net-Zero Green Living” 3D-Printed Street Furniture Design Competition', '產品設計／永續', 'Product Design / Sustainability', 'duo', 'natWin', true),
+        R(7, 'done', '2026 玩具及生活用品創意設計競賽', '2026 Toy and Lifestyle Product Creative Design Competition', '產品設計', 'Product Design', 'duo', 'notSel'),
+        R(10, 'done', 'TIRT 機器人競賽', 'TIRT Robotics Competition', '機器人', 'Robotics', 'duo', 'r1out'),
+        R(2, 'done', '自殺防治新詩比賽', 'Suicide Prevention Poetry Competition', '文學創作', 'Creative Writing', 'solo', 'notSel'),
+        R(6, 'done', '2026 和泰 AI 黑客松', '2026 Hotai AI Hackathon', '資訊／黑客松', 'IT / Hackathon', 'duo', 'notSel'),
+        R(4, 'done', '2026 ICARE 身心障礙與高齡者輔具產品通用設計競賽', '2026 ICARE Universal Design Competition for Assistive Products (Disability & Aging)', '產品設計／社會關懷', 'Product Design / Social Care', 'duo', 'notSel'),
+        R(5, 'done', '開源空間資訊於國家韌性應用黑客松競賽', 'Open Geospatial Data for National Resilience Hackathon', '資訊／黑客松', 'IT / Hackathon', 'duo', 'fail1')
+      ],
+      g2: [],
+      g3: []
+    };
+    const yrs = [{ id: 'g1', zh: '高一', en: 'Gr 10' }, { id: 'g2', zh: '高二', en: 'Gr 11' }, { id: 'g3', zh: '高三', en: 'Gr 12' }];
+    const y = this.state.year;
+    const ybase = 'font: inherit; font-size: 15px; padding: 10px 20px; min-height: 44px; border-radius: 999px; border: none; cursor: pointer;';
+    const years = yrs.map((it) => ({
+      label: L(it.zh, it.en),
+      pressed: it.id === y ? 'true' : 'false',
+      pick: () => this.setState({ year: it.id }),
+      style: it.id === y
+        ? ybase + ' background: ' + accent + '; color: #060818;'
+        : ybase + ' background: transparent; color: #EEF0FF;'
+    }));
+    const groups = [
+      { id: 'live', zh: '進行中', en: 'Ongoing', dot: accent },
+      { id: 'wait', zh: '待公布', en: 'Awaiting results', dot: gold },
+      { id: 'maybe', zh: '評估中', en: 'Considering', dot: '#6B7299' },
+      { id: 'done', zh: '已結束', en: 'Ended', dot: '#A3A9CF' }
+    ];
+    const dotOf = {};
+    groups.forEach((g) => { dotOf[g.id] = g.dot; });
+    const yearRows = allRows[y];
+    const countOf = (id) => yearRows.filter((r) => r.g === id).length;
+    const st = this.state.status || 'all';
+    const sbase = 'font: inherit; font-size: 14px; padding: 8px 16px; min-height: 44px; border-radius: 999px; border: 1.5px solid; cursor: pointer;';
+    const statuses = [{ id: 'all', label: L('全部', 'All') + ' ' + yearRows.length }]
+      .concat(groups.map((g) => ({ id: g.id, label: L(g.zh, g.en) + ' ' + countOf(g.id) })))
+      .map((s) => ({
+        label: s.label,
+        pressed: s.id === st ? 'true' : 'false',
+        pick: () => this.setState({ status: s.id }),
+        style: s.id === st
+          ? sbase + ' background: ' + accent + '; color: #060818; border-color: ' + accent + ';'
+          : sbase + ' background: transparent; color: #EEF0FF; border-color: #2F366A;'
+      }));
+    const summary = isEn
+      ? yearRows.length + ' competitions: ' + groups.map((g) => countOf(g.id) + ' ' + g.en.toLowerCase()).join(', ') + '.'
+      : '共 ' + yearRows.length + ' 場：' + groups.map((g) => g.zh + ' ' + countOf(g.id)).join('、') + '。';
+    const i = isEn ? 1 : 0;
+    const rows = yearRows
+      .filter((r) => st === 'all' || r.g === st)
+      .map((r) => ({
+        n: r.n,
+        name: r.name[i],
+        cat: r.cat[i],
+        team: r.team[i],
+        note: r.note[i],
+        dotStyle: 'width: 8px; height: 8px; border-radius: 50%; flex: none; background: ' + dotOf[r.g] + ';',
+        noteStyle: r.hi ? 'font-weight: 700; color: ' + accent + ';' : 'color: #C9CEF0;'
+      }));
+
+    const tlGold = '#FFD38A';
+    const tlEv = (m, zh, en, c) => ({ m, t: L(zh, en), c: c || accent });
+    const timeline = [
+      { year: '2026', grade: L('高一・組隊的第一年', 'Grade 10 · our first year as a team'), now: true, events: [
+        tlEv('08', '組成 STARNING 星凝', 'STARNING is formed'),
+        tlEv('09', '開源空間資訊黑客松：Spatial Alert', 'Open geospatial hackathon: Spatial Alert'),
+        tlEv('09', '腦波科展研究計畫啟動', 'Brainwave science fair project begins'),
+        tlEv('10.16', '量子時間科展研究啟動', 'Quantum-time science fair project begins'),
+        tlEv('10', '淨零綠生活〈菱光倚影〉初賽入圍', 'Net-Zero Green Living: Caltrop Light & Shade reaches the final'),
+        tlEv('10.30', '3D 數位製造工作坊', '3D digital fabrication workshop'),
+        tlEv('11.07', 'TIRT 機器人 T1 賽車競技賽・第一次參賽', 'TIRT robotics: T1 Racing, our first robot race'),
+        tlEv('11.13', '🏆 淨零綠生活〈菱光倚影〉全國優勝', '🏆 Caltrop Light & Shade wins a national award'),
+        tlEv('11.20', '超夢大賞〈流〉決賽・台南南科大', 'Super Dream Award final for Flow, Tainan', tlGold)
+      ] },
+      { year: '2027', grade: L('高二', 'Grade 11'), now: false, events: [
+        tlEv('03.13', 'SITCON 2027 Demo 展・中央研究院', 'SITCON 2027 demo exhibition, Academia Sinica', tlGold)
+      ], emptyK: L('下一章，待續', 'Next chapter — coming soon'), emptyV: L('新的比賽與作品會陸續加進來。', 'New competitions and work will appear here.') },
+      { year: '2028', grade: L('高三', 'Grade 12'), now: false, events: [
+        tlEv('2028', '國際科展：生成式 AI 對人類大腦認知機能的重構', 'International science fair: how generative AI reshapes cognition', tlGold)
+      ] }
+    ].map((y) => ({
+      ...y,
+      isNow: y.now,
+      hasEvents: y.events.length > 0,
+      noEvents: y.events.length === 0,
+      emptyK: y.emptyK || '', emptyV: y.emptyV || '',
+      dot: y.now ? 'background: ' + accent + '; box-shadow: 0 0 0 6px rgba(157, 180, 255, 0.18);' : 'background: #060818; border: 2px solid #2F366A;',
+      line: y.now ? 'background: linear-gradient(90deg, ' + accent + ', #2F366A);' : 'background: repeating-linear-gradient(90deg, #2F366A 0 8px, transparent 8px 14px);',
+      yearStyle: y.now ? 'color: #EEF0FF;' : 'color: transparent; -webkit-text-stroke: 1.5px #5A6299;'
+    }));
+    const tl = { title: L('三年時間軸', 'Our three years'), lead: L('從組隊的那個夏天開始，記錄 STARNING 一路走過的比賽與作品。', 'From the summer we teamed up — the competitions and work along the way.') };
+
+    const prizeList = [
+      { date: '2026.11.13', href: 'Ling.dc.html', name: L('〈菱光倚影〉淨零綠生活 3D 列印街道家具設計競賽', 'Caltrop Light & Shade, Net-Zero Green Living 3D-printed street furniture competition'), award: L('🏆 全國優勝', '🏆 National Winner'), amount: 5000 }
+    ];
+    const prizeTotal = prizeList.reduce((n, p) => n + p.amount, 0);
+    const nCoins = Math.min(Math.floor(prizeTotal / 1000), 40);
+    const pzCoins = [];
+    for (let r = 0; pzCoins.length < nCoins && r < 8; r++) {
+      const y = 220 - r * 24;
+      const half = 135 * Math.sqrt(Math.max(0, 1 - Math.pow((y - 165) / 95, 2))) - 26;
+      const cols = Math.max(1, Math.floor((half * 2) / 32) + 1);
+      const start = 200 - ((cols - 1) * 32) / 2 + (r % 2 ? 8 : 0);
+      for (let c = 0; c < cols && pzCoins.length < nCoins; c++) pzCoins.push({ x: ((start + c * 32) / 400 * 100).toFixed(2) + '%', y: (y / 300 * 100).toFixed(2) + '%' });
+    }
+    const fmt = n => n.toLocaleString('en-US');
+    const pz = {
+      title: L('獎金存錢筒', 'Our Prize Piggy Bank'),
+      totalK: L('目前累積獎金', 'Prize money so far'),
+      total: fmt(prizeTotal),
+      coinNote: L('每一枚金幣 = NT$1,000・目前 ' + nCoins + ' 枚', 'Each coin = NT$1,000 · ' + nCoins + ' coins so far'),
+      alt: L('存錢筒圖示：透明的小豬存錢筒裡有 ' + nCoins + ' 枚金幣，代表累積獎金 NT$' + fmt(prizeTotal), 'Piggy bank holding ' + nCoins + ' gold coins, for NT$' + fmt(prizeTotal) + ' in prize money'),
+      coins: pzCoins,
+      items: prizeList.map(p => ({ ...p, amt: 'NT$' + fmt(p.amount) }))
+    };
+    return {
+      timeline, tl, pz,
+      accent, zh: !isEn, en: isEn,
+      gradeLabel: isEn ? gradeEn : gradeZh,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true',
+      enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle,
+      enBtn: isEn ? onStyle : offStyle,
+      filters, whos, works, subs, showSubs, subTitle: L('樂器', 'Instrument'), subAria: L('依樂器篩選音樂作品', 'Filter music by instrument'),
+      whoTitle: L('成員', 'By'),
+      whoAria: L('依成員篩選作品', 'Filter works by member'),
+      countLabel: isEn ? works.length + ' items' : '共 ' + works.length + ' 件',
+      filterAria: L('依類別篩選作品', 'Filter works by category'),
+      coverLabel: L('作品封面圖', 'Cover image'),
+      years, yearAria: L('選擇年級', 'Choose grade'),
+      statuses, statusAria: L('依狀態篩選', 'Filter by status'),
+      summary, rows,
+      th: { name: L('比賽名稱', 'Competition'), cat: L('類型', 'Category'), team: L('參賽者', 'Entrant'), status: L('狀態', 'Status') },
+      hasRows: yearRows.length > 0, noRows: yearRows.length === 0,
+      emptyText: L('這一年的旅程還在航行中，敬請期待。', 'This year’s journey is still underway. Stay tuned.'),
+      c: {
+        ask: L('想和 STARNING 一起做點什麼？', 'Want to build something with STARNING?'),
+        ig: L('Instagram（作品帳號）↗', 'Instagram (portfolio) ↗'),
+        music: L('音樂作品 ↗', 'Music ↗'),
+        members: L('曹瑜耘 × 陳秉彥', 'Yuyun Tsao × Bingyan Chen'),
+        top: L('回到頂端 ↑', 'Back to top ↑')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
