@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：一鍵同步釋放曬衣架</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 24px 64px; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 22px; max-width: 860px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: #FFD38A">{{t.tag}}</span>
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: #C9CEF0">INVENTION 01</span>
+</div>
+<h1 style="margin: 0; font-size: clamp(40px, 6vw, 76px); line-height: 1.12; font-weight: 700; letter-spacing: -0.03em">{{t.title}}</h1>
+<p style="margin: 0; padding-left: 18px; border-left: 3px solid #FFD38A; font-size: clamp(18px, 2vw, 22px); line-height: 1.7; color: #EEF0FF">{{t.hi}}</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 12px">
+<div style="border-radius: 20px; overflow: hidden; border: 1px solid #252B52; box-shadow: 0 40px 120px rgba(80, 100, 220, 0.18)"><img src="./11c7fafe8b5dbf587499dc6814fc87de.jpg" alt="{{t.heroAlt}}" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.renderNote}}</figcaption>
+</figure>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 48px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700; line-height: 1.5">{{m.v}}</span></div>
+</sc-for>
+</section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">01 · {{t.painK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.painH}}</h2></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 16px"><p style="margin: 0; font-size: 18px; line-height: 1.9; color: #EEF0FF">{{t.pain}}</p><p style="margin: 0; font-size: 17px; line-height: 1.9; color: #A3A9CF">{{t.pain2}}</p></div>
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; border-radius: 16px; background: #0E1230; border: 1px solid #252B52">
+<span style="font-size: 14px; color: #A3A9CF">{{t.statK}}</span>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 16px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #F28B82">{{t.beforeK}}</span><span style="font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1; color: #F28B82">{{t.statA}}</span></div>
+<span aria-hidden="true" style="font-size: 28px; color: #FFD38A">→</span>
+<div style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 13px; color: #FFD38A">{{t.afterK}}</span><span style="font-size: clamp(36px, 5vw, 56px); font-weight: 700; line-height: 1; color: #FFD38A">{{t.statB}}</span></div>
+</div>
+</div>
+</div></section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">02 · {{t.goalK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.goalH}}</h2></div><ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px">
+<sc-for list="{{goals}}" as="c" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 14px; background: #0E1230; border: 1px solid #252B52"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; line-height: 1; color: #FFD38A">{{c.n}}</span><span style="font-size: 19px; font-weight: 700; line-height: 1.4">{{c.k}}</span><span style="font-size: 15px; line-height: 1.75; color: #A3A9CF">{{c.d}}</span></li></sc-for>
+</ol></section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">03 · {{t.stepsK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.stepsH}}</h2></div><ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px"><li style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52">
+<div style="border-radius: 10px; background: #060818; border: 1px solid #1A1F42; padding: 10px"><svg viewBox="0 0 240 160" aria-hidden="true" style="display: block; width: 100%; height: auto"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFD38A"></path></marker></defs><line x1="30" y1="40" x2="210" y2="40" stroke="#EEF0FF" stroke-width="5" stroke-linecap="round"></line><circle cx="120" cy="40" r="16" fill="#0E1230" stroke="#EEF0FF" stroke-width="3"></circle><line x1="120" y1="56" x2="120" y2="84" stroke="#FFD38A" stroke-width="3"></line><circle cx="120" cy="96" r="12" fill="none" stroke="#FFD38A" stroke-width="4"></circle><path d="M160 70 L160 128" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path></svg></div>
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #FFD38A">STEP 1</span><span style="font-size: 18px; font-weight: 700">{{t.st0k}}</span></span>
+<span style="font-size: 15px; line-height: 1.7; color: #A3A9CF">{{t.st0d}}</span>
+</li><li style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52">
+<div style="border-radius: 10px; background: #060818; border: 1px solid #1A1F42; padding: 10px"><svg viewBox="0 0 240 160" aria-hidden="true" style="display: block; width: 100%; height: auto"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFD38A"></path></marker></defs><line x1="30" y1="44" x2="210" y2="44" stroke="#EEF0FF" stroke-width="5" stroke-linecap="round"></line><circle cx="120" cy="44" r="14" fill="#0E1230" stroke="#EEF0FF" stroke-width="3"></circle><line x1="30" y1="62" x2="210" y2="62" stroke="#FFD38A" stroke-width="3"></line><path d="M40 90 L92 90" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><path d="M200 90 L148 90" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><g fill="#9DB4FF"><circle cx="50" cy="62" r="4"></circle><circle cx="85" cy="62" r="4"></circle><circle cx="155" cy="62" r="4"></circle><circle cx="190" cy="62" r="4"></circle></g></svg></div>
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #FFD38A">STEP 2</span><span style="font-size: 18px; font-weight: 700">{{t.st1k}}</span></span>
+<span style="font-size: 15px; line-height: 1.7; color: #A3A9CF">{{t.st1d}}</span>
+</li><li style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52">
+<div style="border-radius: 10px; background: #060818; border: 1px solid #1A1F42; padding: 10px"><svg viewBox="0 0 240 160" aria-hidden="true" style="display: block; width: 100%; height: auto"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFD38A"></path></marker></defs><line x1="120" y1="12" x2="120" y2="54" stroke="#FFD38A" stroke-width="3"></line><path d="M150 50 L150 16" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><line x1="120" y1="54" x2="108" y2="66" stroke="#FFD38A" stroke-width="3"></line><line x1="120" y1="54" x2="132" y2="66" stroke="#FFD38A" stroke-width="3"></line><line x1="108" y1="66" x2="84" y2="146" stroke="#9DB4FF" stroke-width="10" stroke-linecap="round"></line><line x1="132" y1="66" x2="156" y2="146" stroke="#9DB4FF" stroke-width="10" stroke-linecap="round"></line><circle cx="120" cy="88" r="6" fill="#EEF0FF"></circle><path d="M78 128 L52 128" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><path d="M162 128 L188 128" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path></svg></div>
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #FFD38A">STEP 3</span><span style="font-size: 18px; font-weight: 700">{{t.st2k}}</span></span>
+<span style="font-size: 15px; line-height: 1.7; color: #A3A9CF">{{t.st2d}}</span>
+</li><li style="display: flex; flex-direction: column; gap: 14px; padding: 20px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52">
+<div style="border-radius: 10px; background: #060818; border: 1px solid #1A1F42; padding: 10px"><svg viewBox="0 0 240 160" aria-hidden="true" style="display: block; width: 100%; height: auto"><defs><marker id="ah" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#FFD38A"></path></marker></defs><line x1="20" y1="22" x2="220" y2="22" stroke="#EEF0FF" stroke-width="5" stroke-linecap="round"></line><line x1="50" y1="22" x2="50" y2="38" stroke="#EEF0FF" stroke-width="2"></line><line x1="50" y1="38" x2="40" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><line x1="50" y1="38" x2="60" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><rect x="34" y="104" width="32" height="40" rx="5" fill="none" stroke="#7C86C8" stroke-width="2.5"></rect><path d="M50 76 L50 98" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><line x1="100" y1="22" x2="100" y2="38" stroke="#EEF0FF" stroke-width="2"></line><line x1="100" y1="38" x2="90" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><line x1="100" y1="38" x2="110" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><rect x="84" y="104" width="32" height="40" rx="5" fill="none" stroke="#7C86C8" stroke-width="2.5"></rect><path d="M100 76 L100 98" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><line x1="150" y1="22" x2="150" y2="38" stroke="#EEF0FF" stroke-width="2"></line><line x1="150" y1="38" x2="140" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><line x1="150" y1="38" x2="160" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><rect x="134" y="104" width="32" height="40" rx="5" fill="none" stroke="#7C86C8" stroke-width="2.5"></rect><path d="M150 76 L150 98" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path><line x1="200" y1="22" x2="200" y2="38" stroke="#EEF0FF" stroke-width="2"></line><line x1="200" y1="38" x2="190" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><line x1="200" y1="38" x2="210" y2="68" stroke="#9DB4FF" stroke-width="6" stroke-linecap="round"></line><rect x="184" y="104" width="32" height="40" rx="5" fill="none" stroke="#7C86C8" stroke-width="2.5"></rect><path d="M200 76 L200 98" stroke="#FFD38A" stroke-width="3" fill="none" marker-end="url(#ah)"></path></svg></div>
+<span style="display: flex; align-items: baseline; gap: 10px"><span style="font-size: 13px; font-weight: 700; color: #FFD38A">STEP 4</span><span style="font-size: 18px; font-weight: 700">{{t.st3k}}</span></span>
+<span style="font-size: 15px; line-height: 1.7; color: #A3A9CF">{{t.st3d}}</span>
+</li></ol></section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">04 · {{t.partsK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.partsH}}</h2></div><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 28px 40px; align-items: start"><figure style="margin: 0; display: flex; flex-direction: column; gap: 12px"><div style="border-radius: 16px; overflow: hidden; border: 1px solid #252B52"><img src="./13e2d36c29f0d743df92ffe4591790b3.jpg" alt="{{t.detailCap}}" style="display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover"></div><figcaption style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{t.detailCap}}</figcaption></figure><ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 14px">
+<sc-for list="{{parts}}" as="c" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 14px; background: #0E1230; border: 1px solid #252B52"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; line-height: 1; color: #FFD38A">{{c.n}}</span><span style="font-size: 19px; font-weight: 700; line-height: 1.4">{{c.k}}</span><span style="font-size: 15px; line-height: 1.75; color: #A3A9CF">{{c.d}}</span></li></sc-for>
+</ol></div></section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">05 · {{t.consK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.consH}}</h2></div><p style="margin: 0; font-size: 15px; color: #A3A9CF">{{t.consNote}}</p><ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 14px">
+<sc-for list="{{cons}}" as="c" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 10px; padding: 26px; border-radius: 14px; background: #0E1230; border: 1px solid #252B52"><span style="font-family: 'Space Grotesk', sans-serif; font-size: 28px; font-weight: 700; line-height: 1; color: #9DB4FF">{{c.n}}</span><span style="font-size: 19px; font-weight: 700; line-height: 1.4">{{c.k}}</span><span style="font-size: 15px; line-height: 1.75; color: #A3A9CF">{{c.d}}</span></li></sc-for>
+</ol></section>
+<section style="padding: 80px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">06 · {{t.cmpK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.cmpH}}</h2></div>
+<div style="display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 16px; align-items: stretch">
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 12px; border: 1.5px dashed #2F366A; background: #0A0D24"><span style="font-size: 13px; color: #A3A9CF">{{t.beforeK}}</span><span style="font-size: 19px; font-weight: 700; line-height: 1.5; color: #C9CEF0">{{t.before}}</span></div>
+<span aria-hidden="true" style="align-self: center; font-size: 28px; color: #FFD38A">→</span>
+<div style="display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 12px; border: 1.5px solid #FFD38A; background: rgba(255, 211, 138, 0.07)"><span style="font-size: 13px; color: #FFD38A">{{t.afterK}}</span><span style="font-size: 19px; font-weight: 700; line-height: 1.5">{{t.after}}</span></div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 8px"><sc-for list="{{keys}}" as="k" hint-placeholder-count="4"><span style="padding: 8px 14px; border-radius: 999px; background: #10153A; border: 1px solid #2A3166; font-size: 15px">{{k.v}}</span></sc-for></div>
+</section>
+<section style="padding: 80px 0 104px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">07 · {{t.nextStepK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em; line-height: 1.3">{{t.nextStepH}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px">
+<sc-for list="{{nexts}}" as="x" hint-placeholder-count="3"><li style="display: flex; align-items: center; gap: 14px; padding: 18px 20px; border-radius: 12px; border: 1.5px dashed #2F366A; background: #0A0D24"><span style="flex: none; width: 34px; height: 34px; border-radius: 50%; border: 1.5px solid #9DB4FF; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #9DB4FF">{{x.n}}</span><span style="font-size: 17px; font-weight: 700">{{x.v}}</span></li></sc-for>
+</ol>
+</section>
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Inv2.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":6400}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    return {
+      accent,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      meta: [
+        { k: L('發明者', 'Inventor'), v: 'Bingyang Chen' },
+        { k: L('類型', 'Type'), v: L("機構概念設計", "Mechanism concept design") },
+        { k: L('階段', 'Stage'), v: L('概念設計', 'Concept') },
+        { k: L('分類', 'Category'), v: L('發明家', 'Inventor') }
+      ],
+      goals: [{ n: "01", k: L("單手", "One hand"), d: L("只用一隻手操作主開關，另一隻手可以接住衣服。", "Work the main switch with one hand; the other is free to catch the laundry.") }, { n: "02", k: L("一次", "One action"), d: L("一個動作取代逐一按壓，收衣服的時間大幅縮短。", "A single action replaces pinching each clip, cutting the time it takes.") }, { n: "03", k: L("同步", "All together"), d: L("所有夾子同時打開，不會有衣服卡在夾子上。", "Every clip opens at once, so nothing gets left hanging.") }],
+      parts: [{ n: "01", k: L("導索座", "Cable guide"), d: L("固定中央拉索，讓每個夾子都能接上同一條傳動線。", "Holds the central cable so every clip connects to the same drive line.") }, { n: "02", k: L("拉桿", "Pull rod"), d: L("把拉索的拉力往下傳到夾子。", "Carries the cable’s pull down to the clip.") }, { n: "03", k: L("連桿", "Linkages"), d: L("兩支連桿接在夾子上端，拉起時把上端往內收。", "Two links on the clip’s upper ends pull them inward when lifted.") }, { n: "04", k: L("支點與彈簧", "Pivot and spring"), d: L("夾子以支點轉動；放開後，彈簧讓夾子自動夾回。", "The jaws rotate about the pivot; when released, the spring closes them again.") }, { n: "05", k: L("夾口", "Jaws"), d: L("上端內收、下端就張開，衣物自然落下。", "As the upper ends move in, the tips swing open and the laundry falls.") }],
+      cons: [{ n: "01", k: L("自動回彈", "Spring return"), d: L("放開主開關後，每個夾子要靠彈簧自己夾回，下次晾衣服才不用一個個重設。", "When the switch is released, each clip should close on its own spring, so nothing needs resetting before the next load.") }, { n: "02", k: L("拉力平均", "Even pull"), d: L("拉索要讓前後左右的夾子受力差不多，避免有的先開、有的沒開。", "The cable needs to share the pull evenly so clips on every side open at the same time.") }, { n: "03", k: L("耐用", "Durability"), d: L("拉索和連桿會被反覆拉動，要選耐磨、不易斷的材料。", "The cable and links are pulled again and again, so they need wear-resistant materials.") }, { n: "04", k: L("防止誤觸", "No accidental release"), d: L("主開關的位置要避開晾衣服時手會碰到的地方。", "The switch should sit where hands won’t bump it while hanging laundry.") }],
+      nexts: [{ n: "1", v: L("畫出完整 3D 模型", "Build a full 3D model") }, { n: "2", v: L("3D 列印原型", "3D-print a prototype") }, { n: "3", v: L("測試拉力與回彈", "Test the pull force and spring return") }],
+      keys: [["中央傳動拉索", "Central drive cable"], ["連桿機構", "Linkage mechanism"], ["單點觸發", "Single trigger"], ["同步釋放", "Synchronised release"]].map((k) => ({ v: isEn ? k[1] : k[0] })),
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('發明・機構概念設計', 'Invention · Mechanism concept design'),
+        title: L("一鍵同步釋放曬衣架", "One-Touch Release Clothes Hanger"),
+        hi: L("將繁瑣的逐一按壓，轉化為單點觸發的連桿同步釋放。", "Turning one-by-one pinching into a single trigger that releases every clip at once through linkages."),
+        heroAlt: L("3D 概念示意圖：長方形曬衣架，中央有金色拉環，金色拉索沿著框架連到每一個夾子。", "3D concept render: a rectangular hanger with a gold pull ring at the centre and gold cables running along the frame to every clip."),
+        renderNote: L('3D 概念示意圖，用來說明機構原理，不是實際尺寸與外觀。', '3D concept render to explain the mechanism; not actual size or final appearance.'),
+        painK: L('設計痛點', 'THE PROBLEM'),
+        painH: L("收衣服，為什麼要按十幾次？", "Why does taking in laundry take a dozen pinches?"),
+        pain: L("傳統多夾式曬衣架在收衣服時，必須用手指逐一按壓每個夾子，過程耗時且重複性高。", "With a traditional multi-clip hanger, you have to pinch every clip one by one to take the laundry down. It is slow and highly repetitive."),
+        pain2: L("一個曬衣架常常掛滿襪子、內衣和毛巾。一手要扶著衣架，另一手一個一個按，衣服還會掉到地上。收一次衣服，同一個動作要重複很多次。", "A hanger is often full of socks, underwear and towels. One hand steadies the hanger while the other pinches clip after clip, and clothes drop to the floor. The same motion repeats again and again."),
+        statK: L("以 12 夾的曬衣架為例", "For a 12-clip hanger"),
+        statA: L("12 次", "12 pinches"),
+        statB: L("1 次", "1 pull"),
+        goalK: L('設計目標', 'DESIGN GOALS'),
+        goalH: L('三個關鍵字：單手、一次、同步', 'Three words: one hand, one action, all together'),
+        stepsK: L('運作原理', 'HOW IT WORKS') ,
+        stepsH: L("從拉一下，到全部鬆開", "From one pull to every clip letting go"),
+        st0k: L("拉下主開關", "Pull the main switch"),
+        st0d: L("使用者單手往下拉中央的拉環。", "Pull the ring at the centre down with one hand."),
+        st1k: L("拉索同時收緊", "The cables tighten together"),
+        st1d: L("中央傳動拉索把拉力分到框架四邊。", "The central drive cable spreads the pull along all four sides of the frame."),
+        st2k: L("連桿撐開夾子", "Linkages open the clips"),
+        st2d: L("每個夾子上方的連桿被往上拉，夾口跟著張開。", "The linkage above each clip is pulled up, and the jaws swing open."),
+        st3k: L("衣服一次落下", "Everything drops at once"),
+        st3d: L("所有衣物同時鬆開，直接落進洗衣籃。", "All the laundry is released together, straight into the basket."),
+        partsK: L('結構拆解', 'STRUCTURE'),
+        partsH: L('每個零件的角色', 'What each part does'),
+        detailCap: L("3D 概念示意：單一夾子的連桿機構。左：釋放前（夾住）；右：拉動主開關後（張開）。", "3D concept render of one clip’s linkage. Left: before release (closed). Right: after pulling the switch (open)."),
+        consK: L('設計考量', 'DESIGN CONSIDERATIONS'),
+        consH: L('從概念到實物，要想清楚的事', 'What to think through, from concept to object'),
+        consNote: L('以下是構想中的設計考量，會在做原型時一一驗證。', 'These are design considerations at the concept stage, to be checked one by one when prototyping.'),
+        cmpK: L('改良前後', 'BEFORE & AFTER'),
+        cmpH: L('一個動作的差別', 'The difference one action makes'),
+        beforeK: L('原本', 'Before'),
+        afterK: L('改良後', 'After'),
+        before: L("逐一按壓每個夾子", "Pinch each clip one by one"),
+        after: L("單手操作一個主開關", "One main switch, one hand"),
+        nextStepK: L('下一步', 'NEXT STEPS'),
+        nextStepH: L('接下來想做的事', 'What comes next'),
+        nextK: L('下一件發明', 'Next invention'),
+        nextV: L("雙球曲面貼合擠牙膏器", "Dual-Ball Contour Toothpaste Squeezer")
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

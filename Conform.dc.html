@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：從眾的本質是什麼？</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 80px 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
+<span style="padding: 6px 12px; border: 1px solid #FFD38A; border-radius: 999px; font-size: 14px; color: #FFD38A">{{t.tag2}}</span>
+</div>
+<h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(40px, 5.6vw, 68px); line-height: 1.2; font-weight: 900">{{t.title}}</h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.lead}}</p>
+</div>
+<figure style="margin: 0; width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; border: 1px solid #252B52">
+<img src="./9477d44a62bcd35e81018cc90710664b.jpg" alt="{{t.coverAlt}}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</figure>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<section style="padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700; line-height: 1.5">{{m.v}}</span></div>
+</sc-for>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">01 · {{t.k1}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 12px">
+<sc-for list="{{steps}}" as="s" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 10px; padding: 22px 24px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{s.c}}"><span style="font-size: 13px; letter-spacing: 0.14em; color: {{s.c}}">{{s.n}}</span><span style="font-size: 18px; font-weight: 700; line-height: 1.5">{{s.k}}</span><span style="font-size: 14px; line-height: 1.7; color: #A3A9CF">{{s.d}}</span></li></sc-for>
+</ol>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">02 · {{t.k2}}</span><h2 style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(28px, 3.4vw, 40px); font-weight: 900">{{t.title}}</h2></div>
+<article style="display: flex; flex-direction: column; gap: 26px; max-width: 760px">
+<sc-for list="{{paras}}" as="p" hint-placeholder-count="4"><p style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: 18px; font-weight: 600; line-height: 2.1; color: #DCE0F7; text-align: justify">{{p.t}}</p></sc-for>
+</article>
+<blockquote style="margin: 0; max-width: 760px; display: flex; flex-direction: column; gap: 14px; padding: 28px 30px; border-radius: 14px; background: rgba(255, 211, 138, 0.06); border-left: 4px solid #FFD38A">
+<p style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(22px, 2.6vw, 30px); font-weight: 600; line-height: 1.6">「{{t.quote}}」</p>
+<cite style="font-style: normal; font-size: 14px; color: #A3A9CF">— Yuyun Tsao</cite>
+</blockquote>
+</section>
+
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Philo.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":4200}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const ZH = ["若在生物體中強制抹去從眾行為，會發生什麼事呢？結果就是現在所有的一切將會消失，甚至可以說我們究竟會在哪裡？如果沒有了從眾，我就不會產生語言文字文化，因為那是多數人的思想匯聚後的新成的共識，一切的物質產生都是由從眾開始的。從眾是人與生俱來的本能，若少了從眾，事件將經歷翻天覆地的變化。我為何在寫作？因為那是從眾後產生的行為，甚至可以說從眾一詞的出現，更是貫穿了層層從眾後的結果，人為何是人？那是從眾後的自我認同，是迎合大眾思考的意識行為。然後接下來如果少了從眾，人類群體不會出現，不會有語言得以交流，更不會形成聚落乃至國家。如果少了從眾，我們還會是人嗎？你一定會想問，從眾真的有這麼重要嗎？真的足以改變世界的運轉方式嗎？我認為是的，回歸這原始的生命形態，細胞的分裂與結合過程，便是一種與生俱來的從眾本質。或許這樣講顯得過於深奧，那就回歸此時此刻的人們，他們的所見所聞，我們為何要工作？為何要讀書？", "一般人會說，因為別人都這麼做啊，但脫離現實層面，不談金錢，不討論社會，我們所做的事，所擁有的物質皆為從眾後產生的結果。因為從眾，所以該願平凡，不願跳脫他人思維，停留於原地，活著那個屬於不屬於自己的軀殼，然而社會中的從眾，世人時常會強調團結後的黑暗面，一味的追逐潮流，聯合眾人的霸凌行為，階級地位的產生，不禁思考事情真偽的從眾，是的，從眾會可能會帶來挑戰，可能會帶來黑暗，但他對於整個生物的進程而言，卻是非常重要的機制。然而，若所有人都選擇從眾，你我現可能還是個什麼也不會的原始人，因為世界缺乏發現。不，等等，我們可以說，如果說生物都選擇從眾，那就不演化了。所以究竟為什麼大部分人會選擇從眾，而少部分人會發現真理呢？科學歷史上，哥白尼的日心說，或許當時眾人皆不相信他的理論，他卻一人堅信著自己的真理，才能在科學史上產生重大變革，留下足以撼動社會的奇蹟。從眾必然重要，但全新的思維與思想更是推動世界運轉的不可或缺的齒輪。", "或許從眾讓更多人在其中感到迷失，不知道自己真正的喜好為何，社會裡集體意識下，從眾行為是不好的更是一種無情的從眾行為，從眾帶動社會運轉，但也埋沒了許多努力探出頭的人們，大部分人會聯合起來壓下探頭的人，是孤獨是絕望，卻也帶來歷史中無法抹滅的軌跡。我們應該從眾嗎？從眾帶來安心和歸屬感，也讓世界得以持續運轉。如果所有人，都發現開始討論起從眾背後的必要性和不必要性，我們將迎來一個非常混亂的時代，世界再也沒有秩序和文化，甚至是國家都會在頃刻間瓦解，如同座座孤島，獨自在世界的洋流中徘徊，直到最後只剩互相觀察而不行動。如冰原中的寒冷，人不再是群體動物，缺少了溫度與交流。你或許認為世界上所有的人都選擇不從眾，我們的世界應該充滿特色，包容人們會，人們會包容彼此，尊重，最終共榮，且人類文明應會更快速發展，因為所有變革都是由不從眾的想法開始的。所有人將會成為獨一無二的自己，但別忘了，這所有的一切都是建立於從眾之上的。或許會有人站出來發出變革，但整體運作下來，社會將缺乏共識，只剩那些獨自在汪洋中吶喊，卻無人聽見，難以有所共鳴。所以我們回到前面的問題來思考，我們應該從眾嗎？", "我認為我們應該也不應該。從選擇從眾是因為世界需要停，正常運作，而選擇背道而馳應該是追隨自己內心深處的聲音和清醒中的力量，你可以成為這個時代的領導者，帶著眾人一同邁向更美好的未來，理性的，勇敢的帶領世人去見那未曾有人探訪過的風景。"];
+    const EN = ["What would happen if conformity were forcibly erased from living things? Everything we have now would disappear. We might even ask: where would we be at all? Without conformity, I would never have language, writing or culture, because those are new consensus formed when the thoughts of many people gather together. All things that came into being began with conformity. Conformity is an instinct we are born with; without it, events would be turned upside down. Why am I writing? Because writing is a behaviour born of conformity. You could even say that the very word “conformity” is the result of layer upon layer of conforming. Why are humans human? That is self-identity formed through conformity, a conscious act of fitting in with how the many think. And if conformity were gone, human groups would never form, there would be no language to communicate with, let alone villages or nations. Without conformity, would we still be human? You may ask: is conformity really that important? Is it really enough to change how the world runs? I think it is. Go back to the most primitive form of life: the way cells divide and combine is itself an inborn essence of conformity. Perhaps that sounds too abstract, so let’s return to people here and now, and what they see and hear. Why do we work? Why do we study?", "Most people would say: because everyone else does. But stepping outside practical life, leaving money and society aside, everything we do and everything we own is the result of conformity. Because we conform, we settle for being ordinary, unwilling to step outside other people’s thinking, staying where we are, living in a body that both is and isn’t our own. In society, people often stress the dark side of unity: blindly chasing trends, ganging up to bully, the rise of class and rank, conformity that never stops to ask what is true. Yes, conformity can bring challenges, and it can bring darkness, yet for the whole course of life it is a vital mechanism. Still, if everyone chose to conform, you and I might still be primitive people who know nothing, because the world would lack discovery. No, wait: we could say that if every living thing chose to conform, there would be no evolution. So why do most people choose to conform, while a few discover the truth? In the history of science, perhaps no one believed Copernicus’s heliocentric theory at the time, yet he alone held to his truth, and so brought a great turn in the history of science, leaving a wonder that shook society. Conformity is surely important, but new thinking and new ideas are an indispensable gear that keeps the world turning.", "Perhaps conformity leaves more people lost within it, unsure of what they truly love. Under society’s collective consciousness, conformity is bad, and even a ruthless kind of conformity. Conformity keeps society running, but it also buries many who try hard to lift their heads. Most people join together to push down those who look up; it is loneliness and despair, yet it also leaves marks in history that can never be erased. Should we conform? Conformity brings reassurance and belonging, and lets the world keep running. If everyone began to notice and debate whether conformity is necessary or not, we would enter a very chaotic age: no more order or culture, even nations collapsing in an instant, like scattered islands drifting alone in the world’s currents, until all that is left is watching one another without acting. Like the cold of an ice field, humans would no longer be social animals, lacking warmth and connection. You might think that if everyone in the world chose not to conform, our world would be full of character; people would accept one another, respect one another and finally flourish together, and human civilisation would advance faster, because every change begins with a non-conforming idea. Everyone would become their one-of-a-kind self. But don’t forget: all of this is built on conformity. Someone might stand up and call for change, but as a whole, society would lack consensus, leaving only voices shouting alone in the open sea, unheard, finding no echo. So let us return to the question from before: should we conform?", "I think we should, and we shouldn’t. We choose to conform because the world needs to keep running normally; and choosing to go against the current should mean following the voice deep in your heart and the strength found in clarity. You can become a leader of this age, taking others with you towards a better future, leading the world, rationally and bravely, to see landscapes no one has visited before."];
+    return {
+      accent,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      paras: (isEn ? EN : ZH).map((t) => ({ t })),
+      meta: [
+        { k: L('作者', 'Author'), v: 'Yuyun Tsao' },
+        { k: L('類型', 'Form'), v: L('哲思散文', 'Philosophical essay') },
+        { k: L('年份', 'Year'), v: '2026' }
+      ],
+      steps: [
+        { n: '01', c: '#5EC8FF', k: L('從眾是本能', 'Conformity is instinct'), d: L('從細胞的分裂與結合，到語言、文化與國家，一切都從從眾開始。', 'From cells dividing and combining to language, culture and nations, everything begins with conformity.') },
+        { n: '02', c: '#C9A8FF', k: L('從眾的陰影', 'Its shadow'), d: L('追逐潮流、聯合霸凌、階級，還有被壓下去的探頭者。', 'Chasing trends, ganging up, rank, and those pushed down for looking up.') },
+        { n: '03', c: '#7EE6D6', k: L('不從眾的代價', 'The cost of not conforming'), d: L('從哥白尼看見改變的力量，也想像沒有共識的世界：座座孤島。', 'Copernicus shows the power of change; a world without consensus becomes scattered islands.') },
+        { n: '04', c: '#FFD38A', k: L('應該，也不應該', 'Should, and shouldn’t'), d: L('為了世界運轉而從眾，為了內心的聲音而背道而馳。', 'Conform so the world keeps running; go against the current to follow your inner voice.') }
+      ],
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('文學・散文', 'Literature · Essay'),
+        tag2: L('哲思', 'Philosophy'),
+        title: L('從眾的本質是什麼？', 'What Is the Nature of Conformity?'),
+        lead: L('如果抹去從眾，我們還會是人嗎？從細胞、語言、哥白尼到社會的孤島，追問從眾的必要與代價。', 'If conformity were erased, would we still be human? From cells and language to Copernicus and islands of people, an essay on what conformity gives and what it costs.'),
+        coverAlt: L('一大群往同一個方向流動的藍色光點中，一顆金色的光點往反方向前進。', 'Among a crowd of blue dots flowing one way, a single gold dot moves the other way.'),
+        k1: L('思考的轉折', 'HOW THE THINKING TURNS'),
+        h1: L('四個轉折', 'Four turns'),
+        k2: L('全文', 'FULL TEXT'),
+        quote: L('我認為我們應該也不應該。', 'I think we should, and we shouldn’t.'),
+        nextK: L('延伸閱讀', 'Read next'),
+        nextV: L('哲學筆記', 'Philosophy Notebook')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
