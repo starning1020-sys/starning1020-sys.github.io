@@ -2,7 +2,7 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
-<title>STARNING：〈流〉（保密中）</title>
+<title>STARNING：流 Flow</title>
 <script src="./react.js"></script>
 <script src="./react-dom.js"></script>
 <script src="./support.js"></script>
@@ -19,7 +19,7 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
 
-<header style="border-bottom: 1px solid #1A1F42">
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
 <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
 <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
@@ -34,37 +34,316 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </nav>
 </header>
 
-<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
-<img src="./60876d0cad4cc6ddc9bce10d14609966.jpg" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.18; filter: blur(6px)">
-<div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(6, 8, 24, 0.5), #060818)"></div>
-<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; display: flex; flex-direction: column; gap: 26px">
+<section style="position: relative; overflow: hidden">
+<svg aria-hidden="true" viewBox="0 0 1440 640" preserveAspectRatio="xMidYMid slice" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none">
+<g fill="#FFFFFF">
+<circle cx="90" cy="70" r="1" opacity="0.6"></circle><circle cx="430" cy="40" r="1.3" opacity="0.7"></circle><circle cx="780" cy="100" r="0.8" opacity="0.5"></circle>
+<circle cx="1390" cy="150" r="1" opacity="0.6"></circle><circle cx="620" cy="560" r="0.8" opacity="0.4"></circle><circle cx="210" cy="420" r="1" opacity="0.4"></circle>
+</g>
+<circle cx="1160" cy="150" r="64" fill="#10153A" stroke="#2A3166" stroke-width="1.5"></circle>
+<ellipse cx="1160" cy="150" rx="64" ry="22" fill="none" stroke="#2A3166"></ellipse>
+<line x1="1160" y1="86" x2="1160" y2="214" stroke="#2A3166"></line>
+<path d="M1120 205 C1080 300 1180 330 1130 420 S1060 520 1150 600" fill="none" stroke="#FFD38A" stroke-width="1.5" opacity="0.8"></path>
+<path d="M1200 205 C1260 290 1180 360 1240 440 S1300 540 1210 620" fill="none" stroke="#FFD38A" stroke-width="1.5" opacity="0.55"></path>
+<circle cx="1130" cy="420" r="4" fill="#FFD38A"></circle>
+<circle cx="1240" cy="440" r="3" fill="#FFD38A"></circle>
+<circle cx="1180" cy="330" r="3" fill="#FFD38A"></circle>
+</svg>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 80px 24px 64px; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
-<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #FFD38A; color: #060818; font-size: 14px; font-weight: 700">🔒 {{t.status}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EEF0FF"></span>STARNING</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: #FFD38A; color: #060818; font-size: 14px; font-weight: 700">★ {{t.finalist}}</span>
 </div>
-<h1 style="margin: 0; max-width: 900px; font-size: clamp(40px, 6vw, 76px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 700">{{t.title}}</h1>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px 32px; padding-top: 26px; border-top: 1px solid #1F2550; max-width: 860px">
-<sc-for list="{{meta}}" as="m" hint-placeholder-count="3">
+<h1 style="margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 24px; font-size: clamp(56px, 9vw, 120px); line-height: 1; letter-spacing: -0.02em; font-weight: 600; font-family: 'Noto Serif TC', serif">〈流〉<span style="font-family: 'Space Grotesk', sans-serif; font-weight: 500; font-size: 0.4em; color: #FFD38A; letter-spacing: 0.04em">Flow</span></h1>
+<p style="margin: 0; font-size: clamp(20px, 2.2vw, 26px); line-height: 1.6; color: #C9CEF0; max-width: 760px">{{t.oneLine}}</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px; padding-top: 28px; border-top: 1px solid #1F2550">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="6">
 <div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 500; line-height: 1.5">{{m.v}}</span></div>
 </sc-for>
 </div>
 </div>
 </section>
 
-<section style="max-width: 1200px; margin: 0 auto; padding: 88px 24px 112px">
-<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: clamp(36px, 6vw, 72px) clamp(20px, 4vw, 48px); border-radius: 20px; border: 1.5px dashed #2F366A; background: #0A0D24; text-align: center">
-<svg aria-hidden="true" width="64" height="64" viewBox="0 0 64 64" fill="none" stroke="#FFD38A" stroke-width="3" stroke-linecap="round"><rect x="14" y="28" width="36" height="26" rx="6"></rect><path d="M22 28v-8a10 10 0 0 1 20 0v8"></path><circle cx="32" cy="41" r="3.5" fill="#FFD38A"></circle></svg>
-<h2 style="margin: 0; font-size: clamp(24px, 3vw, 32px); font-weight: 700">{{t.lockH}}</h2>
-<p style="margin: 0; max-width: 620px; font-size: 17px; line-height: 1.8; color: #C9CEF0">{{t.lockP}}</p>
-<span style="padding: 8px 18px; border-radius: 999px; border: 1px solid #2A3166; font-size: 14px; color: #A3A9CF">{{t.openWhen}}</span>
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 0; display: flex; flex-direction: column">
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 64px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">01</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2></div>
+<div style="grid-column: span 2; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 18px; line-height: 1.9; color: #DDE1F7">《流》是一件以「錢」為主題的互動裝置藝術。錢每天在生活中進出，帶走父母工作的時間，也換來我們的早餐、制服、車票與補習費，卻很少人想過它是什麼。作品以透明管線模擬金錢流動，發光的「光幣」從頭頂的地球垂下，流過食、衣、住、行、育、樂六顆時間泡沫，最後匯到地上的「虛化的人」：一個半透明、沒有臉的人形，可以是任何人，也可以是觀眾自己。錢本身是空的，它的價值，來自每一個相信它的人。</p>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<p lang="en" style="margin: 0; font-size: 18px; line-height: 1.8; color: #DDE1F7"><em>Flow</em> is an interactive installation about money. Money moves through our lives every day — it takes our parents’ working hours and comes back as our breakfast, uniforms, bus fares and cram-school fees — yet few of us ever stop to ask what it is. Transparent tubes simulate money in motion: glowing “light coins” descend from a globe overhead, pass through six “time bubbles” for food, clothing, housing, transport, education and leisure, and finally flow into a “blurred person” on the floor — a translucent, faceless figure who could be anyone, including the viewer. Money itself is empty; its value comes from everyone who believes in it.</p>
+</sc-if>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 24px 64px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">02</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h2}}</h2></div>
+<div style="grid-column: span 2; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<p style="margin: 0; font-size: 18px; line-height: 1.9; color: #DDE1F7">我們是 STARNING 團隊，由 Yuyun Tsao（組長）與 Bingyang Chen 組成。Yuyun Tsao 負責企劃與統籌，Bingyang Chen 擅長電路規劃與程式設計，兩人的專長結合，完成六個生活場景與燈光互動的設計。我們因為志趣相投而組隊，希望透過這次競賽，把日常生活中最常見、卻最少被思考的「錢」，變成一件能讓人停下來看見自己的作品。</p>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<p lang="en" style="margin: 0; font-size: 18px; line-height: 1.8; color: #DDE1F7">We are team STARNING: Yuyun Tsao (team lead) and Bingyang Chen. Yuyun led the concept and planning; Bingyang, who specialises in circuits and programming, designed the lighting interaction. Together we built six life scenes and their light effects. We teamed up because we share the same curiosity, and we wanted to turn the most ordinary and least examined thing in daily life — money — into a work that makes people pause and see themselves.</p>
+</sc-if>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 40px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">03</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h3}}</h2></div>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px 48px">
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.8; color: #DDE1F7">
+<li>高中生每天都在用錢：早餐、補習費、手機月租、飲料。錢一直在手中進出，卻很少有人停下來想它到底是什麼。</li>
+<li>父母用工作的時間換錢，我們再用錢換食物、知識和娛樂。錢其實是一種「能量」，把一個人的力氣搬到另一個人身上。</li>
+<li>但一張鈔票本身只是紙，一個帳戶數字只是電子訊號。它有價值，只因為所有人都同意它有價值。</li>
+</ul>
+<p style="margin: 0; font-size: 17px; line-height: 1.9; color: #C9CEF0">一開始我們只想做一座雕像，討論時卻一直繞回同一個問題：錢到底是什麼？它像一種能量，在社會裡不停流動，帶走一個人的時間，轉成另一個人的生活；但追問到底，它只是一張紙、一串數字。這個「既重要又虛無」的矛盾，成為我們創作的起點。</p>
+</div>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<div lang="en" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px 48px">
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.7; color: #DDE1F7">
+<li>High schoolers spend money every day — breakfast, tutoring, phone bills, drinks. It passes through our hands constantly, yet we rarely stop to think about what it is.</li>
+<li>Parents trade working hours for money; we trade money for food, knowledge and fun. Money is a kind of energy that carries one person’s effort to another.</li>
+<li>Yet a banknote is only paper and a bank balance only a signal. It has value only because everyone agrees it does.</li>
+</ul>
+<p style="margin: 0; font-size: 17px; line-height: 1.8; color: #C9CEF0">We first set out to make a sculpture, but our discussions kept circling back to one question: what is money? It flows through society like energy, taking one person’s time and turning it into another’s life — yet at its root it is just paper and numbers. That contradiction, at once essential and empty, became our starting point.</p>
+</div>
+</sc-if>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px">
+<sc-for list="{{pillars}}" as="p" hint-placeholder-count="3">
+<div style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<span style="font-size: 14px; color: #FFD38A">{{p.n}}</span>
+<span style="font-size: 26px; font-weight: 700">{{p.k}}</span>
+<span style="font-size: 16px; line-height: 1.7; color: #C9CEF0">{{p.d}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">04</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h4}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.7; color: #A3A9CF; max-width: 760px">{{t.flowLead}}</p></div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px; padding: 40px 24px; background: #0A0D24; border: 1px solid #1F2550; border-radius: 6px">
+<div style="display: flex; align-items: center; gap: 14px">
+<svg aria-hidden="true" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="{{accent}}" stroke-width="1.5"><circle cx="28" cy="28" r="26"></circle><ellipse cx="28" cy="28" rx="26" ry="9"></ellipse><ellipse cx="28" cy="28" rx="10" ry="26"></ellipse></svg>
+<span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 17px; font-weight: 700">{{t.globe}}</span><span style="font-size: 14px; color: #A3A9CF">{{t.globeSub}}</span></span>
+</div>
+<span aria-hidden="true" style="width: 2px; height: 28px; background: #FFD38A"></span>
+<ol style="list-style: none; margin: 0; padding: 0; width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px">
+<sc-for list="{{nodes}}" as="n" hint-placeholder-count="6">
+<li style="display: flex; flex-direction: column; align-items: center; gap: 6px; padding: 20px 12px; text-align: center; border: 1.5px solid #FFD38A; border-radius: 48%; background: #10153A">
+<span style="font-size: 13px; color: #FFD38A">{{n.time}}</span>
+<span style="font-size: 17px; font-weight: 700">{{n.name}}</span>
+<span style="font-size: 13px; color: #C9CEF0; line-height: 1.5">{{n.items}}</span>
+</li>
+</sc-for>
+</ol>
+<span aria-hidden="true" style="width: 2px; height: 28px; background: #FFD38A"></span>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 28px; border: 1.5px solid {{accent}}; border-radius: 6px; background: #141938; text-align: center">
+<span style="font-size: 17px; font-weight: 700">{{t.endNode}}</span>
+<span style="font-size: 14px; color: #A3A9CF">{{t.endNodeSub}}</span>
+</div>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">05</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h5}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.7; color: #A3A9CF; max-width: 760px">{{t.nodesLead}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 32px 24px">
+<sc-for list="{{nodes}}" as="n" hint-placeholder-count="6">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 14px">
+<div style="aspect-ratio: 4 / 3; background: #F4F3EF; border-radius: 6px; overflow: hidden; display: flex; align-items: center; justify-content: center">
+<img src="{{n.img}}" alt="{{n.alt}}" style="width: 100%; height: 100%; object-fit: contain; display: block">
+</div>
+<figcaption style="display: flex; flex-direction: column; gap: 8px">
+<span style="display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px"><span style="font-size: 14px; color: #FFD38A">{{n.time}}</span><span style="font-size: 19px; font-weight: 700">{{n.name}}</span></span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{n.caption}}</span>
+<span style="font-size: 14px; color: #A3A9CF">{{t.becomes}}{{n.items}} · {{n.meaning}}</span>
+</figcaption>
+</figure>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">06</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h6}}</h2></div>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.8; color: #DDE1F7">
+<li>作品中央站著一尊與真人等高的人形，以霧面壓克力層疊或細紗網製成，輪廓模糊、沒有清楚的五官，像一個被時間沖淡的人。</li>
+<li>六條生活的金錢線最後都流進他的身體，在胸口匯聚成一團暖金色的光，像心臟一樣跳動。</li>
+<li>人形是空心的：走近才發現裡面除了光，什麼都沒有。錢最後流向的只是一個人，而這個人可以是任何人，也可以是觀眾自己。</li>
+<li>錢從世界流到人，所以人是這場流動的終點；但錢的價值來自人的相信，所以人也是它的源頭。終點，就是源頭。</li>
+</ul>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<ul lang="en" style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.7; color: #DDE1F7">
+<li>At the centre stands a life-size figure of layered frosted acrylic or fine mesh — blurred, featureless, like someone washed out by time.</li>
+<li>All six golden money lines flow into the figure and gather at the chest as a warm glow that pulses like a heartbeat.</li>
+<li>The figure is hollow: up close, there is nothing inside but light. Money ends up with a person — and that person could be anyone, even the viewer.</li>
+<li>Money flows from the world to people, so people are the end of the flow; but its value comes from people’s belief, so people are also its source. The end is the source.</li>
+</ul>
+</sc-if>
+<p style="margin: 0; padding: 20px 24px; border-left: 3px solid #FFD38A; background: #0E1230; font-family: 'Noto Serif TC', serif; font-size: 22px; line-height: 1.6">{{t.plaque}}</p>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="background: #FFFFFF; border-radius: 6px; overflow: hidden"><img src="./6792d43ccbe7cfeaff33000edf450f5f.jpg" alt="{{t.figureAlt}}" style="width: 100%; display: block"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.figureCap}}</figcaption>
+</figure>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="background: #F4F3EF; border-radius: 6px; overflow: hidden"><img src="./effd96d154f167c0b65df9b8098b6a7f.jpg" alt="{{t.coinAlt}}" style="width: 100%; display: block"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.coinCap}}</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">07</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h7}}</h2></div>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
+<ul style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.8; color: #DDE1F7">
+<li>作品中的錢不使用新台幣圖樣，而是自創一種虛構貨幣「光幣」。</li>
+<li>正面是一隻睜開的眼睛：瞳孔是放射狀的星芒，一側有睫毛、一側是波浪線，象徵「被看見、被相信」與錢的流動。</li>
+<li>反面沒有面額，只有中央一個空白圓圈，外圍繞著一圈小點，代表錢的中心是空的。</li>
+<li>直徑約 4 cm，以夜光 PLA 3D 列印，不需另外接電；觀眾進場時每人領一枚，用於投選互動。</li>
+</ul>
+</sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
+<ul lang="en" style="margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; font-size: 17px; line-height: 1.7; color: #DDE1F7">
+<li>Instead of real banknotes, the work uses an invented currency: the “light coin”.</li>
+<li>The front shows an open eye — a starburst pupil, lashes on one side and a wave on the other — standing for being seen, being believed, and the flow of money.</li>
+<li>The back has no value printed on it, just an empty circle ringed by dots: the centre of money is empty.</li>
+<li>About 4 cm across and 3D-printed in glow-in-the-dark PLA, needing no power. Every visitor gets one on entry to vote with.</li>
+</ul>
+</sc-if>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">08</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h8}}</h2></div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div style="background: #FFFFFF; border-radius: 6px; overflow: hidden"><img src="./62f89de36d03e805a5c1651ab5e721fd.jpg" alt="{{t.sceneAlt}}" style="width: 100%; display: block"></div>
+<figcaption style="font-size: 14px; color: #A3A9CF">{{t.sceneCap}}</figcaption>
+</figure>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 16px">
+<sc-for list="{{space}}" as="s" hint-placeholder-count="4">
+<div style="display: flex; gap: 14px; padding: 20px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<span aria-hidden="true" style="flex: none; width: 8px; height: 8px; margin-top: 9px; border-radius: 50%; background: #FFD38A"></span>
+<span style="font-size: 16px; line-height: 1.7; color: #DDE1F7">{{s}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">09</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h9}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.7; color: #A3A9CF; max-width: 760px">{{t.techLead}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px">
+<sc-for list="{{tech}}" as="x" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 14px; padding: 28px; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<span style="font-size: 20px; font-weight: 700">{{x.title}}</span>
+<ul style="margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; font-size: 15px; line-height: 1.7; color: #C9CEF0">
+<sc-for list="{{x.points}}" as="pt" hint-placeholder-count="3"><li>{{pt}}</li></sc-for>
+</ul>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">10</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h10}}</h2></div>
+<div style="overflow-x: auto; background: #0E1230; border: 1px solid #252B52; border-radius: 6px">
+<div style="min-width: 720px; display: flex; flex-direction: column">
+<div style="display: grid; grid-template-columns: 140px minmax(0, 1.6fr) minmax(0, 1.2fr); gap: 16px; padding: 14px 24px; font-size: 13px; color: #A3A9CF; border-bottom: 1px solid #252B52"><span>{{t.thPart}}</span><span>{{t.thMat}}</span><span>{{t.thSize}}</span></div>
+<sc-for list="{{materials}}" as="r" hint-placeholder-count="8">
+<div style="display: grid; grid-template-columns: 140px minmax(0, 1.6fr) minmax(0, 1.2fr); gap: 16px; padding: 16px 24px; font-size: 15px; line-height: 1.6; border-bottom: 1px solid #1A1F42">
+<span style="font-weight: 700">{{r.part}}</span><span style="color: #C9CEF0">{{r.mat}}</span><span style="color: #C9CEF0">{{r.size}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<p style="margin: 0; font-size: 15px; color: #A3A9CF">{{t.matNote}}</p>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">11</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h11}}</h2><p style="margin: 0; font-size: 17px; line-height: 1.7; color: #A3A9CF; max-width: 760px">{{t.momentsLead}}</p></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{moments}}" as="m" hint-placeholder-count="3">
+<li style="display: flex; flex-direction: column; gap: 12px; padding: 28px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid #FFD38A; border-radius: 6px">
+<span style="font-size: 14px; color: #FFD38A">{{m.n}} · {{m.verb}}</span>
+<span style="font-size: 22px; font-weight: 700; line-height: 1.4">{{m.q}}</span>
+<span style="font-size: 15px; line-height: 1.7; color: #C9CEF0">{{m.d}}</span>
+</li>
+</sc-for>
+</ol>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">12</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h12}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 32px 48px">
+<sc-for list="{{philosophy}}" as="ph" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span style="font-family: 'Noto Serif TC', serif; font-size: 22px; line-height: 1.4">{{ph.title}}</span>
+<span style="font-size: 16px; line-height: 1.8; color: #C9CEF0">{{ph.d}}</span>
+</div>
+</sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0 96px; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">13</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h13}}</h2></div>
+<div style="display: flex; flex-direction: column">
+<sc-for list="{{fields}}" as="fd" hint-placeholder-count="5">
+<div style="display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-top: 1px solid #1F2550; font-size: 15px; line-height: 1.6">
+<span style="font-weight: 700; color: {{accent}}">{{fd.k}}</span><span style="color: #C9CEF0">{{fd.v}}</span>
+</div>
+</sc-for>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">14</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.02em">{{t.h14}}</h2></div>
+<div style="background: #0E1230; border: 1px solid #252B52; border-radius: 6px; display: flex; flex-direction: column">
+<sc-for list="{{budget}}" as="b" hint-placeholder-count="10">
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 12px 20px; border-bottom: 1px solid #1A1F42; font-size: 15px">
+<span style="color: #C9CEF0">{{b.k}}</span><span style="font-variant-numeric: tabular-nums">{{b.v}}</span>
+</div>
+</sc-for>
+<div style="display: flex; justify-content: space-between; gap: 16px; padding: 16px 20px; font-size: 17px; font-weight: 700">
+<span>{{t.total}}</span><span style="color: #FFD38A; font-variant-numeric: tabular-nums">{{t.totalV}}</span>
+</div>
+</div>
+<p style="margin: 0; font-size: 14px; color: #A3A9CF">{{t.budgetNote}}</p>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">15</span><h2 style="margin: 0; font-size: 30px; font-weight: 700; letter-spacing: -0.01em">{{t.h15}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.finalLead}}</p></div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; padding: 28px 32px; border-radius: 14px; background: linear-gradient(120deg, rgba(255, 211, 138, 0.14), rgba(255, 211, 138, 0.02)); border: 1px solid rgba(255, 211, 138, 0.45)">
+<span style="font-size: 13px; letter-spacing: 0.16em; color: #FFD38A">{{t.resultK}}</span>
+<span style="font-size: clamp(32px, 4vw, 44px); font-weight: 700; color: #FFD38A">{{t.resultV}}</span>
+<span style="font-size: 16px; color: #C9CEF0">{{t.resultSub}}</span>
+</div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 16px">
+<sc-for list="{{finalPhotos}}" as="ph" hint-placeholder-count="3"><figure style="margin: 0; display: flex; flex-direction: column; gap: 10px"><img src="{{ph.src}}" alt="{{ph.alt}}" style="display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 10px; border: 1px solid #252B52"><figcaption style="font-size: 14px; line-height: 1.6; color: #A3A9CF">{{ph.cap}}</figcaption></figure></sc-for>
+</div>
+<p style="margin: 0; font-size: 13px; color: #7C84B3">{{t.photoNote}}</p>
+</section>
+
+</div>
+
+<section aria-labelledby="rf-h" style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; gap: 28px; border-top: 1px solid #1A1F42">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.24em; color: #FFD38A">REFLECTION</span><h2 id="rf-h" style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{rf.title}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{rf.lead}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{rf.items}}" as="r" hint-placeholder-count="3"><article style="display: flex; flex-direction: column; gap: 12px; padding: 26px 26px 28px; border-radius: 16px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{r.c}}"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="font-size: 20px">{{r.icon}}</span><span style="font-size: 19px; font-weight: 700">{{r.k}}</span></span><span style="font-size: 13.5px; line-height: 1.6; color: {{r.c}}">{{r.q}}</span><p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C9CEF0; white-space: pre-line">{{r.v}}</p></article></sc-for>
 </div>
 </section>
 
 <section style="border-top: 1px solid #1A1F42; background: #03040D">
 <a href="Project.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
 <span style="display: flex; flex-direction: column; gap: 8px">
-<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
-<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+<span style="font-size: 14px; color: #A3A9CF">{{t.next}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextTitle}}</span>
 </span>
 <span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
 </a>
@@ -72,38 +351,183 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":2200}}'>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":9200}}'>
 class Component extends DCLogic {
   state = { lang: null };
   renderVals() {
     const accent = this.props.accent ?? '#9DB4FF';
     const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
     const L = (zh, en) => (isEn ? en : zh);
+    const pick = (arr) => arr.map((o) => { const r = {}; Object.keys(o).forEach((k) => { r[k] = Array.isArray(o[k]) ? (isEn ? o[k][1] : o[k][0]) : o[k]; }); return r; });
     const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
     const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
     const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+
+    const t = {
+      back: L('← 回到所有作品', '← All works'),
+      tag: L('設計競賽', 'Design competition'),
+      finalist: L('佳作・全國 500+ 組參賽', 'Honourable Mention · 500+ teams nationwide'),
+      h15: L('決賽紀實', 'Final day'),
+      finalLead: L('2026.11.20，我們到台南參加決賽，向評審簡報〈流〉的設計，晚上參加頒獎典禮。', 'On 20 Nov 2026 we went to Tainan for the final, presented Flow to the judges, and stayed for the awards ceremony that evening.'),
+      resultK: L('最終結果', 'Final result'),
+      resultV: L('🏆 佳作', '🏆 Honourable Mention'),
+      resultSub: L('2026 超夢大賞・全國 500+ 組參賽', '2026 Super Dream Award · 500+ teams nationwide'),
+      photoNote: L('照片中人物臉部已模糊處理。', 'Faces in the photos have been blurred.'),
+      oneLine: L('錢帶走我們的時間與力氣在世界流動，但它的源頭什麼都沒有，只有「相信它的人」。', 'Money carries our time and effort around the world — yet at its source there is nothing, only the people who believe in it.'),
+      h1: L('作品簡介', 'Overview'),
+      h2: L('參賽成員', 'The team'),
+      h3: L('為什麼是「錢」', 'Why money'),
+      h4: L('錢的流向', 'How the money flows'),
+      flowLead: L('錢從頭頂的地球垂下，依序流過六種生活，最後匯到地上的虛化的人；觀眾跟著光點走完一圈，最後走到人形面前。', 'Money descends from the globe overhead, flows through six parts of daily life and pools into the blurred person on the floor. Visitors follow the light and end up face to face with the figure.'),
+      globe: L('世界：懸吊的地球', 'The world: a suspended globe'),
+      globeSub: L('金錢線從這裡垂下', 'The money lines descend from here'),
+      endNode: L('終點：虛化的人', 'The end: the blurred person'),
+      endNodeSub: L('沒有臉的人形，可以是任何人', 'A faceless figure who could be anyone'),
+      h5: L('六個生活節點：食衣住行育樂', 'Six moments of daily life'),
+      nodesLead: L('每顆時間泡沫（直徑約 40–60 cm）裡是一個小型場景模型，依一天的時間排列。光點流進去後變成代表那段生活的物件，再從另一端流出。以下是我們的手繪草圖。', 'Each time bubble (about 40–60 cm across) holds a small scene, arranged by time of day. The light flows in, becomes the objects of that moment, and flows out again. These are our hand-drawn sketches.'),
+      becomes: L('錢變成了：', 'Money becomes: '),
+      h6: L('終點：虛化的人', 'The end: the blurred person'),
+      plaque: L('「它的價值，來自你相信。」', '“Its value comes from your belief.”'),
+      figureAlt: L('虛化人形正面與側面示意圖', 'Front and side view of the blurred figure'),
+      figureCap: L('終點虛化人形・正面與側面（真人比例，約 165 cm）', 'The blurred figure, front and side (life size, about 165 cm)'),
+      h7: L('虛構貨幣「光幣」', 'The light coin'),
+      coinAlt: L('光幣正面（眼睛）與反面（空心圓）手繪設計圖', 'Hand-drawn light coin: front (eye) and back (empty circle)'),
+      coinCap: L('光幣設計圖・左為正面，右為反面', 'Light coin sketch — front on the left, back on the right'),
+      h8: L('空間與動線', 'Space and path'),
+      sceneAlt: L('情境模擬圖：觀眾在高低錯落的時間泡沫之間穿梭，走向中央的虛化人形', 'Scene mock-up: visitors weave between time bubbles toward the central figure'),
+      sceneCap: L('情境模擬圖・約 4 × 4 m 暗場，地球懸在頭頂，金錢線纏繞六顆泡沫，匯到中央的人形', 'Scene mock-up — a 4 × 4 m dark room; the globe hangs overhead and money lines wind through six bubbles to the central figure'),
+      h9: L('互動與技術', 'Interaction and technology'),
+      techLead: L('「錢在流動」用燈光模擬即可，不需要真的讓硬幣在管線裡跑，成本低、穩定度高。', 'The movement of money is simulated with light — no real coins run through the tubes — which keeps it cheap and reliable.'),
+      h10: L('材質與尺寸', 'Materials and dimensions'),
+      thPart: L('部件', 'Part'), thMat: L('展示版材質', 'Material'), thSize: L('尺寸（約）', 'Size (approx.)'),
+      matNote: L('初賽以手繪草圖、人形正側面圖與情境示意圖呈現，不製作實體模型。', 'The first round is presented with hand-drawn sketches, figure drawings and a scene mock-up; no physical model is built.'),
+      h11: L('觀眾的三個時刻', 'Three moments for the visitor'),
+      momentsLead: L('我們預期觀眾用約 5–8 分鐘走完全程，每個時刻對應一個問題。', 'We expect a visit to take 5–8 minutes, with each moment posing one question.'),
+      h12: L('哲學意涵', 'The ideas behind it'),
+      h13: L('跨領域整合', 'Across disciplines'),
+      h14: L('預算估算（展示版）', 'Estimated budget (exhibition version)'),
+      total: L('合計', 'Total'), totalV: L('約 NT$34,000', 'about NT$34,000'),
+      budgetNote: L('以市售材料粗估，實際以採購為準。初賽階段只需繪圖，不需材料費。', 'Rough estimate from retail prices; the first round needs drawings only, with no material costs.'),
+      next: L('下一件作品', 'Next work'),
+      nextTitle: L('〈宇宙凝縮〉', 'Cosmos Condensed')
+    };
+
+    const meta = pick([
+      { k: ['團隊', 'Team'], v: ['STARNING：Yuyun Tsao（組長）、Bingyang Chen', 'STARNING: Yuyun Tsao (lead), Bingyang Chen'] },
+      { k: ['競賽', 'Competition'], v: ['2026 超夢大賞 全國高中職數位創意構想競賽', '2026 Super Dream Award: National High School Digital Creativity Competition'] },
+      { k: ['決賽結果', 'Result'], v: ['🏆 佳作（全國 500+ 組參賽）', '🏆 Honourable Mention (500+ teams nationwide)'] },
+      { k: ['參賽類別', 'Category'], v: ['產品暨立體造型設計類', 'Product & 3D Form Design'] },
+      { k: ['競賽主題', 'Theme'], v: ['人／生活', 'People / Life'] },
+      { k: ['作品形式', 'Format'], v: ['互動式裝置藝術（立體造型＋空間＋燈光）', 'Interactive installation (form + space + light)'] },
+      { k: ['建議展出尺寸', 'Exhibition space'], v: ['約 4 m × 4 m，天花板 2.8 m 以上', 'About 4 × 4 m, ceiling 2.8 m or higher'] }
+    ]);
+
+    const pillars = pick([
+      { n: '01', k: ['流動', 'Flow'], d: ['錢像血液，在社會這個身體裡不停循環，維持每個人的生活。', 'Like blood, money circulates through the body of society, keeping everyone alive.'] },
+      { n: '02', k: ['轉換', 'Exchange'], d: ['錢在每個生活節點變成東西，又被吐出去，換成下一個人的生活。', 'At each stop money becomes things, then moves on to become someone else’s life.'] },
+      { n: '03', k: ['虛無', 'Emptiness'], d: ['追到源頭，那裡什麼都沒有，只有一個模糊的人。錢的力量來自每一個「相信」的人。', 'Trace it to the source and there is nothing there but a blurred person. Money’s power comes from everyone who believes.'] }
+    ]);
+
+    const nodes = pick([
+      { time: '06:50', name: ['食｜早餐店', 'Food · Breakfast stall'], items: ['蛋餅、奶茶', 'egg crepe, milk tea'], meaning: ['每天的開始、基本溫飽', 'the start of the day'], img: './4307f3ce517149ef9b17f0dde87d6cc2.jpg', alt: ['手繪草圖：早餐店', 'Sketch: breakfast stall'], caption: ['老闆站在煎台後翻煎蛋餅，巨大的飲料杯懸在頭頂，吐司和蛋在空中飛起，旁邊是放滿食材的推車。一天從這裡開始，錢先換成一份早餐。', 'The owner flips egg crepes behind the griddle; a giant drink cup hangs overhead and toast and eggs fly through the air. The day starts here — money first becomes breakfast.'] },
+      { time: '07:20', name: ['衣｜衣櫃', 'Clothing · Wardrobe'], items: ['制服、潮 T', 'uniform, streetwear'], meaning: ['外表、認同與被看見', 'appearance and being seen'], img: './a1981adb59bc2bd68f50b61244240b23.jpg', alt: ['手繪草圖：衣櫃', 'Sketch: wardrobe'], caption: ['一排掛滿衣服的衣架，女孩穿著長裙站在旁邊挑選今天要穿的樣子。出門之前，錢換成了別人眼中的自己。', 'A rail full of clothes; a girl in a long skirt picks what to wear. Before leaving home, money becomes the self others will see.'] },
+      { time: '07:40', name: ['行｜捷運站', 'Transport · Metro'], items: ['車票、交通卡', 'tickets, transit card'], meaning: ['移動、通勤與距離', 'movement and distance'], img: './9978ef7ab1ebb3de4d19763ae5f53719.jpg', alt: ['手繪草圖：捷運站', 'Sketch: metro station'], caption: ['捷運、汽車、單車擠成一團，交通卡和車票飛在半空，一個小小的人坐在車頂上。每天早上，錢換成一段移動的距離。', 'Trains, cars and bikes jam together, cards and tickets fly overhead, a tiny person sits on the roof. Every morning money becomes distance travelled.'] },
+      { time: '18:00', name: ['育｜補習班', 'Education · Cram school'], items: ['書本、分數', 'books, grades'], meaning: ['對未來的投資與壓力', 'investment in the future, and pressure'], img: './f8650f9e48f91280e8d4fe92d016293a.jpg', alt: ['手繪草圖：補習班', 'Sketch: cram school'], caption: ['學生皺著眉坐在課桌前寫題，桌上擺著課本、筆記和橡皮擦，身後掛著一張大大的考卷分數。錢換來的是知識，也是壓力。', 'A frowning student works at a desk of books and notes, a big test score pinned behind. Money buys knowledge — and pressure.'] },
+      { time: '21:30', name: ['住｜房子', 'Housing · Home'], items: ['鑰匙、燈光', 'keys, lights'], meaning: ['安身之處、一生最大的開銷', 'a place to belong; life’s biggest expense'], img: './4d979bfbda2d8d25ba9629ea080b3402.jpg', alt: ['手繪草圖：房子', 'Sketch: house'], caption: ['一棟煙囪冒著煙的小屋，一家人站在門口。忙了一整天，錢最後換來一個可以回去的家，也是一生最大的開銷。', 'A little house with a smoking chimney and a family at the door. After a long day, money becomes a home to return to — life’s biggest expense.'] },
+      { time: '23:30', name: ['樂｜手機', 'Leisure · Phone'], items: ['通知、讚、影片', 'notifications, likes, videos'], meaning: ['娛樂與人際連結', 'entertainment and connection'], img: './e459888001a65dc212fa999d994f5b52.jpg', alt: ['手繪草圖：手機', 'Sketch: phone'], caption: ['一支立在底座上的巨大手機，螢幕上的 App 圖示、個人頁、聊天訊息、愛心通知和定位一路往外冒出，彼此用線連成一張網，像生活被通知和人際關係包圍。', 'A giant phone on a stand; apps, profiles, chats, hearts and pins burst out and link into a web — life surrounded by notifications and relationships.'] }
+    ]);
+
+    const space = isEn ? [
+      'The room is dim; most light comes from golden dots moving through the tubes, like blood vessels or circuits at night.',
+      'The golden lines wind and knot between the bubbles, growing denser toward the centre and drawing visitors inward.',
+      'Each life scene sits in an irregular clear acrylic “time bubble”, hung at different heights from overhead to knee level.',
+      'The bubbles follow the hours of a day and are engraved with their time — the flow of money is also the flow of time.'
+    ] : [
+      '空間偏暗，主要光源來自管線裡流動的金色光點，像夜裡的血管或電路。',
+      '金錢線在泡沫之間纏繞、打結，越靠近中央越密集，引導觀眾往中心走。',
+      '六個生活節點各自封在不規則的透明壓克力「時間泡沫」裡，高度各不相同，有的懸吊在頭頂、有的低到膝蓋。',
+      '節點依一天的時間排序，每顆泡沫表面刻著那一刻的時間。錢的流動，也是時間的流動。'
+    ];
+
+    const tech = isEn ? [
+      { title: 'Flowing light', points: ['Programmable RGB LED strips (e.g. WS2812B, 30 per metre) inside the tubes, driven in segments by an ESP32 so the dots travel like gold coins.', 'When the light enters a bubble its scene lights up; as it leaves, the colour shifts (warm yellow after breakfast, cool white after cram school) — “changing hands”.', 'Some clear sections hold real 3D-printed coins as a static display.'] },
+      { title: 'Coin voting', points: ['Each visitor takes one light coin on entry.', 'Under each bubble is a slot: drop your coin at the stop where you’d least want to cut spending.', 'An infrared sensor lights that bubble and speeds up the dots; totals become a “where we least want to stop spending” chart for follow-up lessons.'] },
+      { title: 'The final moment', points: ['An infrared or ultrasonic sensor in front of the figure.', 'As a visitor approaches, the chest light dims, the figure fades into the dark, and the globe and all the lines stop flowing.', 'The moment you see what money really is, the world’s flow pauses and only a person remains. When you leave, the light and flow resume.'] },
+      { title: 'Sound', points: ['Layered low tones (40–100 Hz) with alpha-wave-style music pulsing 8–12 times a second, slower than a heartbeat.', 'Quiet sounds near each bubble — a sizzling griddle, metro announcements, page turns, phone pings, clinking coins.', 'Sounds fade toward the centre and stop entirely at the figure. 2–4 small speakers plus a subwoofer under the base.'] }
+    ] : [
+      { title: '流動效果', points: ['管線內貼可程式化 RGB 燈帶（如 WS2812B，每公尺 30 顆），用 ESP32 控制板分段控制、分段供電，讓光點依序移動，看起來像金色光幣在管線裡流動。', '光點流進節點時，場景內燈光亮起；流出時，管線光點變色（例如早餐店後變暖黃、補習班後變冷白），象徵「換過一次手」。', '部分透明管段放入真的 3D 列印光幣，作為靜態展示。'] },
+      { title: '光幣投選', points: ['觀眾進場時領取一枚光幣。', '每顆時間泡沫下方有一個投幣口，觀眾把光幣投進自己「最捨不得花錢」的那一站。', '投幣口內裝紅外線感測器，光幣投入時那顆泡沫亮起、光點加速流過；展期結束後統計成「我們最捨不得把錢花在哪裡」的結果圖，作為延伸教案。'] },
+      { title: '終點互動', points: ['人形前方地面裝紅外線或超音波感測器。', '觀眾走到人形面前時，胸口和人形內部的燈光慢慢變暗，人形隱沒在暗場中；同時頭頂的地球和所有管線光點停止流動。', '當你看清錢的本質那一刻，世界的流動暫停了，留下的只有人。觀眾離開後，光重新亮起，流動再次開始。'] },
+      { title: '聲音', points: ['多層次的低頻音墊（約 40–100 Hz），配上 alpha 波風格的音樂（每秒 8–12 次的柔和脈動），節奏比心跳更慢。', '每顆泡沫附近混入那一站的聲音：煎台滋滋聲、捷運廣播、翻書聲、手機通知聲、硬幣碰撞聲。', '越靠近中央越安靜，走到人形面前時所有聲音靜止。以 2–4 顆小型喇叭分區播放，人形底座下加一顆重低音喇叭。'] }
+    ];
+
+    const materials = pick([
+      { part: ['管線', 'Tubing'], mat: ['透明 PVC 軟管、壓克力管', 'Clear PVC hose, acrylic tube'], size: ['直徑 3–5 cm，總長約 30 m', '3–5 cm diameter, about 30 m total'] },
+      { part: ['光幣', 'Light coins'], mat: ['夜光 PLA 3D 列印硬幣', 'Glow-in-the-dark 3D-printed PLA'], size: ['硬幣直徑 4 cm', '4 cm diameter'] },
+      { part: ['生活節點場景', 'Life scenes'], mat: ['珍珠板、紙黏土、樹脂土、3D 列印小物', 'Foam board, paper clay, resin clay, 3D prints'], size: ['置於泡沫內，每座約 30 × 30 cm', 'About 30 × 30 cm each, inside bubbles'] },
+      { part: ['人形底座', 'Figure base'], mat: ['木作貼黑色貼皮', 'Wood with black veneer'], size: ['60 × 60 × 10 cm', '60 × 60 × 10 cm'] },
+      { part: ['虛化人形', 'Blurred figure'], mat: ['霧面壓克力層疊或紗網＋胸口內嵌 LED', 'Layered frosted acrylic or mesh, LED in chest'], size: ['高約 165 cm（真人比例）', 'About 165 cm tall (life size)'] },
+      { part: ['時間泡沫', 'Time bubbles'], mat: ['透明壓克力半球兩兩對合，熱彎成不規則形，表面刻上時間', 'Paired clear acrylic hemispheres, heat-bent and engraved with times'], size: ['直徑約 40–60 cm，懸吊或架高 40–150 cm 錯落', '40–60 cm across, hung or raised at 40–150 cm'] },
+      { part: ['懸吊地球', 'Suspended globe'], mat: ['透明壓克力半球對合，貼霧面大陸輪廓貼紙＋內嵌 LED；以鋼絲懸吊', 'Clear acrylic sphere, frosted continent decals, internal LED; hung on steel wire'], size: ['直徑約 100 cm，吊在約 2.2 m 高', 'About 100 cm across, hung at about 2.2 m'] },
+      { part: ['燈光', 'Lighting'], mat: ['LED 燈條、可程式化 RGB 燈帶', 'LED bars, programmable RGB strips'], size: ['隨管線配置', 'Run along the tubing'] }
+    ]);
+
+    const moments = pick([
+      { n: '1', verb: ['抬頭', 'Look up'], q: ['錢從哪裡來？', 'Where does money come from?'], d: ['觀眾進場先看見頭頂的地球，金錢線從世界垂下。錢好像來自一個巨大、遙遠、我們無法掌控的系統。', 'Entering, visitors first see the globe overhead with money lines descending — money seems to come from a vast, distant system beyond our control.'] },
+      { n: '2', verb: ['穿梭', 'Weave through'], q: ['錢換走了什麼？', 'What does money take?'], d: ['在六顆泡沫之間，觀眾看見自己的一天被換算成一份蛋餅、一張車票、一堂補習課。泡沫上刻著時間：錢換來的是東西，換走的是時間。', 'Among the bubbles, visitors see their day converted into breakfast, a ticket, a tutoring class. The engraved times remind them: money buys things, but costs time.'] },
+      { n: '3', verb: ['低頭', 'Look down'], q: ['錢的價值在哪裡？', 'Where is money’s value?'], d: ['所有線最後匯到一個沒有臉的人。觀眾走近時光熄、聲停，世界的流動暫停，只剩下人。', 'Every line ends in a faceless person. As visitors approach, light and sound fall away and the world stops — only a person remains.'] }
+    ]);
+
+    const philosophy = pick([
+      { title: ['錢是一個大家共同相信的故事', 'Money is a story we all believe'], d: ['歷史學者哈拉瑞在《人類大歷史》中指出，貨幣是人類最成功的「想像的現實」：紙本身沒有價值，是所有人約好相信，它才有價值。中央那個空心的人形，就是這個「相信」的形狀。', 'Historian Yuval Noah Harari calls money humanity’s most successful “imagined reality”: paper has no value until everyone agrees to believe in it. The hollow figure is the shape of that belief.'] },
+      { title: ['被錢遮住的人', 'The people hidden behind money'], d: ['馬克思提出「商品拜物教」：人與人之間的勞動關係，在市場上看起來只剩物與物的交換。每一份蛋餅背後都有一個早起的老闆，每一張車票背後都有一個輪班的司機。《流》讓金錢線最後回到一個人。', 'Marx described “commodity fetishism”: relationships between working people look like mere exchanges of things. Behind every egg crepe is an owner who rose early; behind every ticket, a driver on shift. Flow returns every line to a person.'] },
+      { title: ['物物而不物於物', 'Use things; don’t be used by them'], d: ['莊子說，人應該使用物，而不被物所使。當觀眾站在人形面前、世界的流動停下來，作品想問的是：我是在使用錢，還是只是錢流過的容器？', 'Zhuangzi taught that we should use things rather than be used by them. When the world stops in front of the figure, the work asks: am I using money, or am I just a vessel it passes through?'] },
+      { title: ['花錢就是花生命', 'Spending money is spending life'], d: ['錢是用時間換來的，每一筆花費都是交出去的一段生命。六顆刻著時間的泡沫，把「錢」和「時間」放在同一個物件上。', 'Money is earned with time, so every purchase gives away a piece of life. The six time-engraved bubbles put money and time on the same object.'] }
+    ]);
+
+    const fields = pick([
+      { k: ['立體造型', '3D form'], v: ['六座生活場景模型、中央虛化人形、懸吊地球', 'Six scene models, the central figure, the suspended globe'] },
+      { k: ['電子與程式', 'Electronics & code'], v: ['ESP32 控制 LED 流動、感測器互動', 'ESP32-driven LED flow and sensor interaction'] },
+      { k: ['空間設計', 'Spatial design'], v: ['動線規劃、燈光氛圍', 'Visitor path and lighting atmosphere'] },
+      { k: ['平面設計', 'Graphic design'], v: ['虛構貨幣「光幣」的圖樣與周邊', 'The light coin’s design and merchandise'] },
+      { k: ['社會議題', 'Social issues'], v: ['金錢、勞動、信任與生活的關係', 'Money, labour, trust and daily life'] }
+    ]);
+
+    const budget = pick([
+      { k: ['透明管線約 30 m', 'Clear tubing, about 30 m'], v: '1,500' },
+      { k: ['可程式化 LED 燈帶＋電源', 'Programmable LED strips + power'], v: '5,000' },
+      { k: ['ESP32 控制板與感測器', 'ESP32 boards and sensors'], v: '1,500' },
+      { k: ['3D 列印光幣與小物', '3D-printed coins and props'], v: '1,500' },
+      { k: ['六座場景模型材料', 'Materials for six scenes'], v: '3,000' },
+      { k: ['時間泡沫（6 顆壓克力半球對合）', 'Time bubbles (6 acrylic spheres)'], v: '7,500' },
+      { k: ['懸吊地球（含吊掛五金）', 'Suspended globe (with rigging)'], v: '6,000' },
+      { k: ['六個投幣口與感測器', 'Six coin slots and sensors'], v: '1,500' },
+      { k: ['中央虛化人形與底座', 'Central figure and base'], v: '5,000' },
+      { k: ['音響與雜支', 'Audio and sundries'], v: '1,500' }
+    ]);
+
+    const finalPhotos = [
+      { src: './64443fa1682275303a0604cc9c1309be.jpg', alt: L('決賽會場的大學校園，路旁掛著活動旗幟', 'The host university campus on final day, with event banners along the road'), cap: L('早上抵達決賽會場', 'Arriving at the venue in the morning') },
+      { src: './526ae33f2cb11bad8272da539594eec3.jpg', alt: L('決賽簡報教室，投影幕上是設計草圖', 'The presentation room, with design sketches on the screen'), cap: L('決賽簡報現場', 'Presentations to the judges') },
+      { src: './5b27beffa4a2bdf7db91a49513a1cf13.jpg', alt: L('2026 超夢大賞頒獎典禮舞台', 'The stage at the 2026 Super Dream Award ceremony'), cap: L('晚上的頒獎典禮', 'The awards ceremony that evening') }
+    ];
+    const rf = {
+      title: L('反思', 'Reflection'),
+      lead: L('做完之後回頭看：學到了什麼、卡在哪裡、下一次想怎麼做得更好。', 'Looking back: what we learned, where we got stuck, and what we would do better next time.'),
+      items: [
+        { icon: '✦', c: '#FFD38A', k: L('我學到的', 'What I learned'), q: L('這個作品讓我多會了什麼？技能、知識，或對自己的新認識。', 'What can I do now that I couldn’t before? Skills, knowledge, or something about myself.'), v: L('［待填寫］', '[To be written]') },
+        { icon: '◐', c: '#F28B82', k: L('遇到的困難', 'Where I got stuck'), q: L('最卡的是哪一步？當時怎麼想、怎麼解決？', 'What was the hardest step? How did I think it through and get past it?'), v: L('［待填寫］', '[To be written]') },
+        { icon: '→', c: '#9DB4FF', k: L('下次想改進', 'Next time'), q: L('如果重來一次，我會改變什麼？接下來想挑戰什麼？', 'If I did it again, what would I change? What do I want to try next?'), v: L('［待填寫］', '[To be written]') }
+      ]
+    };
     return {
-      accent,
+      accent, zh: !isEn, en: isEn, t, finalPhotos, rf, meta, pillars, nodes, space, tech, materials, moments, philosophy, fields, budget,
       toZh: () => this.setState({ lang: 'zh' }),
       toEn: () => this.setState({ lang: 'en' }),
-      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
-      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
-      meta: [
-        { k: L('團隊', 'Team'), v: L('STARNING｜Yuyun Tsao、Bingyang Chen', 'STARNING · Yuyun Tsao, Bingyang Chen') },
-        { k: L('競賽', 'Competition'), v: L('2026 超夢大賞 全國高中職數位創意構想競賽', '2026 Super Dream Award') },
-        { k: L('狀態', 'Status'), v: L('入選決賽・11/20 決賽', 'Finalist · final on 20 Nov') }
-      ],
-      t: {
-        back: L('← 回到所有作品', '← All works'),
-        tag: L('設計競賽', 'Design competition'),
-        status: L('入選決賽・內容保密', 'Finalist · confidential'),
-        title: L('〈流〉', 'Flow'),
-        lockH: L('內容保密中', 'Details are confidential for now'),
-        lockP: L('〈流〉已入選決賽，11/20 將到台南參加決賽。作品的設計細節會在決賽結束後公開。', 'Flow is a finalist; the final is on 20 November in Tainan. Design details will be shared after the final.'),
-        openWhen: L('11/20 決賽後公開', 'Public after the final on 20 Nov'),
-        nextK: L('下一件作品', 'Next work'),
-        nextV: L('〈宇宙凝縮〉', 'Cosmos Condensed')
-      }
+      zhPressed: isEn ? 'false' : 'true',
+      enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle,
+      enBtn: isEn ? onStyle : offStyle
     };
   }
 }

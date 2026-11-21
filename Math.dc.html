@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：數學學習歷程</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 80px 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #FFD38A; border-radius: 999px; font-size: 14px; color: #FFD38A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFD38A"></span>{{t.status}}</span>
+</div>
+<h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(44px, 6vw, 76px); line-height: 1.1; font-weight: 900">{{t.title}}<span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.36em; font-weight: 500; color: #C9CEF0; letter-spacing: 0.12em; margin-top: 14px">MATH JOURNAL</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.lead}}</p>
+</div>
+<figure style="margin: 0; width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; border: 1px solid #252B52">
+<img src="./c47f969c9029b440a66b56845e42edcb.jpg" alt="{{t.coverAlt}}" style="display: block; width: 100%; height: 100%; object-fit: cover">
+</figure>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+
+<section style="padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700">{{m.v}}</span></div>
+</sc-for>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">01 · {{t.k1}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.p1}}</p></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<sc-for list="{{topics}}" as="tp" hint-placeholder-count="4"><li style="display: flex; flex-direction: column; gap: 14px; padding: 26px 24px; border-radius: 14px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{tp.c}}">
+<span style="display: flex; justify-content: space-between; align-items: center; gap: 8px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.16em; color: {{tp.c}}">{{tp.k}}</span><span style="padding: 3px 10px; border-radius: 999px; border: 1px solid #2F366A; font-size: 12px; color: #A3A9CF">{{tp.st}}</span></span>
+<span style="font-size: 24px; font-weight: 700">{{tp.name}}</span>
+<span style="padding: 14px 16px; border-radius: 10px; background: #070A1E; font-family: 'Noto Serif TC', Georgia, serif; font-style: italic; font-size: 20px; color: #EEF0FF; text-align: center">{{tp.f}}</span>
+<span style="font-size: 14.5px; line-height: 1.7; color: #A3A9CF">{{tp.d}}</span>
+<span style="display: flex; flex-direction: column; gap: 4px; padding-top: 12px; border-top: 1px dashed #2F366A"><span style="font-size: 12px; letter-spacing: 0.1em; color: #7C84B3">{{t.whereK}}</span><span style="font-size: 15px; color: #C9CEF0">{{tp.w}}</span></span>
+</li></sc-for>
+</ol>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">02 · {{t.kL}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.hL}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.pL}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{levels}}" as="lv" hint-placeholder-count="3"><article style="display: flex; flex-direction: column; gap: 16px; padding: 26px 26px 28px; border-radius: 16px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{lv.c}}">
+<span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="width: 12px; height: 12px; border-radius: 50%; background: {{lv.c}}; box-shadow: 0 0 10px {{lv.c}}"></span><span style="font-size: 19px; font-weight: 700">{{lv.k}}</span></span>
+<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px">
+<sc-for list="{{lv.items}}" as="it" hint-placeholder-count="3"><li style="display: flex; flex-direction: column; gap: 3px; padding-left: 14px; border-left: 2px solid #2A3166"><span style="font-size: 15.5px; line-height: 1.6; color: #EEF0FF">{{it.a}}</span><span style="font-size: 13.5px; line-height: 1.6; color: #A3A9CF">{{it.b}}</span></li></sc-for>
+</ul>
+</article></sc-for>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">03 · {{t.k2}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h2}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.p2}}</p></div>
+<ol style="list-style: none; margin: 0; padding: 0 0 0 22px; border-left: 1px solid #2F366A; display: flex; flex-direction: column; gap: 18px; max-width: 920px">
+<sc-for list="{{logs}}" as="lg" hint-placeholder-count="2"><li style="position: relative; display: flex; flex-direction: column; gap: 14px; padding: 24px 26px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52">
+<span aria-hidden="true" style="position: absolute; left: -30px; top: 30px; width: 15px; height: 15px; border-radius: 50%; background: #060818; border: 2px solid {{accent}}"></span>
+<span style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center"><span style="font-size: 13px; letter-spacing: 0.12em; color: {{accent}}">{{lg.date}}</span><span style="padding: 3px 10px; border-radius: 999px; background: #10153A; border: 1px solid #2A3166; font-size: 13px">{{lg.topic}}</span></span>
+<span style="font-size: 20px; font-weight: 700">{{lg.title}}</span>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px">
+<sc-for list="{{lg.rows}}" as="rw" hint-placeholder-count="3"><div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; color: {{rw.c}}">{{rw.k}}</span><span style="font-size: 15px; line-height: 1.75; color: #C9CEF0; white-space: pre-line">{{rw.v}}</span></div></sc-for>
+</div>
+</li></sc-for>
+</ol>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 32px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 18px"><div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">04 · {{t.k3}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h3}}</h2></div>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C9CEF0; white-space: pre-line">{{t.favWhy}}</p>
+</div>
+<div style="display: flex; flex-direction: column; align-items: center; gap: 16px; padding: 48px 24px; border-radius: 16px; background: radial-gradient(ellipse at 50% 40%, rgba(157, 180, 255, 0.16), transparent 70%), #0A0D24; border: 1px solid #252B52">
+<span style="font-family: 'Noto Serif TC', Georgia, serif; font-style: italic; font-size: clamp(40px, 6vw, 64px); color: #FFD38A">e<sup style="font-size: 0.55em">iπ</sup> + 1 = 0</span>
+<span style="font-size: 14px; color: #A3A9CF; text-align: center">{{t.favCap}}</span>
+</div>
+</section>
+
+<section style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">05 · {{t.k4}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h4}}</h2></div>
+<ul style="list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 12px">
+<sc-for list="{{res}}" as="b" hint-placeholder-count="3"><li style="display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 12px; letter-spacing: 0.12em; color: {{accent}}">{{b.k}}</span><span style="font-size: 17px; font-weight: 700">{{b.t}}</span><span style="font-size: 14px; color: #A3A9CF">{{b.a}}</span></li></sc-for>
+</ul>
+</section>
+
+</div>
+
+<section aria-labelledby="rf-h" style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; gap: 28px; border-top: 1px solid #1A1F42">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.24em; color: #FFD38A">REFLECTION</span><h2 id="rf-h" style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{rf.title}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{rf.lead}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{rf.items}}" as="r" hint-placeholder-count="3"><article style="display: flex; flex-direction: column; gap: 12px; padding: 26px 26px 28px; border-radius: 16px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{r.c}}"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="font-size: 20px">{{r.icon}}</span><span style="font-size: 19px; font-weight: 700">{{r.k}}</span></span><span style="font-size: 13.5px; line-height: 1.6; color: {{r.c}}">{{r.q}}</span><p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C9CEF0; white-space: pre-line">{{r.v}}</p></article></sc-for>
+</div>
+</section>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Philo.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.nextK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.nextV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const TBD = L('［待填寫］', '[To be written]');
+    const R = (learn, test, note) => [
+      { c: '#9DB4FF', k: L('學了什麼', 'What I studied'), v: learn },
+      { c: '#7EE6D6', k: L('測驗', 'Tests'), v: test },
+      { c: '#FFD38A', k: L('重點', 'Takeaway'), v: note }
+    ].filter((r) => r.v);
+    return {
+      accent,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle,
+      meta: [
+        { k: L('學習者', 'Learner'), v: 'Yuyun Tsao' },
+        { k: L('類型', 'Type'), v: L('自主學習', 'Independent learning') },
+        { k: L('開始時間', 'Started'), v: '2026.11.11' },
+        { k: L('已記錄', 'Logged'), v: L('7 天', '7 days') },
+        { k: L('狀態', 'Status'), v: L('持續更新中', 'Ongoing') }
+      ],
+      topics: [
+        { c: '#9DB4FF', k: 'CALCULUS', name: L('微積分', 'Calculus'), f: '∫ f(x) dx', d: L('研究「變化」與「累積」：導數看瞬間的變化，積分把無數小片段加起來。', 'The maths of change and accumulation: derivatives capture instant change, integrals add up infinitely many small pieces.'), st: L('穩定中', 'Getting solid'), w: L('sin、cos 的微分和連鎖律已經穩了；一次項的微分還會錯，是目前最優先要補的。', 'Derivatives of sin and cos and the chain rule are solid; differentiating linear terms still slips — top priority.') },
+        { c: '#C9A8FF', k: 'COMPLEX NUMBERS', name: L('複數', 'Complex numbers'), f: 'z = a + bi', d: L('加入 i² = −1 之後，數字從一條線變成一整個平面。', 'Once i² = −1 is allowed, numbers grow from a line into a whole plane.'), st: L('穩定中', 'Getting solid'), w: L('複數運算和長度已經穩了；(ik)² 這種含 i 的平方還會算錯。', 'Arithmetic and modulus are solid; squares like (ik)² still trip me up.') },
+        { c: '#7EE6D6', k: 'PARTIAL DERIVATIVES', name: L('偏微分', 'Partial derivatives'), f: '∂f / ∂x', d: L('當一個量同時受好幾個變數影響，一次只看其中一個方向的變化。', 'When a quantity depends on several variables, look at how it changes in one direction at a time.'), st: L('剛起步', 'Just started'), w: L('11/14 第一次學，用行進波的圖理解；11/19 自己想通了「偏」的意思。', 'First learned on 14 Nov through travelling-wave pictures; worked out what “partial” means on 19 Nov.') },
+        { c: '#FFD38A', k: 'EULER’S FORMULA', name: L('尤拉公式', 'Euler’s formula'), f: 'eⁱᶿ = cos θ + i sin θ', d: L('把指數、三角函數和複數連在一起，也是單位圓上的一次旋轉。', 'It ties together exponentials, trigonometry and complex numbers — a rotation on the unit circle.'), st: L('穩定中', 'Getting solid'), w: L('單位圓上的位置已經穩了；e^(iθ) 的共軛還要記得把 i 換成 −i。', 'Its position on the unit circle is solid; for the conjugate of e^(iθ) I still need to remember to swap i for −i.') },
+        { c: '#F28B82', k: 'SCHRÖDINGER', name: L('薛丁格方程式', 'Schrödinger equation'), f: 'iħ ∂ψ/∂t = Ĥψ', d: L('把前面學的偏微分、複數和尤拉公式全部用上，描述量子世界裡的波。', 'Puts partial derivatives, complex numbers and Euler’s formula all to work, describing waves in the quantum world.'), st: L('剛起步', 'Just started'), w: L('11/15 入門；11/19 推出自由粒子的 E = ħ²k²/2m、p = ħk。', 'Started 15 Nov; on 19 Nov derived E = ħ²k²/2m and p = ħk for the free particle.') }
+      ],
+      logs: [
+        { date: '2026.11.11', topic: L('微積分・三角・複數', 'Calculus · Trig · Complex'), title: L('從微積分複習，一路走到尤拉公式', 'From a calculus review all the way to Euler’s formula'), rows: R(L('微積分複習 → 發現沒學過三角函數 → 三角函數基礎 → 三角函數的微分 → 複數 → 尤拉公式', 'Calculus review → realised I’d never learned trigonometry → trig basics → differentiating trig functions → complex numbers → Euler’s formula'), L('微積分、三角函數、三角微分、複數', 'Calculus, trigonometry, trig derivatives, complex numbers'), L('改用「看圖學」之後，進步很快。這一天大約學了 1 小時 45 分。', 'Switching to learning from pictures sped things up a lot. About 1 hour 45 minutes that day.')) },
+        { date: '2026.11.12', topic: L('複習', 'Review'), title: L('不靠提示的心算複習', 'A review with no hints, all mental maths'), rows: R(L('沒有提示、全部心算的複習', 'A review with no hints, everything in my head'), '', L('觀念題都對，錯的是計算。', 'All the concept questions right; the mistakes were in calculation.')) },
+        { date: '2026.11.14', topic: L('偏微分', 'Partial derivatives'), title: L('第一次學偏微分', 'First time with partial derivatives'), rows: R(L('偏微分（用行進波的圖來理解）', 'Partial derivatives, using pictures of a travelling wave'), L('總複習兩份', 'Two full review sets'), L('學到「乘的照抄、加的消失」。', 'Learned the rule of thumb: “multiplied terms stay, added terms vanish.”')) },
+        { date: '2026.11.15', topic: L('偏微分・薛丁格', 'Partials · Schrödinger'), title: L('從偏微分走到薛丁格方程式', 'From partial derivatives to the Schrödinger equation'), rows: R(L('偏微分練習 → 薛丁格方程式入門', 'Partial-derivative practice → intro to the Schrödinger equation'), L('連鎖律到薛丁格 6/10；30 題總複習', 'Chain rule to Schrödinger: 6/10; a 30-question full review'), L('前 16 題只錯 2 題，錯誤集中在後半段。', 'Only 2 wrong in the first 16; the mistakes clustered in the second half.')) },
+        { date: '2026.11.16', topic: L('弱點加強', 'Weak spots'), title: L('補上兩個弱點', 'Two weak spots fixed'), rows: R(L('弱點加強 20 題', '20 targeted questions on weak spots'), '', L('複數長度、尤拉公式的位置，這兩個弱點補起來了。', 'The modulus of a complex number and where Euler’s formula lands: both weak spots now fixed.')) },
+        { date: '2026.11.18', topic: L('弱點加強', 'Weak spots'), title: L('找到真正的弱點', 'Finding the real weak spot'), rows: R(L('弱點加強 16 題', '16 targeted questions on weak spots'), '', L('偏微分進步了。找出真正的弱點是「一次項的微分」。', 'Partial derivatives improved. The real weak spot turned out to be differentiating linear terms.')) },
+        { date: '2026.11.19', topic: L('量子力學', 'Quantum mechanics'), title: L('自己想通「偏」的意思', 'Working out what “partial” means, on my own'), rows: R(L('自己想通「偏」的意思 → 自由粒子 → 用時鐘圖理解波函數', 'Worked out what “partial” really means → the free particle → understanding the wave function with a clock picture'), L('推導練習', 'Derivation practice'), L('推出 E = ħ²k²/2m、p = ħk。', 'Derived E = ħ²k²/2m and p = ħk.')) }
+      ],
+      levels: [
+        { c: '#7EE6D6', k: L('已經穩了', 'Solid'), items: [
+          { a: L('三角函數基礎・單位圓・弧度', 'Trig basics · the unit circle · radians'), b: '' },
+          { a: L('sin、cos 的微分與連鎖律', 'Derivatives of sin and cos, and the chain rule'), b: '' },
+          { a: L('複數運算・複數長度', 'Complex arithmetic · modulus'), b: '' },
+          { a: L('尤拉公式的位置', 'Where Euler’s formula lands on the circle'), b: '' }
+        ] },
+        { c: '#FFD38A', k: L('懂了，但還會錯', 'Understood, still slipping'), items: [
+          { a: L('一次項的微分（例如 d/dt(5t) = 5）', 'Differentiating linear terms (e.g. d/dt(5t) = 5)'), b: L('最優先：偏微分和 e 的連鎖律都會受影響', 'Top priority: it affects partial derivatives and the chain rule for e') },
+          { a: L('(ik)² 這種含 i 的平方', 'Squares with i in them, like (ik)²'), b: L('要把 i² = −1 算出來', 'Remember to apply i² = −1') },
+          { a: L('e^(iθ) 的共軛', 'The conjugate of e^(iθ)'), b: L('記得「把 i 換成 −i」', 'Remember: swap i for −i') },
+          { a: 'sin²θ + cos²θ = 1', b: '' }
+        ] },
+        { c: '#C9A8FF', k: L('剛學，還需要練', 'Just started'), items: [
+          { a: L('偏微分', 'Partial derivatives'), b: '' },
+          { a: L('薛丁格方程式', 'The Schrödinger equation'), b: '' },
+          { a: L('自由粒子', 'The free particle'), b: '' }
+        ] }
+      ],
+      res: [
+        { k: L('書', 'BOOK'), t: L('［書名］', '[Title]'), a: L('［作者／出版］', '[Author / publisher]') },
+        { k: L('課程', 'COURSE'), t: L('［課程名稱］', '[Course]'), a: L('［平台］', '[Platform]') },
+        { k: L('影片', 'VIDEO'), t: L('［影片／頻道］', '[Video / channel]'), a: L('［連結］', '[Link]') }
+      ],
+      rf: {
+        title: L('反思', 'Reflection'),
+        lead: L('一段時間後回頭看：學到了什麼、卡在哪裡、下一次想怎麼做得更好。', 'Looking back after a while: what I learned, where I got stuck, and what I would do better next time.'),
+        items: [
+          { icon: '✦', c: '#FFD38A', k: L('我學到的', 'What I learned'), q: L('自學數學讓我多會了什麼？知識、方法，或對自己的新認識。', 'What can I do now that I couldn’t before? Knowledge, methods, or something about myself.'), v: TBD },
+          { icon: '◐', c: '#F28B82', k: L('遇到的困難', 'Where I got stuck'), q: L('最卡的是哪個概念？當時怎麼想、怎麼解決？', 'Which idea was hardest? How did I think it through and get past it?'), v: TBD },
+          { icon: '→', c: '#9DB4FF', k: L('下次想改進', 'Next time'), q: L('接下來想學什麼？學習方法想怎麼調整？', 'What do I want to learn next? How will I change the way I study?'), v: TBD }
+        ]
+      },
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('數學・自主學習', 'Mathematics · Independent learning'),
+        status: L('持續更新中', 'Ongoing'),
+        title: L('數學學習歷程', 'Math Journal'),
+        lead: L('課堂之外，自己往前走的數學筆記。從微積分複習開始，補上三角函數，再一路走到複數、尤拉公式、偏微分和薛丁格方程式。這裡記下每一段學過的、卡住的，和想通的瞬間。', 'My maths beyond the classroom. It began as a calculus review, filled in trigonometry, then ran on to complex numbers, Euler’s formula, partial derivatives and the Schrödinger equation: a record of what I’ve learned, where I got stuck, and the moments it clicked.'),
+        coverAlt: L('複數平面上的單位圓，標示尤拉公式 e^iθ = cos θ + i sin θ。', 'The unit circle on the complex plane, labelled with Euler’s formula e^iθ = cos θ + i sin θ.'),
+        k1: L('學習地圖', 'MAP'),
+        h1: L('正在學的五個主題', 'Five topics I’m learning'),
+        p1: L('從微積分、三角、複數一路接到量子力學。每個主題都會更新「學到哪裡」。', 'From calculus, trig and complex numbers all the way to quantum mechanics. Each topic shows how far I’ve got.'),
+        kL: L('目前的程度', 'WHERE I AM'),
+        hL: L('哪些穩了，哪些還要練', 'What’s solid, what needs work'),
+        pL: L('2026.11.19 更新。每次測驗後，依照錯題重新整理。', 'Updated 19 Nov 2026, and re-sorted after every test based on what I got wrong.'),
+        whereK: L('學到哪裡', 'HOW FAR I’VE GOT'),
+        k2: L('學習紀錄', 'LOG'),
+        h2: L('一筆一筆記下來', 'One entry at a time'),
+        p2: L('每一天學了什麼、考了什麼、抓到什麼重點。11/11 起改用「看圖學」：行進波的圖、時鐘圖，都是幫我想通的關鍵。', 'What I studied, what I was tested on and what clicked, day by day. Since 11 Nov I’ve been learning from pictures — travelling waves and clock diagrams were what made things click.'),
+        k3: L('最喜歡的公式', 'FAVOURITE'),
+        h3: L('最美的一條等式', 'The most beautiful equation'),
+        favWhy: L('為什麼喜歡它：［待填寫］', 'Why I love it: [To be written]'),
+        favCap: L('尤拉恆等式：把 e、i、π、1、0 五個數連在一起。', 'Euler’s identity links five numbers: e, i, π, 1 and 0.'),
+        k4: L('學習資源', 'RESOURCES'),
+        h4: L('用過的書、課程與影片', 'Books, courses and videos'),
+        nextK: L('下一件作品', 'Next work'),
+        nextV: L('哲學筆記', 'Philosophy Notebook')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>

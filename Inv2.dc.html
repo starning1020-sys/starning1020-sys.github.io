@@ -106,6 +106,13 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </section>
 </div>
 
+<section aria-labelledby="rf-h" style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 96px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.24em; color: #FFD38A">REFLECTION</span><h2 id="rf-h" style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{rf.title}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{rf.lead}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px">
+<sc-for list="{{rf.items}}" as="r" hint-placeholder-count="3"><article style="display: flex; flex-direction: column; gap: 12px; padding: 26px 26px 28px; border-radius: 16px; background: #0E1230; border: 1px solid #252B52; border-top: 3px solid {{r.c}}"><span style="display: flex; align-items: center; gap: 10px"><span aria-hidden="true" style="font-size: 20px">{{r.icon}}</span><span style="font-size: 19px; font-weight: 700">{{r.k}}</span></span><span style="font-size: 13.5px; line-height: 1.6; color: {{r.c}}">{{r.q}}</span><p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C9CEF0; white-space: pre-line">{{r.v}}</p></article></sc-for>
+</div>
+</section>
+
 <section style="border-top: 1px solid #1A1F42; background: #03040D">
 <a href="Inv1.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
 <span style="display: flex; flex-direction: column; gap: 8px">
@@ -129,6 +136,15 @@ class Component extends DCLogic {
     const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
     const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
     return {
+      rf: {
+        title: L('反思', 'Reflection'),
+        lead: L('做完之後回頭看：學到了什麼、卡在哪裡、下一次想怎麼做得更好。', 'Looking back: what we learned, where we got stuck, and what we would do better next time.'),
+        items: [
+          { icon: '✦', c: '#FFD38A', k: L('我學到的', 'What I learned'), q: L('這個作品讓我多會了什麼？技能、知識，或對自己的新認識。', 'What can I do now that I couldn’t before? Skills, knowledge, or something about myself.'), v: L('［待填寫］', '[To be written]') },
+          { icon: '◐', c: '#F28B82', k: L('遇到的困難', 'Where I got stuck'), q: L('最卡的是哪一步？當時怎麼想、怎麼解決？', 'What was the hardest step? How did I think it through and get past it?'), v: L('［待填寫］', '[To be written]') },
+          { icon: '→', c: '#9DB4FF', k: L('下次想改進', 'Next time'), q: L('如果重來一次，我會改變什麼？接下來想挑戰什麼？', 'If I did it again, what would I change? What do I want to try next?'), v: L('［待填寫］', '[To be written]') }
+        ]
+      },
       accent,
       toZh: () => this.setState({ lang: 'zh' }),
       toEn: () => this.setState({ lang: 'en' }),
