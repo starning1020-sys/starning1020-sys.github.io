@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STARNING：多元表現</title>
+<script src="./react.js"></script>
+<script src="./react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600;900&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#060818}
+a{color:#EEF0FF}a:hover{color:#C9CEF0}
+</style>
+</helmet>
+<div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
+
+<header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
+<nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
+<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
+<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
+<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
+<a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
+<div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<button type="button" onClick="{{toZh}}" aria-pressed="{{zhPressed}}" style="{{zhBtn}}">中文</button>
+<button type="button" onClick="{{toEn}}" aria-pressed="{{enPressed}}" style="{{enBtn}}">EN</button>
+</div>
+</div>
+</nav>
+</header>
+
+<section style="position: relative; overflow: hidden; border-bottom: 1px solid #1A1F42">
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 80px 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px 56px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 8px">
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
+<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #FFD38A; border-radius: 999px; font-size: 14px; color: #FFD38A"><span style="width: 8px; height: 8px; border-radius: 50%; background: #FFD38A"></span>{{t.status}}</span>
+</div>
+<h1 style="margin: 0; font-family: 'Noto Serif TC', serif; font-size: clamp(44px, 6vw, 76px); line-height: 1.1; font-weight: 900">{{t.title}}<span style="display: block; font-family: 'Space Grotesk', sans-serif; font-size: 0.36em; font-weight: 500; color: #C9CEF0; letter-spacing: 0.12em; margin-top: 14px">ACTIVITIES</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.lead}}</p>
+</div>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; padding: 28px; border-radius: 14px; background: radial-gradient(ellipse at 80% 10%, rgba(255, 211, 138, 0.12), transparent 70%), #0A0D24; border: 1px solid #252B52">
+<sc-for list="{{cats}}" as="ct" hint-placeholder-count="6"><a href="#{{ct.id}}" style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 10px; background: #0E1230; border: 1px solid #252B52; text-decoration: none; color: #EEF0FF"><span style="font-size: 28px; font-weight: 700; color: {{ct.c}}; font-variant-numeric: tabular-nums">{{ct.n}}</span><span style="font-size: 14px; color: #C9CEF0">{{ct.k}}</span></a></sc-for>
+</div>
+</div>
+</section>
+
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
+<section style="padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
+<div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700">{{m.v}}</span></div>
+</sc-for>
+</section>
+
+<section id="comp" style="padding: 72px 0; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">01 · {{t.k1}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.h1}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.p1}}</p></div>
+<ol style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{comps}}" as="cp" hint-placeholder-count="8"><li style="display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 8px 20px; align-items: center; padding: 18px 4px; border-top: 1px solid #1E2448">
+<span style="display: flex; flex-direction: column; gap: 6px"><a href="{{cp.page}}" style="font-size: 17px; font-weight: 700; line-height: 1.5; text-decoration: none; color: #EEF0FF">{{cp.name}}</a><span style="font-size: 13.5px; color: #A3A9CF">{{cp.cat}} · {{cp.work}}</span></span>
+<span style="padding: 6px 14px; border-radius: 999px; font-size: 14px; white-space: nowrap; color: {{cp.rc}}; border: 1px solid {{cp.rb}}; background: {{cp.rbg}}">{{cp.res}}</span>
+</li></sc-for>
+</ol>
+<a href="index.html#awards" style="align-self: flex-start; font-size: 15px; color: {{accent}}; text-decoration: none; padding: 10px 0">{{t.allComp}}</a>
+</section>
+
+<sc-for list="{{others}}" as="ot" hint-placeholder-count="5">
+<section id="{{ot.id}}" style="padding: 64px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px 48px; align-items: start">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{ot.c}}">{{ot.no}} · {{ot.en}}</span><h2 style="margin: 0; font-size: clamp(26px, 3vw, 34px); font-weight: 700">{{ot.k}}</h2><p style="margin: 0; font-size: 15px; line-height: 1.8; color: #A3A9CF">{{ot.d}}</p></div>
+<div style="display: flex; flex-direction: column; gap: 12px">
+<sc-for list="{{ot.items}}" as="oi" hint-placeholder-count="1"><div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 6px 16px; padding: 20px 22px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #7C84B3; font-variant-numeric: tabular-nums">{{oi.date}}</span><span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 700">{{oi.title}}</span><span style="font-size: 14.5px; line-height: 1.7; color: #A3A9CF">{{oi.d}}</span><sc-if value="{{oi.link}}" hint-placeholder-val="{{ false }}"><a href="{{oi.href}}" style="font-size: 14px; color: {{ot.c}}; text-decoration: none">{{oi.lk}}</a></sc-if></span></div></sc-for>
+</div>
+</section>
+</sc-for>
+
+<section id="early" style="padding: 72px 0 88px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">07 · {{t.earlyK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.earlyH}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.earlyP}}</p></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; align-items: start">
+<sc-for list="{{early}}" as="eg" hint-placeholder-count="5"><article style="display: flex; flex-direction: column; gap: 12px; padding: 24px 24px 18px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52; border-top: 3px solid {{eg.c}}">
+<span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 19px; font-weight: 700">{{eg.k}}</span><span style="font-size: 13.5px; line-height: 1.6; color: #A3A9CF">{{eg.sub}}</span></span>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<sc-for list="{{eg.items}}" as="ei" hint-placeholder-count="4"><li style="display: grid; grid-template-columns: 76px minmax(0, 1fr); gap: 4px 12px; padding: 11px 0; border-top: 1px solid #1A1F42"><span style="font-size: 12.5px; line-height: 1.6; color: #7C84B3; font-variant-numeric: tabular-nums">{{ei.y}}</span><span style="display: flex; flex-direction: column; gap: 3px"><span style="font-size: 14.5px; line-height: 1.6; color: #C9CEF0">{{ei.n}}</span><span style="font-size: 13.5px; font-weight: 700; line-height: 1.5; color: {{eg.c}}; white-space: pre-line">{{ei.r}}</span></span></li></sc-for>
+</ul>
+</article></sc-for>
+</div>
+</section>
+</div>
+
+<section style="border-top: 1px solid #1A1F42; background: #03040D">
+<a href="Course.dc.html" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 96px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; text-decoration: none; color: #EEF0FF">
+<span style="display: flex; flex-direction: column; gap: 8px">
+<span style="font-size: 14px; color: #A3A9CF">{{t.moreK}}</span>
+<span style="font-size: clamp(28px, 4vw, 48px); font-weight: 700; letter-spacing: -0.03em">{{t.moreV}}</span>
+</span>
+<span style="font-size: 32px; color: {{accent}}" aria-hidden="true">→</span>
+</a>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":4000}}'>
+class Component extends DCLogic {
+  state = { lang: null };
+  renderVals() {
+    const accent = this.props.accent ?? '#9DB4FF';
+    const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
+    const L = (zh, en) => (isEn ? en : zh);
+    const tbase = 'font: inherit; font-size: 13px; font-weight: 500; padding: 6px 12px; min-height: 44px; min-width: 52px; border-radius: 999px; border: none; cursor: pointer;';
+    const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
+    const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
+    const TBD = L('［待填寫］', '[To be written]');
+    const base = {
+      accent,
+      toZh: () => this.setState({ lang: 'zh' }),
+      toEn: () => this.setState({ lang: 'en' }),
+      zhPressed: isEn ? 'false' : 'true', enPressed: isEn ? 'true' : 'false',
+      zhBtn: isEn ? offStyle : onStyle, enBtn: isEn ? onStyle : offStyle
+    };
+    const RES = {
+      natWin: [L('🏆 全國優勝', '🏆 National Winner'), 1], merit500: [L('🏆 佳作（500+ 組）', '🏆 Honourable Mention (500+ teams)'), 1],
+      notSel: [L('未入選', 'Not selected'), 0], r1out: [L('第一輪止步', 'Out in round 1'), 0], fail1: [L('未過一審', 'Did not pass first round'), 0]
+    };
+    const C = (name, cat, work, page, res) => ({ name, cat, work, page, res: RES[res][0], win: RES[res][1] });
+    const raw = [
+      C(L('2026「淨零綠生活」3D 列印街道家具設計競賽', '2026 “Net-Zero Green Living” 3D-Printed Street Furniture Design Competition'), L('產品設計／永續', 'Product design / Sustainability'), L('〈菱光倚影〉', 'Caltrop Light & Shade'), 'Ling.dc.html', 'natWin'),
+      C(L('2026 超夢大賞 全國高中職數位創意構想競賽', '2026 Super Dream Award'), L('數位創意', 'Digital creativity'), L('〈流〉', 'Flow'), 'Flow.dc.html', 'merit500'),
+      C(L('2026 玩具及生活用品創意設計競賽', '2026 Toy and Lifestyle Product Creative Design Competition'), L('產品設計', 'Product design'), L('〈繪光燦影〉', 'Drawing with Light'), 'Glow.dc.html', 'notSel'),
+      C(L('2026 ICARE 輔具產品通用設計競賽', '2026 ICARE Universal Design Competition'), L('產品設計／社會關懷', 'Product design / Social care'), L('〈步履無界〉', 'Boundless Steps'), 'Shoe.dc.html', 'notSel'),
+      C(L('TIRT 機器人競賽', 'TIRT Robotics Competition'), L('機器人', 'Robotics'), L('T1 賽車競技賽', 'T1 racing'), 'Tirt.dc.html', 'r1out'),
+      C(L('2026 和泰 AI 黑客松', '2026 Hotai AI Hackathon'), L('資訊／黑客松', 'IT / Hackathon'), L('行程配網師', 'Trip Data Planner'), 'Esim.dc.html', 'notSel'),
+      C(L('開源空間資訊於國家韌性應用黑客松', 'Open Geospatial Data for National Resilience Hackathon'), L('資訊／黑客松', 'IT / Hackathon'), 'Spatial Alert', 'Alert.dc.html', 'fail1'),
+      C(L('自殺防治新詩比賽', 'Suicide Prevention Poetry Competition'), L('文學創作', 'Creative writing'), L('新詩〈落〉', 'Fall (poem)'), 'Poem.dc.html', 'notSel')
+    ];
+    const comps = raw.map((r) => ({ ...r, rc: r.win ? '#FFD38A' : '#A3A9CF', rb: r.win ? 'rgba(255, 211, 138, 0.5)' : '#2A3166', rbg: r.win ? 'rgba(255, 211, 138, 0.1)' : 'transparent' }));
+    const wins = raw.filter((r) => r.win).length;
+    const ph = (d) => ({ date: L('［日期］', '[Date]'), title: TBD, d, link: false, href: '', lk: '', ph: true });
+    const it = (date, title, d) => ({ date, title, d, link: false, href: '', lk: '' });
+    const others = [
+      { id: 'lead', no: '02', c: '#C9A8FF', en: 'LEADERSHIP', k: L('幹部經歷', 'Leadership roles'), d: L('班級、社團或學校活動中擔任的職務，以及做了哪些事。', 'Roles in class, clubs or school events, and what I did in them.'), items: [it(L('高一', 'Grade 10'), L('數學小老師', 'Maths class representative'), L('［負責的事・學到什麼］', '[What I did · what I learned]'))] },
+      { id: 'club', no: '03', c: '#7EE6D6', en: 'CLUBS', k: L('社團活動', 'Clubs'), d: L('參加的社團、做過的成果與活動。', 'Clubs I’m in, and what we made or ran.'), items: [it(L('高一', 'Grade 10'), L('資發社', 'Information Development Club'), L('［參加的活動・做過的成果］', '[Activities · what we made]'))] },
+      { id: 'serve', no: '04', c: '#F28B82', en: 'SERVICE', k: L('志工服務', 'Volunteering'), d: L('服務的地點、時數，以及從中看見了什麼。', 'Where I served, for how many hours, and what I saw.'), items: [ph(L('［服務單位・時數・心得］', '[Organisation · hours · reflection]'))] },
+      { id: 'cert', no: '05', c: '#9DB4FF', en: 'CERTIFICATES', k: L('檢定證照', 'Certificates'), d: L('語言、程式或其他技能檢定。', 'Language, coding and other skill certificates.'), items: [it(L('高中以前', 'Before high school'), L('Yamaha 鋼琴檢定・6 級', 'Yamaha Piano Grade Exam · Grade 6'), L('四歲開始學鋼琴，依序通過 9、8、7、6 級（級數越小越高）。', 'Started piano at four, and passed Grades 9, 8, 7 and 6 in turn (lower numbers are higher levels).'))] },
+      { id: 'self', no: '06', c: '#FFD38A', en: 'INDEPENDENT LEARNING', k: L('自主學習', 'Independent learning'), d: L('課堂之外，自己訂目標、自己找資源學習。', 'Beyond class: setting my own goals and finding my own resources.'), items: [
+        { date: '2026.11 –', title: L('數學學習歷程', 'Math Journal'), d: L('微積分、複數、偏微分、尤拉公式，一路走到薛丁格方程式。', 'Calculus, complex numbers, partial derivatives and Euler’s formula, all the way to the Schrödinger equation.'), link: true, href: 'Math.dc.html', lk: L('打開數學學習歷程 →', 'Open the Math Journal →') },
+        { date: '2026.11 –', title: L('每週學習歷程', 'Weekly Journal'), d: L('一週一頁，記下學了什麼和學習反思。', 'One page a week: what I learned and my reflections.'), link: true, href: 'Weekly.dc.html', lk: L('打開每週紀錄 →', 'Open the weekly log →') }
+      ] }
+    ];
+    const E = (y, n, r) => ({ y, n, r });
+    const early = [
+      { k: L('繪畫與漫畫', 'Drawing & comics'), c: '#C9A8FF', sub: L('從國小低年級一路畫到國中。', 'Drawing from the first years of primary school through junior high.'), items: [
+        E(L('國小低年級', 'Grades 1–2'), L('第 24 屆坤泰盃繪畫比賽・國小低年級組', '24th Kun Tai Cup Painting Competition · lower primary'), L('全國第一名', '1st place nationally')),
+        E(L('國中', 'Junior high'), L('第 30 屆坤泰盃繪畫比賽・國中組', '30th Kun Tai Cup Painting Competition · junior high'), L('全國第五名', '5th place nationally')),
+        E('2020', L('工安環保月漫畫比賽', 'Industrial Safety & Environment Month comic contest'), L('第一名', '1st place')),
+        E('2022', L('工安環保月漫畫比賽', 'Industrial Safety & Environment Month comic contest'), L('第二名', '2nd place')),
+        E('2023', L('工安環保月漫畫比賽', 'Industrial Safety & Environment Month comic contest'), L('第三名', '3rd place')),
+        E(L('111 年', '2022–23'), L('學生美術比賽・漫畫類〈線上異想〉', 'Student Art Competition · Comics, “Online Fantasies”'), L('佳作\n色鉛筆、奇異筆・2023', 'Honourable Mention\nColoured pencil and marker · 2023')),
+        E(L('—', '—'), L('新竹縣校園誠信漫畫比賽', 'Hsinchu County Campus Integrity Comic Competition'), L('第三名', '3rd place'))
+      ] },
+      { k: L('音樂', 'Music'), c: '#7EE6D6', sub: L('7 到 12 歲在國小弦樂團拉小提琴；國中在管樂團擔任雙簧管首席。', 'Violin in my primary school string orchestra from age 7 to 12; principal oboe in my junior-high wind band.'), items: [
+        E(L('國小六年級', 'Grade 6'), L('新竹縣文化盃・小提琴', 'Hsinchu County Culture Cup · violin'), L('優等', 'Superior')),
+        E(L('108–111 學年', '2019–2022'), L('新竹縣縣賽・國小團體 B 組（弦樂團）', 'Hsinchu County contest · primary ensemble, Group B (string orchestra)'), L('連續四年優等', 'Superior, four years running')),
+        E(L('國中', 'Junior high'), L('第 9 屆新加坡管樂節・雙簧管首席', '9th Singapore Band Festival · principal oboe'), L('銅牌', 'Bronze')),
+        E(L('國中', 'Junior high'), L('嘉義管樂節', 'Chiayi Band Festival'), L('受邀演出兩次', 'Performed twice'))
+      ] },
+      { k: L('科學', 'Science'), c: '#9DB4FF', sub: L('對科學研究的興趣，從國小就開始了。', 'My interest in research started in primary school.'), items: [
+        E(L('國小', 'Primary'), L('新竹縣第 62 屆國小科學展覽會〈破壁求膠〉', '62nd Hsinchu County Primary Science Fair, “Breaking the Wall for Gel”'), L('第二名\n最佳團隊合作獎', '2nd place\nBest Teamwork Award')),
+        E(L('109 學年', '2020'), L('科學巧思競賽', 'Science Ingenuity Competition'), L('優等', 'Superior')),
+        E(L('110 學年', '2021'), L('科學巧思競賽', 'Science Ingenuity Competition'), L('優等', 'Superior'))
+      ] },
+      { k: L('寫作', 'Writing'), c: '#FFD38A', sub: L('作文與新詩，是後來寫哲學筆記的起點。', 'Essays and poems — where my philosophy notes began.'), items: [
+        E(L('國小三、四年級', 'Grades 3–4'), L('全校作文比賽', 'School writing competition'), L('三年級第一名\n四年級第二名', '1st in Grade 3\n2nd in Grade 4')),
+        E(L('國中', 'Junior high'), L('國中部全校作文比賽', 'Junior-high school writing competition'), L('第一名', '1st place')),
+        E(L('國中', 'Junior high'), L('新竹市國中組作文市賽', 'Hsinchu City junior-high writing contest'), L('優等', 'Superior')),
+        E(L('國中九年級', 'Grade 9'), L('第 19 屆聯合盃作文・新竹市賽', '19th United Cup Writing · Hsinchu City round'), L('第三名', '3rd place')),
+        E('2024・2025', L('采詩盃・國中組', 'Caishi Cup Poetry · junior high'), L('連續兩年優選', 'Merit, two years running'))
+      ] },
+      { k: L('服務與交流', 'Service & exchange'), c: '#F28B82', sub: L('從國小高年級到國中的經歷。', 'From upper primary through junior high.'), items: [
+        E(L('國小高年級', 'Upper primary'), L('游於藝「見微之美」展覽導覽解說', 'Exhibition guide, “Beauty in the Small” (You Yu Yi programme)'), L('學習把知識說給別人聽，也學會在生活的小細節裡看見獨特的美。', 'Learned to share knowledge with visitors, and to notice how unique the small details of everyday life are.')),
+        E(L('國小高年級', 'Upper primary'), L('比利時瓦隆尼亞小大使', 'Junior ambassador to Wallonia, Belgium'), L('以小大使身分進行文化交流，打開國際視野。', 'Cultural exchange as a junior ambassador, widening my view of the world.')),
+        E(L('國中', 'Junior high'), L('新加坡女子學校交流', 'Exchange with a girls’ school in Singapore'), L('國際交流', 'International exchange'))
+      ] },
+      { k: L('專題與作品', 'Projects & papers'), c: '#9DB4FF', sub: L('國中時的專題寫作與作品。', 'Project writing and works from junior high.'), items: [
+        E(L('國中', 'Junior high'), L('職業小論文', 'Career research paper'), L('優選', 'Merit')),
+        E(L('國中', 'Junior high'), L('輔導生命教育作品', 'Life-education work'), L('優選', 'Merit'))
+      ] },
+      { k: L('運動', 'Sports'), c: '#7EE6D6', sub: L('國中三年級的校內運動會。', 'School sports day, Grade 9.'), items: [
+        E(L('國中三年級', 'Grade 9'), L('400 公尺', '400 m'), L('第五名', '5th place')),
+        E(L('國中三年級', 'Grade 9'), L('400 公尺接力', '400 m relay'), L('第四名', '4th place'))
+      ] }
+    ];
+    const cats = [
+      { id: 'comp', n: String(raw.length), k: L('競賽表現', 'Competitions'), c: '#FFD38A' },
+      ...others.map((o) => ({ id: o.id, n: String(o.items.filter((i) => !i.ph).length), k: o.k, c: o.c }))
+    ];
+    return {
+      ...base, comps, others, cats, early,
+      meta: [
+        { k: L('學生', 'Student'), v: 'Yuyun Tsao' },
+        { k: L('已完成競賽', 'Competitions done'), v: L(raw.length + ' 場', String(raw.length)) },
+        { k: L('得獎', 'Awards'), v: L(wins + ' 項', String(wins)) },
+        { k: L('自主學習', 'Independent learning'), v: L('2 項進行中', '2 ongoing') }
+      ],
+      t: {
+        back: L('← 回到所有作品', '← All works'),
+        tag: L('Yuyun Tsao・學習歷程檔案', 'Yuyun Tsao · Learning portfolio'),
+        status: L('持續更新', 'Ongoing'),
+        title: L('多元表現', 'Activities'),
+        lead: L('課堂以外的每一段經歷：比賽、幹部、社團、志工、檢定和自主學習。得獎會記，沒入選也會記。', 'Everything outside the classroom: competitions, leadership, clubs, volunteering, certificates and independent learning. Wins and misses both count.'),
+        k1: L('競賽表現', 'COMPETITIONS'), h1: L('參加過的比賽', 'Competitions entered'), p1: L('已經公布結果的比賽，點名稱可以看作品頁。進行中和保密中的比賽不列在這裡。', 'Competitions with published results; tap a name for the project page. Ongoing and confidential entries aren’t listed here.'),
+        allComp: L('看完整競賽紀錄（含進行中）→', 'See the full competition record, including ongoing →'),
+        earlyK: L('更早以前', 'EARLIER'),
+        earlyH: L('高中以前的我', 'Before high school'),
+        earlyP: L('興趣不是突然冒出來的。這些是國小到國中的經歷：繪畫、音樂、科學和寫作，一路長成現在的樣子。', 'These interests didn’t appear overnight. From primary school to junior high: drawing, music, science and writing, growing into who I am now.'),
+        moreK: L('回到課堂', 'Back to the classroom'),
+        moreV: L('課程學習成果', 'Coursework')
+      }
+    };
+  }
+}
+</script>
+</body>
+</html>
