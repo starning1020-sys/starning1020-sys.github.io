@@ -11,10 +11,29 @@
 <x-dc>
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;family=Noto+Sans+TC:wght@400;500;700&amp;family=Noto+Serif+TC:wght@600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <style>
 body{margin:0;background:#060818}
 a{color:#EEF0FF}a:hover{color:#C9CEF0}
+.mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.kb-grid{background-image:linear-gradient(rgba(63,212,232,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(63,212,232,.06) 1px,transparent 1px);background-size:48px 48px}
+.kb-frame{position:relative;border-radius:18px;overflow:hidden;border:1px solid rgba(63,212,232,.35);box-shadow:0 0 0 1px rgba(63,212,232,.08),0 30px 80px rgba(0,0,0,.55),0 0 60px rgba(63,212,232,.12)}
+.kb-frame img{display:block;width:100%;height:100%;object-fit:cover}
+.kb-scan{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(255,255,255,.035) 0 1px,transparent 1px 3px);mix-blend-mode:overlay}
+.kb-sweep{position:absolute;left:0;right:0;height:30%;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(63,212,232,.14),transparent);animation:kbSweep 5s linear infinite}
+.kb-corner{position:absolute;width:26px;height:26px;border-color:#3fd4e8;border-style:solid;pointer-events:none}
+.kb-ring{position:absolute;border-radius:50%;border:1.5px dashed rgba(91,124,255,.85);pointer-events:none;animation:kbSpin 14s linear infinite}
+.kb-ring2{position:absolute;border-radius:50%;border:1px solid rgba(63,212,232,.5);pointer-events:none;animation:kbPulse 2.6s ease-out infinite}
+.kb-tag{position:absolute;padding:6px 10px;border-radius:6px;background:rgba(5,12,24,.78);border:1px solid rgba(63,212,232,.45);color:#8fe9f5;font-size:11px;line-height:1.5;white-space:nowrap;pointer-events:none;backdrop-filter:blur(4px)}
+.kb-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#46e3a6;box-shadow:0 0 10px #46e3a6;animation:kbBlink 1.6s ease-in-out infinite}
+.kb-card{position:relative;padding:24px;border-radius:14px;background:linear-gradient(180deg,rgba(13,20,36,.95),rgba(9,13,28,.95));border:1px solid #1d2a42;overflow:hidden}
+.kb-card::before{content:"";position:absolute;left:0;top:0;width:44px;height:2px;background:#3fd4e8;box-shadow:0 0 12px #3fd4e8}
+@keyframes kbSweep{0%{top:-30%}100%{top:100%}}
+@keyframes kbSpin{to{transform:rotate(360deg)}}
+@keyframes kbPulse{0%{transform:scale(.9);opacity:.9}100%{transform:scale(1.5);opacity:0}}
+@keyframes kbBlink{0%,100%{opacity:1}50%{opacity:.3}}
+@media (prefers-reduced-motion: reduce){.kb-sweep,.kb-ring,.kb-ring2,.kb-dot{animation:none!important}}
+@media (max-width:640px){.kb-tag{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
@@ -34,46 +53,89 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </nav>
 </header>
 
-<section style="max-width: 1200px; margin: 0 auto; padding: 80px 24px 48px; display: flex; flex-direction: column; gap: 28px">
+<section class="kb-grid" style="position: relative; overflow: hidden">
+<div aria-hidden="true" style="position: absolute; inset: 0; background: radial-gradient(ellipse 60% 70% at 78% 40%, rgba(91,124,255,.22), transparent 70%), radial-gradient(ellipse 50% 60% at 10% 90%, rgba(63,212,232,.10), transparent 70%)"></div>
+<div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 72px 24px 64px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 48px; align-items: center">
+<div style="display: flex; flex-direction: column; gap: 22px">
+<span class="mono" style="display: flex; align-items: center; gap: 10px; font-size: 12px; letter-spacing: 0.22em; color: #3fd4e8"><span class="kb-dot"></span>{{t.kicker}}</span>
+<h1 style="margin: 0; font-size: clamp(36px, 4.4vw, 58px); line-height: 1.12; text-wrap: balance; letter-spacing: -0.03em; font-weight: 700">{{t.title}}<span style="display: block; margin-top: 10px; font-size: 0.38em; font-weight: 500; letter-spacing: 0.02em; color: #8fe9f5">{{t.titleSub}}</span></h1>
+<p style="margin: 0; font-size: 18px; line-height: 1.8; color: #C9CEF0; max-width: 560px">{{t.intro}}</p>
 <div style="display: flex; flex-wrap: wrap; gap: 8px">
 <span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px; color: {{accent}}">{{t.tag}}</span>
-<span style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px"><span style="width: 8px; height: 8px; border-radius: 50%; background: #EEF0FF"></span>STARNING</span>
+<span style="padding: 6px 12px; border: 1px solid #2A3166; background: #0B0F28; border-radius: 999px; font-size: 14px">STARNING</span>
 <span style="padding: 6px 12px; border: 1px solid #FFD38A; border-radius: 999px; font-size: 14px; color: #FFD38A">{{t.status}}</span>
 </div>
-<h1 style="margin: 0; font-size: clamp(40px, 6vw, 80px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700">{{t.title}}</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.7; color: #C9CEF0; max-width: 820px">{{t.intro}}</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px 32px; padding-top: 28px; border-top: 1px solid #1F2550">
-<sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
-<div style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 500; line-height: 1.5">{{m.v}}</span></div>
-</sc-for>
+</div>
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div class="kb-frame" style="aspect-ratio: 846 / 820">
+<img src="./daaa44e633ac443219f56ecc9059900b.png" alt="{{t.alt1}}">
+<div class="kb-scan"></div><div class="kb-sweep"></div>
+<span class="kb-ring" style="left: 30%; top: 34.5%; width: 20%; height: 20.6%"></span>
+<span class="kb-ring2" style="left: 33.5%; top: 38.1%; width: 13%; height: 13.4%"></span>
+<span class="kb-corner" style="left: 12px; top: 12px; border-width: 2px 0 0 2px"></span><span class="kb-corner" style="right: 12px; top: 12px; border-width: 2px 2px 0 0"></span><span class="kb-corner" style="left: 12px; bottom: 12px; border-width: 0 0 2px 2px"></span><span class="kb-corner" style="right: 12px; bottom: 12px; border-width: 0 2px 2px 0"></span>
+<span class="kb-tag mono" style="left: 5%; top: 8%">TARGET&nbsp;&nbsp;Int-Ball2<br>MODULE&nbsp;&nbsp;JEM / KIBO</span>
+<span class="kb-tag mono" style="left: 4%; top: 66%">{{t.tagCam}}</span>
+<span class="kb-tag mono" style="right: 5%; bottom: 10%">{{t.tagFan}}</span>
+</div>
+<figcaption class="mono" style="font-size: 11px; color: #7C84B3">{{t.credit}}</figcaption>
+</figure>
 </div>
 </section>
 
-<section aria-labelledby="sim-h" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; display: flex; flex-direction: column; gap: 20px">
+<section style="border-top: 1px solid #1A1F42; border-bottom: 1px solid #1A1F42; background: #070B19">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr))">
+<sc-for list="{{meta}}" as="m" hint-placeholder-count="4"><div style="display: flex; flex-direction: column; gap: 6px; padding: 22px 20px; border-left: 1px solid #1A1F42"><span class="mono" style="font-size: 11px; letter-spacing: 0.18em; color: #3fd4e8">{{m.code}}</span><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 16px; font-weight: 700; line-height: 1.5">{{m.v}}</span></div></sc-for>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 40px; align-items: center">
+<figure style="margin: 0; display: flex; flex-direction: column; gap: 10px">
+<div class="kb-frame" style="aspect-ratio: 996 / 552">
+<img src="./66506b0f23567690b242056ec9a4b6c5.png" alt="{{t.alt2}}">
+<div class="kb-scan"></div>
+<span class="kb-corner" style="left: 10px; top: 10px; border-width: 2px 0 0 2px"></span><span class="kb-corner" style="right: 10px; bottom: 10px; border-width: 0 2px 2px 0"></span>
+<span class="kb-tag mono" style="left: 4%; bottom: 8%">FREE-FLYING&nbsp;&nbsp;·&nbsp;&nbsp;MICROGRAVITY</span>
+</div>
+<figcaption class="mono" style="font-size: 11px; color: #7C84B3">{{t.credit}}</figcaption>
+</figure>
+<div style="display: flex; flex-direction: column; gap: 20px">
+<span class="mono" style="font-size: 12px; letter-spacing: 0.22em; color: #3fd4e8">{{t.robotK}}</span>
+<h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.robotH}}</h2>
+<p style="margin: 0; font-size: 16px; line-height: 1.85; color: #C9CEF0">{{t.robotP}}</p>
+<div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+<sc-for list="{{specs}}" as="sp" hint-placeholder-count="4"><div style="display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; border-radius: 10px; background: #0B1122; border: 1px solid #1d2a42"><span class="mono" style="font-size: 11px; letter-spacing: 0.14em; color: #8fe9f5">{{sp.k}}</span><span style="font-size: 14.5px; line-height: 1.6; color: #C9CEF0">{{sp.v}}</span></div></sc-for>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 96px; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 12px; letter-spacing: 0.22em; color: #3fd4e8">{{t.ruleK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.ruleH}}</h2></div>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 16px">
+<sc-for list="{{rules}}" as="ru" hint-placeholder-count="3"><div class="kb-card"><span class="mono" style="display: block; font-size: clamp(32px, 4vw, 44px); font-weight: 500; color: #3fd4e8; text-shadow: 0 0 18px rgba(63,212,232,.45)">{{ru.big}}</span><span style="display: block; margin-top: 6px; font-size: 18px; font-weight: 700">{{ru.k}}</span><span style="display: block; margin-top: 8px; font-size: 14.5px; line-height: 1.75; color: #A3A9CF">{{ru.v}}</span></div></sc-for>
+</div>
+</section>
+
+<section aria-labelledby="sim-h" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 20px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px">
 <div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">{{t.simK}}</span><h2 id="sim-h" style="margin: 0; font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; letter-spacing: -0.02em">{{t.simH}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF">{{t.simP}}</p></div>
 <a href="KiboSim.html" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #2F366A; font-size: 14px; color: {{accent}}; text-decoration: none">{{t.simOpen}}</a>
 </div>
 <div style="border-radius: 14px; overflow: hidden; border: 1px solid #252B52; background: #070b14; box-shadow: 0 0 0 1px rgba(63, 212, 232, 0.08), 0 24px 60px rgba(0, 0, 0, 0.45)">
-<iframe src="KiboSim.html" title="{{t.simH}}" loading="lazy" style="display: block; width: 100%; height: clamp(880px, 108vw, 1380px); border: 0; background: #070b14"></iframe>
+<iframe src="KiboSim.html" title="{{t.simH}}" loading="lazy" style="display: block; width: 100%; height: clamp(940px, 120vw, 1500px); border: 0; background: #070b14"></iframe>
 </div>
 <p style="margin: 0; font-size: 13px; color: #7C84B3">{{t.simNote}}</p>
 </section>
 
-<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
-<div style="aspect-ratio: 16 / 9; border: 1.5px dashed #2F366A; border-radius: 6px; background: #0A0D24; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; text-align: center">
-<svg aria-hidden="true" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="{{accent}}" stroke-width="1.5"><rect x="12" y="18" width="32" height="24" rx="6"></rect><circle cx="22" cy="30" r="3"></circle><circle cx="34" cy="30" r="3"></circle><line x1="28" y1="18" x2="28" y2="10"></line><circle cx="28" cy="8" r="2"></circle><line x1="12" y1="30" x2="6" y2="30"></line><line x1="44" y1="30" x2="50" y2="30"></line></svg>
-<span style="font-size: 16px; color: #A3A9CF">{{t.photoTodo}}</span>
-</div>
-</div>
-
-<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 64px">
-<sc-for list="{{sections}}" as="s" hint-placeholder-count="5">
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 24px 64px">
-<div style="display: flex; flex-direction: column; gap: 8px"><span style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}">{{s.n}}</span><h2 style="margin: 0; font-size: 28px; letter-spacing: -0.02em; font-weight: 700">{{s.h}}</h2></div>
-<p style="margin: 0; font-size: 18px; line-height: 1.8; grid-column: span 2; min-width: 0; color: #C9CEF0">{{s.p}}</p>
-</div>
-</sc-for>
+<section style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 32px">
+<div style="display: flex; flex-direction: column; gap: 10px"><span class="mono" style="font-size: 12px; letter-spacing: 0.22em; color: #3fd4e8">{{t.logK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.logH}}</h2></div>
+<ol style="list-style: none; margin: 0; padding: 0 0 0 22px; border-left: 1px solid rgba(63,212,232,.35); display: flex; flex-direction: column; gap: 16px">
+<sc-for list="{{sections}}" as="s" hint-placeholder-count="5"><li style="position: relative; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 8px 40px; padding: 22px 24px; border-radius: 12px; background: #0A0F20; border: 1px solid #1d2a42">
+<span aria-hidden="true" style="position: absolute; left: -29px; top: 28px; width: 13px; height: 13px; border-radius: 50%; background: #060818; border: 2px solid #3fd4e8; box-shadow: 0 0 10px rgba(63,212,232,.6)"></span>
+<span style="display: flex; align-items: baseline; gap: 12px"><span class="mono" style="font-size: 13px; color: #3fd4e8">{{s.n}}</span><span style="font-size: 20px; font-weight: 700">{{s.h}}</span></span>
+<span style="font-size: 15.5px; line-height: 1.8; color: #A3A9CF; grid-column: span 2; min-width: 0">{{s.p}}</span>
+</li></sc-for>
+</ol>
+<div style="min-height: 180px; border: 1.5px dashed #2F366A; border-radius: 12px; background: #0A0D24; display: flex; align-items: center; justify-content: center; padding: 24px; text-align: center"><span style="font-size: 15px; color: #A3A9CF">{{t.photoTodo}}</span></div>
 </section>
 
 <section style="border-top: 1px solid #1A1F42; background: #03040D">
@@ -108,22 +170,47 @@ class Component extends DCLogic {
         back: L('← 回到所有作品', '← All works'),
         tag: L('機器人競賽', 'Robotics competition'),
         status: L('準備中', 'Preparing'),
-        title: L('TASA Kibo 機器人程式設計挑戰賽', 'TASA Kibo Robot Programming Challenge (International Preliminary)'),
-        intro: L('在國際太空站「希望號」（Kibo）實驗艙的模擬環境中，為自由飛行機器人 Astrobee 撰寫程式、完成指定任務的程式設計挑戰；台灣由國家太空中心（TASA）辦理國內選拔，優勝隊伍代表參加國際賽。', 'A programming challenge set in a simulation of the Kibo module on the International Space Station: teams code the free-flying Astrobee robot to complete missions. In Taiwan, the national round is run by the Taiwan Space Agency (TASA), and the winners go on to the international final.'),
+        kicker: L('MISSION // KIBO-RPC 第 7 屆・國際預賽', 'MISSION // 7th KIBO-RPC · INTERNATIONAL PRELIMINARY'),
+        title: L('TASA Kibo 機器人程式設計挑戰賽', 'TASA Kibo Robot Programming Challenge'),
+        titleSub: L('Kibo Robot Programming Challenge・國際預賽', 'International Preliminary'),
+        alt1: L('國際太空站希望號實驗艙窗邊漂浮的 Int-Ball2 球形機器人', 'The spherical Int-Ball2 robot floating by a window in the Kibo module'),
+        alt2: L('Int-Ball2 在國際太空站艙內漂浮', 'Int-Ball2 floating inside the International Space Station'),
+        tagCam: L('MAIN CAM  主相機＋藍色 LED 環', 'MAIN CAM  camera + blue LED ring'),
+        tagFan: L('FAN  推進風扇格柵', 'FAN  propulsion grille'),
+        credit: L('照片：JAXA / NASA', 'Photos: JAXA / NASA'),
+        robotK: L('ROBOT // Int-Ball2', 'ROBOT // Int-Ball2'),
+        robotH: L('我們要控制的，是一顆會飛的相機', 'What we control: a flying camera'),
+        robotP: L('Int-Ball2 是 JAXA 放在國際太空站希望號實驗艙裡的球形自由飛行機器人。它沒有手腳，在微重力中靠風扇推進移動，用相機看世界。比賽時，我們寫的程式就是它的大腦：讀取位置與姿態、決定下一步往哪飛、對準目標。', 'Int-Ball2 is JAXA’s spherical free-flying robot inside the Kibo module of the ISS. It has no arms or legs; it moves in microgravity using fans and sees the world through its camera. In the challenge, our code is its brain: reading its position and attitude, deciding where to fly next, and lining up with targets.'),
+        ruleK: L('MISSION RULES // 任務規則', 'MISSION RULES'),
+        ruleH: L('三個決定成績的關鍵', 'Three things that decide the score'),
+        logK: L('MISSION LOG // 我們的紀錄', 'MISSION LOG'),
+        logH: L('從準備到比賽', 'From preparation to competition'),
+        intro: L('在國際太空站「希望號」（Kibo）實驗艙的模擬環境中，為自由飛行機器人撰寫程式、完成指定任務的程式設計挑戰；台灣由國家太空中心（TASA）辦理國內選拔，優勝隊伍代表參加國際賽。', 'A programming challenge set in a simulation of the Kibo module on the International Space Station: teams code a free-flying robot to complete missions. In Taiwan, the national round is run by the Taiwan Space Agency (TASA), and the winners go on to the international final.'),
         simK: L('任務 3D 模擬', 'MISSION SIMULATOR'),
         simH: L('Int-Ball2 在 Kibo 艙裡怎麼跑一趟任務', 'How Int-Ball2 runs a mission inside Kibo'),
         simP: L('我們把預賽任務做成可以操作的 3D 模擬：按「執行任務」，看無人機照著我們的程式邏輯離開 Dock、規劃路線、飛到每個 CheckPoint 對準 AR marker，最後回終點回報。可以拖曳旋轉、切換視角。', 'We turned the preliminary mission into an interactive 3D simulation: press “執行任務” to watch the drone follow our program logic — undock, plan a route, fly to each checkpoint, line up with the AR marker and report back at the goal. Drag to rotate, or switch views.'),
         simOpen: L('全螢幕開啟 ↗', 'Open full screen ↗'),
         simNote: L('AR marker 座標取自官方規則書並放大顯示；CheckPoint 位置、判定等級與艙內配置為示意。', 'AR marker positions follow the official rulebook (enlarged for visibility); checkpoint positions, grades and the module interior are illustrative.'),
-        photoTodo: L('機器人照片／比賽現場照片（待補）', 'Robot / competition photos (coming soon)'),
+        photoTodo: L('我們的比賽現場照片（待補）', 'Our competition photos (coming soon)'),
         nextK: L('下一件作品', 'Next work'),
         nextV: L('AERC 亞洲機器人運動競技大賽', 'AERC Asia Robot Sports Competition')
       },
+      specs: [
+        { k: 'FORM', v: L('球形・自由飛行', 'Spherical, free-flying') },
+        { k: 'MOVE', v: L('風扇推進', 'Fan propulsion') },
+        { k: 'SENSE', v: L('相機＋AR marker 辨識', 'Camera + AR marker detection') },
+        { k: 'BRAIN', v: L('我們寫的程式', 'Our code') }
+      ],
+      rules: [
+        { big: '300 s', k: L('時間是最重要的資源', 'Time is everything'), v: L('任務限時 300 秒，超時就沒有完成分。程式每次出發前，都會先算「去下一點再回終點」來不來得及。', 'The mission has a 300-second limit. Before every move, our code checks whether there’s time to reach the next point and still get back to the goal.') },
+        { big: '10 cm', k: L('判定有三個條件', 'Three judging conditions'), v: L('位置要在判定球內（最高等級半徑只有 10 cm）、AR marker 要在畫面中央、旋轉角要對，並維持 1 秒。', 'Be inside the judging sphere (10 cm radius at the top grade), keep the AR marker centred, hold the right roll angle — for one second.') },
+        { big: '0 → Lv3', k: L('三項取最低', 'The lowest grade counts'), v: L('三個條件取最低等級，任何一項不合格就是 0 分，所以每一點都要穩定後再請伺服器判定。', 'The lowest of the three grades counts, and failing any one scores zero — so we settle at each point before asking for a judgement.') }
+      ],
       meta: [
-        { k: L('團隊', 'Team'), v: L('三人團隊（Yuyun Tsao、Bingyang Chen 與其他隊友）', 'Team of 3 (Yuyun Tsao, Bingyang Chen and a teammate)') },
-        { k: L('類別', 'Category'), v: L('機器人', 'Robotics') },
-        { k: L('年份', 'Year'), v: '2026' },
-        { k: L('狀態', 'Status'), v: L('準備中', 'Preparing') }
+        { code: 'CREW', k: L('團隊', 'Team'), v: L('三人團隊（Yuyun Tsao、Bingyang Chen 與其他隊友）', 'Team of 3 (Yuyun Tsao, Bingyang Chen and a teammate)') },
+        { code: 'TYPE', k: L('類別', 'Category'), v: L('機器人', 'Robotics') },
+        { code: 'YEAR', k: L('年份', 'Year'), v: '2026' },
+        { code: 'STATUS', k: L('狀態', 'Status'), v: L('準備中', 'Preparing') }
       ],
       sections: [
         { n: '01', h: L('比賽任務', 'The challenge'), p: L('[這次比賽要機器人完成什麼任務？規則和得分方式是什麼？]', '[What does the robot have to do? What are the rules and scoring?]') },
