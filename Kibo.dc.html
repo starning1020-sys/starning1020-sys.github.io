@@ -49,6 +49,17 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </div>
 </section>
 
+<section aria-labelledby="sim-h" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 72px; display: flex; flex-direction: column; gap: 20px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px 24px">
+<div style="display: flex; flex-direction: column; gap: 8px; max-width: 760px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{accent}}">{{t.simK}}</span><h2 id="sim-h" style="margin: 0; font-size: clamp(26px, 3.2vw, 36px); font-weight: 700; letter-spacing: -0.02em">{{t.simH}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF">{{t.simP}}</p></div>
+<a href="KiboSim.html" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #2F366A; font-size: 14px; color: {{accent}}; text-decoration: none">{{t.simOpen}}</a>
+</div>
+<div style="border-radius: 14px; overflow: hidden; border: 1px solid #252B52; background: #070b14; box-shadow: 0 0 0 1px rgba(63, 212, 232, 0.08), 0 24px 60px rgba(0, 0, 0, 0.45)">
+<iframe src="KiboSim.html" title="{{t.simH}}" loading="lazy" style="display: block; width: 100%; height: clamp(880px, 108vw, 1380px); border: 0; background: #070b14"></iframe>
+</div>
+<p style="margin: 0; font-size: 13px; color: #7C84B3">{{t.simNote}}</p>
+</section>
+
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
 <div style="aspect-ratio: 16 / 9; border: 1.5px dashed #2F366A; border-radius: 6px; background: #0A0D24; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 24px; text-align: center">
 <svg aria-hidden="true" width="56" height="56" viewBox="0 0 56 56" fill="none" stroke="{{accent}}" stroke-width="1.5"><rect x="12" y="18" width="32" height="24" rx="6"></rect><circle cx="22" cy="30" r="3"></circle><circle cx="34" cy="30" r="3"></circle><line x1="28" y1="18" x2="28" y2="10"></line><circle cx="28" cy="8" r="2"></circle><line x1="12" y1="30" x2="6" y2="30"></line><line x1="44" y1="30" x2="50" y2="30"></line></svg>
@@ -99,6 +110,11 @@ class Component extends DCLogic {
         status: L('準備中', 'Preparing'),
         title: L('TASA Kibo 機器人程式設計挑戰賽', 'TASA Kibo Robot Programming Challenge (International Preliminary)'),
         intro: L('在國際太空站「希望號」（Kibo）實驗艙的模擬環境中，為自由飛行機器人 Astrobee 撰寫程式、完成指定任務的程式設計挑戰；台灣由國家太空中心（TASA）辦理國內選拔，優勝隊伍代表參加國際賽。', 'A programming challenge set in a simulation of the Kibo module on the International Space Station: teams code the free-flying Astrobee robot to complete missions. In Taiwan, the national round is run by the Taiwan Space Agency (TASA), and the winners go on to the international final.'),
+        simK: L('任務 3D 模擬', 'MISSION SIMULATOR'),
+        simH: L('Int-Ball2 在 Kibo 艙裡怎麼跑一趟任務', 'How Int-Ball2 runs a mission inside Kibo'),
+        simP: L('我們把預賽任務做成可以操作的 3D 模擬：按「執行任務」，看無人機照著我們的程式邏輯離開 Dock、規劃路線、飛到每個 CheckPoint 對準 AR marker，最後回終點回報。可以拖曳旋轉、切換視角。', 'We turned the preliminary mission into an interactive 3D simulation: press “執行任務” to watch the drone follow our program logic — undock, plan a route, fly to each checkpoint, line up with the AR marker and report back at the goal. Drag to rotate, or switch views.'),
+        simOpen: L('全螢幕開啟 ↗', 'Open full screen ↗'),
+        simNote: L('AR marker 座標取自官方規則書並放大顯示；CheckPoint 位置、判定等級與艙內配置為示意。', 'AR marker positions follow the official rulebook (enlarged for visibility); checkpoint positions, grades and the module interior are illustrative.'),
         photoTodo: L('機器人照片／比賽現場照片（待補）', 'Robot / competition photos (coming soon)'),
         nextK: L('下一件作品', 'Next work'),
         nextV: L('AERC 亞洲機器人運動競技大賽', 'AERC Asia Robot Sports Competition')
