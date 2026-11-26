@@ -29,6 +29,9 @@ addEventListener('pagehide',function(){try{sessionStorage.setItem(key,String(scr
 var nav=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type;
 var id=location.hash.length>1?decodeURIComponent(location.hash.slice(1)):'';
 var saved=null;try{saved=+sessionStorage.getItem(key)}catch(_){}
+var same=false;try{same=!!document.referrer&&new URL(document.referrer).origin===location.origin}catch(_){}
+if(id&&nav==='navigate'&&!same){id='';try{history.replaceState(history.state,'',location.pathname+location.search)}catch(_){}
+ if('scrollRestoration' in history)history.scrollRestoration='manual';scrollTo(0,0);return}
 if(!id&&!(nav==='reload'&&saved>0))return;
 if('scrollRestoration' in history)history.scrollRestoration='manual';
 function go(){
@@ -366,7 +369,7 @@ html.pg-leave::after{opacity:1;animation:none}
 <sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
 <a class="hn-a" href="#timeline"><i>01</i><span>深空軌跡</span></a>
 <a class="hn-a" href="#starmap"><i>02</i><span>成長星圖</span></a>
-<a class="hn-a" href="#work"><i>03</i><span>造物與思辨</span></a>
+<a class="hn-a" href="#work"><i>03</i><span>作品集</span></a>
 <a class="hn-a" href="#journey"><i>04</i><span>演化紀錄</span></a>
 <a class="hn-a" href="#awards"><i>05</i><span>實戰座標</span></a>
 <a class="hn-a" href="#about"><i>06</i><span>核心宣言</span></a>
@@ -375,7 +378,7 @@ html.pg-leave::after{opacity:1;animation:none}
 <sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
 <a class="hn-a" href="#timeline"><i>01</i><span>Trajectory</span></a>
 <a class="hn-a" href="#starmap"><i>02</i><span>Growth Map</span></a>
-<a class="hn-a" href="#work"><i>03</i><span>Make &amp; Think</span></a>
+<a class="hn-a" href="#work"><i>03</i><span>Portfolio</span></a>
 <a class="hn-a" href="#journey"><i>04</i><span>Evolution</span></a>
 <a class="hn-a" href="#awards"><i>05</i><span>Coordinates</span></a>
 <a class="hn-a" href="#about"><i>06</i><span>Manifesto</span></a>
@@ -550,9 +553,9 @@ html.pg-leave::after{opacity:1;animation:none}
 <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 112px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">MAKING &amp; THINKING</span>
-<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">造物與思辨</h2></sc-if>
-<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Making &amp; Thinking</h2></sc-if>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">PORTFOLIO</span>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">沉澱・煉</h2></sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Distill · Refine</h2></sc-if>
 </div>
 <span style="font-size: 15px; color: #A3A9CF">{{countLabel}}</span>
 </div>
