@@ -6,6 +6,22 @@
 <script src="./react.js"></script>
 <script src="./react-dom.js"></script>
 <script src="./support.js"></script>
+<script>
+(function(){var d=document.documentElement;
+addEventListener('pageshow',function(){d.classList.remove('pg-leave')});
+document.addEventListener('click',function(e){
+if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+if((a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+var u;try{u=new URL(a.href,location.href)}catch(_){return}
+if(u.origin!==location.origin||!/\.html$|\/$/.test(u.pathname))return;
+if(u.pathname===location.pathname&&u.search===location.search)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+e.preventDefault();d.classList.add('pg-leave');setTimeout(function(){location.href=a.href},300);
+});})();
+</script>
+<link rel="icon" type="image/png" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
 </head>
 <body>
 <x-dc>
@@ -15,6 +31,21 @@
 <style>
 body{margin:0;background:#060818}
 a{color:#EEF0FF}a:hover{color:#C9CEF0}
+
+/* STARNING brand light */
+html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vw 42vw at 88% -8%,rgba(157,180,255,.13),transparent 62%),radial-gradient(52vw 40vw at -8% 108%,rgba(201,168,255,.10),transparent 60%)}
+
+html,body{overflow-anchor:none}
+
+/* STARNING soft page transition */
+body{animation:pgIn .7s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html.pg-leave body{animation:pgOut .3s ease forwards}
+@keyframes pgOut{to{opacity:0;transform:translateY(-6px)}}
+html::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2147483647;background:radial-gradient(46vmax 36vmax at 50% 45%,rgba(157,180,255,.20),rgba(201,168,255,.07) 45%,transparent 72%);opacity:0;transition:opacity .3s ease;animation:pgGlow 1s ease both}
+html.pg-leave::after{opacity:1;animation:none}
+@keyframes pgGlow{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){body{animation:none}html.pg-leave body{animation:none}html::after{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
@@ -22,8 +53,8 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
 <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
-<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
-<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<img src="./969d314864f4f81c57b195951742050c.svg" alt="" aria-hidden="true" width="30" height="31" style="display: block; width: 30px; height: auto; filter: drop-shadow(0 0 6px rgba(157, 180, 255, 0.75))">
+<img src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt="STARNING" width="126" height="34" style="display: block; height: 34px; width: auto; filter: drop-shadow(0 2px 0 rgba(74, 64, 170, 0.8)) drop-shadow(0 0 6px rgba(157, 180, 255, 0.45))"></a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
 <a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
 <div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
@@ -51,7 +82,13 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </section>
 
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
-<section style="padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<div style="padding-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.16em; color: #7C84B3">{{t.whoK}}</span>
+<div role="group" aria-label="{{t.whoK}}" style="display: flex; gap: 4px; padding: 4px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<sc-for list="{{people}}" as="pp" hint-placeholder-count="2"><button type="button" onClick="{{pp.on}}" aria-pressed="{{pp.pressed}}" style="{{pp.style}}">{{pp.name}}</button></sc-for>
+</div>
+</div>
+<section style="padding: 24px 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
 <sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700">{{m.v}}</span></div>
 </sc-for>
@@ -72,13 +109,13 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <section id="{{ot.id}}" style="padding: 64px 0; border-top: 1px solid #1A1F42; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 24px 48px; align-items: start">
 <div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: {{ot.c}}">{{ot.no}} · {{ot.en}}</span><h2 style="margin: 0; font-size: clamp(26px, 3vw, 34px); font-weight: 700">{{ot.k}}</h2><p style="margin: 0; font-size: 15px; line-height: 1.8; color: #A3A9CF">{{ot.d}}</p></div>
 <div style="display: flex; flex-direction: column; gap: 12px">
-<sc-for list="{{ot.items}}" as="oi" hint-placeholder-count="1"><div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 6px 16px; padding: 20px 22px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #7C84B3; font-variant-numeric: tabular-nums">{{oi.date}}</span><span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 700">{{oi.title}}</span><span style="font-size: 14.5px; line-height: 1.7; color: #A3A9CF">{{oi.d}}</span><sc-if value="{{oi.link}}" hint-placeholder-val="{{ false }}"><a href="{{oi.href}}" style="font-size: 14px; color: {{ot.c}}; text-decoration: none">{{oi.lk}}</a></sc-if></span></div></sc-for>
+<sc-for list="{{ot.items}}" as="oi" hint-placeholder-count="1"><div style="display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 6px 16px; padding: 20px 22px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #7C84B3; font-variant-numeric: tabular-nums">{{oi.date}}</span><span style="display: flex; flex-direction: column; gap: 6px"><span style="font-size: 17px; font-weight: 700">{{oi.title}}</span><span style="font-size: 14.5px; line-height: 1.7; color: #A3A9CF">{{oi.d}}</span><sc-if value="{{oi.link}}" hint-placeholder-val="{{ false }}"><a href="{{oi.href}}" style="font-size: 14px; color: {{ot.c}}; text-decoration: none">{{oi.lk}}</a></sc-if><sc-if value="{{oi.hasImg}}" hint-placeholder-val="{{ false }}"><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; margin-top: 8px"><sc-for list="{{oi.imgs}}" as="im" hint-placeholder-count="2"><figure style="margin: 0; display: flex; flex-direction: column; gap: 6px"><img src="{{im.src}}" alt="{{im.cap}}" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; border: 1px solid #252B52"><figcaption style="font-size: 13px; color: #7C84B3">{{im.cap}}</figcaption></figure></sc-for></div></sc-if></span></div></sc-for>
 </div>
 </section>
 </sc-for>
 
 <section id="early" style="padding: 72px 0 88px; border-top: 1px solid #1A1F42; display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">07 · {{t.earlyK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.earlyH}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.earlyP}}</p></div>
+<div style="display: flex; flex-direction: column; gap: 10px"><span style="font-size: 13px; font-weight: 700; letter-spacing: 0.2em; color: #A3A9CF">{{earlyNo}} · {{t.earlyK}}</span><h2 style="margin: 0; font-size: clamp(28px, 3.4vw, 40px); font-weight: 700; letter-spacing: -0.02em">{{t.earlyH}}</h2><p style="margin: 0; font-size: 16px; line-height: 1.8; color: #A3A9CF; max-width: 680px">{{t.earlyP}}</p></div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr)); gap: 16px; align-items: start">
 <sc-for list="{{early}}" as="eg" hint-placeholder-count="5"><article style="display: flex; flex-direction: column; gap: 12px; padding: 24px 24px 18px; border-radius: 14px; background: #0A0D24; border: 1px solid #252B52; border-top: 3px solid {{eg.c}}">
 <span style="display: flex; flex-direction: column; gap: 4px"><span style="font-size: 19px; font-weight: 700">{{eg.k}}</span><span style="font-size: 13.5px; line-height: 1.6; color: #A3A9CF">{{eg.sub}}</span></span>
@@ -104,7 +141,7 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":4000}}'>
 class Component extends DCLogic {
-  state = { lang: null };
+  state = { lang: null, who: 'yy' };
   renderVals() {
     const accent = this.props.accent ?? '#9DB4FF';
     const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
@@ -113,6 +150,15 @@ class Component extends DCLogic {
     const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
     const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
     const TBD = L('［待填寫］', '[To be written]');
+    const who = this.state.who || 'yy';
+    const isBy = who === 'by';
+    const pbase = 'font: inherit; font-size: 14px; font-weight: 500; padding: 8px 18px; min-height: 44px; border-radius: 999px; border: none; cursor: pointer;';
+    const people = [['yy', 'Yuyun Tsao', '#9DB4FF'], ['by', 'Bingyang Chen', '#FFD38A']].map(([id, name, col]) => ({
+      name, pressed: who === id ? 'true' : 'false',
+      style: pbase + (who === id ? ' background: ' + col + '; color: #060818;' : ' background: transparent; color: #EEF0FF;'),
+      on: () => this.setState({ who: id })
+    }));
+    const NAME = isBy ? 'Bingyang Chen' : 'Yuyun Tsao';
     const base = {
       accent,
       toZh: () => this.setState({ lang: 'zh' }),
@@ -135,13 +181,14 @@ class Component extends DCLogic {
       C(L('開源空間資訊於國家韌性應用黑客松', 'Open Geospatial Data for National Resilience Hackathon'), L('資訊／黑客松', 'IT / Hackathon'), 'Spatial Alert', 'Alert.dc.html', 'fail1'),
       C(L('自殺防治新詩比賽', 'Suicide Prevention Poetry Competition'), L('文學創作', 'Creative writing'), L('新詩〈落〉', 'Fall (poem)'), 'Poem.dc.html', 'notSel')
     ];
-    const comps = raw.map((r) => ({ ...r, rc: r.win ? '#FFD38A' : '#A3A9CF', rb: r.win ? 'rgba(255, 211, 138, 0.5)' : '#2A3166', rbg: r.win ? 'rgba(255, 211, 138, 0.1)' : 'transparent' }));
-    const wins = raw.filter((r) => r.win).length;
+    const mine = isBy ? raw.filter((r) => r.page !== 'Poem.dc.html') : raw;
+    const comps = mine.map((r) => ({ ...r, rc: r.win ? '#FFD38A' : '#A3A9CF', rb: r.win ? 'rgba(255, 211, 138, 0.5)' : '#2A3166', rbg: r.win ? 'rgba(255, 211, 138, 0.1)' : 'transparent' }));
+    const wins = mine.filter((r) => r.win).length;
     const ph = (d) => ({ date: L('［日期］', '[Date]'), title: TBD, d, link: false, href: '', lk: '', ph: true });
-    const it = (date, title, d) => ({ date, title, d, link: false, href: '', lk: '' });
-    const others = [
+    const it = (date, title, d, imgs) => ({ date, title, d, link: false, href: '', lk: '', hasImg: !!(imgs && imgs.length), imgs: imgs || [] });
+    const yyOthers = [
       { id: 'lead', no: '02', c: '#C9A8FF', en: 'LEADERSHIP', k: L('幹部經歷', 'Leadership roles'), d: L('班級、社團或學校活動中擔任的職務，以及做了哪些事。', 'Roles in class, clubs or school events, and what I did in them.'), items: [it(L('高一', 'Grade 10'), L('數學小老師', 'Maths class representative'), L('［負責的事・學到什麼］', '[What I did · what I learned]'))] },
-      { id: 'club', no: '03', c: '#7EE6D6', en: 'CLUBS', k: L('社團活動', 'Clubs'), d: L('參加的社團、做過的成果與活動。', 'Clubs I’m in, and what we made or ran.'), items: [it(L('高一', 'Grade 10'), L('資發社', 'Information Development Club'), L('［參加的活動・做過的成果］', '[Activities · what we made]'))] },
+      { id: 'club', no: '03', c: '#7EE6D6', en: 'CLUBS', k: L('社團活動', 'Clubs'), d: L('參加的社團、做過的成果與活動。', 'Clubs I’m in, and what we made or ran.'), items: [it(L('高一上', 'Grade 10'), L('資發社・第一次實體社課：科技垃圾桶', 'Information Development Club · First in-person session: Smart Bins'), L('各組提出不同的科技垃圾桶構想：有的設計越野輪胎，讓垃圾桶能適應校園地形；有的設計垃圾管道來儲存和運輸。獲選的隊伍會帶大家把垃圾桶做出來，實際用在學校裡；下次社課會繼續完善計畫。', 'Each group pitched a different smart bin: one used off-road wheels to handle the campus terrain, another designed a chute system to store and move rubbish. The winning team will lead everyone in building the bin for real use at school; next session we keep refining the plan.'), [{ src: './e9c60f653c833f6c570733275c1be713.jpg', cap: L('分組討論構想', 'Groups working on their ideas') }, { src: './e660ff976151aeda0fa17049ca33c35e.jpg', cap: L('上台報告垃圾桶的運作流程', 'Presenting how the bin works') }])] },
       { id: 'serve', no: '04', c: '#F28B82', en: 'SERVICE', k: L('志工服務', 'Volunteering'), d: L('服務的地點、時數，以及從中看見了什麼。', 'Where I served, for how many hours, and what I saw.'), items: [ph(L('［服務單位・時數・心得］', '[Organisation · hours · reflection]'))] },
       { id: 'cert', no: '05', c: '#9DB4FF', en: 'CERTIFICATES', k: L('檢定證照', 'Certificates'), d: L('語言、程式或其他技能檢定。', 'Language, coding and other skill certificates.'), items: [it(L('高中以前', 'Before high school'), L('Yamaha 鋼琴檢定・6 級', 'Yamaha Piano Grade Exam · Grade 6'), L('四歲開始學鋼琴，依序通過 9、8、7、6 級（級數越小越高）。', 'Started piano at four, and passed Grades 9, 8, 7 and 6 in turn (lower numbers are higher levels).'))] },
       { id: 'self', no: '06', c: '#FFD38A', en: 'INDEPENDENT LEARNING', k: L('自主學習', 'Independent learning'), d: L('課堂之外，自己訂目標、自己找資源學習。', 'Beyond class: setting my own goals and finding my own resources.'), items: [
@@ -149,8 +196,23 @@ class Component extends DCLogic {
         { date: '2026.11 –', title: L('每週學習歷程', 'Weekly Journal'), d: L('一週一頁，記下學了什麼和學習反思。', 'One page a week: what I learned and my reflections.'), link: true, href: 'Weekly.dc.html', lk: L('打開每週紀錄 →', 'Open the weekly log →') }
       ] }
     ];
+    const byOthers = [
+      { id: 'lead', no: '02', c: '#C9A8FF', en: 'LEADERSHIP', k: L('幹部經歷', 'Leadership roles'), d: L('班級、社團或學校活動中擔任的職務，以及做了哪些事。', 'Roles in class, clubs or school events, and what I did in them.'), items: [it(L('高一', 'Grade 10'), L('圖書股長', 'Class library officer'), L('［負責的事・學到什麼］', '[What I did · what I learned]'))] },
+      { id: 'club', no: '03', c: '#7EE6D6', en: 'CLUBS', k: L('社團活動', 'Clubs'), d: L('參加的社團、做過的成果與活動。', 'Clubs I’m in, and what we made or ran.'), items: [it(L('高一', 'Grade 10'), L('電影社', 'Film Club'), L('［參加的活動・做過的成果］', '[Activities · what we made]'))] },
+      { id: 'serve', no: '04', c: '#F28B82', en: 'SERVICE', k: L('志工服務', 'Volunteering'), d: L('服務的地點、時數，以及從中看見了什麼。', 'Where I served, for how many hours, and what I saw.'), items: [it(L('115 年', '2026'), L('協助 115 年生命教育學生講座', 'Helped run the 2026 student life-education talk'), L('［負責的工作・時數・心得］', '[Tasks · hours · reflection]'))] },
+      { id: 'cert', no: '05', c: '#9DB4FF', en: 'CERTIFICATES', k: L('檢定證照', 'Certificates'), d: L('技術士證照、語言或其他技能檢定。', 'Technician, language and other skill certificates.'), items: [ph(L('［證照名稱・級別，例：工業電子丙級］', '[Certificate · level, e.g. Industrial Electronics, Level C]'))] },
+      { id: 'self', no: '06', c: '#FFD38A', en: 'INDEPENDENT LEARNING', k: L('自主學習', 'Independent learning'), d: L('課堂之外，自己訂目標、自己找資源學習。', 'Beyond class: setting my own goals and finding my own resources.'), items: [
+        ph(L('［自學的主題・用什麼資源・學到哪裡］', '[Topic · resources · progress]')),
+        { date: '2026.11 –', title: L('每週學習歷程', 'Weekly Journal'), d: L('一週一頁，記下學了什麼和學習反思。', 'One page a week: what I learned and my reflections.'), link: true, href: 'WeeklyB.dc.html', lk: L('打開每週紀錄 →', 'Open the weekly log →') }
+      ] },
+      { id: 'invent', no: '07', c: '#7EE6D6', en: 'INVENTIONS', k: L('發明實作', 'Inventions'), d: L('從生活中找問題，用機構與實作做出解法。', 'Finding problems in daily life and building mechanical solutions.'), items: [
+        { date: '2026', title: L('一鍵同步釋放曬衣架', 'One-touch Release Clothes Hanger'), d: L('把逐一按壓的動作，轉成單點觸發的同步釋放機構。', 'Turns one-by-one pinching into a single-trigger synchronized release.'), link: true, href: 'Inv1.dc.html', lk: L('看作品 →', 'See the project →') },
+        { date: '2026', title: L('雙球曲面貼合擠牙膏器', 'Twin-ball Toothpaste Squeezer'), d: L('用兩顆球的曲面貼合，把牙膏擠得更乾淨。', 'Two curved balls hug the tube to squeeze it cleanly.'), link: true, href: 'Inv2.dc.html', lk: L('看作品 →', 'See the project →') }
+      ] }
+    ];
+    const others = isBy ? byOthers : yyOthers;
     const E = (y, n, r) => ({ y, n, r });
-    const early = [
+    const yyEarly = [
       { k: L('繪畫與漫畫', 'Drawing & comics'), c: '#C9A8FF', sub: L('從國小低年級一路畫到國中。', 'Drawing from the first years of primary school through junior high.'), items: [
         E(L('國小低年級', 'Grades 1–2'), L('第 24 屆坤泰盃繪畫比賽・國小低年級組', '24th Kun Tai Cup Painting Competition · lower primary'), L('全國第一名', '1st place nationally')),
         E(L('國中', 'Junior high'), L('第 30 屆坤泰盃繪畫比賽・國中組', '30th Kun Tai Cup Painting Competition · junior high'), L('全國第五名', '5th place nationally')),
@@ -192,21 +254,26 @@ class Component extends DCLogic {
         E(L('國中三年級', 'Grade 9'), L('400 公尺接力', '400 m relay'), L('第四名', '4th place'))
       ] }
     ];
+    const byEarly = [
+      { k: L('高中以前的經歷', 'Before high school'), c: '#FFD38A', sub: L('得過的獎、參加過的活動（可以不放）。', 'Awards and activities (optional).'), items: [E(L('［年份］', '[Year]'), L('［比賽或活動名稱］', '[Competition or activity]'), L('［成績］', '[Result]'))] }
+    ];
+    const early = isBy ? byEarly : yyEarly;
     const cats = [
-      { id: 'comp', n: String(raw.length), k: L('競賽表現', 'Competitions'), c: '#FFD38A' },
+      { id: 'comp', n: String(mine.length), k: L('競賽表現', 'Competitions'), c: '#FFD38A' },
       ...others.map((o) => ({ id: o.id, n: String(o.items.filter((i) => !i.ph).length), k: o.k, c: o.c }))
     ];
     return {
-      ...base, comps, others, cats, early,
+      ...base, people, earlyNo: isBy ? '08' : '07', comps, others, cats, early,
       meta: [
-        { k: L('學生', 'Student'), v: 'Yuyun Tsao' },
-        { k: L('已完成競賽', 'Competitions done'), v: L(raw.length + ' 場', String(raw.length)) },
+        { k: L('學生', 'Student'), v: NAME },
+        { k: L('已完成競賽', 'Competitions done'), v: L(mine.length + ' 場', String(mine.length)) },
         { k: L('得獎', 'Awards'), v: L(wins + ' 項', String(wins)) },
-        { k: L('自主學習', 'Independent learning'), v: L('2 項進行中', '2 ongoing') }
+        { k: L('自主學習', 'Independent learning'), v: isBy ? L('每週紀錄進行中', 'Weekly log ongoing') : L('2 項進行中', '2 ongoing') }
       ],
       t: {
         back: L('← 回到所有作品', '← All works'),
-        tag: L('Yuyun Tsao・學習歷程檔案', 'Yuyun Tsao · Learning portfolio'),
+        tag: L(NAME + '・學習歷程檔案', NAME + ' · Learning portfolio'),
+        whoK: L('切換成員', 'MEMBER'),
         status: L('持續更新', 'Ongoing'),
         title: L('多元表現', 'Activities'),
         lead: L('課堂以外的每一段經歷：比賽、幹部、社團、志工、檢定和自主學習。得獎會記，沒入選也會記。', 'Everything outside the classroom: competitions, leadership, clubs, volunteering, certificates and independent learning. Wins and misses both count.'),
@@ -214,7 +281,7 @@ class Component extends DCLogic {
         allComp: L('看完整競賽紀錄（含進行中）→', 'See the full competition record, including ongoing →'),
         earlyK: L('更早以前', 'EARLIER'),
         earlyH: L('高中以前的我', 'Before high school'),
-        earlyP: L('興趣不是突然冒出來的。這些是國小到國中的經歷：繪畫、音樂、科學和寫作，一路長成現在的樣子。', 'These interests didn’t appear overnight. From primary school to junior high: drawing, music, science and writing, growing into who I am now.'),
+        earlyP: isBy ? L('國小到國中的經歷，看見興趣是怎麼長出來的。', 'From primary school to junior high: where these interests began.') : L('興趣不是突然冒出來的。這些是國小到國中的經歷：繪畫、音樂、科學和寫作，一路長成現在的樣子。', 'These interests didn’t appear overnight. From primary school to junior high: drawing, music, science and writing, growing into who I am now.'),
         moreK: L('回到課堂', 'Back to the classroom'),
         moreV: L('課程學習成果', 'Coursework')
       }

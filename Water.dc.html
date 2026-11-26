@@ -6,6 +6,22 @@
 <script src="./react.js"></script>
 <script src="./react-dom.js"></script>
 <script src="./support.js"></script>
+<script>
+(function(){var d=document.documentElement;
+addEventListener('pageshow',function(){d.classList.remove('pg-leave')});
+document.addEventListener('click',function(e){
+if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+if((a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+var u;try{u=new URL(a.href,location.href)}catch(_){return}
+if(u.origin!==location.origin||!/\.html$|\/$/.test(u.pathname))return;
+if(u.pathname===location.pathname&&u.search===location.search)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+e.preventDefault();d.classList.add('pg-leave');setTimeout(function(){location.href=a.href},300);
+});})();
+</script>
+<link rel="icon" type="image/png" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
 </head>
 <body>
 <x-dc>
@@ -15,6 +31,21 @@
 <style>
 body{margin:0;background:#060818}
 a{color:#EEF0FF}a:hover{color:#C9CEF0}
+
+/* STARNING brand light */
+html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vw 42vw at 88% -8%,rgba(157,180,255,.13),transparent 62%),radial-gradient(52vw 40vw at -8% 108%,rgba(201,168,255,.10),transparent 60%)}
+
+html,body{overflow-anchor:none}
+
+/* STARNING soft page transition */
+body{animation:pgIn .7s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html.pg-leave body{animation:pgOut .3s ease forwards}
+@keyframes pgOut{to{opacity:0;transform:translateY(-6px)}}
+html::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2147483647;background:radial-gradient(46vmax 36vmax at 50% 45%,rgba(157,180,255,.20),rgba(201,168,255,.07) 45%,transparent 72%);opacity:0;transition:opacity .3s ease;animation:pgGlow 1s ease both}
+html.pg-leave::after{opacity:1;animation:none}
+@keyframes pgGlow{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){body{animation:none}html.pg-leave body{animation:none}html::after{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
@@ -22,8 +53,8 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
 <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
-<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
-<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<img src="./969d314864f4f81c57b195951742050c.svg" alt="" aria-hidden="true" width="30" height="31" style="display: block; width: 30px; height: auto; filter: drop-shadow(0 0 6px rgba(157, 180, 255, 0.75))">
+<img src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt="STARNING" width="126" height="34" style="display: block; height: 34px; width: auto; filter: drop-shadow(0 2px 0 rgba(74, 64, 170, 0.8)) drop-shadow(0 0 6px rgba(157, 180, 255, 0.45))"></a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
 <a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{backLabel}}</a>
 <div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">

@@ -6,6 +6,22 @@
 <script src="./react.js"></script>
 <script src="./react-dom.js"></script>
 <script src="./support.js"></script>
+<script>
+(function(){var d=document.documentElement;
+addEventListener('pageshow',function(){d.classList.remove('pg-leave')});
+document.addEventListener('click',function(e){
+if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+if((a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+var u;try{u=new URL(a.href,location.href)}catch(_){return}
+if(u.origin!==location.origin||!/\.html$|\/$/.test(u.pathname))return;
+if(u.pathname===location.pathname&&u.search===location.search)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+e.preventDefault();d.classList.add('pg-leave');setTimeout(function(){location.href=a.href},300);
+});})();
+</script>
+<link rel="icon" type="image/png" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
 </head>
 <body>
 <x-dc>
@@ -15,6 +31,21 @@
 <style>
 body{margin:0;background:#060818}
 a{color:#EEF0FF}a:hover{color:#C9CEF0}
+
+/* STARNING brand light */
+html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vw 42vw at 88% -8%,rgba(157,180,255,.13),transparent 62%),radial-gradient(52vw 40vw at -8% 108%,rgba(201,168,255,.10),transparent 60%)}
+
+html,body{overflow-anchor:none}
+
+/* STARNING soft page transition */
+body{animation:pgIn .7s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html.pg-leave body{animation:pgOut .3s ease forwards}
+@keyframes pgOut{to{opacity:0;transform:translateY(-6px)}}
+html::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2147483647;background:radial-gradient(46vmax 36vmax at 50% 45%,rgba(157,180,255,.20),rgba(201,168,255,.07) 45%,transparent 72%);opacity:0;transition:opacity .3s ease;animation:pgGlow 1s ease both}
+html.pg-leave::after{opacity:1;animation:none}
+@keyframes pgGlow{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){body{animation:none}html.pg-leave body{animation:none}html::after{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
@@ -22,8 +53,8 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
 <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
-<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
-<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<img src="./969d314864f4f81c57b195951742050c.svg" alt="" aria-hidden="true" width="30" height="31" style="display: block; width: 30px; height: auto; filter: drop-shadow(0 0 6px rgba(157, 180, 255, 0.75))">
+<img src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt="STARNING" width="126" height="34" style="display: block; height: 34px; width: auto; filter: drop-shadow(0 2px 0 rgba(74, 64, 170, 0.8)) drop-shadow(0 0 6px rgba(157, 180, 255, 0.45))"></a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
 <a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
 <div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
@@ -130,6 +161,25 @@ class Component extends DCLogic {
     const X = (arr) => arr.map((x) => ({ x }));
     // 每週一筆：最新的放最上面。新增一週就在 raw 最前面加一筆。
     const raw = [
+      {
+        n: 3, range: '2026.11.23 – 11.29', c: '#7EE6D6',
+        title: L('讀完規則書，也把微分補齊了', 'Reading the rulebooks, and closing the gaps in differentiation'),
+        tags: X([L('Kibo-RPC', 'Kibo-RPC'), L('C++', 'C++'), L('AERC', 'AERC'), L('數學', 'Maths'), L('物理', 'Physics')]),
+        learn: X([
+          L('Kibo-RPC：讀完第 7 屆規則書和 75 頁的 Programming Manual——5 分鐘內要巡完 CheckPoint、每支程式跑 10 次取平均分、程式交件截止 2027/1/20 22:59（台灣時間）', 'Kibo-RPC: read the 7th-edition rulebook and the 75-page Programming Manual — visit every CheckPoint within 5 minutes, each program runs 10 times and is averaged, code due 20 Jan 2027, 22:59 Taiwan time'),
+          L('確認今年可以用 C++14，所以決定用 C++ 寫', 'Confirmed C++14 is allowed this year, so I chose C++'),
+          L('做了一個 Kibo 3D 任務模擬頁面，放進 STARNING 網站', 'Built a 3D Kibo mission simulator page and moved it into the STARNING site'),
+          L('C++ 從零開始（約 1～2 小時）：Hello World、變數和資料型別、運算子、cin、if / else if、邏輯運算子、for / while 迴圈，一直拿「避障車感測器判斷」當練習題', 'C++ from zero (about 1–2 h): Hello World, variables and types, operators, cin, if / else if, logical operators, for / while loops — practising with an obstacle-avoiding car’s sensor logic'),
+          L('AERC 12/12 崑山遙控避障賽：確認規則（D 組、限時 60 秒、最多跑兩次、障礙物最高 24 mm），決定把底盤改成 3D 列印的四輪驅動，拿到 STL 和可以改參數的 OpenSCAD 檔', 'AERC remote-control obstacle race (12 Dec, Kun Shan): confirmed the rules (Group D, 60 s, two runs max, obstacles up to 24 mm) and decided on a 3D-printed four-wheel-drive chassis; got the STL and a parametric OpenSCAD file'),
+          L('11/24 40 題總複習 28/40；用「波被壓扁、變陡」理解連鎖律的內層導數，學了三步驟表格（外層照抄 × 內層導數）；重新推導 E = ħ²k²/2m', '24 Nov: 40-question review, 28/40; understood the chain rule’s inner derivative as a wave being squeezed and steepened, learned the three-step table (copy the outer × inner derivative); re-derived E = ħ²k²/2m'),
+          L('11/25 連鎖律與複習 10 題 7/10；學了「先數負號」：偶數個是正、奇數個是負，i² 也算一個負號', '25 Nov: chain rule and review, 7/10; learned to count the minus signs first — even is positive, odd is negative, and i² counts as one'),
+          L('開始間隔複習：學新東西前，先做 5 題舊題目', 'Started spaced review: five old questions before anything new')
+        ]),
+        high: L('40 題總複習拿到 28/40（70%），是目前大型測驗最高的一次；斜率與一次項、複數全對。\n錯了三次的「週期性」這週終於全對，微分大致完成。', 'Scored 28/40 (70%) on the 40-question review — my best big test so far, with slopes, linear terms and complex numbers all correct.\nPeriodicity, which I’d missed three times, was finally all right this week; differentiation is mostly done.'),
+        hard: L('數學的新弱點是正負號：錯的 3 題都有兩個負號或 i²。\nC++ 常犯的錯：cout 後面少打一個 <、邊界條件 <= 和 < 搞混、連續比較的寫法不對。', 'My new weak spot in maths is signs: all three wrong answers had two minus signs or an i².\nCommon C++ slips: a missing < after cout, mixing up <= and < at the boundaries, and writing chained comparisons the wrong way.'),
+        ref: TBD,
+        next: L('1. C++：完成卡住的題目——把避障程式包進 while 迴圈，輸入 999 才結束，還要加計數器\n2. AERC：先印一個底盤角落測試，確認馬達尺寸對不對\n3. 數學：練正負號，繼續間隔複習\n4. Kibo：決定模擬頁要不要等 2/17 預賽結束再公開', '1. C++: finish the problem I’m stuck on — wrap the obstacle program in a while loop that ends on 999, with a counter\n2. AERC: print a corner test of the chassis to check the motor fits\n3. Maths: drill signs and keep up spaced review\n4. Kibo: decide whether to keep the simulator private until the preliminary ends on 17 Feb')
+      },
       {
         n: 2, range: '2026.11.16 – 11.22', c: '#FFD38A',
         title: L('找到真正的弱點，也多了一個佳作', 'Finding the real weak spot, and one more Honourable Mention'),

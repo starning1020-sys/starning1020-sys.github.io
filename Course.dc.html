@@ -6,6 +6,22 @@
 <script src="./react.js"></script>
 <script src="./react-dom.js"></script>
 <script src="./support.js"></script>
+<script>
+(function(){var d=document.documentElement;
+addEventListener('pageshow',function(){d.classList.remove('pg-leave')});
+document.addEventListener('click',function(e){
+if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
+var a=e.target&&e.target.closest&&e.target.closest('a[href]');if(!a)return;
+if((a.target&&a.target!=='_self')||a.hasAttribute('download'))return;
+var u;try{u=new URL(a.href,location.href)}catch(_){return}
+if(u.origin!==location.origin||!/\.html$|\/$/.test(u.pathname))return;
+if(u.pathname===location.pathname&&u.search===location.search)return;
+if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+e.preventDefault();d.classList.add('pg-leave');setTimeout(function(){location.href=a.href},300);
+});})();
+</script>
+<link rel="icon" type="image/png" href="./favicon-32.png">
+<link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
 </head>
 <body>
 <x-dc>
@@ -15,6 +31,21 @@
 <style>
 body{margin:0;background:#060818}
 a{color:#EEF0FF}a:hover{color:#C9CEF0}
+
+/* STARNING brand light */
+html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60vw 42vw at 88% -8%,rgba(157,180,255,.13),transparent 62%),radial-gradient(52vw 40vw at -8% 108%,rgba(201,168,255,.10),transparent 60%)}
+
+html,body{overflow-anchor:none}
+
+/* STARNING soft page transition */
+body{animation:pgIn .7s cubic-bezier(.2,.7,.2,1) backwards}
+@keyframes pgIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+html.pg-leave body{animation:pgOut .3s ease forwards}
+@keyframes pgOut{to{opacity:0;transform:translateY(-6px)}}
+html::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:2147483647;background:radial-gradient(46vmax 36vmax at 50% 45%,rgba(157,180,255,.20),rgba(201,168,255,.07) 45%,transparent 72%);opacity:0;transition:opacity .3s ease;animation:pgGlow 1s ease both}
+html.pg-leave::after{opacity:1;animation:none}
+@keyframes pgGlow{from{opacity:1}to{opacity:0}}
+@media (prefers-reduced-motion:reduce){body{animation:none}html.pg-leave body{animation:none}html::after{display:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh">
@@ -22,8 +53,8 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <header style="border-bottom: 1px solid #1A1F42; position: relative; z-index: 2">
 <nav style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none">
-<svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="{{accent}}" stroke-width="1.5" stroke-linejoin="round"><path d="M12 2l2.2 7.8L22 12l-7.8 2.2L12 22l-2.2-7.8L2 12l7.8-2.2z"></path></svg>
-<span style="font-size: 20px; font-weight: 700; letter-spacing: 0.12em">STARNING</span></a>
+<img src="./969d314864f4f81c57b195951742050c.svg" alt="" aria-hidden="true" width="30" height="31" style="display: block; width: 30px; height: auto; filter: drop-shadow(0 0 6px rgba(157, 180, 255, 0.75))">
+<img src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt="STARNING" width="126" height="34" style="display: block; height: 34px; width: auto; filter: drop-shadow(0 2px 0 rgba(74, 64, 170, 0.8)) drop-shadow(0 0 6px rgba(157, 180, 255, 0.45))"></a>
 <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 20px">
 <a href="index.html" style="font-size: 15px; text-decoration: none; padding: 10px 0">{{t.back}}</a>
 <div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
@@ -53,7 +84,13 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </section>
 
 <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px">
-<section style="padding: 56px 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
+<div style="padding-top: 48px; display: flex; flex-wrap: wrap; align-items: center; gap: 10px">
+<span style="font-size: 13px; letter-spacing: 0.16em; color: #7C84B3">{{t.whoK}}</span>
+<div role="group" aria-label="{{t.whoK}}" style="display: flex; gap: 4px; padding: 4px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
+<sc-for list="{{people}}" as="pp" hint-placeholder-count="2"><button type="button" onClick="{{pp.on}}" aria-pressed="{{pp.pressed}}" style="{{pp.style}}">{{pp.name}}</button></sc-for>
+</div>
+</div>
+<section style="padding: 24px 0 56px; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 12px">
 <sc-for list="{{meta}}" as="m" hint-placeholder-count="4">
 <div style="display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; border-radius: 12px; background: #0E1230; border: 1px solid #252B52"><span style="font-size: 13px; color: #A3A9CF">{{m.k}}</span><span style="font-size: 17px; font-weight: 700">{{m.v}}</span></div>
 </sc-for>
@@ -77,7 +114,7 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 <div style="display: flex; flex-direction: column">
 <sc-for list="{{it.rows}}" as="rw" hint-placeholder-count="3"><div style="display: grid; grid-template-columns: 88px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid #1E2448"><span style="font-size: 13px; font-weight: 700; color: {{rw.c}}">{{rw.k}}</span><span style="font-size: 15px; line-height: 1.7; color: #C9CEF0; white-space: pre-line">{{rw.v}}</span></div></sc-for>
 </div>
-<span style="margin-top: auto; padding-top: 12px; border-top: 1px dashed #2F366A; font-size: 13px; color: #7C84B3">{{t.fileK}}{{it.file}}</span>
+<span style="margin-top: auto; padding-top: 12px; border-top: 1px dashed #2F366A; font-size: 13px; color: #7C84B3; display: flex; justify-content: space-between; gap: 8px"><span>{{t.fileK}}{{it.file}}</span><sc-if value="{{it.hasLink}}" hint-placeholder-val="{{ false }}"><a href="{{it.href}}" style="color: {{it.c}}; text-decoration: none; font-weight: 500">{{t.readK}}</a></sc-if></span>
 </article></sc-for>
 </div>
 </section>
@@ -98,7 +135,7 @@ a{color:#EEF0FF}a:hover{color:#C9CEF0}
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"accent":{"editor":"color","default":"#9DB4FF","options":["#9DB4FF","#C9A8FF","#FFD38A","#7EE6D6"]},"startLang":{"editor":"enum","default":"zh","options":["zh","en"]},"$preview":{"width":1440,"height":4000}}'>
 class Component extends DCLogic {
-  state = { lang: null };
+  state = { lang: null, who: 'yy' };
   renderVals() {
     const accent = this.props.accent ?? '#9DB4FF';
     const isEn = (this.state.lang || this.props.startLang || 'zh') === 'en';
@@ -107,6 +144,15 @@ class Component extends DCLogic {
     const onStyle = tbase + ' background: ' + accent + '; color: #060818;';
     const offStyle = tbase + ' background: transparent; color: #EEF0FF;';
     const TBD = L('［待填寫］', '[To be written]');
+    const who = this.state.who || 'yy';
+    const isBy = who === 'by';
+    const pbase = 'font: inherit; font-size: 14px; font-weight: 500; padding: 8px 18px; min-height: 44px; border-radius: 999px; border: none; cursor: pointer;';
+    const people = [['yy', 'Yuyun Tsao', '#9DB4FF'], ['by', 'Bingyang Chen', '#FFD38A']].map(([id, name, col]) => ({
+      name, pressed: who === id ? 'true' : 'false',
+      style: pbase + (who === id ? ' background: ' + col + '; color: #060818;' : ' background: transparent; color: #EEF0FF;'),
+      on: () => this.setState({ who: id })
+    }));
+    const NAME = isBy ? 'Bingyang Chen' : 'Yuyun Tsao';
     const base = {
       accent,
       toZh: () => this.setState({ lang: 'zh' }),
@@ -119,18 +165,29 @@ class Component extends DCLogic {
       { c: '#FFD38A', k: L('怎麼做', 'How'), v: TBD },
       { c: '#7EE6D6', k: L('學到什麼', 'What I learned'), v: TBD }
     ];
-    const ITEM = (c) => ({ c, subj: L('［科目］', '[Subject]'), type: L('［書面報告／實作作品］', '[Written report / Project]'), title: L('［成果名稱］', '[Title]'), sum: L('［一句話介紹這份成果］', '[One line about this piece]'), rows: ROWS(), file: L('［待上傳］', '[Not uploaded yet]') });
+    const ITEM = (c) => ({ c, hasLink: false, href: '', subj: L('［科目］', '[Subject]'), type: L('［書面報告／實作作品］', '[Written report / Project]'), title: L('［成果名稱］', '[Title]'), sum: L('［一句話介紹這份成果］', '[One line about this piece]'), rows: ROWS(), file: L('［待上傳］', '[Not uploaded yet]') });
     const MAX = 6;
-    const rawTerms = [
-      { id: 't1', no: '01', name: L('高一上・2026', 'Grade 10, Term 1 · 2026'), items: [ITEM('#9DB4FF'), ITEM('#C9A8FF'), ITEM('#7EE6D6')], done: 0 },
+    const yyTerms = [
+      { id: 't1', no: '01', name: L('高一上・2026', 'Grade 10, Term 1 · 2026'), items: [
+        { c: '#9DB4FF', hasLink: true, href: 'Water.dc.html', subj: L('國文', 'Chinese'), type: L('書面作品・抒情散文', 'Written work · Lyrical prose'), title: L('〈水之味〉', 'The Taste of Water'), sum: L('啜飲一口水，感受宇宙之凝聚。', 'Take a sip of water and feel the universe gather within it.'), rows: [
+          { c: '#9DB4FF', k: L('做了什麼', 'What I did'), v: L('國文課的寫作作業：以「水」為題，寫一篇抒情散文。', 'A writing assignment for Chinese class: a lyrical prose piece on the theme of water.') },
+          { c: '#FFD38A', k: L('怎麼做', 'How'), v: TBD },
+          { c: '#7EE6D6', k: L('學到什麼', 'What I learned'), v: TBD }
+        ], file: L('已上傳到作品集', 'On the portfolio') },
+        ITEM('#C9A8FF'), ITEM('#7EE6D6')], done: 1 },
       { id: 't2', no: '02', name: L('高一下・2027', 'Grade 10, Term 2 · 2027'), items: [ITEM('#FFD38A')], done: 0 }
     ];
+    const byTerms = [
+      { id: 't1', no: '01', name: L('高一上・2026', 'Grade 10, Term 1 · 2026'), items: [ITEM('#FFD38A'), ITEM('#7EE6D6'), ITEM('#9DB4FF')], done: 0 },
+      { id: 't2', no: '02', name: L('高一下・2027', 'Grade 10, Term 2 · 2027'), items: [ITEM('#C9A8FF')], done: 0 }
+    ];
+    const rawTerms = isBy ? byTerms : yyTerms;
     const terms = rawTerms.map((t) => ({ ...t, no: String(Number(t.no) + 1).padStart(2, '0'), count: L('已完成 ' + t.done + ' / ' + MAX + ' 件', t.done + ' / ' + MAX + ' done'), pct: Math.round((t.done / MAX) * 100) + '%' }));
     const totalDone = rawTerms.reduce((s, t) => s + t.done, 0);
     return {
-      ...base, terms,
+      ...base, people, terms,
       meta: [
-        { k: L('學生', 'Student'), v: 'Yuyun Tsao' },
+        { k: L('學生', 'Student'), v: NAME },
         { k: L('年級', 'Grade'), v: L('高一', 'Grade 10') },
         { k: L('每學期上限', 'Per term'), v: L(MAX + ' 件', MAX + ' pieces') },
         { k: L('已完成', 'Done'), v: L(totalDone + ' 件', totalDone + ' pieces') }
@@ -142,7 +199,8 @@ class Component extends DCLogic {
       ],
       t: {
         back: L('← 回到所有作品', '← All works'),
-        tag: L('Yuyun Tsao・學習歷程檔案', 'Yuyun Tsao · Learning portfolio'),
+        tag: L(NAME + '・學習歷程檔案', NAME + ' · Learning portfolio'),
+        whoK: L('切換成員', 'MEMBER'),
         status: L('每學期更新', 'Updated each term'),
         title: L('課程學習成果', 'Coursework'),
         lead: L('每學期挑出最能代表自己的課堂作品，記下做了什麼、怎麼做，以及學到什麼。', 'Each term I pick the class work that best shows who I am, and record what I did, how, and what I learned.'),
@@ -151,6 +209,7 @@ class Component extends DCLogic {
         k1: L('挑選原則', 'HOW I CHOOSE'), h1: L('什麼樣的作品值得放進來', 'What makes the cut'), p1: L('三個問自己的問題。', 'Three questions I ask myself.'),
         termK: L('學期', 'TERM'),
         fileK: L('檔案：', 'File: '),
+        readK: L('閱讀全文 →', 'Read it →'),
         moreK: L('課堂之外', 'Beyond the classroom'),
         moreV: L('多元表現', 'Activities & Achievements')
       }
