@@ -112,13 +112,6 @@ html::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;ba
 .bx-word{position:relative;display:inline-block;line-height:0}
 .bx-word img{display:block;width:clamp(290px,52vw,720px);height:auto;filter:drop-shadow(0 6px 0 rgba(74,64,170,.75)) drop-shadow(0 0 3px rgba(255,255,255,.6)) drop-shadow(0 0 26px rgba(157,180,255,.5))}
 .bx-word::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 40%,rgba(255,231,168,.95) 50%,transparent 60%) 0 0/300% 100% no-repeat;-webkit-mask:url(./7d360e0a6d18bf591d8c97441450e22f.svg) center/100% 100% no-repeat;mask:url(./7d360e0a6d18bf591d8c97441450e22f.svg) center/100% 100% no-repeat;animation:bxSheen 8s ease-in-out infinite}
-.bx-band{position:relative;overflow:hidden;border-top:1px solid #1A1F42;border-bottom:1px solid #1A1F42;background:linear-gradient(90deg,#060818,rgba(16,21,58,.9) 50%,#060818);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.bx-track{display:flex;width:max-content;animation:bxMarq 48s linear infinite}
-.bx-unit{display:flex;align-items:center;gap:28px;padding:22px 28px 22px 0;white-space:nowrap}
-.bx-unit img.m{width:34px;height:auto;filter:drop-shadow(0 0 6px rgba(157,180,255,.8))}
-.bx-unit img.w{height:40px;width:auto;opacity:.95;filter:drop-shadow(0 3px 0 rgba(74,64,170,.7)) drop-shadow(0 0 8px rgba(157,180,255,.45))}
-.bx-unit span{font-family:'Noto Serif TC',serif;font-size:22px;letter-spacing:.3em;color:#FFD38A;text-shadow:0 0 14px rgba(255,211,138,.55)}
-.bx-unit i{font-style:normal;font-size:13px;letter-spacing:.3em;color:#7C84B3}
 .bx-card .bx-cover{position:relative;transition:box-shadow .45s ease,transform .45s ease,border-color .45s ease}
 .bx-card .bx-cover::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.18) 48%,transparent 62%) -120% 0/250% 100% no-repeat;opacity:0;transition:opacity .3s}
 .bx-card:hover .bx-cover,.bx-card:focus-visible .bx-cover{transform:translateY(-4px);border-color:#4A5596;box-shadow:0 0 0 1px rgba(157,180,255,.25),0 18px 50px -14px rgba(157,180,255,.55)}
@@ -148,6 +141,16 @@ html::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:214748
 html.pg-leave::after{opacity:1;animation:none}
 @keyframes pgGlow{from{opacity:1}to{opacity:0}}
 @media (prefers-reduced-motion:reduce){body{animation:none}html.pg-leave body{animation:none}html::after{display:none}}
+.bx-div{position:relative;max-width:1200px;margin:0 auto;padding:36px 24px 8px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.bx-div .row{display:flex;align-items:center;gap:22px;width:100%}
+.bx-div .ln{flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(157,180,255,.45));position:relative;overflow:hidden}
+.bx-div .ln.r{background:linear-gradient(270deg,transparent,rgba(157,180,255,.45))}
+.bx-div .ln::after{content:"";position:absolute;top:-1px;height:3px;width:120px;border-radius:2px;background:radial-gradient(closest-side,rgba(255,255,255,.95),rgba(157,180,255,.5),transparent);animation:bxRun 5s ease-in-out infinite}
+.bx-div .ln.r::after{animation-direction:reverse}
+.bx-div img{width:30px;height:auto;filter:drop-shadow(0 0 6px rgba(255,255,255,.6)) drop-shadow(0 0 16px rgba(157,180,255,.8));animation:bxBreath 6s ease-in-out infinite}
+.bx-div .cap{font-size:11px;letter-spacing:.45em;color:#6D76A8}
+@keyframes bxRun{0%{left:-120px}100%{left:100%}}
+@media (prefers-reduced-motion:reduce){.bx-div .ln::after,.bx-div img{animation:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh; position: relative; isolation: isolate; overflow-x: hidden">
@@ -347,7 +350,7 @@ html.pg-leave::after{opacity:1;animation:none}
 </sc-if>
 </div>
 </section>
-<div class="bx-band" aria-hidden="true"><div class="bx-track"><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div><div class="bx-unit"><img class="m" src="./969d314864f4f81c57b195951742050c.svg" alt=""><img class="w" src="./7d360e0a6d18bf591d8c97441450e22f.svg" alt=""><span>星凝</span><i>DESIGN · TECH · RESEARCH</i></div></div></div>
+<div class="bx-div" aria-hidden="true"><div class="row"><span class="ln"></span><img src="./969d314864f4f81c57b195951742050c.svg" alt=""><span class="ln r"></span></div><span class="cap">DESIGN · TECH · RESEARCH</span></div>
 <section id="timeline" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
 <div style="display: flex; flex-direction: column; gap: 12px"><span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">TIMELINE</span><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{tl.title}}</h2></div>
