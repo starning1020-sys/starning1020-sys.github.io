@@ -20,6 +20,26 @@ if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)ret
 e.preventDefault();d.classList.add('pg-leave');setTimeout(function(){location.href=a.href},300);
 });})();
 </script>
+<script>
+(function(){try{
+var path=location.pathname,key='sy:'+path,done=false,t0=Date.now();
+function stop(){done=true}
+['wheel','touchstart','keydown','mousedown'].forEach(function(t){addEventListener(t,stop,{once:true,passive:true})});
+addEventListener('pagehide',function(){try{sessionStorage.setItem(key,String(scrollY))}catch(_){}});
+var nav=(performance.getEntriesByType&&performance.getEntriesByType('navigation')[0]||{}).type;
+var id=location.hash.length>1?decodeURIComponent(location.hash.slice(1)):'';
+var saved=null;try{saved=+sessionStorage.getItem(key)}catch(_){}
+if(!id&&!(nav==='reload'&&saved>0))return;
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+function go(){
+ if(id){var el=document.getElementById(id);if(el&&el.getBoundingClientRect().height>0){el.scrollIntoView({block:'start'});return true}}
+ else if(document.documentElement.scrollHeight>=saved+innerHeight*0.5){scrollTo(0,saved);return true}
+ return false}
+(function tick(){if(done)return;if(go()){setTimeout(function(){if(!done)go()},450);setTimeout(function(){if(!done)go()},1200);return}
+ if(Date.now()-t0<5000)requestAnimationFrame(tick)})();
+addEventListener('hashchange',function(){id=location.hash.length>1?decodeURIComponent(location.hash.slice(1)):''});
+}catch(_){}})();
+</script>
 <link rel="icon" type="image/png" href="./favicon-32.png">
 <link rel="apple-touch-icon" href="./apple-touch-icon-180.png">
 </head>
