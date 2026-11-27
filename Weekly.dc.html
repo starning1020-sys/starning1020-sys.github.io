@@ -184,7 +184,7 @@ class Component extends DCLogic {
       {
         n: 3, range: '2026.11.23 – 11.29', c: '#7EE6D6',
         title: L('讀完規則書，也把微分補齊了', 'Reading the rulebooks, and closing the gaps in differentiation'),
-        tags: X([L('Kibo-RPC', 'Kibo-RPC'), L('C++', 'C++'), L('AERC', 'AERC'), L('數學', 'Maths'), L('物理', 'Physics')]),
+        tags: X([L('Kibo-RPC', 'Kibo-RPC'), L('C++', 'C++'), L('AERC', 'AERC'), L('數學', 'Maths'), L('物理', 'Physics'), L('天文', 'Astronomy'), L('網站設計', 'Web design')]),
         learn: X([
           L('Kibo-RPC：讀完第 7 屆規則書和 75 頁的 Programming Manual——5 分鐘內要巡完 CheckPoint、每支程式跑 10 次取平均分、程式交件截止 2027/1/20 22:59（台灣時間）', 'Kibo-RPC: read the 7th-edition rulebook and the 75-page Programming Manual — visit every CheckPoint within 5 minutes, each program runs 10 times and is averaged, code due 20 Jan 2027, 22:59 Taiwan time'),
           L('確認今年可以用 C++14，所以決定用 C++ 寫', 'Confirmed C++14 is allowed this year, so I chose C++'),
@@ -193,12 +193,17 @@ class Component extends DCLogic {
           L('AERC 12/12 崑山遙控避障賽：確認規則（D 組、限時 60 秒、最多跑兩次、障礙物最高 24 mm），決定把底盤改成 3D 列印的四輪驅動，拿到 STL 和可以改參數的 OpenSCAD 檔', 'AERC remote-control obstacle race (12 Dec, Kun Shan): confirmed the rules (Group D, 60 s, two runs max, obstacles up to 24 mm) and decided on a 3D-printed four-wheel-drive chassis; got the STL and a parametric OpenSCAD file'),
           L('11/24 40 題總複習 28/40；用「波被壓扁、變陡」理解連鎖律的內層導數，學了三步驟表格（外層照抄 × 內層導數）；重新推導 E = ħ²k²/2m', '24 Nov: 40-question review, 28/40; understood the chain rule’s inner derivative as a wave being squeezed and steepened, learned the three-step table (copy the outer × inner derivative); re-derived E = ħ²k²/2m'),
           L('11/25 連鎖律與複習 10 題 7/10；學了「先數負號」：偶數個是正、奇數個是負，i² 也算一個負號', '25 Nov: chain rule and review, 7/10; learned to count the minus signs first — even is positive, odd is negative, and i² counts as one'),
-          L('開始間隔複習：學新東西前，先做 5 題舊題目', 'Started spaced review: five old questions before anything new')
+          L('開始間隔複習：學新東西前，先做 5 題舊題目', 'Started spaced review: five old questions before anything new'),
+          L('第一次測試 TASA Kibo 模擬器；用 AI 做了 3D 太空艙模擬任務和鏡頭追蹤', 'Tested the TASA Kibo simulator for the first time; used AI to build a 3D space-module mission with camera tracking'),
+          L('讀了一篇天文論文', 'Read an astronomy paper'),
+          L('STARNING 網站：大幅提升質感和版面配置，加入學習歷程紀錄', 'STARNING website: big upgrade to quality and layout, and added the learning-journey record')
         ]),
         high: L('40 題總複習拿到 28/40（70%），是目前大型測驗最高的一次；斜率與一次項、複數全對。\n錯了三次的「週期性」這週終於全對，微分大致完成。', 'Scored 28/40 (70%) on the 40-question review — my best big test so far, with slopes, linear terms and complex numbers all correct.\nPeriodicity, which I’d missed three times, was finally all right this week; differentiation is mostly done.'),
         hard: L('數學的新弱點是正負號：錯的 3 題都有兩個負號或 i²。\nC++ 常犯的錯：cout 後面少打一個 <、邊界條件 <= 和 < 搞混、連續比較的寫法不對。', 'My new weak spot in maths is signs: all three wrong answers had two minus signs or an i².\nCommon C++ slips: a missing < after cout, mixing up <= and < at the boundaries, and writing chained comparisons the wrong way.'),
-        ref: TBD,
-        next: L('1. C++：完成卡住的題目——把避障程式包進 while 迴圈，輸入 999 才結束，還要加計數器\n2. AERC：先印一個底盤角落測試，確認馬達尺寸對不對\n3. 數學：練正負號，繼續間隔複習\n4. Kibo：決定模擬頁要不要等 2/17 預賽結束再公開', '1. C++: finish the problem I’m stuck on — wrap the obstacle program in a while loop that ends on 999, with a counter\n2. AERC: print a corner test of the chassis to check the motor fits\n3. Maths: drill signs and keep up spaced review\n4. Kibo: decide whether to keep the simulator private until the preliminary ends on 17 Feb')
+        ref: L('這週在團隊網頁上，大幅提升了質感和版面配置，也在裡面加入了學習歷程的紀錄。\n\n這週碰到的領域不只是設計，還有許多數理的觀念，也看了一篇關於天文的論文、學習 C++，在自主時間思考週末的規劃和 AERC 機器人比賽的進度。這週也第一次測試了 TASA Kibo 的模擬器，並用 AI 做了一個 3D 太空艙模擬任務與鏡頭追蹤，最後也放進了網站。\n\n這週我覺得挺好玩的，也很放鬆😆😊',
+          'This week I raised the overall quality and layout of our team website a lot, and added a record of my learning journey to it.\n\nThe areas I touched went beyond design: plenty of maths and physics ideas, an astronomy paper, and C++. In my free periods I planned my weekends and checked on our progress for the AERC robot race. I also tested the TASA Kibo simulator for the first time, and used AI to build a 3D space-module mission simulation with camera tracking, which I put on the website too.\n\nThis week felt pretty fun, and relaxed 😆😊'),
+        next: L('以 12/12 的 AERC 機器人比賽為優先。\n1. AERC：完成 3D 列印四輪底盤的測試列印、正式列印和組裝，週末實際上場測試過障礙\n2. C++：進入函式和陣列，用避障判斷當練習題\n3. Kibo-RPC：在模擬器跑通範例程式，學四元數的基礎\n4. 科展：先用紙筆練習補強微分的弱點，再開始學無限位能井\n5. 每天練英文口說 30 分鐘\n6. 定期更新網站和視覺設計',
+          'The AERC robot race on 12 Dec comes first.\n1. AERC: test-print, final-print and assemble the 3D-printed four-wheel chassis, then run it over real obstacles at the weekend\n2. C++: move on to functions and arrays, practising with obstacle-avoidance logic\n3. Kibo-RPC: get the sample program running in the simulator and learn the basics of quaternions\n4. Science fair: drill my weak spots in differentiation on paper first, then start on the infinite potential well\n5. Practise English speaking for 30 minutes every day\n6. Keep updating the website and visual design')
       },
       {
         n: 2, range: '2026.11.16 – 11.22', c: '#FFD38A',

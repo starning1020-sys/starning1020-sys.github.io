@@ -265,10 +265,10 @@ html.pg-leave::after{opacity:1;animation:none}
 .hn-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
 .hn-sep{width:1px;height:22px;background:#2A3166;margin:0 4px 0 8px}
 .hn-cn{font-family:'Noto Serif TC',serif;font-size:15px;letter-spacing:.32em;color:#C9D4FF;text-shadow:0 0 10px rgba(157,180,255,.45)}
-.hn-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 28px}
+.hn-links{display:flex;flex-wrap:wrap;align-items:center;gap:6px 22px}
 .hn-links sc-if{display:contents}
 .hn-a{position:relative;display:flex;flex-direction:column;gap:3px;text-decoration:none;color:#C9CEF0;font-size:14px;letter-spacing:.08em;padding:4px 0;transition:color .25s}
-.hn-a i{font-style:normal;font-size:10px;letter-spacing:.18em;color:#5E679E;transition:color .25s}
+.hn-a i{font-style:normal;font-size:11px;letter-spacing:.08em;color:#6E77AE;white-space:nowrap;transition:color .25s}
 .hn-a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:100%;background:#9DB4FF;transform:scaleX(0);transform-origin:left;transition:transform .35s ease;box-shadow:0 0 6px rgba(157,180,255,.8)}
 .hn-a:hover{color:#FFFFFF}.hn-a:hover i{color:#9DB4FF}.hn-a:hover::after{transform:scaleX(1)}
 .hn-a:focus-visible{outline:1px solid #9DB4FF;outline-offset:4px;border-radius:2px}
@@ -277,6 +277,10 @@ html.pg-leave::after{opacity:1;animation:none}
 .hn-cta:hover{background:rgba(157,180,255,.16);box-shadow:0 0 18px rgba(157,180,255,.35)}.hn-cta:hover span{transform:translateX(3px)}
 @media (max-width:1240px){.hn-cn,.hn-sep{display:none}.hn-links{column-gap:20px}}
 @media (max-width:760px){.hn-a i{display:none}.hn-cn,.hn-sep{display:none}}
+
+.h-glow{color:#F4F5FF;text-shadow:0 0 1px rgba(232,236,255,.6),0 0 14px rgba(157,180,255,.42),0 0 34px rgba(120,110,240,.22);animation:hGlow 6s ease-in-out infinite}
+@keyframes hGlow{50%{text-shadow:0 0 1px rgba(232,236,255,.7),0 0 18px rgba(157,180,255,.58),0 0 42px rgba(120,110,240,.3)}}
+@media (prefers-reduced-motion:reduce){.h-glow{animation:none}}
 </style>
 </helmet>
 <div style="font-family: 'Space Grotesk', 'Noto Sans TC', system-ui, sans-serif; color: #EEF0FF; background: #060818; min-height: 100vh; position: relative; isolation: isolate; overflow-x: hidden">
@@ -367,21 +371,21 @@ html.pg-leave::after{opacity:1;animation:none}
 <span class="hn-sep" aria-hidden="true"></span><span class="hn-cn">星凝</span></a>
 <div class="hn-links">
 <sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
-<a class="hn-a" href="#timeline"><i>01</i><span>深空軌跡</span></a>
-<a class="hn-a" href="#starmap"><i>02</i><span>成長星圖</span></a>
-<a class="hn-a" href="#work"><i>03</i><span>作品集</span></a>
-<a class="hn-a" href="#journey"><i>04</i><span>演化紀錄</span></a>
-<a class="hn-a" href="#awards"><i>05</i><span>實戰座標</span></a>
-<a class="hn-a" href="#about"><i>06</i><span>核心宣言</span></a>
+<a class="hn-a" href="#timeline"><i>01・時間軸</i><span>深空軌跡</span></a>
+<a class="hn-a" href="#starmap"><i>02・能力地圖</i><span>成長星圖</span></a>
+<a class="hn-a" href="#work"><i>03・作品集</i><span>沉澱・煉</span></a>
+<a class="hn-a" href="#journey"><i>04・學習歷程</i><span>量子躍遷</span></a>
+<a class="hn-a" href="#awards"><i>05・競賽紀錄</i><span>星漢・征途</span></a>
+<a class="hn-a" href="#about"><i>06・關於我們</i><span>核心宣言</span></a>
 <a class="hn-cta" href="#contact">呼喚我們<span aria-hidden="true">→</span></a>
 </sc-if>
 <sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
-<a class="hn-a" href="#timeline"><i>01</i><span>Trajectory</span></a>
-<a class="hn-a" href="#starmap"><i>02</i><span>Growth Map</span></a>
-<a class="hn-a" href="#work"><i>03</i><span>Portfolio</span></a>
-<a class="hn-a" href="#journey"><i>04</i><span>Evolution</span></a>
-<a class="hn-a" href="#awards"><i>05</i><span>Coordinates</span></a>
-<a class="hn-a" href="#about"><i>06</i><span>Manifesto</span></a>
+<a class="hn-a" href="#timeline"><i>01・TIMELINE</i><span>Trajectory</span></a>
+<a class="hn-a" href="#starmap"><i>02・SKILLS</i><span>Growth Map</span></a>
+<a class="hn-a" href="#work"><i>03・WORKS</i><span>Distill</span></a>
+<a class="hn-a" href="#journey"><i>04・LEARNING</i><span>Quantum</span></a>
+<a class="hn-a" href="#awards"><i>05・AWARDS</i><span>Galaxy</span></a>
+<a class="hn-a" href="#about"><i>06・ABOUT</i><span>Manifesto</span></a>
 <a class="hn-cta" href="#contact">Reach Us<span aria-hidden="true">→</span></a>
 </sc-if>
 <div role="group" aria-label="語言 Language" style="display: flex; gap: 4px; padding: 3px; border: 1px solid #2A3166; border-radius: 999px; background: #0B0F28">
@@ -478,7 +482,7 @@ html.pg-leave::after{opacity:1;animation:none}
 <div class="bx-div" aria-hidden="true"><div class="row"><span class="ln"></span><img src="./969d314864f4f81c57b195951742050c.svg" alt=""><span class="ln r"></span></div><span class="cap">DESIGN · TECH · RESEARCH</span></div>
 <section id="timeline" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 72px; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
-<div style="display: flex; flex-direction: column; gap: 12px"><span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">TRAJECTORY</span><div style="display: flex; align-items: center; gap: 16px"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.08em; word-spacing: 0.15em; font-weight: 700">{{tl.title}}</h2><svg class="cv-icon" aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" style="flex: none; overflow: visible">
+<div style="display: flex; flex-direction: column; gap: 12px"><span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.timeline}}</span><div style="display: flex; align-items: center; gap: 16px"><h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.08em; word-spacing: 0.15em; font-weight: 700">{{tl.title}}</h2><svg class="cv-icon" aria-hidden="true" viewBox="0 0 64 64" width="64" height="64" style="flex: none; overflow: visible">
 <defs><radialGradient id="cvCore" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#FFFFFF"></stop><stop offset=".45" stop-color="#FFE7A8"></stop><stop offset="1" stop-color="#FFD38A" stop-opacity="0"></stop></radialGradient></defs>
 <circle cx="32" cy="32" r="22" fill="none" stroke="#4A5596" stroke-width="1" stroke-dasharray="1.5 4"></circle>
 <g fill="none" stroke-linecap="round" stroke-width="2">
@@ -525,8 +529,8 @@ html.pg-leave::after{opacity:1;animation:none}
 <section id="starmap" style="max-width: 1200px; margin: 0 auto; padding: 96px 24px 40px; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">GROWTH MAP</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{sm.title}}</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.starmap}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{sm.title}}</h2>
 <p style="margin: 0; font-size: 17px; line-height: 1.8; color: #A3A9CF">{{sm.lead}}</p>
 </div>
 <div role="group" aria-label="{{sm.yearsAria}}" style="display: flex; gap: 8px; flex-wrap: wrap">
@@ -553,9 +557,9 @@ html.pg-leave::after{opacity:1;animation:none}
 <section id="work" style="max-width: 1200px; margin: 0 auto; padding: 64px 24px 112px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">PORTFOLIO</span>
-<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">沉澱・煉</h2></sc-if>
-<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Distill · Refine</h2></sc-if>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.work}}</span>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">沉澱・煉</h2></sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 class="h-glow" lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Distill · Refine</h2></sc-if>
 </div>
 <span style="font-size: 15px; color: #A3A9CF">{{countLabel}}</span>
 </div>
@@ -628,9 +632,9 @@ html.pg-leave::after{opacity:1;animation:none}
 <div style="max-width: 1200px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 32px">
 <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">FIELD COORDINATES</span>
-<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">實戰座標</h2></sc-if>
-<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Field Coordinates</h2></sc-if>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.awards}}</span>
+<sc-if value="{{zh}}" hint-placeholder-val="{{ true }}"><h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">星漢・征途</h2></sc-if>
+<sc-if value="{{en}}" hint-placeholder-val="{{ false }}"><h2 class="h-glow" lang="en" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Galaxy · Expedition</h2></sc-if>
 </div>
 <div role="group" aria-label="{{yearAria}}" style="display: flex; gap: 6px; padding: 4px; background: #060818; border: 1px solid #2A3166; border-radius: 999px">
 <sc-for list="{{years}}" as="y" hint-placeholder-count="3">
@@ -675,8 +679,8 @@ html.pg-leave::after{opacity:1;animation:none}
 
 <section id="prize" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px 72px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 10px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: #FFD38A"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">PRIZE MONEY</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{pz.title}}</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: #FFD38A"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.prize}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">{{pz.title}}</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 400px), 1fr)); gap: 40px 64px; align-items: center">
 
@@ -762,8 +766,8 @@ html.pg-leave::after{opacity:1;animation:none}
 <sc-if value="{{zh}}" hint-placeholder-val="{{ true }}">
 <div style="display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">EVOLUTION LOG</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">演化紀錄</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.journey}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">量子躍遷・蒼穹</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">每一學期的學習成果與反思，記錄我們怎麼一步步長出自己的方向。</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
@@ -796,8 +800,8 @@ html.pg-leave::after{opacity:1;animation:none}
 <sc-if value="{{en}}" hint-placeholder-val="{{ false }}">
 <div lang="en" style="display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 720px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">EVOLUTION LOG</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Evolution Log</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.journey}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; font-weight: 700">Quantum Leap · Firmament</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">What we learned each semester and what we took from it — a record of how we found our own directions.</p>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 440px), 1fr)); gap: 24px">
@@ -835,8 +839,8 @@ html.pg-leave::after{opacity:1;animation:none}
 <div style="display: flex; flex-direction: column; gap: 48px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px 64px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">MANIFESTO</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.08em; word-spacing: 0.15em; font-weight: 700">核心宣言</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.about}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.08em; word-spacing: 0.15em; font-weight: 700">核心宣言</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.8">STAR是星辰之光，NING是凝聚之力。</p>
 <p style="margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid {{accent}}; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.7">「星辰是宇宙的邏輯，凝結是思維的實體。在空間幾何、聲響哲學與認知邊界的交界之處，展開一場不設限的探索。」</p>
 <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">高中三年，我們想一起探索世界。</p>
@@ -888,8 +892,8 @@ html.pg-leave::after{opacity:1;animation:none}
 <div lang="en" style="display: flex; flex-direction: column; gap: 48px">
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 32px 64px; align-items: center">
 <div style="display: flex; flex-direction: column; gap: 20px; max-width: 760px">
-<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">MANIFESTO</span>
-<h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.01em; word-spacing: 0.1em; font-weight: 700">Manifesto</h2>
+<span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{kk.about}}</span>
+<h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.01em; word-spacing: 0.1em; font-weight: 700">Manifesto</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.8">STAR is the light of the stars; NING is the power of coming together.</p>
 <p style="margin: 0; padding: 4px 0 4px 20px; border-left: 3px solid {{accent}}; font-family: 'Noto Serif TC', serif; font-weight: 600; font-size: clamp(20px, 2.2vw, 24px); line-height: 1.6">“Stars are the logic of the universe; condensing is thought made real. Where spatial geometry, the philosophy of sound and the edges of cognition meet, we set out on an exploration without limits.”</p>
 <p style="margin: 0; font-size: 18px; line-height: 1.8; color: #A3A9CF">Through high school, we want to explore the world together.</p>
@@ -975,7 +979,7 @@ html.pg-leave::after{opacity:1;animation:none}
 </svg>
 <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 112px 24px 48px; display: flex; flex-direction: column; gap: 40px">
 <div class="bx-sign" aria-hidden="true"><img src="./f803b3e9ced59050481df7ddc6ec1208.svg" alt=""></div>
-<div style="display: flex; flex-direction: column; gap: 12px"><span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{c.kick}}</span><h2 style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.04em; font-weight: 700">{{c.title}}</h2></div>
+<div style="display: flex; flex-direction: column; gap: 12px"><span class="bx-kick" style="font-size: 13px; letter-spacing: 0.2em; color: {{accent}}"><img class="bx-kmark" src="./969d314864f4f81c57b195951742050c.svg" alt="">{{c.kick}}</span><h2 class="h-glow" style="margin: 0; font-size: clamp(32px, 4vw, 48px); letter-spacing: 0.04em; font-weight: 700">{{c.title}}</h2></div>
 <p style="margin: 0; font-size: 16px; color: #A3A9CF">{{c.ask}}</p>
 <a href="mailto:starning1020@gmail.com" style="color: #EEF0FF; font-size: clamp(30px, 5vw, 64px); font-weight: 700; letter-spacing: -0.03em; text-decoration: underline; text-decoration-color: {{accent}}; text-underline-offset: 12px; text-decoration-thickness: 4px; word-break: break-all">starning1020@gmail.com</a>
 <div style="display: flex; flex-wrap: wrap; gap: 28px; font-size: 16px">
@@ -1330,11 +1334,11 @@ class Component extends DCLogic {
     }
     const fmt = n => n.toLocaleString('en-US');
     const pz = {
-      title: L('星光存錢罐', 'Our Starlight Prize Jar'),
-      totalK: L('目前累積獎金', 'Prize money so far'),
+      title: L('星團・微光匯流', 'Star Cluster · Confluence of Glimmers'),
+      totalK: L('此刻，罐中匯聚的微光', 'The glimmers gathered, for now'),
       total: fmt(prizeTotal),
-      coinNote: L('每一顆紙星星 = NT$1,000・目前 ' + nCoins + ' 顆', 'Each paper star = NT$1,000 · ' + nCoins + ' stars so far'),
-      alt: L('星光存錢罐：發光的玻璃罐裡有 ' + nCoins + ' 顆摺紙星星，代表累積獎金 NT$' + fmt(prizeTotal), 'A glowing glass jar holding ' + nCoins + ' folded paper stars, for NT$' + fmt(prizeTotal) + ' in prize money'),
+      coinNote: L('每一份努力，都摺成一顆星（NT$1,000）・已許下 ' + nCoins + ' 個願', 'Every effort folds into one star (NT$1,000) · ' + nCoins + ' wishes made'),
+      alt: L('星團・微光匯流：發光的玻璃罐裡有 ' + nCoins + ' 顆摺紙星星，代表累積獎金 NT$' + fmt(prizeTotal), 'A glowing glass jar holding ' + nCoins + ' folded paper stars, for NT$' + fmt(prizeTotal) + ' in prize money'),
       coins: pzCoins,
       items: prizeList.map(p => ({ ...p, amt: 'NT$' + fmt(p.amount) }))
     };
@@ -1430,7 +1434,7 @@ class Component extends DCLogic {
     });
     const smYearBase = 'font: inherit; font-size: 14px; padding: 8px 16px; border-radius: 999px; border: 1.5px solid;';
     const sm = {
-      title: L('成長星圖', 'Growth Map'),
+      title: L('成長星圖・築夢', 'Growth Map · Dreams'),
       lead: L('每一件作品都是一顆星，同一種能力的作品連成一個星座。高一的星空先點亮了這些，三年後，這片天空會越來越滿。點星星就能看作品。', 'Every work is a star, and works that share a skill join into a constellation. These are the stars of our first year; by year three, the sky will be much fuller. Click a star to open the work.'),
       yearsAria: L('年級', 'Year'),
       years: [
@@ -1470,6 +1474,15 @@ class Component extends DCLogic {
       gToggle: () => this.setState((st) => ({ gOpen: !st.gOpen })),
       gClose: () => this.setState({ gOpen: false }),
       gSubmit: (e) => { if (e && e.preventDefault) e.preventDefault(); const f = e && (e.currentTarget || e.target); const inp = f && f.elements ? f.elements.q : null; const v = inp ? inp.value : ''; if (inp) inp.value = ''; gAsk(v); },
+      kk: {
+        timeline: L('01 · 時間軸 · TIMELINE', '01 · TIMELINE'),
+        starmap: L('02 · 能力地圖 · SKILL MAP', '02 · SKILL MAP'),
+        work: L('03 · 作品集 · PORTFOLIO', '03 · PORTFOLIO'),
+        journey: L('04 · 學習歷程 · LEARNING JOURNEY', '04 · LEARNING JOURNEY'),
+        awards: L('05 · 競賽紀錄 · COMPETITIONS', '05 · COMPETITIONS'),
+        about: L('06 · 關於我們 · ABOUT US', '06 · ABOUT US'),
+        prize: L('獎金紀錄 · PRIZE MONEY', 'PRIZE MONEY'),
+      },
       g: { title: L('STARNING 領航員', 'STARNING Guide'), status: L('在線上・只回答這個網站的內容', 'Online · answers about this site only'), close: L('關閉', 'Close'), ph: L('問我任何關於 STARNING 的事…', 'Ask me anything about STARNING…'), send: L('送出', 'Send'), mic: L('用說的問', 'Ask by voice'), open: L('打開太空人小嚮導', 'Open the astronaut guide'), hi: L('問我！', 'Ask me!') },
       rail: [['#top', L('起點', 'Launch')], ['#timeline', L('時間軸', 'Timeline')], ['#starmap', L('星圖', 'Star map')], ['#work', L('作品', 'Works')], ['#awards', L('競賽紀錄', 'Competitions')], ['#prize', L('獎金', 'Prize money')], ['#journey', L('學習歷程', 'Journey')], ['#about', L('關於我們', 'About us')], ['#contact', L('聯絡我們', 'Contact')]].map(([href, label]) => ({ href, label })),
       t2: { railAria: L('探索這個網站', 'Explore this site') },
@@ -1498,7 +1511,7 @@ class Component extends DCLogic {
       hasRows: yearRows.length > 0, noRows: yearRows.length === 0,
       emptyText: L('這一年的旅程還在航行中，敬請期待。', 'This year’s journey is still underway. Stay tuned.'),
       c: {
-        kick: L('REACH US', 'REACH US'), title: L('呼喚我們', 'Reach Us'),
+        kick: L('聯絡我們 · CONTACT', 'CONTACT'), title: L('呼喚我們', 'Reach Us'),
         ask: L('想和 STARNING 一起做點什麼？', 'Want to build something with STARNING?'),
         ig: 'Instagram @starning.studio ↗',
         music: L('音樂作品 ↗', 'Music ↗'),
